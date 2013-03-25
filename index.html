@@ -55,11 +55,9 @@
             async: true,
             tlmSiblingOfDojo: 0, 
             isDebug: 1,
-            packages: [  
-              { name: 'bootstrap',
-                location: location.pathname.replace(/\/[^/]+$/, '/js/bootstrap')
-              }
-            ]
+            packages: [{name: 'bootstrap',
+                location: location.pathname.replace(/\/[^/]+$/, '') + "/js/bootstrap"
+            }]
         };
     </script>
     <script type="text/javascript" src="//serverapi.arcgisonline.com/jsapi/arcgis/?v=3.3compact"></script>
