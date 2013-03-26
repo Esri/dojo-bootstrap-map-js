@@ -4,7 +4,7 @@ Examples of how to use the Esri [ArcGIS for JavaScript API](http://help.arcgis.c
 
 [View it live](https://googledrive.com/host/0B8D9R7GEnzMVMllJbXJBaENIZkU/)
 
-![App](https://raw.github.com/tomwayson/dojo-bootstrap-ui-for-maps-js/master/dojo-bootstrap-ui-for-maps-js.png)
+![App](https://raw.github.com/Esri/dojo-bootstrap-ui-for-maps-js/master/dojo-bootstrap-ui-for-maps-js.png)
 
 ## Instructions
 
@@ -46,7 +46,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-A copy of the license is available in the repository's [license.txt](https://raw.github.com/tomwayson/dojo-bootstrap-ui-for-maps-js/master/license.txt) file.
+A copy of the license is available in the repository's [license.txt](https://raw.github.com/Esri/dojo-bootstrap-ui-for-maps-js/master/license.txt) file.
 
 [](Esri Tags: ArcGIS Web Mapping Bootstrap)
 [](Esri Language: JavaScript)​
