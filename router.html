@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ArcGIS for JavaScript API with Dojo Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="//serverapi.arcgisonline.com/jsapi/arcgis/3.3/js/esri/css/esri.css">
+    <link rel="stylesheet" href="./css/bootstrap.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="span12 columns">
+                <h1>ArcGIS for JavaScript API with Dojo Bootstrap</h1>
+                <div style="float: right"><a href="https://github.com/Esri/dojo-bootstrap-ui-for-maps-js" target="_blank" rel="external" class="btn"><i class="icon-info-sign"></i> About</a></div>                
+                <h2>Router Example</h2>
+                <p>One of the cool new features in Dojo 1.8 is the <a href="https://dojotoolkit.org/reference-guide/1.8/dojo/router.html" target="_blank">router</a>, which allows the mapping of the browser hash to a callback. So when the hash is updated, it can be used to direct to a callback.This is particluarly useful for enabling browser back/forward navigation in single page web apps.</p>
+                <p>This example shows how to use Dojo's router with the Dojo-bootstrap tabs. So you can permalink directly to the <a href="#mapTab">map</a> tab or the <a href="#faqTab">FAQ</a> tab.</p>
+                <ul id="myTab" class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#mapTab">Map</a></li>
+                    <li><a href="#faqTab" data-toggle="tab">FAQ</a></li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade in active" id="mapTab">
+                        <div id="map" style="width:100%; height:400px"></div>
+                    </div>
+                    <div class="tab-pane fade" id="faqTab">
+                         <h4>Why?</h4>
+                         <p>Maybe you want to use the ArcGIS for JavaScript API to your mapping application, but would prefer to have a Twitter Bootstrap look and feel.</p>
+                         <h4>What versions of the libraries should I use?</h4>
+                         <p>If you are using v3.3 or higher of the <a href="http://help.arcgis.com/en/webapi/javascript/arcgis/" target="_blank">ArcGIS for JavaScript API</a>, you can use v1.1 of <a href="http://dojobootstrap.com/" target="_blank">Dojo Bootstrap</a>, because that was the first version of the ArcGIS for JavaScript API built on <a href="http://dojotoolkit.org/" target="_blank">Dojo</a> v1.8.<p>
+                         <p>If you are using v3.0 to v3.2 of the <a href="http://help.arcgis.com/en/webapi/javascript/arcgis/" target="_blank">ArcGIS for JavaScript API</a>, you can should use v1.0 of <a href="http://dojobootstrap.com/" target="_blank">Dojo Bootstrap</a>, because that is only dependent on <a href="http://dojotoolkit.org/" target="_blank">Dojo</a> v1.7.<p>
+                    </div>
+                </div>
+                <hr>
+                <div class="alert alert-info">
+                    <strong>Heads up!</strong> Because Dojo-bootstrap is dependent on Dojo v1.7 or greater, it requires that the version of the ArcGIS for JavaScript API be built w/ a compatible version of Dojo.
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+        var djConfig = {
+            async: true,
+            tlmSiblingOfDojo: 0, 
+            isDebug: 1,
+            packages: [{name: 'bootstrap',
+                location: location.pathname.replace(/\/[^/]+$/, '') + "/js/bootstrap"
+            }]
+        };
+    </script>
+    <script type="text/javascript" src="//serverapi.arcgisonline.com/jsapi/arcgis/?v=3.3compact"></script>
+    <script>
+        require(["dojo/query", "dojo/router", "dojo/hash", "esri/main", "esri/map", "bootstrap/Tab", "dojo/domReady!"], function(query, router, hash, esri, Tab) {
+            // using the new simplified map loader, see:
+            // http://help.arcgis.com/en/webapi/javascript/arcgis/jssamples/map_simple.html
+            var map = new esri.Map("map",{
+                basemap:"topo",
+                center:[-122.45,37.75], //long, lat
+                zoom:13,
+                sliderStyle:"small"
+            });
+            // register routes
+            router.register("faqTab", function(evt) {
+                evt.preventDefault();
+                query("a[href='#faqTab']").tab('show');
+            });
+            router.register("mapTab", function(evt) {
+                evt.preventDefault();
+                query("a[href='#mapTab']").tab('show');
+            });
+            router.startup();
+            // update hash when the tab is shown
+            // to preserve browser history
+            // (only needed when tabs are clicked)
+            query('a[data-toggle="tab"]').on('shown', function (e) {
+                hash(e.target.attributes.href.value.replace("#",""));
+            });
+        });
+    </script>
+</body>
+</html>
