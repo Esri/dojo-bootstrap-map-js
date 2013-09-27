@@ -64,13 +64,13 @@
 
     <script src="http://js.arcgis.com/3.7compact"></script>
     <script>
-        require(["dojo/query", "esri/main", "esri/map", "bootstrap/Tab", "bootstrap/Dropdown", "dojo/domReady!"], function(query, esri) {
+        require(["dojo/query", "esri/map", "bootstrap/Tab", "bootstrap/Dropdown", "dojo/domReady!"], function(query, Map) {
             // using the new simplified map loader, see:
             // http://help.arcgis.com/en/webapi/javascript/arcgis/jssamples/map_simple.html
-            var map = new esri.Map("map",{
-                basemap:"topo",
-                center:[-122.45,37.75], //long, lat
-                zoom:13,
+            var map = new Map("map",{
+                basemap:"gray",
+                center:[-122.45,37.77], //long, lat
+                zoom:12,
                 sliderStyle:"small"
             });
         });
