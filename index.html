@@ -8,7 +8,7 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link rel="stylesheet" href="//serverapi.arcgisonline.com/jsapi/arcgis/3.3/js/esri/css/esri.css">
+    <link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.7/js/esri/css/esri.css">
     <link rel="stylesheet" href="./css/bootstrap.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -17,6 +17,7 @@
     <![endif]-->
 </head>
 <body>
+    <a href="https://github.com/Esri/dojo-bootstrap-ui-for-maps-js"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
     <div class="container">
         <div class="row">
             <div class="span12 columns">
@@ -56,19 +57,20 @@
             tlmSiblingOfDojo: 0, 
             isDebug: 1,
             packages: [{name: 'bootstrap',
-                location: location.pathname.replace(/\/[^/]+$/, '') + "/js/bootstrap"
+                location: location.pathname.replace(/\/[^/]+$/, '') + "/js/bootstrap_v1"
             }]
         };
     </script>
-    <script type="text/javascript" src="//serverapi.arcgisonline.com/jsapi/arcgis/?v=3.3compact"></script>
+
+    <script src="http://js.arcgis.com/3.7compact"></script>
     <script>
-        require(["dojo/query", "esri/main", "esri/map", "bootstrap/Tab", "bootstrap/Dropdown", "dojo/domReady!"], function(query, esri) {
+        require(["dojo/query", "esri/map", "bootstrap/Tab", "bootstrap/Dropdown", "dojo/domReady!"], function(query, Map) {
             // using the new simplified map loader, see:
             // http://help.arcgis.com/en/webapi/javascript/arcgis/jssamples/map_simple.html
-            var map = new esri.Map("map",{
-                basemap:"topo",
-                center:[-122.45,37.75], //long, lat
-                zoom:13,
+            var map = new Map("map",{
+                basemap:"gray",
+                center:[-122.45,37.77], //long, lat
+                zoom:12,
                 sliderStyle:"small"
             });
         });
