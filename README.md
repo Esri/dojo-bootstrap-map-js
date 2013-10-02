@@ -1,14 +1,14 @@
 # dojo-bootstrap-ui-for-maps-js
 
-Examples of how to use the Esri [ArcGIS for JavaScript API](http://help.arcgis.com/en/webapi/javascript/arcgis/) with [Dojo Bootstrap](http://dojobootstrap.com/) to get a Twitter Bootstrap look and feel for your ArcGIS JavaScript mapping application without having to include a reference to jQuery. 
+Examples of how to use the Esri [ArcGIS for JavaScript API](http://developers.arcgis.com/en/javascript/) with [Dojo Bootstrap](http://dojobootstrap.com/) to get a Twitter Bootstrap look and feel for your ArcGIS JavaScript mapping application without having to include a reference to jQuery.
 
-[View it live](http://esri.github.io/dojo-bootstrap-ui-for-maps-js/index.html)
+[View it live](http://esri.github.io/dojo-bootstrap-ui-for-maps-js/)
 
 ![App](https://raw.github.com/Esri/dojo-bootstrap-ui-for-maps-js/master/dojo-bootstrap-ui-for-maps-js.png)
 
 ## Instructions
 
-1. Fork and then clone the repo. 
+1. Fork and then clone the repo.
 2. Run and try the samples.
 
 ## Requirements
@@ -18,7 +18,7 @@ Examples of how to use the Esri [ArcGIS for JavaScript API](http://help.arcgis.c
 
 ## Resources
 
-* [ArcGIS for JavaScript API Resource Center](http://help.arcgis.com/en/webapi/javascript/arcgis/index.html)
+* [ArcGIS for JavaScript API Resource Center](http://developers.arcgis.com/en/javascript/)
 * [Dojo Bootstrap](http://dojobootstrap.com/)
 * [ArcGIS Blog](http://blogs.esri.com/esri/arcgis/)
 * [twitter@esri](http://twitter.com/esri)
@@ -29,7 +29,7 @@ Find a bug or want to request a new feature?  Please let us know by submitting a
 
 ## Contributing
 
-Anyone and everyone is welcome to contribute. 
+Anyone and everyone is welcome to contribute.
 
 ## Licensing
 Copyright 2012 Esri
