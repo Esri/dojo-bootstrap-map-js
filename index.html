@@ -24,7 +24,7 @@
                 <h1>ArcGIS for JavaScript API with Dojo Bootstrap</h1>
                 <div style="float: right"><a href="https://github.com/Esri/dojo-bootstrap-ui-for-maps-js" target="_blank" rel="external" class="btn"><i class="icon-info-sign"></i> About</a></div>
                 <p>This is some boilerplate code for working with Esri's ArcGIS for JavaScript API and Dojo Bootstrap (two great tastes that taste great together). If you see tabs and a map, <em>it's working!</em></p>
-                <p>Add <a href="http://dojobootstrap.com/" target="_blank" rel="external">Dojo Bootstrap</a>, <a href="http://dojotoolkit.org/" target="_blank" rel="external">Dojo</a>, and/or <a href="http://help.arcgis.com/en/webapi/javascript/arcgis/" target="_blank" rel="external">ArcGIS for JavaScript API</a> modules as needed to test that they play nicely together.</p>
+                <p>Add <a href="http://dojobootstrap.com/" target="_blank" rel="external">Dojo Bootstrap</a>, <a href="http://dojotoolkit.org/" target="_blank" rel="external">Dojo</a>, and/or <a href="http://developers.arcgis.com/en/javascript/" target="_blank" rel="external">ArcGIS for JavaScript API</a> modules as needed to test that they play nicely together.</p>
                 <ul id="myTab" class="nav nav-tabs">
                     <li class="active"><a href="#mapTab" data-toggle="tab">Map</a></li>
                     <li><a href="#faqTab" data-toggle="tab">FAQ</a></li>
@@ -37,8 +37,8 @@
                          <h4>Why?</h4>
                          <p>Maybe you want to use the ArcGIS for JavaScript API to your mapping application, but would prefer to have a Twitter Bootstrap look and feel.</p>
                          <h4>What versions of the libraries should I use?</h4>
-                         <p>If you are using v3.3 or higher of the <a href="http://help.arcgis.com/en/webapi/javascript/arcgis/" target="_blank">ArcGIS for JavaScript API</a>, you can use v1.1 of <a href="http://dojobootstrap.com/" target="_blank">Dojo Bootstrap</a>, because that was the first version of the ArcGIS for JavaScript API built on <a href="http://dojotoolkit.org/" target="_blank">Dojo</a> v1.8.<p>
-                         <p>If you are using v3.0 to v3.2 of the <a href="http://help.arcgis.com/en/webapi/javascript/arcgis/" target="_blank">ArcGIS for JavaScript API</a>, you can should use v1.0 of <a href="http://dojobootstrap.com/" target="_blank">Dojo Bootstrap</a>, because that is only dependent on <a href="http://dojotoolkit.org/" target="_blank">Dojo</a> v1.7.<p>
+                         <p>If you are using v3.3 or higher of the <a href="http://developers.arcgis.com/en/javascript/" target="_blank">ArcGIS for JavaScript API</a>, you can use v1.1 of <a href="http://dojobootstrap.com/" target="_blank">Dojo Bootstrap</a>, because that was the first version of the ArcGIS for JavaScript API built on <a href="http://dojotoolkit.org/" target="_blank">Dojo</a> v1.8.<p>
+                         <p>If you are using v3.0 to v3.2 of the <a href="http://developers.arcgis.com/en/javascript/" target="_blank">ArcGIS for JavaScript API</a>, you can should use v1.0 of <a href="http://dojobootstrap.com/" target="_blank">Dojo Bootstrap</a>, because that is only dependent on <a href="http://dojotoolkit.org/" target="_blank">Dojo</a> v1.7.<p>
                     </div>
                 </div>
                 <hr>
@@ -54,7 +54,7 @@
     <script type="text/javascript">
         var djConfig = {
             async: true,
-            tlmSiblingOfDojo: 0, 
+            tlmSiblingOfDojo: 0,
             isDebug: 1,
             packages: [{name: 'bootstrap',
                 location: location.pathname.replace(/\/[^/]+$/, '') + "/js/bootstrap_v1"
@@ -66,7 +66,7 @@
     <script>
         require(["dojo/query", "esri/map", "bootstrap/Tab", "bootstrap/Dropdown", "dojo/domReady!"], function(query, Map) {
             // using the new simplified map loader, see:
-            // http://help.arcgis.com/en/webapi/javascript/arcgis/jssamples/map_simple.html
+            // http://developers.arcgis.com/en/javascript/jssamples/map_simple.html
             var map = new Map("map",{
                 basemap:"gray",
                 center:[-122.45,37.77], //long, lat
