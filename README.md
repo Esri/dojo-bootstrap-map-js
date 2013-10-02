@@ -2,7 +2,7 @@
 
 Examples of how to use the Esri [ArcGIS for JavaScript API](http://help.arcgis.com/en/webapi/javascript/arcgis/) with [Dojo Bootstrap](http://dojobootstrap.com/) to get a Twitter Bootstrap look and feel for your ArcGIS JavaScript mapping application without having to include a reference to jQuery. 
 
-[View it live]("http://esri.github.io/dojo-bootstrap-ui-for-maps-js/index.html")
+[View it live](http://esri.github.io/dojo-bootstrap-ui-for-maps-js/index.html)
 
 ![App](https://raw.github.com/Esri/dojo-bootstrap-ui-for-maps-js/master/dojo-bootstrap-ui-for-maps-js.png)
 
