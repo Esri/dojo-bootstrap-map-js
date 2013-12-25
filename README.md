@@ -8,8 +8,10 @@ Examples of how to use the Esri [ArcGIS for JavaScript API](http://developers.ar
 
 ## Instructions
 
-1. Fork and then clone the repo.
-2. Run and try the samples.
+1. [Fork and clone the repo](https://help.github.com/articles/fork-a-repo)
+2. `cd` into the `dojo-bootstrap-ui-for-maps-js` folder
+3. Run `git submodule init` and `git submodule update`
+4. Run and try the samples.
 
 ## Requirements
 
