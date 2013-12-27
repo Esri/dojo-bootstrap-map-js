@@ -1,3 +1,3 @@
 [submodule "js/lib/Dojo-Bootstrap"]
 	path = js/lib/Dojo-Bootstrap
-	url = git@github.com:tomwayson/Dojo-Bootstrap.git
+	url = https://github.com/xsokev/Dojo-Bootstrap.git
