@@ -1,0 +1,34 @@
+body {
+  padding-top: 50px;
+}
+
+
+
+body > .container {
+  padding-bottom: 20px;
+}
+
+table {
+  border-collapse: ;
+  border-spacing: ;
+}
+
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+#LocateButton {
+  position: absolute;
+  top: 65px;
+  right: 15px;
+  z-index: 50;
+}
+
+#search {
+	display: block;
+	position: absolute;
+	z-index: 2;
+  top: 65px;
+  right: 60px;
+}
