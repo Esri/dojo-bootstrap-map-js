@@ -13,7 +13,7 @@ module.exports = function(grunt) {
       options: {
         jshintrc: true
       },
-      all: ['js/*.js']
+      all: ['src/js/**/*.js']
     },
 
     bower: {
@@ -41,7 +41,7 @@ module.exports = function(grunt) {
           middleware: function (connect) {
             return [
               lrSnippet,
-              mountFolder(connect, './')
+              mountFolder(connect, './src/')
             ];
           }
         }
@@ -62,7 +62,7 @@ module.exports = function(grunt) {
       },
 
       source: {
-        files: ['./js/**/*.js'],
+        files: ['./src/js/**/*.js'],
         tasks: ['jshint']
       },
       livereload:{
@@ -70,9 +70,9 @@ module.exports = function(grunt) {
           livereload:LIVERELOAD_PORT
         },
         files:[
-          './js/**/*.js',
-          './*.html',
-          './css/**/*.css'
+          './src/js/**/*.js',
+          './src/*.html',
+          './src/css/**/*.css'
         ]
       }
     }

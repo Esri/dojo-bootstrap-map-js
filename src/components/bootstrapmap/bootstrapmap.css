@@ -57,7 +57,7 @@
 }
 
 .esriPopup .titleButton {
-  background: url(../images/popup.png) no-repeat;
+  background: url(./images/popup.png) no-repeat;
 }
 
 .esriPopup .titlePane .spinner {
