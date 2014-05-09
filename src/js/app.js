@@ -111,6 +111,11 @@ function(
             map.setBasemap('osm');
             break;
         }
+        // hide nav dropdown on mobile
+        if (query('.navbar-collapse.in').length > 0) {
+          e.stopPropagation();
+          query('.navbar-toggle')[0].click();
+        }
       });
 
 });
