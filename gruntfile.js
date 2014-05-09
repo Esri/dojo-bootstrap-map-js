@@ -8,6 +8,14 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
+
+    jshint: {
+      options: {
+        jshintrc: true
+      },
+      all: ['js/**.js']
+    },
+
     bower: {
       install: {
         options: {
@@ -70,6 +78,7 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
@@ -82,11 +91,13 @@ module.exports = function(grunt) {
 
   grunt.registerTask('serve', function (target) {
     grunt.task.run([
-
+      'jshint',
       'connect:livereload',
       'open',
       'watch'
     ]);
   });
+
+  grunt.registerTask('hint', ['jshint']);
 
 };
