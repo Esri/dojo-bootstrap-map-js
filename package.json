@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Esri/dojo-bootstrap-ui-for-maps-js.git"
+    "url": "https://github.com/Esri/dojo-bootstrap-map-js.git"
   },
   "keywords": [
     "esri",
@@ -22,9 +22,9 @@
   "author": "tomwayson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Esri/dojo-bootstrap-ui-for-maps-js/issues"
+    "url": "https://github.com/Esri/dojo-bootstrap-map-js/issues"
   },
-  "homepage": "https://github.com/Esri/dojo-bootstrap-ui-for-maps-js",
+  "homepage": "https://github.com/Esri/dojo-bootstrap-map-js",
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-bower-task": "~0.3.4",

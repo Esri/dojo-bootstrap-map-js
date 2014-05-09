@@ -1,15 +1,15 @@
-# dojo-bootstrap-ui-for-maps-js
+# dojo-bootstrap-map-js
 
 Examples of how to use the Esri [ArcGIS for JavaScript API](http://developers.arcgis.com/en/javascript/) with [Dojo Bootstrap](http://dojobootstrap.com/) to get a Twitter Bootstrap look and feel for your ArcGIS JavaScript mapping application without having to include a reference to jQuery.
 
-[View it live](http://esri.github.io/dojo-bootstrap-ui-for-maps-js/)
+[View it live](http://esri.github.io/dojo-bootstrap-map-js/)
 
-![App](https://raw.github.com/Esri/dojo-bootstrap-ui-for-maps-js/master/dojo-bootstrap-ui-for-maps-js.png)
+![App](https://raw.github.com/Esri/dojo-bootstrap-map-js/master/dojo-bootstrap-map-js.png)
 
 ## Instructions
 
 1. [Fork and clone the repo](https://help.github.com/articles/fork-a-repo)
-2. `cd` into the `dojo-bootstrap-ui-for-maps-js` folder
+2. `cd` into the `dojo-bootstrap-map-js` folder
 3. Run `git submodule init` and `git submodule update`
 4. Run and try the samples.
 
@@ -48,7 +48,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-A copy of the license is available in the repository's [license.txt](https://raw.github.com/Esri/dojo-bootstrap-ui-for-maps-js/master/license.txt) file.
+A copy of the license is available in the repository's [license.txt](https://raw.github.com/Esri/dojo-bootstrap-map-js/master/license.txt) file.
 
 [](Esri Tags: ArcGIS Web Mapping Bootstrap)
 [](Esri Language: JavaScript)​
