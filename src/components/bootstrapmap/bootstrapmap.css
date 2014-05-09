@@ -1,0 +1,153 @@
+/*** Esri Map ***/
+.map {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100px;
+  max-height: 100%;
+ 	text-align: left;
+  overflow: hidden;
+}
+
+.map > img {
+	 text-align: left;
+}
+
+/*** Restyle Esri Zoomin-out ***/
+.esriSimpleSlider {
+  border: 1px solid #cccccc;
+  top: 15px;
+  left: 15px;
+}
+.esriSimpleSliderVertical .esriSimpleSliderIncrementButton,
+.esriSimpleSliderVertical .esriSimpleSliderDecrementButton{
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 27px;
+}
+.esriSimpleSliderVertical .esriSimpleSliderIncrementButton {
+  border-bottom: 1px solid #cccccc;
+}
+
+/*** Restyle Esri Popup ***/
+.esriPopupWrapper {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 18px;
+  background-color: #f7f7f7;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333333;
+}
+
+.esriPopup .titlePane, .esriPopup .contentPane, .esriPopup .actionsPane  {
+  padding: 8px 14px;
+  border: none;
+  max-height: 70px;
+  background-color: #f7f7f7;
+}
+
+.esriPopup .titlePane, {
+  padding-top: 10px;
+  color: #333333;
+}
+
+.esriPopup .title {
+  color: #333333;
+}
+
+.esriPopup .titleButton {
+  background: url(./images/popup.png) no-repeat;
+}
+
+.esriPopup .titlePane .spinner {
+  display: none;
+}
+
+.esriPopup .contentPane {
+  border-top: 1px solid #ebebeb;
+  color: #333333;
+  margin-bottom: 5px;
+}
+
+.esriViewPopup .mainSection .attrTable td.attrName {
+  color: #333333;
+}
+
+.esriViewPopup .mainSection .attrTable td {
+  color: #888888;
+}
+
+.esriPopup .actionsPane {
+  display: none;
+  margin-bottom: 15px;
+}
+
+.esriButton.close {
+  width: 21px;
+  line-height: inherit;
+}
+
+.esriPopup .titleButton.maximize, .esriPopup .titleButton.close,
+.esriPopup .titleButton.prev, .esriPopup .titleButton.next, .titleButton.restore {
+  margin-top: 8px;
+  margin-right: 8px;
+}
+
+.esriPopup .titleButton.maximize {
+  display: none;
+}
+
+.esriPopup .titleButton.next, .esriPopup .titleButton.prev {
+  width: 15px;
+  height: 17px;
+}
+
+.esriPopup .titleButton.prev {
+  background-position: 0px -197px;
+  right: 55px;
+}
+
+.esriPopup .titleButton.next {
+  background-position: 0px -416px;
+  right: 28px;
+}
+
+.esriPopup .titleButton.close {
+  background-position: 0px -170px;
+}
+
+/*** Restyle Geocoder widget ***/
+.simpleGeocoder .esriGeocoderContainer {
+  width: 100%;
+}
+
+.simpleGeocoder .esriGeocoder {
+  border: 1px solid #cccccc;
+}
+
+.simpleGeocoder .esriGeocoderResults {
+  border: 1px solid #cccccc;
+}
+
+.simpleGeocoder .esriGeocoder input {
+  width: 73%;
+  padding: 7px 0 6px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #555555;
+}
+
+.simpleGeocoder .esriGeocoderIcon {
+  margin: 9px 0 6px 6px;
+}
+
+.simpleGeocoder .esriGeocoderHasValue .esriGeocoderReset {
+  margin: 8px 4px 5px 1px;
+}
+
+/*** Fix Bootstrap modal bug ***/
+body.modal-open, .modal-open .navbar-fixed-top, .modal-open .navbar-fixed-bottom {
+  margin-right: 0;
+  margin-top: 0;
+}

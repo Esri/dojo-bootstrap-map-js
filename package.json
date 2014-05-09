@@ -1,0 +1,40 @@
+{
+  "name": "yo-dojo-bootmap",
+  "version": "3.0.0",
+  "description": "Web map application based on Esri bootstrap-map-js template",
+  "main": "gruntfile.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Esri/dojo-bootstrap-map-js.git"
+  },
+  "keywords": [
+    "esri",
+    "maps",
+    "dojo",
+    "bootstrap"
+  ],
+  "author": "tomwayson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Esri/dojo-bootstrap-map-js/issues"
+  },
+  "homepage": "https://github.com/Esri/dojo-bootstrap-map-js",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-bower-task": "~0.3.4",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-connect": "~0.7.1",
+    "connect-livereload": "~0.3.2",
+    "grunt-open": "~0.2.3",
+    "grunt-contrib-jshint": "^0.10.0"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}
