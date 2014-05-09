@@ -13,13 +13,13 @@ module.exports = function(grunt) {
       options: {
         jshintrc: true
       },
-      all: ['js/**.js']
+      all: ['js/*.js']
     },
 
     bower: {
       install: {
         options: {
-          targetDir: 'bower_components'
+          targetDir: 'components'
         }
       }
     },
