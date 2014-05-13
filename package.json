@@ -1,6 +1,6 @@
 {
   "name": "yo-dojo-bootmap",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Web map application based on Esri bootstrap-map-js template",
   "main": "gruntfile.js",
   "directories": {

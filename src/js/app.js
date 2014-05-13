@@ -7,9 +7,6 @@ require([
 
   'dojo/i18n!./js/nls/strings.js',
 
-  'bootstrap/Collapse',
-  'bootstrap/Dropdown',
-
   'dojo/domReady!'],
 function(
   topic,
