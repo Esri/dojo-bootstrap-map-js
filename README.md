@@ -2,14 +2,13 @@
 
 A boilerplate application demonstrating how to use the Esri [ArcGIS API for JavaScript](//js.arcgis.com) with [Bootstrap Map](//github.com/Esri/bootstrap-map-js) and [Dojo Bootstrap](//github.com/xsokev/Dojo-Bootstrap) to create a responsive mapping application using [Bootstrap](//getbootstrap.com) components without a dependency on jQuery.
 
-[View it live](//esri.github.io/dojo-bootstrap-map-js/src/)
+[View it live](http://esri.github.io/dojo-bootstrap-map-js/src/)
 
-<!-- TODO: update screenshot -->
-![App](//raw.github.com/Esri/dojo-bootstrap-map-js/master/dojo-bootstrap-map-js.png)
+![App Screenshot](https://raw.githubusercontent.com/Esri/dojo-bootstrap-map-js/master/dojo-bootstrap-map-js.png)
 
-The goal of this application boilerplate is to demonstrate how to build a mapping application that utilizes the best parts of Dojo (AMD modules, classes/mixins, promises, i18n, routing, etc) along with the responsive UI of Bootstrap. NOTE: not all of the above have been incorporated into this boilerplate yet.
+The goal of this application boilerplate is to demonstrate how to build a mapping application that utilizes the best parts of Dojo (AMD modules, classes and widgets, promises, i18n, routing, etc) along with the responsive UI of Bootstrap. NOTE: not all of the above have been incorporated into this boilerplate yet.
 
-For simpler examples of how to get started with [Bootstrap Map](//github.com/Esri/bootstrap-map-js) and [Dojo Bootstrap](//github.com/xsokev/Dojo-Bootstrap), see the [Boostrap Map demo pages](//esri.github.io/bootstrap-map-js/demo/dojo).
+For simpler examples of how to get started with [Bootstrap Map](//github.com/Esri/bootstrap-map-js) and [Dojo Bootstrap](//github.com/xsokev/Dojo-Bootstrap), see the [Boostrap Map demo pages](http://esri.github.io/bootstrap-map-js/demo/dojo).
 
 ## Instructions
 
