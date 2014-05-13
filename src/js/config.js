@@ -5,6 +5,9 @@ define([],function() {
         basemap: 'gray',
         center: [-117.1,33.6],
         zoom: 9
+      },
+      // TODO: add basemaps
+      basemaps: {
       }
     }
   };
