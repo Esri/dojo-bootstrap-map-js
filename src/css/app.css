@@ -20,14 +20,14 @@ table {
   text-align: center;
 }
 
-#LocateButton {
+.locate-button {
   position: absolute;
   top: 65px;
   right: 15px;
   z-index: 50;
 }
 
-#search {
+.geocoder {
 	display: block;
 	position: absolute;
 	z-index: 2;
