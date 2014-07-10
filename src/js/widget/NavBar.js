@@ -34,7 +34,7 @@ define([
         // show about modal
         query('a[href="#about"]', this.domNode).on(touch.press, function(e) {
           e.preventDefault();
-          query('.about-modal').modal('show');;
+          query('.about-modal').modal('show');
           _this._hideDropdownNav(e);
         });
       },
