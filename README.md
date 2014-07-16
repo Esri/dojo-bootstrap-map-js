@@ -8,7 +8,7 @@ A boilerplate application demonstrating how to use the Esri [ArcGIS API for Java
 
 The goal of this application boilerplate is to demonstrate how to build a mapping application that utilizes the best parts of Dojo (AMD modules, classes and widgets, promises, i18n, routing, etc) along with the responsive UI of Bootstrap. NOTE: not all of the above have been incorporated into this boilerplate yet.
 
-For simpler examples of how to get started with [Bootstrap Map](//github.com/Esri/bootstrap-map-js) and [Dojo Bootstrap](//github.com/xsokev/Dojo-Bootstrap), see the [Boostrap Map demo pages](http://esri.github.io/bootstrap-map-js/demo/dojo).
+For simpler examples of how to get started with [Bootstrap Map](//github.com/Esri/bootstrap-map-js) and [Dojo Bootstrap](//github.com/xsokev/Dojo-Bootstrap), see the [Boostrap Map demo pages](http://esri.github.io/bootstrap-map-js/demo/dojo/getstarted.html).
 
 ## Instructions
 
