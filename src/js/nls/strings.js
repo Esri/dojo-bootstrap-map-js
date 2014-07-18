@@ -7,6 +7,7 @@ define({
     modalAboutContent: 'The goal of this application boilerplate is to demonstrate how to build a mapping application that utilizes the best parts of Dojo (AMD modules, classes and widgets, promises, i18n, routing, etc) along with the responsive UI of Bootstrap.',
     modalAboutMoreInfo: 'More...'
   }),
-  fr: true
+  fr: true,
+  it: true
   // TODO: define other locales
 });
