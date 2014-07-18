@@ -34,3 +34,10 @@ table {
   top: 65px;
   right: 60px;
 }
+
+.HomeButton {
+    position: absolute;
+    top: 130px;
+    left: 16px;
+    z-index: 50;
+}

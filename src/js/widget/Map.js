@@ -8,6 +8,7 @@ define([
   'esri/map',
   'esri/dijit/Scalebar',
   'esri/layers/WebTiledLayer',
+  'esri/dijit/HomeButton',
   'esri/dijit/LocateButton',
   'esri/dijit/Geocoder',
 
@@ -16,7 +17,7 @@ define([
   'dojo/text!./templates/Map.html'
 ], function(declare, array,
   _WidgetBase, _TemplatedMixin,
-  Map, Scalebar, WebTiledLayer, LocateButton, Geocoder,
+  Map, Scalebar, WebTiledLayer, HomeButton, LocateButton, Geocoder,
   BootstrapMap,
   template) {
   return declare([_WidgetBase, _TemplatedMixin], {
@@ -33,6 +34,10 @@ define([
         map: this.map,
         scalebarUnit: 'dual'
       });
+      this.homeButton = new HomeButton({
+        map: this.map
+      }, this.homeNode);
+      this.homeButton.startup();
       this.geoLocate = new LocateButton({
         map: this.map,
         'class': 'locate-button'
