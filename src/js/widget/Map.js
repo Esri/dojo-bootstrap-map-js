@@ -40,6 +40,7 @@ define([
       this.geoLocate.startup();
       this.geocoder = new Geocoder({
         map: this.map,
+        autoComplete: true,
         'class': 'geocoder'
       }, this.searchNode);
       this.geocoder.startup();
