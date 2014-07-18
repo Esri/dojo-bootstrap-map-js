@@ -8,6 +8,8 @@ define({
     modalAboutMoreInfo: 'More...'
   }),
   fr: true,
-  it: true
+  it: true,
+  de: true
+  //,de-ch: true
   // TODO: define other locales
 });
