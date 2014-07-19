@@ -1,5 +1,5 @@
 {
-  "name": "yo-dojo-bootmap",
+  "name": "dojo-bootstrap-map-js",
   "version": "3.2.0",
   "description": "Web map application based on Esri bootstrap-map-js template",
   "main": "gruntfile.js",
@@ -20,7 +20,7 @@
     "bootstrap"
   ],
   "author": "tomwayson",
-  "license": "MIT",
+  "license": "Apache",
   "bugs": {
     "url": "https://github.com/Esri/dojo-bootstrap-map-js/issues"
   },
