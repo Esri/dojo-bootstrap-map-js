@@ -22,8 +22,8 @@ table {
 
 .locate-button {
   position: absolute;
-  top: 65px;
-  right: 15px;
+  top: 162px;
+  left: 16px;
   z-index: 50;
 }
 
@@ -32,7 +32,7 @@ table {
 	position: absolute;
 	z-index: 2;
   top: 65px;
-  right: 60px;
+  left: 50px;
 }
 
 .HomeButton {
