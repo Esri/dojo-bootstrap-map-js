@@ -11,7 +11,7 @@ define([
   'esri/dijit/LocateButton',
   'esri/dijit/Geocoder',
 
-  'components/bootstrapmap/bootstrapmap',
+  'bootstrap-map-js/bootstrapmap',
 
   'dojo/text!./templates/Map.html'
 ], function(declare, array,

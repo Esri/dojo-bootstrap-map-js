@@ -1,0 +1,26 @@
+{
+  "name": "dojo-bootstrap-map-js",
+  "version": "3.0.0",
+  "homepage": "https://github.com/tomwayson/dojo-bootstrap-map-js",
+  "authors": [
+    "Tom Wayson <tom@tomwayson.com>"
+  ],
+  "main": "src/index.html",
+  "keywords": [
+    "Esi",
+    "Dojo",
+    "Bootstrap"
+  ],
+  "license": "Apache",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-map-js": "~0.0.1"
+  }
+}
