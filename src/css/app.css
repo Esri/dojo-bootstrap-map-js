@@ -1,6 +1,6 @@
 @import url("//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css");
 @import url("//js.arcgis.com/3.9/js/esri/css/esri.css");
-@import url("../components/bootstrapmap/bootstrapmap.css");
+@import url("../bower_components/bootstrap-map-js/src/css/bootstrapmap.css");
 
 body {
   padding-top: 50px;
@@ -28,9 +28,9 @@ table {
 }
 
 .geocoder {
-	display: block;
-	position: absolute;
-	z-index: 2;
+  display: block;
+  position: absolute;
+  z-index: 2;
   top: 65px;
   right: 60px;
 }
