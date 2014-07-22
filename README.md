@@ -14,9 +14,8 @@ For simpler examples of how to get started with [Bootstrap Map](//github.com/Esr
 
 1. [Fork and clone the repo](https://help.github.com/articles/fork-a-repo)
 2. `cd` into the `dojo-bootstrap-map-js` folder
-3. Run `git submodule init` and `git submodule update`
-4. Run `bower install`
-5. Run and try the samples.
+3. Run `bower install`
+4. Run and try the samples.
 
 ## Requirements
 
