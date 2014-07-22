@@ -1,8 +1,8 @@
 define({
-    appTitle: 'Karte Dojo Bootstrap',
+    appTitle: 'Dojo Bootstrap Karte',
     navBasemaps: 'Basiskarten',
-    navAbout: 'Über',
-    modalAboutTitle: 'Über',
-    modalAboutContent: 'Das Ziel dieser Anwendung Text ist es zu zeigen, wie man eine Mapping-Anwendung, die die besten Teile von Dojo (AMD Module, Klassen und Widgets, Zusagen, i18n, Routing, etc.) zusammen mit der ansprechenden Benutzeroberfläche von Bootstrap nutzt bauen.',
-    modalAboutMoreInfo: 'nächste...'
+    navAbout: 'Info',
+    modalAboutTitle: 'Info',
+    modalAboutContent: 'Ziel dieser Applikationsvorlage ist es, zu zeigen, wie man eine Mapping-Anwendung, welche die besten Funktionen von Dojo (AMD Module, Klassen und Widgets, Promises, i18n, Routing etc.) mit dem responsive Userinterface von Bootstrap verbindet.',
+    modalAboutMoreInfo: 'Mehr...'
 });
