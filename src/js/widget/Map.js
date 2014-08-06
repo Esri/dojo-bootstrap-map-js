@@ -29,7 +29,21 @@ define([
     },
 
     _initMap: function() {
+      //if( this.config.map.id) {
+      //  this.map = BootstrapMap.createWebMap(this.config.map.id, this.mapNode, this.config.map.options);  
+      //} else {
       this.map = BootstrapMap.create(this.mapNode, this.config.map.options);
+      //}      
+
+      this._initLayers();
+      this._initWidgets();
+    },
+
+    _initLayers: function() {
+
+    },
+
+    _initWidgets: function() {
       this.scalebar = new Scalebar({
         map: this.map,
         scalebarUnit: 'dual'
@@ -51,14 +65,14 @@ define([
       this.geocoder.startup();
     },
 
-    clearBaseMap: function(){
+    clearBaseMap: function() {
       var map = this.map;
-      if(map.basemapLayerIds.length > 0){
-        array.forEach(map.basemapLayerIds, function(lid){
+      if (map.basemapLayerIds.length > 0) {
+        array.forEach(map.basemapLayerIds, function(lid) {
           map.removeLayer(map.getLayer(lid));
         });
         map.basemapLayerIds = [];
-      }else{
+      } else {
         map.removeLayer(map.getLayer(map.layerIds[0]));
       }
     },
@@ -69,36 +83,36 @@ define([
       this.clearBaseMap();
       switch (basemapText) {
         case 'Water Color':
-         options = {
-            id:'Water Color',
+          options = {
+            id: 'Water Color',
             copyright: 'stamen',
             resampling: true,
-            subDomains: ['a','b','c','d']
+            subDomains: ['a', 'b', 'c', 'd']
           };
-          l = new WebTiledLayer('http://${subDomain}.tile.stamen.com/watercolor/${level}/${col}/${row}.jpg',options);
+          l = new WebTiledLayer('http://${subDomain}.tile.stamen.com/watercolor/${level}/${col}/${row}.jpg', options);
           map.addLayer(l);
           break;
 
         case 'MapBox Space':
 
           options = {
-            id:'mapbox-space',
+            id: 'mapbox-space',
             copyright: 'MapBox',
             resampling: true,
-            subDomains: ['a','b','c','d']
+            subDomains: ['a', 'b', 'c', 'd']
           };
-          l = new WebTiledLayer('http://${subDomain}.tiles.mapbox.com/v3/eleanor.ipncow29/${level}/${col}/${row}.jpg',options);
+          l = new WebTiledLayer('http://${subDomain}.tiles.mapbox.com/v3/eleanor.ipncow29/${level}/${col}/${row}.jpg', options);
           map.addLayer(l);
           break;
 
         case 'Pinterest':
           options = {
-            id:'mapbox-pinterest',
+            id: 'mapbox-pinterest',
             copyright: 'Pinterest/MapBox',
             resampling: true,
-            subDomains: ['a','b','c','d']
+            subDomains: ['a', 'b', 'c', 'd']
           };
-          l = new WebTiledLayer('http://${subDomain}.tiles.mapbox.com/v3/pinterest.map-ho21rkos/${level}/${col}/${row}.jpg',options);
+          l = new WebTiledLayer('http://${subDomain}.tiles.mapbox.com/v3/pinterest.map-ho21rkos/${level}/${col}/${row}.jpg', options);
           map.addLayer(l);
           break;
         case 'Streets':

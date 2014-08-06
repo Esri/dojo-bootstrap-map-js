@@ -28,16 +28,16 @@ table {
 }
 
 .geocoder {
-	display: block;
-	position: absolute;
-	z-index: 2;
+  display: block;
+  position: absolute;
+  z-index: 2;
   top: 65px;
   left: 50px;
 }
 
 .HomeButton {
-    position: absolute;
-    top: 130px;
-    left: 16px;
-    z-index: 50;
+  position: absolute;
+  top: 130px;
+  left: 16px;
+  z-index: 50;
 }
