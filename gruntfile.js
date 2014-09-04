@@ -76,19 +76,44 @@ module.exports = function(grunt) {
         ]
       }
     },
+<<<<<<< HEAD
     buildGhPages: {
       ghPages: {
         // Leave empty if you just want to run the defaults
       }
     },
 });
+=======
+
+    esri_slurp: {
+      dev: {
+        options: {
+          version: '3.10',
+          packageLocation: 'src/esri',
+          beautify: true
+        }
+      },
+      travis: {
+        options: {
+          version: '3.10',
+          packageLocation: 'src/esri',
+          beautify: false
+        }
+      }
+    }
+  });
+>>>>>>> added slurp task and downloaded 3.10
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-open');
+<<<<<<< HEAD
   grunt.loadNpmTasks('grunt-build-gh-pages');
+=======
+  grunt.loadNpmTasks('grunt-esri-slurp');
+>>>>>>> added slurp task and downloaded 3.10
 
   grunt.registerTask('default', ['watch']);
 
@@ -107,6 +132,10 @@ module.exports = function(grunt) {
 
   grunt.registerTask('hint', ['jshint']);
 
+<<<<<<< HEAD
   grunt.registerTask('gh-pages', ['buildGhPages:ghPages']);
 
+=======
+  grunt.registerTask('slurp', ['esri_slurp:dev']);
+>>>>>>> added slurp task and downloaded 3.10
 };
