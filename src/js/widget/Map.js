@@ -23,11 +23,7 @@ define([
   template) {
   return declare([_WidgetBase, _TemplatedMixin], {
     templateString: template,
-
-    //legendLayerInfos: [],
     editorLayerInfos: [],
-    //tocLayerInfos: [],
-
 
     postCreate: function() {
       this.inherited(arguments);
@@ -35,9 +31,12 @@ define([
     },
 
     _initMap: function() {
-      this.map = BootstrapMap.create(this.mapNode, this.config.map.options);
-
-      this._initLayers();
+      // if( this.config.map.id ) {
+      //   this.map = BootstrapMap.createWebMap(this.config.map.id, this.mapNode, this.config.map.options);  
+      // } else {
+        this.map = BootstrapMap.create(this.mapNode, this.config.map.options);  
+        this._initLayers();
+      // }
       this._initWidgets();
     },
 
@@ -71,29 +70,7 @@ define([
 
     initLayer: function(layer, Layer) {
       var l = new Layer(layer.url, layer.options);      
-      this.layers.unshift(l); // unshift instead of oush to keep layer ordering on map intact
-      /*this.legendLayerInfos.unshift({
-        layer: l,
-        title: layer.title || null
-      });
-      this.tocLayerInfos.push({ //push because Legend and TOC need the layers in the opposite order
-        layer: l,
-        title: layer.title || null,
-        slider: (layer.slider === false) ? false : true,
-        noLegend: layer.noLegend || false,
-        collapsed: layer.collapsed || false,
-        sublayerToggle: layer.sublayerToggle || false
-      });
-      */
-      if (layer.type === 'feature') {
-        var options = {
-          featureLayer: l
-        };
-        if (layer.editorLayerInfos) {
-          lang.mixin(options, layer.editorLayerInfos);
-        }
-        //this.editorLayerInfos.push(options);
-      }
+      this.layers.unshift(l); // unshift instead of push to keep layer ordering on map intact
     },
 
     _initWidgets: function() {

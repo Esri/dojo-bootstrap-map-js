@@ -2,6 +2,7 @@ define(['esri/InfoTemplate'], function(InfoTemplate) {
   return {
     map: {
       //id: '2bf2cde975ae4362aef17790eb041fcb',
+      //id: '4778fee6371d4e83a22786029f30c7e1',
       options: {
         basemap: 'gray',
         center: [-117.1, 33.6],
