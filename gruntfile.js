@@ -75,14 +75,21 @@ module.exports = function(grunt) {
           './src/css/**/*.css'
         ]
       }
-    }
-  });
+    },
+    buildGhPages: {
+      ghPages: {
+        // Leave empty if you just want to run the defaults
+      }
+    },
+});
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-open');
+  grunt.loadNpmTasks('grunt-build-gh-pages');
+
   grunt.registerTask('default', ['watch']);
 
   grunt.registerTask('default', [
@@ -99,5 +106,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('hint', ['jshint']);
+
+  grunt.registerTask('gh-pages', ['buildGhPages:ghPages']);
 
 };
