@@ -1,5 +1,5 @@
 @import url("//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css");
-@import url("//js.arcgis.com/3.10/js/esri/css/esri.css");
+@import url("//js.arcgis.com/3.11/esri/css/esri.css");
 @import url("../bower_components/bootstrap-map-js/src/css/bootstrapmap.css");
 
 body {
@@ -22,8 +22,8 @@ table {
 
 .locate-button {
   position: absolute;
-  top: 65px;
-  right: 15px;
+  top: 162px;
+  left: 16px;
   z-index: 50;
 }
 
@@ -32,5 +32,12 @@ table {
   position: absolute;
   z-index: 2;
   top: 65px;
-  right: 60px;
+  left: 50px;
+}
+
+.HomeButton {
+  position: absolute;
+  top: 130px;
+  left: 16px;
+  z-index: 50;
 }
