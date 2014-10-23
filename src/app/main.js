@@ -1,11 +1,10 @@
-require([
-  'dojo/topic',
+define(['dojo/topic',
 
   'app/config',
   'app/widget/Map',
   'app/widget/NavBar',
 
-  'dojo/i18n!./js/nls/strings.js',
+  'dojo/i18n!./app/nls/strings.js',
 
   'dojo/domReady!'],
 function(
@@ -14,13 +13,14 @@ function(
   strings
 ) {
   'use strict';
+  var app = {};
 
   // start map widget
-  var map = new Map({
+  app.map = new Map({
     config: config,
     strings: strings
   }, 'mapNode');
-  map.startup();
+  app.map.startup();
 
   // start nav widget
   var navBar = new NavBar({
@@ -31,9 +31,11 @@ function(
 
   // set up topics
   topic.subscribe('basemap/set', function(args) {
-    map.setBasemap(args.basemap);
+    app.map.setBasemap(args.basemap);
   });
 
   // set page title
   window.document.title = strings.appTitle;
+
+  return app;
 });

@@ -23,24 +23,33 @@
     <div id="navBarNode"></div>
     <div id="mapNode"></div>
     <script>
-    (function() {
-      'use strict';
-      var package_path = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
-      window.dojoConfig = {
-          packages: [{
-              name: 'app',
-              location: package_path + '/js'
-          } ,{
-              name: 'bootstrap-map-js',
-              location: package_path + '/bower_components/bootstrap-map-js/src/js'
-          } ,{
-              name: 'bootstrap',
-              location: package_path + '/bower_components/dojo-bootstrap'
-          }]
+      var dojoConfig = {
+        async: true,
+        baseUrl: '.',
+        isDebug: true,
+        packages: [
+          'app',
+          'dgrid',
+          'dijit',
+          'dojo',
+          'dojox',
+          'esri',
+          'put-selector',
+          'xstyle',
+          {
+            name: 'bootstrap',
+            location: window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')) + '/dojo-bootstrap'
+          },
+          {
+            name: 'bootstrap-map-js',
+            location: window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')) + '/bootstrap-map-js/src/js'
+          }
+        ],
+        selectorEngine: 'lite',
+        tlmSiblingOfDojo: false
       };
-    }());
     </script>
-    <script src="//js.arcgis.com/3.11compact"></script>
-    <script src="./js/app.js"></script>
+    <script src="dojo/dojo.js"></script>
+    <script>require([ 'app/main' ]);</script>
   </body>
 </html>
