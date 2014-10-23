@@ -1,6 +1,5 @@
-@import url("//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css");
-@import url("../esri/css/esri.css");
-@import url("../bootstrap-map-js/src/css/bootstrapmap.css");
+@import url("../../esri/css/esri.css");
+@import url("../../bootstrap-map-js/src/css/bootstrapmap.css");
 
 body {
   padding-top: 50px;

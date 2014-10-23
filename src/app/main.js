@@ -4,7 +4,7 @@ define(['dojo/topic',
   'app/widget/Map',
   'app/widget/NavBar',
 
-  'dojo/i18n!./app/nls/strings.js',
+  'dojo/i18n!app/nls/strings',
 
   'dojo/domReady!'],
 function(
