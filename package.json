@@ -1,6 +1,6 @@
 {
   "name": "dojo-bootstrap-map-js",
-  "version": "3.1.2",
+  "version": "3.1.3",
   "description": "A boilerplate application demonstrating how to create a responsive mapping application using the Esri ArcGIS API for JavaScript with Bootstrap Map and Dojo Bootstrap",
   "main": "gruntfile.js",
   "directories": {
@@ -27,10 +27,12 @@
     {
       "name": "alaframboise",
       "homepage": "https://github.com/alaframboise"
-    }, {
+    },
+    {
       "name": "benstoltz",
       "homepage": "https://github.com/benstoltz"
-    }, {
+    },
+    {
       "name": "tsamaya",
       "homepage": "https://github.com/tsamaya"
     }
@@ -45,10 +47,16 @@
     "grunt": "~0.4.2",
     "grunt-bower-task": "~0.3.4",
     "grunt-build-gh-pages": "^1.0.3",
+    "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-connect": "~0.7.1",
+    "grunt-contrib-copy": "^0.7.0",
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-watch": "~0.5.3",
-    "grunt-open": "~0.2.3"
+    "grunt-dojo": "^0.3.0",
+    "grunt-esri-slurp": "^1.1.0",
+    "grunt-gh-pages": "^0.9.1",
+    "grunt-open": "~0.2.3",
+    "grunt-string-replace": "^0.2.7"
   },
   "engines": {
     "node": ">=0.8.0"

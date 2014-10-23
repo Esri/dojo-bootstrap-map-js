@@ -13,7 +13,7 @@ define([
   'esri/dijit/LocateButton',
   'esri/dijit/Geocoder',
 
-  'bootstrap-map-js/bootstrapmap',
+  'bootstrap-map-js/js/bootstrapmap',
 
   'dojo/text!./templates/Map.html'
 ], function(declare, array, lang,
@@ -32,8 +32,8 @@ define([
 
     _initMap: function() {
       //if( this.config.map.id ) {
-      //this.map = BootstrapMap.createWebMap(this.config.map.id, this.mapNode, this.config.map.options);  
-      //BootstrapMap.createWebMap(this.config.map.id, this.mapNode, this.config.map.options);  
+      //this.map = BootstrapMap.createWebMap(this.config.map.id, this.mapNode, this.config.map.options);
+      //BootstrapMap.createWebMap(this.config.map.id, this.mapNode, this.config.map.options);
       //} else {
       this.map = BootstrapMap.create(this.mapNode, this.config.map.options);
       this._initLayers();

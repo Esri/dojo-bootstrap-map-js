@@ -2,7 +2,7 @@
 var LIVERELOAD_PORT = 35729;
 var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
 var mountFolder = function (connect, dir) {
-    return connect.static(require('path').resolve(dir));
+    return connect['static'](require('path').resolve(dir));
 };
 module.exports = function(grunt) {
 
@@ -13,7 +13,7 @@ module.exports = function(grunt) {
       options: {
         jshintrc: true
       },
-      all: ['src/js/**/*.js']
+      all: ['src/app/**/*.js']
     },
 
     bower: {
@@ -76,25 +76,110 @@ module.exports = function(grunt) {
         ]
       }
     },
-    buildGhPages: {
-      ghPages: {
-        // Leave empty if you just want to run the defaults
+    esri_slurp: {
+      options: {
+        version: '3.11'
+      },
+      dev: {
+        options: {
+          beautify: true
+        },
+        dest: 'src/esri'
       }
     },
-});
-
+    // clean the output directory before each build
+    clean: {
+      build: ['dist'],
+      deploy: ['dist/**/*.consoleStripped.js','dist/**/*.uncompressed.js','dist/**/*.js.map']
+    },
+    // dojo build configuration, mainly taken from dojo boilerplate
+    dojo: {
+      dist: {
+        options: {
+          profile: 'profiles/app.profile.js' // Profile for build
+        }
+      },
+      options: {
+        dojo: 'src/dojo/dojo.js', // Path to dojo.js file in dojo source
+        load: 'build', // Optional: Utility to bootstrap (Default: 'build')
+        // profiles: [], // Optional: Array of Profiles for build
+        // appConfigFile: '', // Optional: Config file for dojox/app
+        // package: '', // Optional: Location to search package.json (Default: nothing)
+        // packages: [], // Optional: Array of locations of package.json (Default: nothing)
+        // require: '', // Optional: Module to require for the build (Default: nothing)
+        // requires: [], // Optional: Array of modules to require for the build (Default: nothing)
+        releaseDir: '../dist', // Optional: release dir rel to basePath (Default: 'release')
+        cwd: './', // Directory to execute build within
+        // dojoConfig: '', // Optional: Location of dojoConfig (Default: null),
+        // Optional: Base Path to pass at the command line
+        // Takes precedence over other basePaths
+        // Default: null
+        basePath: './src'
+      }
+    },
+    // this copies over index.html and replaces
+    // the perl regexp section of build.sh in the dojo boilerplate
+    'string-replace': {
+      index: {
+        src: './src/index.html',
+        dest: './dist/index.html',
+        options: {
+          replacements: [
+            // remove isDeubug
+            {
+              pattern: /isDebug: *true,/,
+              replacement: ''
+            },
+            // strip js comments
+            {
+              pattern: /\s+\/\/.*$/gm,
+              replacement: ''
+            },
+            // replace newlines w/ whitespace
+            {
+              pattern: /\n/g,
+              replacement: ' '
+            },
+            // strip html comments
+            {
+              pattern: /<!--[\s\S]*?-->/g,
+              replacement: ''
+            },
+            // collapse whitespace
+            {
+              pattern: /\s+/g,
+              replacement: ' '
+            }
+          ]
+        }
+      }
+    },
+    copy: {
+      build: {
+        src: './src/nobuild.html',
+        dest: './dist/nobuild.html'
+      }
+    },
+    'gh-pages': {
+      options: {
+        base: 'dist'
+      },
+      src: ['**']
+    }
+  });
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-open');
-  grunt.loadNpmTasks('grunt-build-gh-pages');
+  grunt.loadNpmTasks('grunt-gh-pages');
+  grunt.loadNpmTasks('grunt-esri-slurp');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-dojo');
+  grunt.loadNpmTasks('grunt-string-replace');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('default', ['watch']);
-
-  grunt.registerTask('default', [
-        'serve'
-    ]);
+  grunt.registerTask('default', ['serve']);
 
   grunt.registerTask('serve', function (target) {
     grunt.task.run([
@@ -107,6 +192,9 @@ module.exports = function(grunt) {
 
   grunt.registerTask('hint', ['jshint']);
 
-  grunt.registerTask('gh-pages', ['buildGhPages:ghPages']);
+  grunt.registerTask('slurp', ['esri_slurp:dev']);
 
+  grunt.registerTask('build', ['jshint', 'clean:build', 'dojo', 'string-replace', 'copy:build']);
+
+  grunt.registerTask('deploy', ['clean:deploy', 'gh-pages']);
 };

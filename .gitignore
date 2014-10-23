@@ -1,3 +1,14 @@
 node_modules
 bower_components
-/.idea/
+src/dijit
+src/dojo
+src/dojox
+src/esri
+src/util
+src/dgrid
+src/put-selector
+src/xstyle
+src/bootstrap-map-js
+src/dojo-bootstrap
+dist
+.grunt

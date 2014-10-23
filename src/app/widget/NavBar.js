@@ -9,9 +9,9 @@ define([
 
   'dojo/text!./templates/NavBar.html',
 
-  'bootstrap/Collapse',
-  'bootstrap/Dropdown',
-  'bootstrap/Modal'
+  'dojo-bootstrap/Collapse',
+  'dojo-bootstrap/Dropdown',
+  'dojo-bootstrap/Modal'
 ], function(declare, query, touch, topic, _WidgetBase, _TemplatedMixin, template) {
   return declare([_WidgetBase, _TemplatedMixin], {
       templateString: template,
