@@ -13,7 +13,7 @@ module.exports = function(grunt) {
       options: {
         jshintrc: true
       },
-      all: ['src/js/**/*.js']
+      all: ['src/app/**/*.js']
     },
 
     bower: {
@@ -76,11 +76,6 @@ module.exports = function(grunt) {
         ]
       }
     },
-    buildGhPages: {
-      ghPages: {
-        // Leave empty if you just want to run the defaults
-      }
-    },
     esri_slurp: {
       options: {
         version: '3.11'
@@ -90,13 +85,13 @@ module.exports = function(grunt) {
           beautify: true
         },
         dest: 'src/esri'
-      },
-      travis: {
-        dest: 'src/esri'
       }
     },
     // clean the output directory before each build
-    clean: ['dist'],
+    clean: {
+      build: ['dist'],
+      deploy: ['dist/**/*.consoleStripped.js','dist/**/*.uncompressed.js','dist/**/*.js.map']
+    },
     // dojo build configuration, mainly taken from dojo boilerplate
     dojo: {
       dist: {
@@ -158,6 +153,18 @@ module.exports = function(grunt) {
           ]
         }
       }
+    },
+    copy: {
+      build: {
+        src: './src/nobuild.html',
+        dest: './dist/nobuild.html'
+      }
+    },
+    'gh-pages': {
+      options: {
+        base: 'dist'
+      },
+      src: ['**']
     }
   });
   grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -165,10 +172,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-open');
-  grunt.loadNpmTasks('grunt-build-gh-pages');
+  grunt.loadNpmTasks('grunt-gh-pages');
+  grunt.loadNpmTasks('grunt-esri-slurp');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-dojo');
   grunt.loadNpmTasks('grunt-string-replace');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   grunt.registerTask('default', ['serve']);
 
@@ -185,7 +194,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('slurp', ['esri_slurp:dev']);
 
-  grunt.registerTask('build', ['clean', 'dojo', 'string-replace']);
+  grunt.registerTask('build', ['jshint', 'clean:build', 'dojo', 'string-replace', 'copy:build']);
 
-  grunt.registerTask('gh-pages', ['buildGhPages:ghPages']);
+  grunt.registerTask('deploy', ['clean:deploy', 'gh-pages']);
 };

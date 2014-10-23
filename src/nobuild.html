@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A sample application demonstrating how to use Dojo Bootstrap with the ArcGIS API for JavaScript">
+    <meta name="author" content="Tom Wayson">
+
+    <link rel="shortcut icon" href="./favicon.png">
+
+    <title>Dojo Bootstrap Map</title>
+
+    <!-- NOTE: getting bootstrap from CDN for now
+    until we bring in as a dependency and
+    only include necessary styles -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <!-- get dependency CSS from CDN instead of locally -->
+    <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.11/esri/css/esri.css">
+    <link rel="stylesheet" type="text/css" href="//esri.github.io/bootstrap-map-js/dist/css/bootstrapmap.min.css">
+    <!-- NOTE: this will cause 404 errors when it tries to
+    import the local copies of the above CSS files -->
+    <link rel="stylesheet" href="app/resources/app.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="navBarNode"></div>
+    <div id="mapNode"></div>
+    <script>
+      var dojoConfig = {
+        async: true,
+        // load dependency packages from CDN instead of locally
+        packages: [
+          {
+            name: 'app',
+            location: window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')) + '/app'
+          }, {
+            name: 'dojo-bootstrap',
+            location: '//rawgit.com/xsokev/Dojo-Bootstrap/master'
+          }, {
+            name: 'bootstrap-map-js',
+            location: '//esri.github.io/bootstrap-map-js/src/'
+          }
+        ]
+      };
+    </script>
+    <script src="//js.arcgis.com/3.11compact"></script>
+    <script>require([ 'app/main' ]);</script>
+  </body>
+</html>
