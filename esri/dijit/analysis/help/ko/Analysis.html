@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="SummarizeDataCategory" class="smallsize">
+        <h2>데이터 요약</h2>
+        <hr/>
+        <p>이러한 도구는 영역 내에 있거나 다른 피처 주변에 있는 피처와 해당 속성에 대한 총 개수, 길이, 면적, 설명이 포함된 기본 통계 등을 계산합니다.
+            <ul>
+                <li> <b>포인트 집계</b> - 지정된 영역 내에 속한 포인트에 대한 통계를 계산합니다.
+                </li>
+                <li> <b>다음 주변 요약</b> - 지정된 거리 내에 있는 피처와 해당 속성에 대한 통계를 계산합니다.
+                </li>
+                <li> <b>다음 범위 내 요약</b> - 서로 겹치는 영역 피처 및 속성에 대한 통계를 계산합니다.
+                </li>
+            </ul>
+            
+        </p>
+        <p> 
+        </p>
+    </div>
+        <div id="AggregatePointsTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>집계 포인트</h2></td>
+                    <td>
+                    <img src="../images/GUID-6981B80D-B1F0-4037-BFC5-8EC9241B6FC2-web.png" class="titleImage" alt="집계 포인트">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>이 도구는 포인트 피처 레이어 및 영역 피처 레이어를 사용하여 각 영역 내에 속한 포인트를 확인하고 각 영역 내의 모든 포인트에 대한 통계를 계산합니다.예를 들면 다음과 같습니다.
+                <ul>
+                    <li>범죄 사건의 포인트 위치가 주어진 경우 도시 또는 다른 행정 구역별 범죄 건수를 계산합니다.
+                    </li>
+                    <li>시/도별 프랜차이즈 위치의 최고 및 최저 매출을 확인합니다.
+                    </li>
+                </ul>
+                
+            </p>
+            <br/>
+        </div>
+        <div id="SummarizeNearbyTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>다음 주변 요약</h2></td>
+                    <td>
+                    <img src="../images/GUID-8CA4374B-AB5E-44A5-ADD3-4C85E5F0AF71-web.png" class="titleImage" alt="다음 주변 요약">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>분석 레이어의 피처로부터 지정된 거리 이내에 있는 피처를 찾습니다.거리는 직선 거리 또는 운전 시간 거리(예: 10분 이내)로 측정될 수 있습니다.그런 다음 인접 피처에 대한 통계가 계산됩니다.예를 들면 다음과 같습니다.
+                <ul>
+                    <li>제안된 새 매장 위치에서 5분 이내에 있는 총 인구를 계산합니다.
+                    </li>
+                    <li>매장 접근성의 척도로 사용하기 위해 제안된 새 매장 위치에서 5분 이내에 있는 고속도로 진입로 수를 계산합니다.
+                    </li>
+                </ul>
+                
+            </p>
+            <br/>
+        </div>
+        <div id="SummarizeWithinTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>다음 범위 내 요약</h2></td>
+                    <td>
+                    <img src="../images/GUID-2E97B2ED-56A7-4242-B0E0-C1824E6F643F-web.png" class="titleImage" alt="다음 범위 내 요약">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>두 레이어 간에 겹치는 영역(및 영역의 일부)을 찾아서 해당 영역에 대한 통계를 계산합니다.예를 들면 다음과 같습니다.
+                <ul>
+                    <li>하천 유역 레이어와 토지 이용 유형별 토지 이용 영역 레이어가 주어진 경우 각 하천 유역에 대한 토지 이용 유형의 총 면적을 계산합니다.
+                    </li>
+                    <li>도시 내 필지 레이어와 도시 경계 레이어가 주어진 경우 각 도시 내의 공지에 대한 평균 지가를 요약합니다.
+                    </li>
+                </ul>
+                
+            </p>
+            <br/>
+        </div>
+    <div id="EnrichLocationsCategory" class="smallsize">
+        <h2>Data Enrichment</h2>
+        <hr/>
+        <p>These tools help you explore the
+character of areas. Detailed demographic data and
+statistics are returned for your chosen areas. Comparative
+information can also be reported for expanded areas such as
+counties and states.
+            <ul>
+                <li> <b>Enrich Layer</b> retrieves information about the people, places, and businesses in a specific area, or within a straight-line distance or drive time from a location.
+                </li>
+            </ul>
+            
+        </p>
+    </div>
+        <div id="EnrichLayerTool" class="smallsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>레이어 보강</h2></td>
+                    <td>
+                    <img src="../images/GUID-2B1E8F2B-B474-4AC2-AF32-FFFAA1C43B2E-web.png" class="titleImage" alt="레이어 보강">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Retrieves information about the people, places, and businesses in a specific area, or within a straight-line distance or drive time from a location.
+
+            </p>
+            <br/>
+        </div>
+    <div id="FindLocationsCategory" class="regularsize">
+        <h2>위치 찾기</h2>
+        <hr/>
+        <p>이러한 도구는 지정한 여러 조건을 충족하는 영역을 식별하는 데 사용됩니다.  이러한 조건은 속성 쿼리(예: 비어 있는 필지) 및 공간 쿼리(예: 강에서 1Km 이내)를 기반으로 할 수 있습니다.  기존 피처(예: 기존 필지)에서 영역을 선택하거나 모든 요구 사항을 충족하는 새 피처를 생성할 수 있습니다.
+            <ul>
+                <li> <b>기존 위치 찾기</b> - 분석 레이어에서 일련의 조건을 충족하는 기존 영역을 검색합니다.
+                </li>
+                <li> <b>새 위치 파생</b> - 처리 범위의 위치에서 일련의 조건을 충족하는 새 영역을 생성합니다.
+                </li>
+                <li> <b>유사한 위치 찾기</b> 지정한 조건에 따라 한 가지 이상의 참조 위치에 가장 유사한 위치를 찾습니다.
+                </li>
+            </ul>
+            
+        </p>
+        <p> 
+        </p>
+    </div>
+        <div id="FindExistingLocationsTool" class="smallsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>기존 위치 찾기</h2></td>
+                    <td>
+                    <img src="../images/GUID-C5409FC7-EC93-45C5-8B00-3D6EA80A0A77-web.png" class="titleImage" alt="기존 위치 찾기">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>처리 범위에서 지정한 일련의 조건을 충족하는 기존 피처를 선택합니다. 이러한 조건은 속성 쿼리(예: 비어 있는 필지) 및 공간 쿼리(예: 강에서 1.6Km 이내)를 기반으로 할 수 있습니다.
+
+            </p>
+            <br/>
+        </div>
+        <div id="DeriveNewLocationsTool" class="smallsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>새 위치 파생</h2></td>
+                    <td>
+                    <img src="../images/GUID-14BF9A68-AAD7-4849-B05C-3433A063B4B8-web.png" class="titleImage" alt="새 위치 파생">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>처리 범위에서 지정한 일련의 조건을 충족하는 새 피처를 생성합니다. 이러한 조건은 속성 쿼리(예: 비어 있는 필지) 및 공간 쿼리(예: 강에서 1.6Km 이내)를 기반으로 할 수 있습니다.
+
+            </p>
+            <br/>
+        </div>
+        <div id="FindSimilarLocationsTool" class="smallsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>유사한 위치 찾기</h2></td>
+                    <td>
+                    <img src="../images/GUID-01EFFE9D-141F-45BA-AB21-C9E3490587F2-web.png" class="titleImage" alt="유사한 위치 찾기">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>지정한 조건에 따라 한 가지 이상의 참조 위치와 가장 유사한 위치를 찾습니다.
+            </p>
+            <br/>
+        </div>
+    <div id="AnalyzePatternsCategory" class="regularsize">
+        <h2>Analyze Patterns</h2>
+        <hr/>
+        <p>These tools help you identify, quantify, and visualize spatial patterns in your data.  
+            <ul>
+                <li> <b>Find Hot Spots</b>  identifies statistically significant clustering in the spatial pattern of your data.
+                </li>
+                <li> <b>Interpolate Points</b> predicts values at new locations based on measurements found in a collection of points.
+                </li>
+                <li> <b>Calculate Density</b> takes known quantities of some phenomenon and spreads these quantities across the map.
+                </li>
+            </ul>
+            
+        </p>
+    </div>
+        <div id="CalculateDensityTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>밀도 계산</h2></td>
+                    <td>
+                    <img src="../images/GUID-F73672D4-EE6F-4119-9C92-16F6CFDD86D3-web.png" class="titleImage" alt="밀도 계산">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Density analysis takes known quantities of some phenomenon and spreads these quantities across the map. You can use this tool, for example,  to show concentrations of  lightning strikes or tornados, access to health care facilities, and population densities.
+            </p>
+            <br/>
+        </div>
+        <div id="FindHotSpotsTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>핫 스팟 찾기</h2></td>
+                    <td>
+                    <img src="../images/GUID-C2575FC6-F14C-4332-B3BF-AB4EDA15177B-web.png" class="titleImage" alt="핫 스팟 찾기">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>This tool creates a map showing any statistically significant spatial clustering present in your data.   Use this tool to uncover unexpected hot spots (red) and cold spots (blue) of high and low home values, crime densities, traffic accident fatalities, unemployment or biodiversity, for example.
+            </p>
+            <br/>
+        </div>
+        <div id="InterpolatePointsTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>포인트 내삽</h2></td>
+                    <td>
+                    <img src="../images/GUID-6E142A07-EA32-4E66-8423-ECDB8CD6B927-web.png" class="titleImage" alt="포인트 내삽">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>This  tool allows you to predict values at new locations based on measurements found in a collection of points. The tool takes point data with values at each point and returns areas classified by predicted values. You can use this tool, for example, to predict rainfall levels across a watershed based on measurements taken at individual rain gauges.
+            </p>
+            <br/>
+        </div>
+    <div id="UseProximityCategory" class="regularsize">
+        <h2>近接解析</h2>
+        <hr/>
+        <p> 이러한 도구를 사용하여 공간 분석에서 가장 일반적으로 제기되는 질문 중 하나인 &quot;무엇과 무엇이 인접합니까?&quot;라는 질문에 대한 대답을 찾을 수 있습니다.
+            <ul>
+                <li> <b>버퍼 만들기</b> - 피처에서 동일한 거리에 있는 영역을 생성합니다.
+                </li>
+                <li> <b>차량 이동 거리 만들기</b> - 일정 시간 이내에 도달할 수 있는 위치를 중심으로 영역을 찾습니다.
+                </li>
+                <li> <b>가장 가까운 위치 찾기</b> - 알려진 위치에 가장 가까이 있는 장소를 식별합니다.
+                </li>
+                <li> <b>경로 계획</b> - 차량이 여러 경유지를 방문하는 경로를 지정하기 위한 가장 효율적인 방법을 결정합니다.
+                </li>
+            </ul>
+            
+        </p>
+        <p> 
+        </p>
+    </div>
+        <div id="CreateBuffersTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>버퍼 생성</h2></td>
+                    <td>
+                    <img src="../images/GUID-652EECCB-3A95-4984-9283-16E5CD36D569-web.png" class="titleImage" alt="버퍼 생성">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>버퍼는 포인트, 라인 또는 영역 피처에서 지정된 거리를 포함하는 영역입니다. 
+            </p>
+            <p>버퍼는 일반적으로 레이어 중첩과 같은 다른 도구를 사용하여 추가 분석할 수 있는 영역을 생성하는 데 사용됩니다. 예를 들어 질문이 &quot;학교에서 1.6Km 이내에 있는 건물은 무엇입니까?&quot;인 경우 학교를 중심으로 1.6Km 버퍼를 생성한 후 건물 풋프린트가 포함된 레이어로 버퍼를 중첩하여 답을 찾을 수 있습니다.  이 과정을 통해 학교에서 1.6Km 이내에 있는 건물들의 레이어가 최종 결과로 생성됩니다.  
+            </p>
+            <br/>
+        </div>
+        <div id="CreateDriveTimeAreasTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>운전 시간 영역 만들기</h2></td>
+                    <td>
+                    <img src="../images/GUID-989C4173-4BB2-4D42-ADA5-F5D1BB8CB0CB-web.png" class="titleImage" alt="운전 시간 영역 만들기">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>차량 이동 거리는 지정한 운전 시간 또는 운전 거리 이내에 도달할 수 있는 영역입니다. 차량 이동 거리를 사용하여 답을 찾을 수 있는 질문의 예를 들면 다음과 같습니다.
+                <ul>
+                    <li>여기에서 자동차로 30분 이내에 갈 수 있는 곳은 어디입니까?
+                    </li>
+                    <li>여기에서 혼잡한 시간인 오후 6시에 자동차로 30분 이내에 갈 수 있는 곳은 어디입니까?
+                    </li>
+                    <li>5분 이내의 거리에 소방서가 있는 지역은 어디입니까? 여기에 새 소방서를 건립하면 화재 대응 수준이 어느 정도 개선됩니까?
+                    </li>
+                    <li>내 사업 분야가 적용되는 시장 영역은 무엇입니까? 내 매장에서 16Km 이내에 있는 지역은 어디입니까?
+                    </li>
+                </ul>
+                
+            </p>
+            <br/>
+        </div>
+        <div id="FindNearestTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>가장 가까운 위치 찾기</h2></td>
+                    <td>
+                    <img src="../images/GUID-712E0E63-3047-4D1C-B2A9-D336FEC79BF0-web.png" class="titleImage" alt="가장 가까운 위치 찾기">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>사건 및 시설 간의 교통 비용을 측정하여 보다 가까운 곳을 확인합니다. 각 경로의 교통 비용(시간 및 거리)과 함께 사건 및 시설 간의 최적 경로를 보여 주는 레이어가 결과로 생성됩니다.  예를 들어 이 도구를 사용하여 사고 발생 지역과 가장 가까운 병원 또는 현재 위치와 가장 가까운 ATM을 찾을 수 있습니다.
+            </p>
+            <br/>
+        </div>
+        <div id="PlanRoutesTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>경로 계획</h2></td>
+                    <td>
+                    <img src="../images/GUID-A6D9521F-EECE-4DA2-808E-61483B99AE01-web.png" class="titleImage" alt="경로 계획">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>경유지 집합과 경유지를 방문하는 데 사용할 수 있는 다양한 차량을 지정하면 경로 계획이 차량에 경유지를 효율적으로 할당하고 차량이 경유지로 이동하는 경로를 지정하는 방법을 결정합니다.
+            </p>
+            <p>이 도구를 사용하면 조사자, 감정인, 재택 지원 서비스 공급자 등으로 구성된 모바일 팀의 작업을 계획하거나, 원격 위치에서 물품을 배송 또는 픽업하거나, 고객에게 교통 서비스를 제공할 수 있습니다.
+            </p>
+            <br/>
+        </div>
+    <div id="ManageDataCategory" class="smallsize">
+        <h2>데이터 관리</h2>
+        <hr/>
+        <p>이러한 도구는 지리 데이터의 일상적인 관리 및 분석 전 데이터 통합에 사용됩니다.  
+            <ul>
+                <li> <b>경계 해제</b> - 공통 경계 및 공통 속성 값을 공유하는 영역을 병합합니다.
+                </li>
+                <li> <b>데이터 추출</b> - 기존 데이터에서 피처를 추출하여 새 데이터셋을 생성합니다.
+                </li>
+                <li> <b>레이어 병합</b> - 둘 이상의 기존 레이어에 있는 모든 피처를 하나의 새 레이어에 복사합니다.
+                </li>
+                <li> <b>레이어 중첩</b> - 둘 이상의 레이어를 하나의 단일 레이어로 결합합니다.  맵 스택을 살펴보고 스택에서 확인한 모든 정보를 포함하는 단일 맵을 생성하는 작업을 중첩이라고 생각하면 됩니다.
+                </li>
+            </ul>
+            
+        </p>
+    </div>
+        <div id="DissolveBoundariesTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>경계 해제</h2></td>
+                    <td>
+                    <img src="../images/GUID-D1192DD3-306F-4527-9898-FF2021ABCB0A-web.png" class="titleImage" alt="경계 해제">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>공통 경계를 공유하거나 중첩되는 영역이 병합되어 단일 영역을 형성합니다.    
+            </p>
+            <p>필드를 지정하여 병합할 경계를 제어할 수 있습니다. 예를 들어 국가 레이어가 있는 경우 각 국가에  <i>State_Name</i> 속성이 있으면 <i>State_Name</i> 속성을 사용하여 경계를 디졸브할 수 있습니다.  인접 국가는 <i>State_Name</i> 값이 같은 경우에 병합됩니다.  이 도구에서 생성되는 최종 결과는 주 경계 레이어입니다.
+            </p>
+            <br/>
+        </div>
+        <div id="ExtractDataTool" class="smallsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>데이터 추출</h2></td>
+                    <td>
+                    <img src="../images/GUID-0DACA98E-B1A2-4E25-957B-EDC651A3DDD1-web.png" class="titleImage" alt="데이터 추출">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>지정한 관심 영역 및 레이어의 데이터에 대한 zip 파일 또는 레이어 패키지를 생성합니다.
+
+            </p>
+            <br/>
+        </div>
+        <div id="MergeLayersTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>레이어 병합</h2></td>
+                    <td>
+                    <img src="../images/GUID-DACDAC49-3ECE-45A2-AC42-69016B3B8ADA-web.png" class="titleImage" alt="레이어 병합">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>둘 이상의 기존 레이어에 있는 피처를 하나의 새 레이어에 복사합니다. 예를 들면 다음과 같습니다.
+                <ul>
+                    <li>잉글랜드, 웨일즈 및 스코틀랜드에 대한 레이어가 3개 있는 경우 영국이라는 단일 레이어를 생성합니다. 
+                    </li>
+                    <li>레이어가 12개 있고, 각 레이어에는 인접 마을에 대한 필지 정보가 포함되어 있습니다.  이러한 레이어를 단일 레이어로 결합하여 12개의 입력 레이어에서 이름과 유형이 같은 속성만 유지할 수 있습니다.
+                    </li>
+                </ul>
+                
+            </p>
+            <br/>
+        </div>
+        <div id="OverlayLayersTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>레이어 중첩</h2></td>
+                    <td>
+                    <img src="../images/GUID-F7C42432-C8C5-4E4F-8275-EC7E95D00CB7-web.png" class="titleImage" alt="레이어 중첩">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>중첩은 둘 이상의 레이어를 하나의 단일 레이어로 결합합니다.  맵 스택을 살펴보고 스택에서 확인한 모든 정보를 포함하는 단일 맵을 생성하는 작업을 중첩이라고 생각하면 됩니다. 예를 들면 다음과 같습니다.
+                <ul>
+                    <li>100년 홍수 지역 내에 있는 필지는 무엇입니까?(여기에서 '내에 있다'는 '겹침'을 의미하는 또 다른 표현 방법)
+                    </li>
+                    <li>어떤 도시 내에 어떤 도로가 있습니까?
+                    </li>
+                    <li>토질 유형별 토지 이용 현황이 어떻습니까?
+                    </li>
+                    <li>버려진 군사 기지에 어떤 우물이 있습니까?
+                    </li>
+                </ul>
+                
+            </p>
+            <br/>
+        </div>
+</div>
+</html>

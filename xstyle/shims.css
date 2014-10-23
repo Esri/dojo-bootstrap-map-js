@@ -1,0 +1,1 @@
+opacity =? module(xstyle/xstyle);bottom =? module(xstyle/shim/boxOffsets);right =? module(xstyle/shim/boxOffsets);transition =? prefix, require(xstyle/shim/transition);border-radius =? prefix;box-shadow =? prefix, module(xstyle/shim/ie-filter);box-sizing =? prefix;border-image =? prefix;transform =? prefix, module(xstyle/shim/ie-filter);

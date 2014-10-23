@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Sumuoti viduje</h2><p/>
+        <h2><img src="../images/GUID-2E97B2ED-56A7-4242-B0E0-C1824E6F643F-web.png" alt="Sumuoti viduje"></h2>
+        <hr/>
+    <p>Įrankis randa elementus (ar jų dalis), esančius analizuojamo sluoksnio ribose.  Pavyzd˛iui:
+        <ul>
+            <li>Suskaičiuoti kiekvienos ˛emėnaudos dalį procentais upės baseine. 
+            </li>
+            <li>Turint sklypų ir savivaldybių sluoksnius apskaičiuoti neu˛statytų sklypų kiekvienos savivaldybės ribose skaičių.
+            </li>
+        </ul>
+        
+    </p>
+    <p>Jei pa˛ymėta  <b>Naudoti esamą ˛emėlapio aprėptį</b>, bus analizuojami tik aprėptyje matomi elementai.  Jei nepa˛ymėtas, analizuojami bus visi sluoksnių elementai.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="Summarize">
+        <div><h2>Pasirinkite sluoksnį sumavimui</h2></div>
+        <hr/>
+        <div>
+            <p>Elementai iame sluoksnyje, patenkantys į analizės sluoksnio elementų ribas bus susumuoti. 
+            </p>
+        </div>
+    </div>
+    <div id="StatisticsPoint">
+        <div><h2>Pridėti statistinį rodiklį i</h2></div>
+        <hr/>
+        <div>
+            <p>Taip pat galite apskaičiuoti takų, patenkančių į nurodytas ribas, skaitinių atributų reikmių statistinius rodiklius. 
+            </p>
+            <p>Pa˛ymėjus  <b>Takų kiekis</b> apskaičiuos bendrą kiekviename plote esančių takų skaičių.  Galite apskaičiuoti takų, patenkančių į nurodytas ribas, skaitinių atributų reikmių statistinius rodiklius.
+            </p>
+            <ul>
+                <li> <b>Suma</b>&mdash;lauko reikmių suma.
+                    
+              
+                </li>
+                <li> <b>Vidurkis</b>&mdash;apskaičiuoja lauko reikmių vidurkį.
+                    
+              
+                </li>
+                <li> <b>Minimumas</b>&mdash;ma˛iausia lauko reikmė.
+                    
+              
+                </li>
+                <li> <b>Maksimumas</b>&mdash;did˛iausia lauko reikmė.
+                    
+              
+                </li>
+                <li> <b>Standartinis nuokrypis</b>&mdash;standartinis arba vidutinis kvadratinis nuokrypis.
+                    
+            
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="StatisticsLine">
+        <div><h2>Pridėti statistinį rodiklį i</h2></div>
+        <hr/>
+        <div>
+            <p>Taip pat galite apskaičiuoti alia esančių linijų skaitinių atributų statistinius rodiklius. 
+            </p>
+            <p>Pa˛ymėjus  <b>Bendras ilgis</b> apskaičiuos bendrą kiekviename plote esančių linijų ilgį.  Galite apskaičiuoti linijų, patenkančių į nurodytas ribas, skaitinių atributų reikmių statistinius rodiklius.
+            </p>
+            <ul>
+                <li> <b>Suma</b>&mdash;lauko reikmių suma.
+                    
+              
+                </li>
+                <li> <b>Vidurkis</b>&mdash;apskaičiuoja lauko reikmių vidurkį.
+                    
+              
+                </li>
+                <li> <b>Minimumas</b>&mdash;ma˛iausia lauko reikmė.
+                    
+              
+                </li>
+                <li> <b>Maksimumas</b>&mdash;did˛iausia lauko reikmė.
+                    
+              
+                </li>
+                <li> <b>Standartinis nuokrypis</b>&mdash;standartinis arba vidutinis kvadratinis nuokrypis.
+                    
+            
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="StatisticsPolygon">
+        <div><h2>Pridėti statistinį rodiklį i</h2></div>
+        <hr/>
+        <div>
+            <p>Taip pat galite apskaičiuoti alia esančių plotų skaitinių atributų statistinius rodiklius. 
+            </p>
+            <p>Pa˛ymėjus  <b>Sumuoti plotą, naudojant</b> apskaičiuos bendrą alia esančių plotinių elementų plotą.  Galite apskaičiuoti plotų, patenkančių į nurodytas ribas, skaitinių atributų reikmių statistinius rodiklius.
+            </p>
+            <ul>
+                <li> <b>Suma</b>&mdash;lauko reikmių suma.
+                    
+              
+                </li>
+                <li> <b>Vidurkis</b>&mdash;apskaičiuoja lauko reikmių vidurkį.
+                    
+              
+                </li>
+                <li> <b>Minimumas</b>&mdash;ma˛iausia lauko reikmė.
+                    
+              
+                </li>
+                <li> <b>Maksimumas</b>&mdash;did˛iausia lauko reikmė.
+                    
+              
+                </li>
+                <li> <b>Standartinis nuokrypis</b>&mdash;standartinis arba vidutinis kvadratinis nuokrypis.
+                    
+            
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="GroupBy">
+        <div><h2>Pasirinkite grupavimo lauką</h2></div>
+        <hr/>
+        <div>
+            <p>Tai  <b>Sumuojamų</b> elementų atributas, leid˛iantis suskirstyti elementus pagal skirtingas atributo reikmes. Pavyzd˛iui, jei analizei naudojamas miesto ribų sluoksnis, o <b>Sumuojami</b> elementai yra sklypai.  Vienas i sklypų atributų yra <i>Status</i> , turintis dvi galimas reikmes: TUČIAS ir UˇIMTAS. Norėdami apskaičiuoti bendrą laisvų ir u˛imtų sklypų plotą miesto ribose, naudokite <i>Status</i> kaip grupavimo atributą. Kiekvienos grupės statistika ir elementų kiekis kiekvieno ploto ribose bus rodomi rezultatų sluoksnio ikylančiame lange.
+            </p>
+        </div>
+    </div>
+    <div id="MinorityMajority">
+        <div><h2>Pridėti ma˛umą, daugumą</h2></div>
+        <hr/>
+        <div>
+            <p>is ˛ymės langelis įgalinamas, kai pasirenkate lauką, pagal kurį grupuosite.    Jei norite su˛inoti, kurios kiekvienos grupės atributų reikmės, patenkančios į kiekvienas ribas, yra analizuojamo sluoksnio ma˛uma (rečiausios) arba dauguma (da˛niausios), pasirinkite  <b>Pridėti ma˛umą, daugumą</b>.   Kai pasirenkate <b>Pridėti ma˛umą, daugumą</b>, į rezultatų sluoksnį įtraukiami du nauji laukai.   Jei pasirinksite ir <b>Pridėti procentus</b>, į rezultatų sluoksnį bus įtraukti du papildomi laukai, kuriuose bus nurodytos kiekvienos grupės ma˛umos ir daugumos atributų reikmių procentai.
+            </p>
+            <ul>
+                <li>Jei sumuojate ta&scaron;kus, mažumos ir daugumos reik&scaron;mės apskaičiuojamos remiantis ta&scaron;kų, esančių kiekviename analizuojamo sluoksnio ribojamame plote, skaičiumi.  
+                    
+              
+                </li>
+                <li>Jei sumuojate linijas, ma˛umos ir daugumos reikmės apskaičiuojamos remiantis linijų, esančių kiekviename analizuojamo sluoksnio ribojamame plote, ilgiu.  
+                    
+              
+                </li>
+                <li>Jei sumuojate plotus, ma˛umos ir daugumos reikmės apskaičiuojamos remiantis plotais, esančiais kiekviename analizuojamo sluoksnio ribojamame plote.  
+                    
+            
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="PercentShape">
+        <div><h2>Pridėti procentus</h2></div>
+        <hr/>
+        <div>
+            <p>is ˛ymės langelis įgalinamas, kai pasirenkate lauką, pagal kurį grupuosite.    Pasirinkite  <b>Pridėti procentus</b>, jei norite sužinoti kiekvienos grupės kiekvienos atributo reik&scaron;mės procentą.  Į rezultatų lentelę įtraukiamas naujas laukas, kuriame nurodytas kiekvienos grupės kiekvienos atributo reikmės procentas.   Jei pa˛ymėta ir <b>Pridėti ma˛umą, daugumą</b>, į rezultatų sluoksnį bus įtraukti du papildomi laukai, kuriuose bus nurodytos kiekvienos grupės ma˛umos ir daugumos atributų reikmių procentai.
+            </p>
+        </div>
+    </div>
+    <div id="ResultLayerName">
+        <div><h2>Rezultatų sluoksnio pavadinimas</h2></div>
+        <hr/>
+        <div>
+            <p>Tai sluoksnio, kuris bus sukurtas ir patalpintas  <b>Turinyje</b> bei pridėtas į ˛emėlapį, pavadinimas.  Pavadinimas pagal nutylėjimą formuojamas i analizuojamo sluoksnio pavadinimo. Jei sluoksnis jau egzistuoja, būsite paklausti, ar norite jį perrayti.
+            </p>
+            <p>Pasirinkę  <b>Rezultatą įrayti į</b>, galite nurodyti <b>Turinyje</b> esančio aplanko pavadinimą.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

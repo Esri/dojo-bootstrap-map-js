@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Spojení počátků s cíli</h2><p/>
+        <h2><img src="../images/GUID-86AA24B9-2DDE-460C-BA65-7CCDF7F4855D-web.png" alt="Spojen&iacute; poč&aacute;tků s c&iacute;li"></h2>
+        <hr/>
+    <p>  N&aacute;stroj Spojen&iacute; poč&aacute;tků s c&iacute;li měř&iacute; čas cesty nebo vzd&aacute;lenost mezi dvojic&iacute; bodů. Tento n&aacute;stroj může vypoč&iacute;tat vzd&aacute;lenosti vzdu&scaron;nou čarou, vzd&aacute;lenosti po silnici nebo podle doby cesty. Pomoc&iacute; tohoto n&aacute;stroje můžete:
+    </p>
+    <p>
+        <ul>
+            <li>Změřit, jak daleko z&aacute;kazn&iacute;ci cestuj&iacute;, aby nakoupili ve va&scaron;ich obchodech. Tuto informaci můžete použ&iacute;t k určen&iacute; va&scaron;eho obchodn&iacute;ho dosahu, zvl&aacute;&scaron;ť při c&iacute;len&iacute; reklamn&iacute;ch kampan&iacute; nebo v&yacute;běru lokalit pro nov&eacute; obchody. 
+            </li>
+            <li>Spoč&iacute;tat předpokl&aacute;danou ujetou vzd&aacute;lenost pro svůj vozov&yacute; park. Pot&eacute; můžete pomoc&iacute; n&aacute;stroje Shrnut&iacute; hodnot v rozmez&iacute; z&iacute;skat ujetou vzd&aacute;lenost podle st&aacute;tu nebo jin&eacute;ho regionu.
+            </li>
+            <li>Vypoč&iacute;tat celkovou vzd&aacute;lenost, kterou lid&eacute; ujedou při cestov&aacute;n&iacute; z domova do pr&aacute;ce, a dobu t&eacute;to j&iacute;zdy.
+            </li>
+        </ul>
+        
+    </p>
+    <p>Zad&aacute;te poč&aacute;tečn&iacute; a koncov&eacute; body a n&aacute;stroj vytvoř&iacute; vrstvu obsahuj&iacute;c&iacute; trasy, včetně měřen&iacute;, mezi sp&aacute;rovan&yacute;mi poč&aacute;tky tras a c&iacute;li. Pokud v&iacute;ce poč&aacute;tků konč&iacute; v jednom c&iacute;li, je ve v&yacute;stupu zahrnuta tabulka shrnuj&iacute;c&iacute; v&iacute;ce cest do tohoto c&iacute;le.
+    </p>
+    <p>Pokud je za&scaron;krtnuto pole  <b>Použ&iacute;vat aktu&aacute;ln&iacute; rozsah mapy</b>, budou do anal&yacute;zy zahrnuty pouze prvky viditeln&eacute; v aktu&aacute;ln&iacute;m rozsahu mapy. Pokud pole za&scaron;krtnuto nen&iacute;, budou považov&aacute;ny v&scaron;echny prvky ve vstupn&iacute; vrstvě, včetně těch, kter&eacute; se nach&aacute;z&iacute; mimo rozsah aktu&aacute;ln&iacute; mapy.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="destinationsLayer">
+        <div><h2>Zvolte vrstvu cílů</h2></div>
+        <hr/>
+        <div>
+            <p>Zvolte vrstvu, kter&aacute; představuje c&iacute;l nebo c&iacute;le, se kter&yacute;mi se maj&iacute; spojit poč&aacute;tky. N&aacute;stroj podporuje až 10,000 poč&aacute;tků a10,000 c&iacute;lů.
+            </p>
+            <p>Pokud zvol&iacute;te vrstvu, kter&aacute; m&aacute; přesně jeden c&iacute;l, v&scaron;echny poč&aacute;tky se spoj&iacute; s t&iacute;mto c&iacute;lem. 
+            </p>
+            <p>Pokud existuje jeden poč&aacute;tek a mnoho c&iacute;lů, n&aacute;stroj spoj&iacute; tento poč&aacute;tek s každ&yacute;m c&iacute;lem.
+            </p>
+            <p> V př&iacute;padě mnoha poč&aacute;tků a mnoha c&iacute;lů mus&iacute;te m&iacute;t dvě pole, kter&aacute; popisuj&iacute; p&aacute;ry poč&aacute;tek&ndash;c&iacute;l: <b>ID pole v poč&aacute;tc&iacute;ch</b> a <b>shoduj&iacute;c&iacute; se ID pole v c&iacute;lech</b>. N&aacute;stroj během anal&yacute;zy spoj&iacute; p&aacute;ry poč&aacute;tek&ndash;c&iacute;l. Př&iacute;klad: M&aacute;te dva poč&aacute;tky s hodnotami ID pole <code>Jana</code> a <code>Petr</code> a dva c&iacute;le se stejn&yacute;mi hodnotami ID. Poč&aacute;tek <code>Jana</code> se spoj&iacute; s c&iacute;lem <code>Jana</code> a <code>Petr</code> se spoj&iacute; s <code>Petr</code>. K ž&aacute;dn&yacute;m jin&yacute;m spojen&iacute;m nebo měřen&iacute;m nedojde.
+            </p>
+            <p>Hodnoty ID mus&iacute; b&yacute;t pro každou vrstvu jedinečn&eacute;; vrstva c&iacute;lů např&iacute;klad nemůže m&iacute;t dvě hodnoty  <code>Jana</code>. Hodnoty ve vrstv&aacute;ch poč&aacute;tků a c&iacute;lů se mus&iacute; přesně shodovat, aby byly sp&aacute;rov&aacute;ny; <code>Petr</code> se nespoj&iacute; s hodnotou, ve kter&eacute; je překlep, <code>Pter</code>. 
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div><h2>Měření</h2></div>
+        <hr/>
+        <div>
+            <p>Zvolte, zda chcete poč&aacute;tky tras spojit s c&iacute;li vyhled&aacute;n&iacute;m vzdu&scaron;n&eacute; č&aacute;ry, j&iacute;zdn&iacute; vzd&aacute;lenosti nebo doby j&iacute;zdy. V př&iacute;padech j&iacute;zdn&iacute; vzd&aacute;lenosti a doby j&iacute;zdy jsou vzd&aacute;lenosti měřeny po silnic&iacute;ch a respektuj&iacute; jednosměrn&eacute; silnice, nepovolen&eacute; man&eacute;vry atd. 
+            </p>
+            <p>Pokud zvol&iacute;te  <b>Čas j&iacute;zdy </b>, m&aacute;te k dispozici několik možnost&iacute;, jak dobu j&iacute;zdy měřit.
+                <ul>
+                    <li>
+                        <p>Chcete-li vyhledat nejrychlej&scaron;&iacute; trasy na z&aacute;kladě pevně dan&yacute;ch rychlost&iacute;, zru&scaron;te za&scaron;krtnut&iacute; pole  <b>Použ&iacute;t hustotu dopravy</b>. Neza&scaron;krtnut&iacute; t&eacute;to možnosti je vhodn&eacute; v př&iacute;padě, že chcete zjistit obecn&eacute; měřen&iacute; doby j&iacute;zdy, kter&eacute; nez&aacute;vis&iacute; na měn&iacute;c&iacute;ch se dopravn&iacute;ch podm&iacute;nk&aacute;ch a určit&eacute;m času odjezdu.
+                        </p>
+                    </li>
+                    <li>
+                        <p>Chcete-li vyhledat nejrychlej&scaron;&iacute; trasy na z&aacute;kladě dan&eacute;ho poč&aacute;tečn&iacute;ho času a měn&iacute;c&iacute;ch se dopravn&iacute;ch podm&iacute;nek, za&scaron;krtněte možnost  <b>Použ&iacute;t hustotu dopravy</b>. Pokud tak&eacute; zvol&iacute;te možnost <b>Aktu&aacute;ln&iacute; hustota dopravy</b>, bude čas odjezdu z poč&aacute;tků tras nastaven na aktu&aacute;ln&iacute; čas a při vytv&aacute;řen&iacute; tras budou použ&iacute;v&aacute;ny aktu&aacute;ln&iacute; a předpov&iacute;dan&eacute; rychlosti dopravy z&iacute;skan&eacute; z dopravn&iacute;ch čidel a dal&scaron;&iacute;ch zdrojů. Předpov&iacute;dan&eacute; rychlosti dopravy jsou vypočteny na z&aacute;kladě aktu&aacute;ln&iacute;ch rychlost&iacute; provozu, historick&yacute;ch rychlost&iacute; a aktu&aacute;ln&iacute;ch ud&aacute;lost&iacute;, např&iacute;klad podle stavu počas&iacute;. Rychlosti dopravy jsou předpov&iacute;d&aacute;ny na12 hodin dopředu, takže můžete pomoc&iacute; posuvn&iacute;ku nastavit čas odjezdu až o12 hodin vpřed.
+                        </p>
+                        <p>Tato nastaven&iacute; aktu&aacute;ln&iacute; dopravy jsou vhodn&aacute;, chcete-li zjistit, jak dlouho bude j&iacute;zda trvat, když vyjedete okamžitě, za jednu hodinu atd.
+                        </p>
+                    </li>
+                    <li>
+                        <p>Pokud za&scaron;krtnete pole  <b>Použ&iacute;t hustotu dopravy</b> a vyberete možnost <b>Obvykl&aacute; hustota dopravy pro</b> den a čas, vyhled&aacute; n&aacute;stroj nejrychlej&scaron;&iacute; trasy na z&aacute;kladě historick&yacute;ch rychlostn&iacute;ch průměrů pětiminutov&yacute;ch intervalů v průběhu běžn&eacute;ho t&yacute;dne. V&yacute;sledky přihl&iacute;žej&iacute; k hustotě dopravy, neberou v&scaron;ak v potaz vliv aktu&aacute;ln&iacute;ch dopravn&iacute;ch podm&iacute;nek a ud&aacute;lost&iacute;, kter&eacute; se mohou v&yacute;razně li&scaron;it od norm&aacute;lu.
+                        </p>
+                        <p>Pomoc&iacute; těchto historick&yacute;ch dopravn&iacute;ch nastaven&iacute; se např&iacute;klad můžete zeptat na ot&aacute;zku, &bdquo;Jak dlouho mi bude zhruba trvat cesta na tato m&iacute;sta, pokud vyjedu ve středu v 11:30?&ldquo;
+                        </p>
+                        <p>Nastaven&yacute; čas se ř&iacute;d&iacute; časov&yacute;m p&aacute;smem, ve kter&eacute;m se nach&aacute;z&iacute; poč&aacute;tky tras. Pokud tedy nastav&iacute;te čas na 8:00 a m&aacute;te dva poč&aacute;tky trasy, jeden v New York City a druh&yacute; v Los Angeles, budou trasy vygenerov&aacute;ny pro čas odjezdu 8:00 v&yacute;chodn&iacute;ho času a 8:00 tichomořsk&eacute;ho času.
+                        </p>
+                    </li>
+                </ul>
+                
+            </p>
+            <p>Mějte na paměti, že s t&iacute;m, jak se vozidlo vzdaluje od poč&aacute;tku trasy, plyne i čas a měn&iacute; se hustota dopravy. N&aacute;stroj Spojen&iacute; poč&aacute;tků s c&iacute;li k tomu přihl&iacute;ž&iacute;, za&scaron;krtnete-li pole  <b>Použ&iacute;t hustotu dopravy</b>. Ne v&scaron;echny regiony v&scaron;ak dopravn&iacute; data podporuj&iacute;. Chcete-li zjistit, zda jsou tato data dostupn&aacute; ve va&scaron;&iacute; z&aacute;jmov&eacute; oblasti, klikněte v n&aacute;stroji na odkaz <b>Zobrazit dostupnost</b>.
+            </p>
+        </div>
+    </div>
+    <div id="outputLayer">
+        <div><h2>Název výsledné vrstvy</h2></div>
+        <hr/>
+        <div>
+            <p>Jde o n&aacute;zev vrstvy, kter&aacute; se vytvoř&iacute; ve složce  <b>Můj obsah</b> a přid&aacute; do mapy. V&yacute;choz&iacute; n&aacute;zev se ř&iacute;d&iacute; n&aacute;zvem vrstvy anal&yacute;zy. Pokud vrstva již existuje, budete pož&aacute;d&aacute;ni o potvrzen&iacute;, jestli si ji přejete přepsat.
+            </p>
+            <p>V rozbalovac&iacute;m seznamu  <b>Uložit v&yacute;sledek do</b> můžete zadat n&aacute;zev složky ve složce <b>Můj obsah</b>, do kter&eacute; se m&aacute; v&yacute;sledek uložit.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

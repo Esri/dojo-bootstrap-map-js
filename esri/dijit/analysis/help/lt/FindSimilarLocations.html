@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Rasti panašias vietas</h2><p/>
+        <h2><img src="../images/GUID-01EFFE9D-141F-45BA-AB21-C9E3490587F2-web.png" alt="Rasti pana&scaron;ias vietas"></h2>
+        <hr/>
+    <p>Based on criteria you specify, the Find Similar Locations tool measures the similarity of locations in your candidate search layer to one or more reference locations.  Įrankis gali atsakyti į tokius klausimus kaip
+        <ul>
+            <li>Kurios parduotuvės yra pana&scaron;iausios į pirmaujančias pagal klientų grupes?
+            </li>
+            <li>Pagal gyvenviečių, kuriose i&scaron;plito liga, požymius, kurios kitos gyvenvietės patenka į didžiausios rizikos grupę? 
+            </li>
+        </ul>
+        Norint atsakyti į &scaron;iuos klausimus, reikia nurodyti pradinių vietų duomenis, paie&scaron;kos vietų rinkinį ir laukus, atitinkančius užduotus kriterijus.  Pasirinktas sluoksnis (analizės sluoksnis) turi būti sudarytas i&scaron; etaloninių ar atskaitos objektų.  Pavyzdžiui, tai gali būti sluoksnis, sudarytas i&scaron; pirmaujančių parduotuvių ar gyvenviečių, kuriose i&scaron;plito liga.  Tuomet nurodomas paie&scaron;kos vietų sluoksnis.  Tai gali būti kitos parduotuvės ar gyvenvietės.  Galiausiai, nurodomi laukai, naudojami pana&scaron;umo nustatymui.  Rasti Pana&scaron;ias Vietas įrankis visiems paie&scaron;kos sluoksnio objektams suteiks pana&scaron;umo į analizės objektus įvertį pagal visus nurodytus laukus.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div><h2>Galima naudoti visus objektus arba išrinkti:</h2></div>
+        <hr/>
+        <div>
+            <p>Naudokite i&scaron;rinkimo mygtukus analizės objektų atrinkimui.  Pavyzdžiui, jei įvesties sluoksnį sudaro visos vietos&mdash;tiek atskaitos objektai, tiek paie&scaron;kos objektai&mdash;reikės atrinkti atskaitos objektus naudojant i&scaron;rinkimo įrankius.   Jei sukurti du sluoksniai, vienas su atskaitos objektais ir kitas su paie&scaron;kos objektais, i&scaron;rinkimo atlikti nereikės.
+
+            </p>
+            <p>Jei yra daugiau nei vienas atskaitos objektas, pana&scaron;umo nustatymui bus sukurtas vienas objektas, atitinkantis kriterijų vidutinę reik&scaron;mę.
+            </p>
+        </div>
+    </div>
+    <div id="searchLayer">
+        <div><h2>Ieškoti panašių vietų:</h2></div>
+        <hr/>
+        <div>
+            <p>Objektai &scaron;iame sluoksnyje bus įvertinti nuo pana&scaron;iausio iki mažiausiai pana&scaron;aus.  Pana&scaron;umas remiasi tuo, kiek kiekvienas paie&scaron;kos objektas atitinka atskaitos objektus pagal kiekvieną i&scaron; nurodytų kriterijų.
+
+            </p>
+        </div>
+    </div>
+    <div id="analysisFields">
+        <div><h2>Panašumas pagal:</h2></div>
+        <hr/>
+        <div>
+            <p>Laukai, pagal kuriuos bus nustatomas pana&scaron;umas.  Jei pasirinkti gyventojų skaičiaus ir pajamų laukai, paie&scaron;kos objektai su žemiausiu (geriausiu) rodikliu bus tie, kurie turės į atskaitos objektus pana&scaron;iausias gyventojų skaičiaus ir pajamų reik&scaron;mes.
+
+            </p>
+        </div>
+    </div>
+    <div id="numberOfResults">
+        <div><h2>Rodyti:</h2></div>
+        <hr/>
+        <div>
+            <p>Galima pasirinkti rodyti visus paie&scaron;kos objektus nuo pana&scaron;iausio iki mažiausiai pana&scaron;aus arba nurodyti rezultato objektų kiekį.
+
+                <ul>
+                    <li> <b>visos vietos nuo pana&scaron;iausios iki mažiausiai pana&scaron;ios</b>&mdash;bus įtraukti visi paie&scaron;kos objektai pagal pana&scaron;umo eilę
+                    </li>
+                    <li> <b>pirmieji </b> <code>1</code>&mdash;galite nurodyti, kiek pana&scaron;iausių objektų įtraukti į rezultato sluoksnį.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="OutputName">
+        <div><h2>Rezultatų sluoksnio vardas</h2></div>
+        <hr/>
+        <div>
+            <p>Pateikite pavadinimą sluoksnio, kuris bus sukurtas ir patalpintas  <b>Turinyje</b> bei pridėtas į žemėlapį. Rezultato sluoksnis bus sudarytas i&scaron; atskaitos vietų ir nurodyto paie&scaron;kos objektų skaičiaus.   Jei toks sluoksnio pavadinimas jau egzistuoja, galėsite pasirinkti jį perra&scaron;yti.
+            </p>
+            <p>Naudodami  <b>Rezultatą įra&scaron;yti į</b> sąra&scaron;ą, galite nurodyti <b>Turinyje</b> esančio aplanko pavadinimą.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

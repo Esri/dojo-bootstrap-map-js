@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Atrast tuvāko</h2><p/>
+        <h2><img src="../images/GUID-712E0E63-3047-4D1C-B2A9-D336FEC79BF0-web.png" alt="Atrast tuvāko"></h2>
+        <hr/>
+    <p>&Scaron;is rīks atrod tuvākos elementus un, pēc izvēles, pārskata un sarindo distances līdz tuvākajiem elementiem. Lai atrastu tuvāko, rīks var vai nu izmērīt lineāro attālumu, ceļu distanci, vai brauk&scaron;anas laiku. Ir iespējas limitēt tuvāko elementu skaitu, vai meklē&scaron;anas diapazonu, ko meklēt. &Scaron;ī rīka rezultāti var palīdzēt jums atbildēt uz &scaron;āda veida jautājumiem:
+        <ul>
+            <li>Kur atrodas tuvākais parks?
+            </li>
+            <li>Kuru slimnīcu es varu sasniegt īsākajā brauk&scaron;anas laikā? Cik ilgs būs ceļojums otrdienā, plkst. 5:30 sastrēgumstundā?
+            </li>
+            <li>Kādi ir ceļu attālumi starp &scaron;īm lielākajām pilsētām?
+            </li>
+            <li>Kur&scaron; no &scaron;iem pacientiem uzturas divu jūdžu attālumā no &scaron;o ķīmisko augu plantācijas?
+            </li>
+        </ul>
+        
+    </p>
+    <p>Rīks Atrast tuvāko atgriež slāni ar tuvākajiem elementiem un, pēc izvēles, līniju slāni, kas sasaista starta izvietojumu ar tuvāko izvietojumu. Izvēles līniju slānis satur informāciju par starta un tuvākajiem izvietojumiem, kā arī attālumus starp tiem.
+    </p>
+    <p>Ja  <b>Lietot pa&scaron;reizējo kartes pārklājumu</b> ir atzīmēts, tikai elementi pa&scaron;reizējā kartes pārklājumā tiks uzskatīti par starta un potenciāli tuvākajiem elementiem.  Ja nav atzīmēts, visi ievades slāņa elementi tiks uzskaitīti, arī pa&scaron;reizējā kartes pārklājuma ārpusē.  
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="NearbyLocationsLayer">
+        <div><h2>Atrast tuvāko izvietojumu</h2></div>
+        <hr/>
+        <div>
+            <p>Atrast tuvāko mēra no katra izvietojuma analīzes slānī līdz izvietojumam &scaron;inī slānī. Rīks atbalsta līdz 1 000 izvietojumiem katrā slānī.
+            </p>
+        </div>
+    </div>
+    <div id="MeasurementMethod">
+        <div><h2>Izmērīt</h2></div>
+        <hr/>
+        <div>
+            <p>Izvēlieties, vai atrast tuvāko izvietojumu, pamatojoties uz lineāro distanci, brauk&scaron;anas distanci, vai brauk&scaron;anas laiku. Abos brauk&scaron;anas gadījumos mērījumi tiek veikti gar ceļiem, un ievēro vienvirziena ceļus, nelegālus pagriezienus, un tā tālāk. 
+            </p>
+            <p>Meklējot tuvāko, izmantojot lineāro attālumu, atļauj punktus, līnijas vai laukumus kā ievades. Lai mērītu brauk&scaron;anas laiku, vai brauk&scaron;anas attālumu, abiem ievades slāņiem (starta un tuvākā izvietojumiem), ir jāsatur punkti. 
+            </p>
+            <p>Kad mēra starp līnijām vai laukumiem, distance no vai līdz tuvākajam punktam tiek atrasta gar līniju vai laukuma robežu. 
+            </p> 
+            <p>Kad jūs izvēlaties  <b>Brauk&scaron;anas laiku</b>, jums ir opcijas, kā mērīt brauk&scaron;anas laiku.
+                <ul>
+                    <li>
+                        <p>Neatzīmēt  <b>Lietot Satiksmi</b> lai atrastu tuvākos elementus, pamatojoties uz statiskiem ceļo&scaron;anas ātrumiem, piemēram, ātruma ierobežojumiem, nevis uz mainīgiem ātrumiem, ko izraisa mainīgi satiksmes apstākļi. &Scaron;ī ir izvēles opcija, ja jūs vēlaties zināt, kas parasti ir tuvākais, bet ne vienmēr tuvākais dotajiem satiksmes nosacījumiem konkrētam laikam un dienai.
+                        </p>
+                    </li>
+                    <li>
+                        <p>Atzīmēt  <b>Lietot satiksmi</b> lai atrastu tuvākos elementus, pamatojoties uz doto starta laiku un mainīgiem satiksmes nosacījumiem. Arī izvēloties <b>Dzīva satiksme</b> opciju, izbrauk&scaron;anas laiks no starta izvietojumiem ir iestatīts uz pa&scaron;reizējo laiku, un pa&scaron;reizējais un prognozētais satiksmes ātrums ir atsauce uz sensoriem un plūsmām, lai noteiktu, kādi elementi ir tuvākie. Prognozētais satiksmes ātrums tiek aprēķināts, atsaucoties uz dzīvās satiksmes ātrumu, vēsturisko ātrumu un aktualitātēm, piem., laika apstākļiem. Satiksmes ātrums tiek prognozēts 12 stundām, lai jūs varētu pārvietot slīdni, lai iestatītu izbrauk&scaron;anas laiku līdz pat 12 stundām.
+                        </p>
+                        <p>Izmantojiet &scaron;os dzīvas satiksmes iestatījumus, lai uzzinātu, kādus elementus var sasniegt īsākajā laikā, kad izbrauc tagad, vienas stundas laikā un tā tālāk.
+                        </p>
+                    </li>
+                    <li>
+                        <p>Atzīmējot  <b>Lietot satiksmi</b> un izvēloties <b>Satiksmi ar tipiskiem nosacījumiem priek&scaron;</b> dienas un laika, rīks atrod tuvākos elementus, pamatojoties uz vēsturiskiem vidējiem ātrumiem katru piecu minū&scaron;u intervalā ikdienas nedēļā. &Scaron;ie rezultāti ietver satiksmi, bet izņem pa&scaron;reizējās satiksmes nosacījumus un notikumus, kas var ievērojami at&scaron;ķirties no normas.
+                        </p>
+                        <p>Jūs varat izmantot &scaron;os vēsruriskos satiksmes iestatījumus, lai jautātu, piem., &quot;Kurus elementus var sasniegt ātrāk, kad izbrauc no starta plkst. 11:30 tre&scaron;dienā?&quot; 
+                        </p>
+                        <p>Laika iestatījumi attiecas uz starta izvietojuma laika zonu. Tātad, ja jūs iestatat laiku 8:00 un ir divi starta elementi, viens Ņujorkā un vēl viens Losandželosā, tuvākie izvietojumi tiks atrasti, Pieņemot, ka izbrauk&scaron;anas laiks 8:00 Eastern Time un 8:00 Pacific Time, attiecīgi.
+                        </p>
+                    </li>
+                </ul>
+                Ņemiet vērā, ka transportlīdzeklis brauc uz āru no punkta, laiks ir pagājis un satiksmes apstākļi mainās. &Scaron;is rīks rēķina izmaiņās, kad jūs atzīmējiet <b>Lietot satiksmi</b>; tomēr, ne visi reģioni atbalsta satiksmi. Klik&scaron;ķiniet <b>Skatīt pieejamību</b> saiti uz rīku, lai noskaidrotu, vai tas tiek piedāvāts jūsu studiju areālā. 
+            </p>
+        </div>
+    </div>
+    <div id="Cutoffs">
+        <div><h2>Katram izvietojumam</h2></div>
+        <hr/>
+        <div>
+            <p>Jums ir divas opcijas, kā ierobežot meklē&scaron;anu tuvākajos izvietojumos. Viena opcija ir ierobežot tuvāko izvietojumu maksimālo skaitu, lai atrastu starta vietu. Jūs varat atrast vienu tuvāko parku, divus tuvākos, un tā tālāk. Otra opcija ir noteikt maksimālo meklē&scaron;anas attālumu vai brauk&scaron;anas laiku.
+            </p>
+            <p>Atslēdzot opcijas, maksimālais tuvāko izvietojumu skaits, ko atrast, ir 100 (rīka robeža), un maksimālais meklē&scaron;anas diapazons ir neierobežots.
+            </p>
+            <p>Apstrādes laiks ir atkarīgs no starta izvietojumiem, tuvākajiem izvietojumiem un meklē&scaron;anas diapazonu maksimuma.   Vairāk laika aizņem, lai apstrādātu vairāk izvietojumu vai lielākam meklē&scaron;anas diapazonam.
+            </p>
+            <p>Atcerieties, kad ir sasniegts meklē&scaron;anas diapazona limits, ir iespējams, ka rīks neatradīs tuvākos izvietojumus &scaron;ajā diapazonā, vai ir atrasts mazāk izvietojumu kā maksimālais norādītais tuvāko izvietojumu skaits.
+            </p>
+        </div>
+    </div>
+    <div id="OutputNearestLocationsLayer">
+        <div><h2>Rezultāta slāņa nosaukums</h2></div>
+        <hr/>
+        <div>
+            <p>&Scaron;ie rezultāta slāņi ietvers divus slāņus: viens no tuvākā izvietojuma un vēl viens no līnijām, kas savienot ievades izvietojumu ar tuvāko izvietojumu
+            </p>
+            <p>Jo līnijas rāda izmērītos ceļus, tās seko taisniem ceļiem, mērot lineārus attālumus, īsākās takas gar ceļiem, mērot brauk&scaron;anas attālumus, vai ātrākos ceļus, mērot brauk&scaron;anas laikus. Tabula, kas ir daļa no izvēles līnijas slāņa, satur sekojo&scaron;o informāciju: attālumi vai brauk&scaron;anas laika mērījumi līnijām; identificējo&scaron;u informāciju par saistīto starta un beigu izvietojumiem; un tuvuma klasifikāciju, iedalot to pēc starta izvietojuma, kas ļauj redzēt, tuvāko izvietojumu, nāko&scaron;o tuvāko un tā tālāk. Mērot brauk&scaron;anas laiku    ar satiksmi, tabula iekļauj arī izbrauk&scaron;anas un iera&scaron;anās laiku.
+            </p>
+            <p>Jūs varat izmantot noklusēto nosaukumu vai norādīt jaunu par &scaron;o izvēles slāni, kas tiks izveidots  <b>Mans Saturs</b> un pievienots kartei.  Noklusējuma nosaukumi ir balstīti uz analīzes slāņa nosaukumu. Ja slānis jau pastāv, jums tiks lūgts apstiprināt, vai vēlaties to pārrakstīt.
+            </p>
+            <p>Lietojot  <b>Saglabāt rezultātus</b> izvelkamajā lodziņā jūs varat norādīt nosaukumu mapei <b>Mans Saturs</b> kur tiks saglabāti rezultāti.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Apkopot</h2><p/>
+        <h2><img src="../images/GUID-2E97B2ED-56A7-4242-B0E0-C1824E6F643F-web.png" alt="Apkopot"></h2>
+        <hr/>
+    <p>is rīks atrod elementus (un elementu daļas), kas iekļaujas analīzes slāņa teritoriju robe˛ās.  Piemēram: 
+        <ul>
+            <li>Izmantojot ūdensķirtnes robe˛as un zemes lietoanas robe˛as, tiek aprēķināts kopējais zemes lietoanas veids katrai ūdensķirtnei. 
+            </li>
+            <li>Izmantojot zemes gabalu slāni un novada un pilsētas robe˛u slāni, tiek apkopota vidējā brīvo zemes gabalu vērtība katras pilsētas robe˛ās.
+            </li>
+        </ul>
+        
+    </p>
+    <p>Ja ir atzīmēta opcija  <b>Lietot pareizējo kartes pārklājumu</b>, tiks analizēti tikai tie apkopojamie elementi analīzes slānī un slānī, kas tiek rādīti pareizējā kartes pārklājumā.  Ja opcija nav atzīmēta, visi elementi abos analīzes slāņos un apkopoanas slānī tiks analizēti pat tad, ja atradīsies ārpus pareizējā kartes pārklājuma.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="Summarize">
+        <div><h2>Izvēlēties slāni, ko apkopot</h2></div>
+        <hr/>
+        <div>
+            <p>Tiks apkopoti &scaron;ī slāņa elementi, kas ietilpst ievades slāņa robe˛ās. 
+            </p>
+        </div>
+    </div>
+    <div id="StatisticsPoint">
+        <div><h2>Pievienot statistiku no</h2></div>
+        <hr/>
+        <div>
+            <p>Pēc izvēles jūs varat aprēķināt statistiku punktu skaitliskajiem atribūtiem, kas ietilpst elementu robe˛ās. 
+            </p>
+            <p>Ja ir atzīmēta izvēles rūtiņa  <b>Punktu skaits</b>, tiks aprēķināts kopējais punktu skaits katras teritorijas robe˛ās.  Turklāt jūs varat aprēķināt statistiku skaitlisko atribūtiem punktiem katras teritorijas robe˛ās.
+            </p>
+            <ul>
+                <li> <b>Summa</b>&nbsp;&mdash; norādītā lauka kopējā vērtība.
+                    
+              
+                </li>
+                <li> <b>Vidējais</b>&nbsp;&mdash; norādītā lauka vidus vai vidējais skaitlis.
+                    
+              
+                </li>
+                <li> <b>Minimums</b>&nbsp;&mdash; mazākā vērtība norādītajā laukā.
+                    
+              
+                </li>
+                <li> <b>Maksimums</b>&nbsp;&mdash; lielākā vērtība norādītajā laukā.
+                    
+              
+                </li>
+                <li> <b>Standarta Novirze</b>&nbsp;&mdash; standarta novirze no vērtībām norādītajā laukā.
+                    
+            
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="StatisticsLine">
+        <div><h2>Pievienot statistiku no</h2></div>
+        <hr/>
+        <div>
+            <p>Jūs varat pēc izvēles aprēķināt statistiku par visiem atribūtiem līniju ietvaros. 
+            </p>
+            <p>Ja ir atzīmēta izvēlnes rūtiņa  <b>Kopējais līniju garums</b>, tiks aprēķināts kopējais līniju garums katras teritorijas robe˛ās.  Turklāt jūs varat aprēķināt statistiku skaitliskajiem atribūtiem līnijai, kas ir katra laukuma robe˛ās.
+            </p>
+            <ul>
+                <li> <b>Summa</b>&nbsp;&mdash; norādītā lauka kopējā vērtība.
+                    
+              
+                </li>
+                <li> <b>Vidējais</b>&nbsp;&mdash; norādītā lauka vidus vai vidējais skaitlis.
+                    
+              
+                </li>
+                <li> <b>Minimums</b>&nbsp;&mdash; mazākā vērtība norādītajā laukā.
+                    
+              
+                </li>
+                <li> <b>Maksimums</b>&nbsp;&mdash; lielākā vērtība norādītajā laukā.
+                    
+              
+                </li>
+                <li> <b>Standarta Novirze</b>&nbsp;&mdash; standarta novirze no vērtībām norādītajā laukā.
+                    
+            
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="StatisticsPolygon">
+        <div><h2>Pievienot statistiku no</h2></div>
+        <hr/>
+        <div>
+            <p>Jūs varat pēc izvēles aprēķināt statistiku par tuvējo laukumu skaitliskajiem atribūtiem. 
+            </p>
+            <p>Ja ir atzīmēta izvēlnes rūtiņa  <b>Summēt laukumu izmantojot</b>, tiks aprēķināts to elementu kopējais laukums, kas atrodas analīzes slāņa robe˛ās.  Turklāt jūs varat aprēķināt statistiku skaitliskajiem atribūtiem katra laukuma robe˛ās.
+            </p>
+            <ul>
+                <li> <b>Summa</b>&nbsp;&mdash; norādītā lauka kopējā vērtība.
+                    
+              
+                </li>
+                <li> <b>Vidējais</b>&nbsp;&mdash; norādītā lauka vidus vai vidējais skaitlis.
+                    
+              
+                </li>
+                <li> <b>Minimums</b>&nbsp;&mdash; mazākā vērtība norādītajā laukā.
+                    
+              
+                </li>
+                <li> <b>Maksimums</b>&nbsp;&mdash; lielākā vērtība norādītajā laukā.
+                    
+              
+                </li>
+                <li> <b>Standarta Novirze</b>&nbsp;&mdash; standarta novirze no vērtībām norādītajā laukā.
+                    
+            
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="GroupBy">
+        <div><h2>Izvēlēties lauku, pēc kura grupēt</h2></div>
+        <hr/>
+        <div>
+            <p>is ir elementu  <b>Apkopot</b> atribūts, ko varat izmantot, lai atseviķi aprēķinātu da˛ādus statistikas datus par katru unikālo atribūta vērtību. Piemēram, pieņemsim, ka analīzes slānī ietilpst pilsētas robe˛as un <b>Apkopot</b> elementi ir parceles.  Viens no parceles atribūtiem ir <i>Status</i> , kurā ietilpst divas vērtības: BRĪVS un AIZŅEMTS. Lai aprēķinātu brīvo un aizņemto parceļu kopējo teritoriju pilsētu robe˛ās, izmantojiet <i>Status</i> kā grupas pēc atribūtiem. Katras grupas statistika, kā arī elementu skaits katras teritorijas robe˛ās tiks parādīti rezultātu slāņa uznirstoajā logā.
+            </p>
+        </div>
+    </div>
+    <div id="MinorityMajority">
+        <div><h2>Pievienot mazākumu, vairākumu</h2></div>
+        <hr/>
+        <div>
+            <p>ī izvēles rūtiņa tiks iespējota, ja izvēlēsieties lauku Grupēt pēc.    Ja vēlaties uzzināt, kuras atribūtu vērtības katrā grupā ir mazākumā (mazāk galvenās) vai vairākumā (paas galvenās) katra analīzes slāņa robe˛ās, izvēlieties  <b>Pievienot mazākumu, vairākumu</b>.   Ja izvēlēsieties <b>Pievienot mazākumu, vairākumu</b>, rezultātu slānim tiks pievienoti divi jauni lauki.   Ja izvēlēsieties arī <b>Pievienot procentus</b>, rezultātu slānim tiks pievienoti divi papildu lauki, kuros būs ietverts katrā grupā esoais mazākuma un vairākuma atribūtu vērtību skaits procentos.
+            </p>
+            <ul>
+                <li>Ja apkopojat punktus, mazākuma un vairākuma vērtības tiek aprēķinātas, ņemot vērā punktu skaitu katrā robežu apgabalā analīzes slānī.  
+                    
+              
+                </li>
+                <li>Ja apkopojat līnijas, mazākuma un vairākuma vērtības tiek aprēķinātas, ņemot vērā līniju garumu katrā robe˛u apgabalā analīzes slānī.  
+                    
+              
+                </li>
+                <li>Ja apkopojat platības, mazākuma un vairākuma vērtības tiek aprēķinātas, ņemot vērā platības katrā robe˛u apgabalā analīzes slānī.  
+                    
+            
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="PercentShape">
+        <div><h2>Pievienot procentus</h2></div>
+        <hr/>
+        <div>
+            <p>ī izvēles rūtiņa tiks iespējota, ja izvēlēsieties lauku Grupēt pēc.    Izvēlieties  <b>Pievienot procentus</b>, ja vēlaties atrast katra atribūta vērtības skaitu procentos katrā grupā.  Rezultātu tabulai tiek pievienots jauns lauks, kurā ir ietverts katra atribūta vērtības skaits procentos katrā grupā.   Ja ir atzīmēta arī opcija <b>Pievienot mazākumu, vairākumu</b>, rezultātu slānim tiks pievienoti divi papildu lauki, kuros būs ietverts katrā grupā eso&scaron;ais mazākuma un vairākuma atribūtu vērtību skaits procentos.
+            </p>
+        </div>
+    </div>
+    <div id="ResultLayerName">
+        <div><h2>Rezultātu slāņa nosaukums</h2></div>
+        <hr/>
+        <div>
+            <p>is ir slāņa nosaukums, kas tiks izveidots sadaļā  <b>Mans Saturs</b> un pievienots kartei.  Noklusējuma nosaukums ir balstīts uz analīzes slāņa nosaukumu. Ja slānis jau pastāv, jums tiks lūgts apstiprināt, vai vēlaties to pārrakstīt.
+            </p>
+            <p>Lietojot  <b>Saglabāt rezultātu</b> izvelkamajā lodziņā jūs varat norādīt nosaukumu mapei <b>Mans Saturs</b>, kur tiks saglabāts rezultāts.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

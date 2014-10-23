@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Sujungti pradžios ir paskirties taškus</h2><p/>
+        <h2><img src="../images/GUID-86AA24B9-2DDE-460C-BA65-7CCDF7F4855D-web.png" alt="Sujungti pradžios ir paskirties ta&scaron;kus"></h2>
+        <hr/>
+    <p>  Sujungti Pradžios ir Paskirties Ta&scaron;kus nustato atstumą ar kelionės laiką tarp ta&scaron;kų porų. Įrankis gali pateikti atstumus tiesia linija, kelių tinklu ar kelionės laiką. &Scaron;ių įrankiu galima
+    </p>
+    <p>
+        <ul>
+            <li>Kokiu atstumu atvyksta klientai į parduotuves. Remiantis &scaron;ia informacija galima planuoti komercinę veiklą, reklamos akcijas, naujų parduotuvių įkūrimą. 
+                
+          
+            </li>
+            <li>Apskaičiuoti automobilių parko planuojamą kilometražą. Vėliau galima įrankiu Sumuoti Viduje kilometražą apskaičiuoti pagal regionus.
+                
+          
+            </li>
+            <li>Apskaičiuoti, kiek laiko darbuotojai sugai&scaron;ta i&scaron; namų pasiekdami darbo vietą.
+                
+        
+            </li>
+        </ul>
+        
+    </p>
+    <p>Pagal nurodytus pradžios ir pabaigos ta&scaron;kus, įrankis pateikia sluoksnį, susidedantį i&scaron; mar&scaron;rutų linijų bei jų verčių. Jei keli pradžios ta&scaron;kai jungiami su vienu paskirties ta&scaron;ku, rezultate pateikiama bendra mar&scaron;rutų lentelė. 
+    </p>
+    <p>Jei <b>Naudoti esamą žemėlapio aprėptį</b> pažymėtas, analizuojami bus tik apie aprėptyje matomi elementai.  Jei nepažymėtas, analizuojami visi elementai.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="destinationsLayer">
+        <div><h2>Pasirinkite paskirties sluoksnį</h2></div>
+        <hr/>
+        <div>
+            <p>Pasirinkite sluoksnį su paskirties ta&scaron;ku ar ta&scaron;kais, kurie turi būti sujungti su pradžios ta&scaron;kais. Įrankis leidžia naudoti iki 10,000 pradžios ir10,000 paskirties ta&scaron;kų.
+            </p>
+            <p>Jei pasirinktame sluoksnyje yra vienas paskirties ta&scaron;kas, visi pradžios ta&scaron;kai bus sujungti su &scaron;iuo ta&scaron;ku. 
+            </p>
+            <p>Jei yra vienas pradžios ta&scaron;kas ir keli paskirties ta&scaron;kai, įrankis sujungs pradžios ta&scaron;ką su kiekvienu paskirties ta&scaron;ku. 
+            </p>
+            <p> Jei yra daug pradžios ir paskirties ta&scaron;kų, reikalingi du laukai, pagal kuriuos nustatomos ta&scaron;kų poros: <b>pradžios ta&scaron;kų ID</b> ir <b>atitinkamas ID laukas paskirties ta&scaron;kuose</b>. Įrankis analizės metu sujungia pradžios ir paskirties ta&scaron;kus. Pavyzdžiui, jei yra du pradžios ta&scaron;kai su ID reik&scaron;mėmis <code>Rosie</code> ir <code>Harold</code> bei du paskirties ta&scaron;kai su tokiomis pačiomis ID reik&scaron;mėmis. <code>Rosie</code> pradžios ta&scaron;kas bus sujungtas su <code>Rosie</code> paskirties ta&scaron;ku, o <code>Harold</code> sujungtas su <code>Harold</code>. Kiti sujungimai ar matavimai neatliekami.
+            </p>
+            <p>ID reik&scaron;mės turi nesikartoti abiejuose sluoksniuose; pavyzdžiui, pradžios ta&scaron;kų sluoksnyje negali būti dviejų reik&scaron;mių  <code>Rosie</code>. Reik&scaron;mės pradžios ir paskirties sluoksniuose turi sutapti; <code>Harold</code> nebus sujungtas su klaidingai užra&scaron;yta reik&scaron;me <code>Harodl</code>. 
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div><h2>Matuoti</h2></div>
+        <hr/>
+        <div>
+            <p>Pasirinkite, ar pradžios ir paskirties ta&scaron;kai bus sujungiami pagal trumpiausią atstumą tiesia linija, kelių tinklu, ar pagal važiavimo trukmę. Abejais važiavimo atvejais, apskaičiavimai atliekami kelių tinkle, įvertinant kelio ženklus, ribojimus ir pan. 
+            </p>
+            <p>Kai pasirenkate  <b>Važiavimo laiką</b>, galite nurodyti, kaip būtų matuojama važiavimo trukmė.
+                <ul>
+                    <li>
+                        <p>Atžymėkite  <b>Naudoti eismo būseną</b> jei ie&scaron;koma mar&scaron;rutų pagal fiksuotą greitį. &Scaron;is pasirinkimas tinkamas jei reikalingas bendras važiavimo laikas, o ne tas, kuris apskaičiuojamas naudojant besikeičiančias eismo sąlygas, priklausomai nuo tam tikro i&scaron;vykimo laiko.
+                        </p>
+                    </li>
+                    <li>
+                        <p>Pažymėkite  <b>Naudoti eismo būseną</b> jei ie&scaron;kote mar&scaron;rutų pagal kelionės pradžios laiką ir kintančias transporto sąlygas. Pasirinkus <b>Esamos sąlygos</b>, kelionės pradžios laikas bus prilygintas analizės vykdymo laikui, bus įvertintos esamos transporto sąlygos ir prognozuojamas važiavimo greitis pagal sensorių informaciją. Prognozuojamas važiavimo greitis bus apskaičiuotas pagal esamas transporto sąlygas, istorinius greičio duomenis bei papildomus, pavyzdžiui, meteorologinius, įvykius. Važiavimo greitis prognozuojamas12 valandų, todėl kelionės pradžią galite nurodyti iki12 val. nuo esamo laiko.
+                        </p>
+                        <p>Naudokite esamas transporto sąlygas, jei norite rasti trumpiausius atstumus i&scaron;vykdami &scaron;iuo ar artimu laiku, pavyzdžiui, po valandos.
+                        </p>
+                    </li>
+                    <li>
+                        <p>Pažymėjus  <b>Naudoti eismo būseną</b> ir pasirinkus <b>Tipinės eismo sąlygos</b> tam tikrai datai ir laikui, įrankis ras artimiausius atstumus pagal istorinius greičio duomenis kiekvienam penkių minučių intervalui pasirinktą savaitę. Apskaičiavimas vyks įvertinant transporto sąlygų įtaką, bet ne esamas konkrečias sąlygas; tai gali lemti besiskiriančius rezultatus.
+                        </p>
+                        <p>Galite naudoti istorinius duomenis, jei domina kelionės trukmė, i&scaron;vykus, pavyzdžiui, trečiadienį 11:30.
+                        </p>
+                        <p>Laikas priklauso nuo pradiniams elementams priskirtos laiko zonos. Taigi, jei laikas bus nurodytas 8:00 ir bus du pradžios ta&scaron;kai, vienas Niujorke, o kitas - Los Andžele, įrankis apskaičiuos atstumą pagal i&scaron;vykimą 8:00 Rytų pakrantės laiku ir 8:00 Ramiojo vandenyno pakrantės laiku.
+                        </p>
+                    </li>
+                </ul>
+                
+            </p>
+            <p>Atkreipkite dėmesį, kad automobiliui judant ir bėgant laikui keičiasi transporto sąlygos. Sujungti pradžios ir paskirties ta&scaron;kus įrankis įvertins sąlygas pažymėjus  <b>Naudoti eismo būseną</b>, tačiau tokie duomenys prieinami ne visuose regionuose. Paspauskite <b>Tikrinti prieinamumą</b>, jei norite sužinoti ar duomenys prieinami jūsų regione.
+            </p>
+        </div>
+    </div>
+    <div id="outputLayer">
+        <div><h2>Rezultatų sluoksnio vardas</h2></div>
+        <hr/>
+        <div>
+            <p>Tai sluoksnio, kuris bus sukurtas ir patalpintas  <b>Turinyje</b> ir pridėtas į žemėlapį, pavadinimas.  Pavadinimas pagal nutylėjimą formuojamas i&scaron; analizuojamo sluoksnio pavadinimo. Jei sluoksnis jau egzistuoja, galėsite pasirinkti jį perra&scaron;yti.
+            </p>
+            <p>Naudodami  <b>Rezultatą įra&scaron;yti į</b> sąra&scaron;ą, galite nurodyti <b>Turinyje</b> esančio aplanko pavadinimą.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

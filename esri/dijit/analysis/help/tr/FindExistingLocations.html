@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Mevcut Konumları Bul</h2><p/>
+        <h2><img src="../images/GUID-C5409FC7-EC93-45C5-8B00-3D6EA80A0A77-web.png" alt="Mevcut Konumları Bul"></h2>
+        <hr/>
+    <p>Bu ara&ccedil;, &ccedil;alışma alanınızda belirlediğiniz bir dizi kritere uygun mevcut &ouml;zellikleri se&ccedil;er. Bu kriterler &ouml;znitelik sorgularını (&ouml;rneğin boş parseller) ve mekansal (&ouml;rneğin, bir nehre bir kilometre mesafedeki t&uuml;m parseller) sorguları temel alabilir.
+
+    </p>
+    <p>Eğer  <b>Ge&ccedil;erli harita kapsamını kullan</b> işaretli ise, yalnızca ge&ccedil;erli harita kapsamında g&ouml;r&uuml;n&uuml;r olan analiz katmanındaki detaylar analiz edilecektir. İşaretli değilse t&uuml;m detaylar, ge&ccedil;erli harita kapsamının dışında olsa bile analiz edilecektir.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="Expression">
+        <div><h2>Aşağıdaki ifadelerle eşleşen özellikleri bul</h2></div>
+        <hr/>
+        <div>
+            <p>İfade tanımlamak i&ccedil;in  <b>İfade Ekle</b> d&uuml;ğmesine tıklayın. Birden &ccedil;ok ifade ekleyebilirsiniz. İfadeleri girip <b>Analizi &Ccedil;alıştır</b> d&uuml;ğmesine bastıktan sonra, analiz katmanınızdaki detaylar her bir ifadeye g&ouml;re filtrelenir. T&uuml;m ifadelerle eşleşen detaylar sonu&ccedil; katmanına yazılır.
+            </p>
+            <p>Oluşturabileceğiniz iki temel t&uuml;r ifade vardır; &ouml;znitelik ve mekansal. &Ouml;znitelik ifadeleri alan değerleri hakkındaki sorgulardır; &ouml;rneğin  <code>Nerenin adı 'San Francisco'</code>. D&ouml;rt t&uuml;r mekansal ifade vardır:
+                <ul>
+                    <li> <b>Belirli bir mesafe dahilinde</b>: Bir detay, başka bir katmanın detayının mesafesi dahilinde olmalıdır. &Ouml;rneğin Los Angeles nehrine 500 metre mesafedeki parselleri bul.
+                    </li>
+                    <li> <b>T&uuml;m&uuml;yle i&ccedil;erir</b>: Detay başka katmandaki bir detayın t&uuml;m&uuml;n&uuml; i&ccedil;ermelidir. &Ouml;rneğin, end&uuml;striyel kullanım alanları i&ccedil;indeki parselleri t&uuml;m&uuml;yle i&ccedil;eren boşaltma havzalarını bul. Parsellerin hi&ccedil;bir b&ouml;l&uuml;m&uuml; boşaltma havzası dışında olamaz.
+                    </li>
+                    <li> <b>T&uuml;m&uuml;yle i&ccedil;inde</b>: Detay t&uuml;m&uuml;yle başka bir katmanın detayı ile &ccedil;evrelenmelidir. &Ouml;rneğin, t&uuml;m&uuml;yle bir şehrin sınırları i&ccedil;inde kalan okul b&ouml;lgelerini bulun. Okul b&ouml;lgesinin hi&ccedil;bir b&ouml;l&uuml;m&uuml; şehir sınırı dışında kalamaz.
+                    </li>
+                    <li> <b>Kesişir</b>: Bir detay, başka bir katmandaki detayın bir kısmını i&ccedil;erir. &Ouml;rneğin nehirlerle kesişen parselleri bulun. Nehrin, parsel i&ccedil;inde ge&ccedil;en, parselin sınırına dokunan ya da parselle kesilen herhangi bir kısmı.
+                    </li>
+                </ul>
+                
+            </p>
+            <p>Her mekansal ifadenin bir ilgili h&uuml;k&uuml;ms&uuml;zl&uuml;ğ&uuml; vardır;  <b>belirli bir mesafe dahilinde değil</b>, <b>t&uuml;m&uuml;yle i&ccedil;ermez</b>, <b>t&uuml;m&uuml;yle i&ccedil;inde değil</b> ve <b>kesişmez</b>.
+            </p> 
+        </div>
+    </div>
+    <div id="OuputName">
+        <div><h2>Sonuç katmanı adı</h2></div>
+        <hr/>
+        <div>
+            <p>Bu  <b>İ&ccedil;eriğim</b> alanınızda oluşturulacak ve haritaya eklenecek katmanın adıdır. Varsayılan ad analiz t&uuml;r&uuml;ne ve analiz katmanı adına g&ouml;redir. Katman zaten varsa &uuml;zerine yazma isteğinizi onaylamanız istenecektir.
+            </p>
+            <p> <b>Sonu&ccedil;ları kaydet</b> a&ccedil;ılır kutusunu kullanarak <b>İ&ccedil;eriğim</b> alanında sonucun kaydedileceği bir klas&ouml;r adı belirleyebilirsiniz.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

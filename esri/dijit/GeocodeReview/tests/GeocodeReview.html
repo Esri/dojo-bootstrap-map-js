@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7, IE=8, IE=9, IE=10">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>PROTOTYPE</title>
+
+    <link rel="stylesheet" href="http://loan214511.esri.com/arcgis-js-api/src/js/dojo/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="http://loan214511.esri.com/arcgis-js-api/src/js/esri/css/esri.css">
+    
+    <link rel="stylesheet" href="../css/master.css"/>
+    <link rel="stylesheet" href="../../GeocodeMatch/css/master.css"/>
+
+    <style>
+        html, body, #map{
+          width:100%;
+          height:100%;
+          margin:0;
+          padding:0;
+        }
+        
+        #titlePane{
+        width:240px;
+        }
+        .claro .dijitTitlePaneTitle {
+        background: #808775;
+        font-weight:600;
+        border:solid 1px #29201A;
+        }
+        .claro .dijitTitlePaneTitleHover {
+        background:#808775;
+        }
+        .claro .dijitTitlePaneTitleActive {
+        background:#808775;
+        }
+        .claro .dijitTitlePaneContentOuter {
+        border-right: solid 2px #808775 !important;
+        border-bottom: solid 2px #808775 !important;
+        border-left: solid 2px #808775 !important;
+        }
+
+      
+    </style>
+  <script>
+      var dojoConfig = {
+          locale:"en",
+          packages:[{
+          name: "esri", 
+          location: "http://loan214511.esri.com/arcgis-js-api/src/js/esri" 
+        },{
+          name: "dgrid", 
+          location: "http://loan214511.esri.com/arcgis-js-api/src/js/dgrid" 
+        },{
+          name: "xstyle", 
+          location: "http://loan214511.esri.com/arcgis-js-api/src/js/xstyle" 
+        },{
+          name: "put-selector", 
+          location: "http://loan214511.esri.com/arcgis-js-api/src/js/put-selector" 
+        }]
+      };
+    </script>
+    <script type="text/javascript" src="http://loan214511.esri.com/arcgis-js-api/src/js/dojo/dojo/dojo.js"></script>
+    <script>
+		
+		var map, gm, gr, measurement;
+
+    require([		
+			"esri/map",
+			"esri/dijit/GeocodeMatch",
+			"esri/dijit/GeocodeReview",
+      "esri/dijit/Measurement",
+
+      "esri/symbols/SimpleMarkerSymbol",
+      "esri/symbols/PictureMarkerSymbol",
+
+      "dojo/dom-construct",
+			"dojo/dom",
+      "dojo/parser",
+			"dojo/ready",
+      "dojo/on",
+      
+      "esri/arcgis/utils",
+      
+      "dijit/registry",
+      "dijit/form/Button",
+      "dijit/layout/ContentPane", 
+      "dijit/layout/BorderContainer",
+      "dijit/Menu", 
+      "dijit/MenuItem", 
+      "dijit/form/ComboButton",
+      "dijit/TitlePane"      
+		], function (
+      Map, GeocodeMatch, GeocodeReview, Measurement,
+      SimpleMarkerSymbol, PictureMarkerSymbol,
+      domConstruct, dom, parser, ready, on,
+      arcgisUtils,
+      registry, Button, ContentPane, BorderContainer,
+      Menu, MenuItem, ComboButton, TitlePane
+    ) {
+    
+      var flag, itemId, urlObject = esri.urlToObject(document.location.href), gURL = "http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer";
+      var locatorFlag = false;
+
+      //arcgisUtils.arcgisUrl = "http://devext.arcgis.com/sharing/content/items";
+                
+      if(urlObject.query){
+        itemId = urlObject.query.itemId;
+      }else{
+        itemId = "f0228b1bcbcb43909189ac7365c41abe";
+      }
+
+			ready(function(){
+      
+        parser.parse();
+        
+				map = new Map("map", {
+					autoResize:true,
+					basemap: "topo",
+					center: [-77.036, 38.891],
+					zoom: 14
+				});
+
+
+        init();			
+
+        var createButton = new Button({
+          label: "Create",
+          onClick: function(){
+            // Do something:
+            if(!gr && !gm){
+              domConstruct.create("div", {id:"reviewWidget"}, dom.byId("reviewContainer"));
+              domConstruct.create("div", {id:"matchWidget"}, dom.byId("matchContainer"));
+              init();
+            }
+          }
+        }, "b1");
+        
+        var destroyButton = new Button({
+          label: "Destroy",
+          onClick: function(){
+              gm.destroy();
+              gr.destroy();
+              gm = null;
+              gr = null;
+          }
+        }, "b2");
+        
+        var pauseMapEvents = new Button({
+          label: "pauseMapEvents",
+          onClick: function(){
+            gm.pauseMapEvents();
+          }
+        }, "b3");
+        
+        var resumeMapEvents = new Button({
+          label: "resumeMapEvents",
+          onClick: function(){
+            gm.resumeMapEvents();
+          }
+        }, "b4");
+        
+
+        var menu = new Menu({ style: "display: none;"});
+        var menuItem1 = new MenuItem({
+          label: "Default",
+          onClick: function(){ 
+            gm.updateLocatorURL(gr._locatorURL);
+            button.set("label", "Default");
+          }
+        });
+        menu.addChild(menuItem1);
+
+        var menuItem2 = new MenuItem({
+          label: "World",
+          onClick: function(){ 
+            gm.updateLocatorURL(gURL);
+            button.set("label", "World");
+          }
+        });
+        menu.addChild(menuItem2);
+
+        var button = new ComboButton({
+          label: "Default",
+          dropDown: menu
+        }, "b5");
+        
+          var measurementOn = new Button({
+          label: "On",
+          onClick: function(){
+            console.log(measurement);
+            gm.pauseMapEvents();
+            measurement = new Measurement({
+              map: map
+            }, dom.byId("measurementDiv"));
+            measurement.startup();
+          }
+        }, "b6");
+
+        var measurementOff = new Button({
+          label: "Off",
+          onClick: function(){
+            gm.resumeMapEvents();
+            measurement.destroy();
+          }
+        }, "b7");
+        
+        
+        function init(){
+        
+          // Initialize the Widget
+          gm = new GeocodeMatch({
+            map: map
+          }, 'matchWidget');
+          
+          // Start the widget
+          gm.startup();
+          
+          // Initialize the Widget
+          gr = new GeocodeReview({
+            map:map,
+            itemId: itemId,
+            geocodeMatch: gm
+          }, 'reviewWidget');
+          
+          gr.startup();
+
+          gr.on("load", function(obj){
+            console.log('gr', obj);
+          });
+          
+          gm.on("load", function(obj){
+            console.log('gm', obj);
+          });
+
+          /*
+          // Geocode An Address
+          gr.on("row-select", function(obj){
+            gm.geocodeAddress(obj).then(function(geocodeResults){ 
+              console.log("geocodeResults", geocodeResults);						
+            });
+          });
+          // Match Feature
+          gm.on("match", function(matchObj){
+            console.log("GeocodeMatch - Event Return Data:", matchObj);
+            gr.matchFeature(matchObj);
+          });
+          
+          // On data change, rerun geocodeAddress
+          gr.on("row-datachange", function(obj){
+            gm.geocodeAddress(obj.newAddress).then(function(geocodeResults){ 
+              console.log("geocodeResults (from data change)", geocodeResults);						
+            });
+          });
+          
+          // Redundant - Shows functionality
+          gr.on("match", function(matchObj){
+            console.log("matchObj", matchObj);
+          });
+        
+          // On Tab Change
+          gr.on("tab-change", function(obj){
+            gm.reset();
+          });
+          */
+        }
+			});
+    });
+    </script>
+</head>
+<body class="claro esri" dir="rtl">
+<div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline'" style="width:100%; height:100%;" id="bc">
+  <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'"style="height:30%;" id="reviewContainer">
+    <div id="reviewWidget"></div>
+  </div>
+  <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'leading', splitter:false" style="width:50%; height:60%;" id="matchContainer">
+    <div id="matchWidget"></div>
+  </div>
+  <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center', splitter:false" style="width:50%; height:60%;">
+    <div id="map">
+    </div>
+  </div>
+  <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'bottom', splitter:false" style="width:100%; height:10%;">
+  <div style="display:inline-block; padding:2px; border:1px solid black;">
+    <div style="display:block;"><em>Initialization</em></div>
+    <button id="b1" type="button"></button>
+    <button id="b2" type="button"></button>
+  </div> 
+  <div style="display:inline-block; padding:2px; border:1px solid black;">
+  <div style="display:block"><em>Map Events</em></div>
+    <button id="b3" type="button"></button>  
+    <button id="b4" type="button"></button>
+  </div>
+  <div style="display:inline-block; padding:2px; border:1px solid black;">  
+    <div style="display:block"><em>Geocoder</em></div>
+    <button id="b5" type="button"></button>
+  </div>
+  <div style="display:inline-block; padding:2px; border:1px solid black;">  
+    <div style="display:block"><em>Measurement</em></div>
+    <button id="b6" type="button"></button>
+    <button id="b7" type="button"></button>
+  </div>
+    <div style="display:inline-block; padding:2px; border:1px solid black;">  
+    <div style="display:block"><em>Column Layout</em></div>
+    <button id="b8" type="button"></button>
+    <button id="b9" type="button"></button>
+  </div>
+  </div>
+</div>
+</body>
+</html>

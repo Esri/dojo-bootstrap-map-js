@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Trova hot spot</h2><p/>
+        <h2><img src="../images/GUID-C2575FC6-F14C-4332-B3BF-AB4EDA15177B-web.png" alt="Trova hot spot"></h2>
+        <hr/>
+    <p>Lo strumento Trova hot spot consente di determinare la presenza di cluster di rilevanza statistica nel modello spaziale dei dati. 
+        <ul>
+            <li>I punti (reati, alberi, incidenti stradali) sono realmente organizzati in cluster?  Come si pu&ograve; verificarlo?
+            </li>
+            <li>&Egrave; stato effettivamente individuato un hot spot di rilevanza statistica (ai fini della spesa, della mortalit&agrave; infantile, di punteggi di test elevati) oppure la mappa raffigurerebbe una situazione diversa se se ne cambiasse la simbologia?
+            </li>
+        </ul>
+        Lo strumento Trova hot spot consente di rispondere con sicurezza a queste domande.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="AnalysisFieldPoly">
+        <div><h2>Scegliere un campo di analisi</h2></div>
+        <hr/>
+        <div>
+            <p>Questa analisi consente di rispondere alla domanda seguente: dove si raggruppano in cluster i valori alti e bassi di un campo di analisi specificato?  
+            </p>
+            <p>Il layer dei risultati sar&agrave; costituito da una copia del layer di analisi.  La tabella includer&agrave; il campo di analisi selezionato, nonch&eacute; altri campi che rispecchiano il livello dei cluster, la rilevanza statistica e il livello di attendibilit&agrave;.
+            </p> 
+        </div>
+    </div>
+    <div id="AnalysisFieldPoint">
+        <div><h2>Scegliere un campo di analisi</h2></div>
+        <hr/>
+        <div>
+            <p>Se si specifica un campo di analisi, lo strumento consentir&agrave; di rispondere alla seguente domanda: dove si raggruppano in cluster i valori alti e bassi tra i punti? 
+            </p>
+            <p>Il layer dei risultati sar&agrave; costituito da una copia del layer di analisi dei punti.  La tabella includer&agrave; il campo di analisi selezionato, nonch&eacute; altri campi che rispecchiano il livello dei cluster, la rilevanza statistica e il livello di attendibilit&agrave;.
+            </p>
+            <p>Se non si specifica un campo di analisi, lo strumento valuter&agrave; la disposizione delle feature punto nello spazio e consentir&agrave; di rispondere alla seguente domanda: In che area i punti si raggruppano in cluster o si distribuiscono in modo imprevisto?   
+            </p>
+            <p>Se non si specifica nessun campo di analisi, lo strumento crea una mesh a griglia e conteggia il numero di punti che rientrano in ogni riquadro della griglia. Verranno analizzati i soli riquadri in cui il numero dei punti &egrave; maggiore di zero.  Il layer dei risultati &egrave; costituito dai riquadri della griglia. La tabella del layer dei risultati includer&agrave; i valori relativi ai conteggi, nonch&eacute; altri campi che rispecchiano il livello dei cluster, la rilevanza statistica e il livello di attendibilit&agrave;.
+            </p> 
+        </div>
+    </div>
+    <div id="BoundingPolygonLayer">
+        <div><h2>Definisci punti in cui sono possibili incidenti</h2></div>
+        <hr/>
+        <div>
+            <p>Tracciare o specificare un layer di aree di confine per rispondere alla seguente domanda: Nelle aree di confine sono presenti localit&agrave; con concentrazioni di punti straordinariamente alte o basse?   
+            </p>
+            <p>Le feature area tracciate o quelle nel layer di area specificato devono definire la possibile posizione dei punti.  Per tracciare queste aree, fare clic sull'apposito pulsante, quindi fare clic sulla mappa per creare una forma di tipo area.  Per tracciare altre aree, fare clic di nuovo sull'apposito pulsante, quindi fare clic sulla mappa e continuare.
+            </p>
+            <p>Nota: per sovrapporre i punti con aree diverse da una mesh a griglia,  <b>specificare aree di aggregazione per sommare gli incidenti</b>.
+            </p>
+            <p>Il layer dei risultati per questa analisi sar&agrave; costituito da una mesh a griglia che copre le aree di confine specificate.  La tabella includer&agrave; i numeri dei punti dei riquadri della griglia, nonch&eacute; altri campi che rispecchiano il livello dei cluster, la rilevanza statistica e il livello di attendibilit&agrave;.  
+            </p> 
+        </div>
+    </div>
+    <div id="AggregationPolygonLayer">
+        <div><h2>Specificare le aree di aggregazione</h2></div>
+        <hr/>
+        <div>
+            <p>Specificare un layer di area (che rispecchia in genere distretti amministrativi, ad esempio sezioni di spoglio, confini municipali o regioni/contee) per rispondere alla seguente domanda: Dato il numero di punti in ogni feature area, sono presenti localit&agrave; con cluster spaziali di rilevanza statistica con valori alti o bassi?   
+            </p>
+            <p>Il layer dei risultati per questa analisi sar&agrave; costituito da una copia delle aree di aggregazione.  La tabella includer&agrave; i numeri dei punti per ogni area, nonch&eacute; altri campi che rispecchiano il livello dei cluster, la rilevanza statistica e il livello di attendibilit&agrave;. 
+            </p> 
+        </div>
+    </div>
+    <div id="OutputLayerName">
+        <div><h2>Nome layer risultati</h2></div>
+        <hr/>
+        <div>
+            <p>Specificare un nome per il layer che verr&agrave; creato in  <b>I miei contenuti</b> e aggiunto alla mappa. Nel layer risultante saranno visualizzati i cluster di rilevanza statistica con valori alti e bassi o conteggi di punti. Se il nome del layer dei risultati esiste gi&agrave;, verr&agrave; chiesto di rinominarlo.
+            </p>
+            <p>Utilizzare la casella a discesa  <b>Salva risultato in</b> per specificare il nome di una cartella di <b>I miei contenuti</b> in cui salvare il risultato.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

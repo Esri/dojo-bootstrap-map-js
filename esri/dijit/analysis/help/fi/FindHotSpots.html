@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Hae kuumat pisteet</h2><p/>
+        <h2><img src="../images/GUID-C2575FC6-F14C-4332-B3BF-AB4EDA15177B-web.png" alt="Hae kuumat pisteet"></h2>
+        <hr/>
+    <p>Etsi kuumat pisteet -toiminto m&auml;&auml;ritt&auml;&auml;, onko tietojen koordinaattikuviossa tilastollisesti merkitsev&auml;&auml; ryv&auml;st&auml;. 
+        <ul>
+            <li>Muodostavatko pisteet klusterin?  Miten t&auml;st&auml; voi varmistua?
+            </li>
+            <li>Oletko l&ouml;yt&auml;nyt tilastollisesti merkitsev&auml;n kuuman pisteen vai kertooko kartta muuta, jos muuttaisit sen symbolien esitystapaa?
+            </li>
+        </ul>
+        Etsi kuumat pisteet -toiminto auttaa vastaamaan n&auml;ihin kysymyksiin luotettavasti.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="AnalysisFieldPoly">
+        <div><h2>Valitse analysointikenttä</h2></div>
+        <hr/>
+        <div>
+            <p>Analyysi vastaa seuraavaan kysymykseen: Minne pienet ja suuret arvot muodostavat klusterin?  
+            </p>
+            <p>Tulostasona on analyysitason kopio.  Taulukko sis&auml;lt&auml;&auml; valitsemasi analyysikent&auml;n sek&auml; joukon muita kentti&auml;, jotka liittyv&auml;t keskittym&auml;n vahvuuteen, tilastolliseen merkitsevyyteen ja luotettavuustasoon.
+            </p> 
+        </div>
+    </div>
+    <div id="AnalysisFieldPoint">
+        <div><h2>Valitse analysointikenttä</h2></div>
+        <hr/>
+        <div>
+            <p>Jos annat analyysikent&auml;n, toiminto vastaa seuraavaan kysymykseen: Minne pienet ja suuret arvot muodostavat klusterin pisteiden joukossa? 
+            </p>
+            <p>Tulostasona on pisteanalyysitason kopio.  Taulukko sis&auml;lt&auml;&auml; valitsemasi analyysikent&auml;n sek&auml; joukon muita kentti&auml;, jotka liittyv&auml;t keskittym&auml;n vahvuuteen, tilastolliseen merkitsevyyteen ja luotettavuustasoon.
+            </p>
+            <p>Ellet m&auml;&auml;rit&auml; analyysikentt&auml;&auml;, toiminto arvioi pistekohteiden koordinaattiasettelun ja vastaa n&auml;in seuraavaan kysymykseen: Miss&auml; kohdissa pisteet muodostavat odottamattomia klustereita tai hajoamisia?   
+            </p>
+            <p>Jos analyysikentt&auml;&auml; ei ole annettu, ty&ouml;kalu luo vektoriverkon ja laskee kullekin vektoriverkon neli&ouml;lle osuvien pisteiden lukum&auml;&auml;r&auml;n. Analyysiin otetaan vain pistem&auml;&auml;r&auml;lt&auml;&auml;n nollaa suuremmat neli&ouml;t.  Vektoriverkon neli&ouml;t muodostavat tulostason. Tulostason taulukko sis&auml;lt&auml;&auml; m&auml;&auml;r&auml;arvot sek&auml; joukon muita kentti&auml;, jotka liittyv&auml;t keskittym&auml;n vahvuuteen, tilastolliseen merkitsevyyteen ja luotettavuustasoon.
+            </p> 
+        </div>
+    </div>
+    <div id="BoundingPolygonLayer">
+        <div><h2>Määritä tapahtumien mahdollinen sijainti</h2></div>
+        <hr/>
+        <div>
+            <p>Vastaa seuraavaan kysymykseen joko piirt&auml;m&auml;ll&auml; tai m&auml;&auml;ritt&auml;m&auml;ll&auml; raja-alueiden taso: Onko raja-alueilla sijainteja, joissa on odottamattoman pieni&auml; tai suuria pistekeskittymi&auml;?   
+            </p>
+            <p>Piirt&auml;m&auml;si aluekohteet tai m&auml;&auml;ritt&auml;m&auml;si aluetason kohteet m&auml;&auml;ritt&auml;v&auml;t, miss&auml; pisteet voivat esiinty&auml;.  Voit piirt&auml;&auml; n&auml;m&auml; alueet napsauttamalla piirtopainiketta ja napsauttamalla sitten alueen muotoista karttaa.  Voit piirt&auml;&auml; muita alueita napsauttamalla piirtopainiketta uudelleen, napsauttamalla karttaa ja jatkamalla.
+            </p>
+            <p>Huomautus: Jos haluat asettaa pisteet muiden alueiden kuin vektoriverkon p&auml;&auml;lle,  <b>m&auml;&auml;rit&auml; koontialueet tapahtumien yhteenlaskentaan</b>.
+            </p>
+            <p>Analyysin tulostasoksi muodostuu vektoriverkko, joka k&auml;sitt&auml;&auml; k&auml;ytt&auml;j&auml;n m&auml;&auml;ritt&auml;m&auml;t raja-alueet.  Taulukko sis&auml;lt&auml;&auml; vektoriverkon pistem&auml;&auml;r&auml;t sek&auml; joukon muita kentti&auml;, jotka liittyv&auml;t keskittym&auml;n vahvuuteen, tilastolliseen merkitsevyyteen ja luotettavuustasoon.  
+            </p> 
+        </div>
+    </div>
+    <div id="AggregationPolygonLayer">
+        <div><h2>Anna koontialueet</h2></div>
+        <hr/>
+        <div>
+            <p>M&auml;&auml;rit&auml; aluetaso (yleens&auml; hallintoalueita, kuten kuntien tai piirikuntien rajoja) ja vastaa seuraavaan kysymykseen: Kun otetaan huomioon kunkin aluekohteen pisteiden m&auml;&auml;r&auml;, onko sellaisia sijainteja, joihin liittyy tilastollisesti merkitsevi&auml; pienten tai suurten m&auml;&auml;rien koordinaattikeskittymi&auml;?   
+            </p>
+            <p>Analyysin tulostasona on koontialueiden kopio.  Taulukko sis&auml;lt&auml;&auml; kunkin alueen pistem&auml;&auml;r&auml;t sek&auml; joukon muita kentti&auml;, jotka liittyv&auml;t keskittym&auml;n vahvuuteen, tilastolliseen merkitsevyyteen ja luotettavuustasoon. 
+            </p> 
+        </div>
+    </div>
+    <div id="OutputLayerName">
+        <div><h2>Tulostason nimi</h2></div>
+        <hr/>
+        <div>
+            <p>Anna sen tason nimi, joka luodaan kohtaan  <b>Oma sis&auml;lt&ouml;</b> ja joka lis&auml;t&auml;&auml;n karttaan. Tulostasossa n&auml;kyv&auml;t tilastollisesti merkitsev&auml;t pienten ja suurten arvojen keskittym&auml;t. Jos tulostason nimi on jo k&auml;yt&ouml;ss&auml;, saat kehotuksen nimet&auml; tason uudelleen.
+            </p>
+            <p>Avattavan  <b>Tallenna tulos sijaintiin</b> -pudotusvalikon avulla voit m&auml;&auml;ritt&auml;&auml; <b>Oma sis&auml;lt&ouml;</b> -kohdassa sen kansion nimen, johon tulos tallennetaan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

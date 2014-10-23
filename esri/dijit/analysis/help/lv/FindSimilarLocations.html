@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Atrast līdzīgus izvietojumus</h2><p/>
+        <h2><img src="../images/GUID-01EFFE9D-141F-45BA-AB21-C9E3490587F2-web.png" alt="Atrast līdzīgus izvietojumus"></h2>
+        <hr/>
+    <p>Based on criteria you specify, the Find Similar Locations tool measures the similarity of locations in your candidate search layer to one or more reference locations.  is rīks var atbildēt uz jautājumiem, piemēram,
+        <ul>
+            <li>Kur no jūsu veikaliem ir visvairāk līdzīgs jūsu top izpildītājiem attiecībā uz klientu profiliem?
+            </li>
+            <li>Pamatojoties uz ciemu īpaībām, kuras vissmagāk skārusi slimība, kuriem citiem ciemiem ir augsts risks?
+            </li>
+        </ul>
+        Atbildot uz ādiem jautājumiem, jūs sniedzat atskaites vietas, kandidātu meklētas vietas un laukus, kas pārstāv kritērijus, kurus jūs vēlaties saskaņot.  Slānim, ko jūs izvēlējāties analīzei (analīzes slānim) jāiekļauj jūsu atsauces vai etalonu vietas.  Piemēram, tas varētu būt slānis sastāv no jūsu labākajiem veikaliem vai ciemiem, kurus vissmagāk skārusi slimība.  Pēc tam norādiet slāni, kur iever jūsu kandidātu meklēanas vietas.  Tas varētu būt, piemēram, visi jūsu veikali vai visi citi ciemi.  Visbeidzot, jūs identificējat vienu vai vairākus laukus, lai izmantotu līdzības mērīanu.  Atrast līdzīgas vietas rīks ierindos visus meklēanas vietu kandidātus, cik tuvu viņi atbilst jūsu references vietai visos laukos, kurus jūs esat izvēlējuies.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div><h2>Jūs varat izmantot visas vietas, vai arī izdarīt izvēli:</h2></div>
+        <hr/>
+        <div>
+            <p>Izmantojiet izvēlnes pogas, lai identificētu references vietas, ja tas ir nepiecieams.  Piemēram, ja ievades slānis satur visas vietas-atskaites vietas, kā arī kandidātu meklēanas vietas-jums būs nepiecieams izmantot vienu no atlases instrumentiem, lai identificētu references vietas.  Ja jūs izveidojat divus atseviķus slāņus, vienu ar atskaites vietu un otru ar visām kandidātu meklēanas vietām, jums nav nepiecieams veikt izvēli.
+
+            </p>
+            <p>Ja ir vairāk nekā viena references vieta, viena vieta ir izveidota aprēķinot vidējo vērtību katram laukam, ko izmanto, lai analizētu līdzību.
+            </p>
+        </div>
+    </div>
+    <div id="searchLayer">
+        <div><h2>Meklēt līdzīgas vietas:</h2></div>
+        <hr/>
+        <div>
+            <p>Kandidāti, kas tiek meklēti vietās ajā slānī, tiks sarindoti no visvairāk uz vismazāk līdzīgiem.  Līdzība ir balstīta uz to, cik ciei viena vieta atbilst references vietai, atbilstoi laukiem, kādus jūs norādījāt. 
+
+            </p>
+        </div>
+    </div>
+    <div id="analysisFields">
+        <div><h2>Pamatot līdzību uz:</h2></div>
+        <hr/>
+        <div>
+            <p>Lauki, ko jūs izvēlējāties būs kritēriji, kas tiks izmantoti, lai novērtētu līdzību.  Ja jūs izvēlaties iedzīvotāju skaitu un ienākumu lauku, piemēram, kandidātu meklēanas vietas ar viszemākajiem (labākajā gadījumā) rādītājiem, būs tie, kas ir līdzīgi gan iedzīvotāju skaitam gan ienākumu vērtībām.
+
+            </p>
+        </div>
+    </div>
+    <div id="numberOfResults">
+        <div><h2>Rādīt:</h2></div>
+        <hr/>
+        <div>
+            <p>Jūs varat vai nu redzēt visu kandidātu meklēanas vietas sakārtotas pēc visvairāk līdzīgiem uz vismazāk līdzīgiem, vai arī varat norādīt rezultātu skaitu, ko vēlaties redzēt.
+
+                <ul>
+                    <li> <b>visas vietas no lielākās uz vismaz līdzīgu</b>-visi elementi ajā kandidātu meklēanas slānis tiks iekļauti rangu secībā rezultāta slānī
+                    </li>
+                    <li> <b>augējā</b> <code>1</code>-jūs nosakat, cik daudzi no augējiem rezultātiem ir visvairāk līdzīgi un kuri kandidātiem jāiekļauj rezultātu slānī.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="OutputName">
+        <div><h2>Rezultāta slāņa nosaukums</h2></div>
+        <hr/>
+        <div>
+            <p>Sniedziet slāņa slānis, kas tiks izveidots jūsu  <b>Mans saturs</b>  un pievienots kartei. is rezultātu slānis satur references atraanās vietas un skaitu, kas sarindoti pēc kandidātu meklēanas vietas, ko jūs norādījāt.   Ja rezultāta slāņa nosaukums jau pastāv, jums jautās, vai to pārsaukt.
+            </p>
+            <p>Lietojot  <b>Saglabāt rezultātus</b> izkrītoajā sarakstlodziņā, jūs varat norādīt nosaukumu mapē <b>Mans saturs</b> , kurs tiks saglabāti rezultāti.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

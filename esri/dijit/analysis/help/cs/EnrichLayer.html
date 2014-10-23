@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Obohatit vrstvu</h2><p/>
+        <h2><img src="../images/GUID-2B1E8F2B-B474-4AC2-AF32-FFFAA1C43B2E-web.png" alt="Obohatit vrstvu"></h2>
+        <hr/>
+    <p>Tento n&aacute;stroj obohacuje va&scaron;e data &uacute;daji o lidech, m&iacute;stech a firm&aacute;ch nach&aacute;zej&iacute;c&iacute;ch se ve va&scaron;&iacute; z&aacute;jmov&eacute; oblasti, a umožňuje v&aacute;m z&iacute;skat z nich nov&eacute; informace, kter&eacute; z map samotn&yacute;ch nejsou patrn&eacute;. Např&iacute;klad: Jak&yacute; typ lid&iacute; zde žije? Co lid&eacute; v t&eacute;to oblasti r&aacute;di dělaj&iacute;? Jak&eacute; jsou jejich zvyky a životn&iacute; styly? Jak&eacute; druhy firem se v t&eacute;to oblasti nach&aacute;z&iacute;?
+    </p>
+    <p>V&yacute;sledkem bude nov&aacute; vrstva obsahuj&iacute;c&iacute; v&scaron;echny demografick&eacute; a geografick&eacute; informace z vybran&yacute;ch datov&yacute;ch sad. Tyto nov&eacute; informace jsou přid&aacute;ny jako pole tabulky.
+    </p>
+    <p>Pokud je za&scaron;krtnuto  <b>Použ&iacute;vat rozsah aktu&aacute;ln&iacute; mapy</b>, budou analyzov&aacute;ny pouze prvky ve vrstvě anal&yacute;zy a v z&aacute;jmov&eacute; oblasti viditeln&eacute; v rozsahu aktu&aacute;ln&iacute; mapy. Pokud toto pole za&scaron;krtnuto nen&iacute;, budou analyzov&aacute;ny v&scaron;echny prvky ve vrstvě anal&yacute;zy a v z&aacute;jmov&eacute; oblasti, včetně těch, kter&eacute; se nach&aacute;z&iacute; mimo rozsah aktu&aacute;ln&iacute; mapy.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="DataCollection">
+        <div><h2>Proměnné pro obohacení</h2></div>
+        <hr/>
+        <div>
+            
+            <p>Kliknut&iacute;m na položku  <b>Vybrat proměnn&eacute;</b> otevřete <b>Prohl&iacute;žeč dat</b>. <b>Prohl&iacute;žeč dat</b> v&aacute;m pom&aacute;h&aacute; jednotlivě nebo hromadně vyhledat a vybrat proměnn&eacute; pro obohacen&iacute;.
+            </p>
+            <p>Region je vybr&aacute;n automaticky na z&aacute;kladě va&scaron;ich dat. Pokud va&scaron;e data pokr&yacute;vaj&iacute; v&iacute;ce než jednu zemi, můžete zvolit jin&yacute; region. 
+            </p>
+            <p>Proměnn&eacute; pro obohacen&iacute; jsou pro usnadněn&iacute; př&iacute;stupu uspoř&aacute;d&aacute;ny do datov&yacute;ch sb&iacute;rek. Pot&eacute;, co zvol&iacute;te datovou sb&iacute;rku, zobraz&iacute; prohl&iacute;žeč několik nejobl&iacute;beněj&scaron;&iacute;ch proměnn&yacute;ch v t&eacute;to sb&iacute;rce. Na z&aacute;kladě možnosti  <b>Pokračovat v proch&aacute;zen&iacute;</b> tak&eacute; zobrazuje kategorie ve sb&iacute;rce. V každ&eacute; kategorii můžete vybrat cel&eacute; podkategorie nebo otevř&iacute;t podkategorii a vybrat jednotliv&eacute; proměnn&eacute; pro obohacen&iacute;. K vyhled&aacute;n&iacute; konkr&eacute;tn&iacute; proměnn&eacute; v kategorii můžete tak&eacute; využ&iacute;t pole vyhled&aacute;v&aacute;n&iacute;.
+            </p>
+            <p>Když vyberete proměnn&eacute;, kter&eacute; chcete zahrnout do obohacen&iacute;, přidaj&iacute; se do n&aacute;kupn&iacute;ho ko&scaron;&iacute;ku, kter&yacute; se nach&aacute;z&iacute; v rohu  <b>Prohl&iacute;žeče dat</b>. Pomoc&iacute; tohoto n&aacute;kupn&iacute;ho ko&scaron;&iacute;ku můžete sledovat počet vybran&yacute;ch proměnn&yacute;ch.
+            </p>
+            <p>Každ&aacute; vybran&aacute; proměnn&aacute; se přid&aacute; do v&yacute;sledn&eacute; vrstvy jako pole.
+            </p> 
+        </div>
+    </div>
+    <div id="BufferOption">
+        <div><h2>Definovat oblasti k obohacení dat</h2></div>
+        <hr/>
+        <div>
+            <p>Jedn&aacute; se o oblasti, kter&eacute; maj&iacute; b&yacute;t obohaceny doplňkov&yacute;mi informacemi obsažen&yacute;mi ve sb&iacute;rce dat. Obsahuje-li vrstva anal&yacute;zy body nebo linie, jsou kolem každ&eacute;ho bodu nebo linie vytvořeny oblasti s použit&iacute;m vzd&aacute;lenosti vzdu&scaron;nou čarou, j&iacute;zdn&iacute; vzd&aacute;lenosti nebo j&iacute;zdn&iacute;ho času.  
+            </p>
+        </div>
+    </div>
+    <div id="OutputName">
+        <div><h2>Název výsledné vrstvy</h2></div>
+        <hr/>
+        <div>
+            <p>Jde o n&aacute;zev vrstvy, kter&aacute; se vytvoř&iacute; ve složce  <b>Můj obsah</b> a přid&aacute; se do mapy. V&yacute;choz&iacute; n&aacute;zev se ř&iacute;d&iacute; n&aacute;zvem vrstvy anal&yacute;zy. Pokud vrstva již existuje, budete pož&aacute;d&aacute;ni o potvrzen&iacute;, že si přejete ji přepsat.
+            </p>
+            <p>V rozbalovac&iacute;m seznamu  <b>Uložit v&yacute;sledek do</b> můžete zadat n&aacute;zev složky ve složce <b>Můj obsah</b>, do kter&eacute; se m&aacute; v&yacute;sledek uložit.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

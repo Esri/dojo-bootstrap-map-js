@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Legg lag oppå</h2><p/>
+        <h2><img src="../images/GUID-F7C42432-C8C5-4E4F-8275-EC7E95D00CB7-web.png" alt="Legg lag opp&aring;"></h2>
+        <hr/>
+    <p>Overlegg sl&aring;r sammen to eller flere lag til ett lag.  Et overlegg blir som om du ser ned gjennom en stabel med kart som ligger opp&aring; hverandre, og oppretter et enkelt kart som inneholder all den informasjonen som finnes i hele kartstabelen. Overlegg er mye mer enn en sammensl&aring;ing av streker. Alle attributtene for geoobjektene som er en del av overlegget, videref&oslash;res til det endelige produktet. Overlegg brukes til &aring; besvare et av det mest grunnleggende geografiske sp&oslash;rsm&aring;lene: &quot;Hva ligger opp&aring; hva?&quot; Eksempel:
+        <ul>
+            <li>Hvilke tomter ligger innenfor flomsonen for hundre&aring;rsflom? (Innenfor betyr det samme som opp&aring;.)
+                  
+            </li>
+            <li>Hvilke veier er innenfor hvilke fylker?
+            </li>
+            <li>Hvilken arealbruk er det opp&aring; hvilken jordart?
+                 
+            </li>
+            <li>Hvilke br&oslash;nner befinner seg p&aring; nedlagte milit&aelig;rbaser?
+            </li>
+        </ul>
+        
+    </p>
+    <p>Hvis det er merket av for  <b>Use current map extent</b>, er det kun geoobjektene i analyselaget og overleggslaget som vises i gjeldende kartutstrekning, som legges over.  Hvis det ikke er merket av for dette alternativet, legges alle geoobjektene i b&aring;de analyselaget og overleggslaget over, selv om de befinner seg utenfor gjeldende kartutstrekning.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="OverlayLayer">
+        <div><h2>Velg overleggslag</h2></div>
+        <hr/>
+        <div>
+            <p>Laget som analyselaget skal legges over.  
+            </p> 
+        </div>
+    </div>
+    <div id="OverlayType">
+        <div><h2>Velg overleggsmetode</h2></div>
+        <hr/>
+        <div>
+            <p>Overleggsmetoden definerer hvordan analyselaget og overleggslaget kombineres.
+                <ul>
+                    <li> <b>Kryss</b> &ndash; Resultatet inneholder kun de geoobjektene eller delene av geoobjektene i overleggslaget som overlapper med geoobjekter i analyselaget. Ved kryssende linje- eller omr&aring;degeoobjekter har du muligheten til &aring; angi hvilken type geoobjekter du &oslash;nsker som resultat.
+                        <table border="1">
+                        <tr>
+                            <td>
+                                <p>Punkter med punkter
+                                </p>
+                            </td>
+                            <td>
+                                <p> <img src="../images/GUID-B456C1ED-F5A1-4F8A-A1ED-1BC35A4A8B40-web.png" alt="Punkter og punktinndata">
+                                </p>
+                            </td>
+                            <td>
+                                <p> <img src="../images/GUID-49B1A536-8426-4149-B067-5A16936E0BBC-web.png" alt="Punkter og punkter med punktresultat">
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Punkter med linjer
+                                </p>
+                            </td>
+                            <td>
+                                <p> <img src="../images/GUID-F1E6C6C8-4F51-4063-984D-0FC8D08EB2D2-web.png" alt="Punkter og linjeinndata">
+                                </p>
+                            </td>
+                            <td>
+                                <p> <img src="../images/GUID-02CFAFDC-1B3C-4C4B-A58C-7B0B78BA0B56-web.png" alt="Punkter og linjer med punktresultat">
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Punkter med omr&aring;der
+                                </p>
+                            </td>
+                            <td>
+                                <p> <img src="../images/GUID-5EE90BD6-CC3D-4E2F-A5D0-DC57298E8416-web.png" alt="punkter og omr&aring;deinndata">
+                                </p>
+                            </td>
+                            <td> <img src="../images/GUID-5CCA360F-D4C9-43AB-8FB2-E6E62DE93BD4-web.png" alt="punkter og omr&aring;der med punktresultat">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Linjer med linjer 
+                                </p>
+                            </td>
+                            <td>
+                                <p> <img src="../images/GUID-CF8DDF87-919D-43D5-BBB6-87F0EAC33891-web.png" alt="Linjer og linjeinndata">
+                                </p>
+                            </td>
+                            <td>
+                                <p> <img src="../images/GUID-DDCCB226-6490-4914-B87C-299125466256-web.png" alt="Linjer og linjer med punktresultat">
+                                </p>
+                                <p> <img src="../images/GUID-CDE3AAA9-94C1-41E9-8270-229433240743-web.png" alt="Linjer og linjer med linjeresultat ">
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Linjer med omr&aring;der
+                                </p>
+                            </td>
+                            <td>
+                                <p> <img src="../images/GUID-E38EB7D6-9D35-4E0D-937A-9FEC4144AF2E-web.png" alt="Linjer og omr&aring;deinndata">
+                                </p>
+                            </td>
+                            <td>
+                                <p> <img src="../images/GUID-639F492C-BEE7-4A5F-AEBC-325B74FEC766-web.png" alt="Linjer og omr&aring;der med punktresultat">
+                                </p>
+                                <p> <img src="../images/GUID-58DF5CF6-0A56-4717-AD9C-C3BEC8EA6906-web.png" alt="Linjer og omr&aring;der med linjeresultat">
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Omr&aring;der med omr&aring;der
+                                </p>
+                            </td>
+                            <td>
+                                <p> <img src="../images/GUID-10C2CDA7-E6C4-4323-A9FB-5FB77A258CE0-web.png" alt="Omr&aring;der og omr&aring;deinndata">
+                                </p>
+                            </td>
+                            <td>
+                                <p> <img src="../images/GUID-3F71AD46-A6A2-436D-8BBA-13E014BB94D0-web.png" alt="Omr&aring;der og omr&aring;der med punktresultat">
+                                </p>
+                                <p> <img src="../images/GUID-6AF62F09-6D32-4212-97C6-844580E34A22-web.png" alt="Omr&aring;der og omr&aring;der med linjeresultat">
+                                </p>
+                                <p> <img src="../images/GUID-4D397A0E-EF91-4ACE-9655-2483AFC2FDE2-web.png" alt="Omr&aring;der og omr&aring;der med omr&aring;deresultat">
+                                </p>
+                            </td>
+                        </tr>
+                        </table>
+                    </li>
+                    <li> <b>Union</b> &ndash; Resultatet inneholder geoobjekter fra b&aring;de analyselaget og overleggslaget. Union-alternativet er kun tilgjengelig n&aring;r b&aring;de analyselaget og overleggslaget inneholder omr&aring;degeoobjekter.
+                    </li>
+                    <li> <b>Slett</b> &ndash; Resultatet inneholder geoobjekter eller deler av geoobjekter i overleggslaget som ikke overlapper med omr&aring;dene i analyselaget.  Overleggslaget kan inneholde omr&aring;de-, linje- eller punktgeoobjekter.
+                    </li>
+                </ul>
+                
+            </p>
+            <p>Hvis det er merket av for  <b>Use current map extent</b>, er det kun geoobjektene i analyselaget og overleggslaget som vises i gjeldende kartutstrekning, som legges over.  Hvis det ikke er merket av for dette alternativet, legges alle geoobjektene i b&aring;de analyselaget og overleggslaget over, selv om de befinner seg utenfor gjeldende kartutstrekning.
+            </p> 
+        </div>
+    </div>
+    <div id="OutputLayer">
+        <div><h2>Navn på resultatlag</h2></div>
+        <hr/>
+        <div>
+            <p> Dette er navnet p&aring; laget som opprettes i <b>Mitt innhold</b> og legges til kartet.  Det har samme geoobjektstype (omr&aring;der, linjer eller punkt) som overleggslaget.  Standardnavnet er basert p&aring; overleggsmetoden og navnet p&aring; analyselaget. Hvis laget finnes allerede, blir du bedt om &aring; bekrefte at du vil overskrive det.
+            </p>
+            <p>Bruk rullegardinlisten  <b>Lagre resultat i</b> til &aring; angi navnet p&aring; en mappe i <b>Mitt innhold</b> som resultatene skal lagres i.
+            </p> 
+        </div>
+    </div>
+</div>
+</html>

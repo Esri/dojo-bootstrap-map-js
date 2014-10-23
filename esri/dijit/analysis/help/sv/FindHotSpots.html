@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Hitta hotspots</h2><p/>
+        <h2><img src="../images/GUID-C2575FC6-F14C-4332-B3BF-AB4EDA15177B-web.png" alt="Hitta hotspots"></h2>
+        <hr/>
+    <p>Med verktyget Hitta hotspots kan du fastst&auml;lla om det finns statistiskt signifikanta kluster i det geografiska m&ouml;nstret f&ouml;r dina data. 
+        <ul>
+            <li>&Auml;r dina punkter (brottsfall, tr&auml;d, trafikolyckor) verkligen klustrade?  Hur kan du vara s&auml;ker p&aring; det?
+            </li>
+            <li>Har du verkligen uppt&auml;ckt en statistiskt signifikant hotspot (f&ouml;r utgifter, barnd&ouml;dlighet, st&auml;ndigt h&ouml;ga provresultat), eller skulle kartan ber&auml;tta n&aring;got annat om du &auml;ndrade hur den symboliseras?
+            </li>
+        </ul>
+        Verktyget Hitta hotspots hj&auml;lper dig besvara de h&auml;r fr&aring;gorna med s&auml;kerhet.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="AnalysisFieldPoly">
+        <div><h2>Välj ett analysfält</h2></div>
+        <hr/>
+        <div>
+            <p>Den h&auml;r analysen besvarar fr&aring;gan: Var klustras h&ouml;ga och l&aring;ga v&auml;rden (f&ouml;r ett analysf&auml;lt du anger) geografiskt?  
+            </p>
+            <p>Resultatlagret blir en kopia av analyslagret.  Tabellen kommer att inneh&aring;lla det analysf&auml;lt du har valt samt ytterligare f&auml;lt som visar klusterstyrka, statistisk signifikans och konfidensniv&aring;.
+            </p> 
+        </div>
+    </div>
+    <div id="AnalysisFieldPoint">
+        <div><h2>Välj ett analysfält</h2></div>
+        <hr/>
+        <div>
+            <p>Om du anger ett analysf&auml;lt besvarar verktyget fr&aring;gan: Var finns kluster av h&ouml;ga och l&aring;ga v&auml;rden bland punkterna? 
+            </p>
+            <p>Resultatlagret blir en kopia av punktanalyslagret.  Tabellen kommer att inneh&aring;lla det analysf&auml;lt du har valt samt ytterligare f&auml;lt som visar klusterstyrka, statistisk signifikans och konfidensniv&aring;.
+            </p>
+            <p>Om du inte anger n&aring;got analysf&auml;lt utv&auml;rderar verktyget den geografiska placeringen av punktgeoobjekten f&ouml;r att besvara fr&aring;gan: Var har punkterna ov&auml;ntat klustrats eller blivit utspridda?   
+            </p>
+            <p>N&auml;r inget analysf&auml;lt finns till hands skapar verktyget ett fiskn&auml;tsrutn&auml;t och r&auml;knar antalet punkter i varje ruta i fiskn&auml;tet. Endast rutor med ett punktantal st&ouml;rre &auml;n noll analyseras.  Resultatlagret utg&ouml;rs av fiskn&auml;tets rutor. Resultatlagrets tabell inneh&aring;ller punktv&auml;rdena samt ytterligare f&auml;lt som visar klusterstyrka, statistisk signifikans och konfidensniv&aring;.
+            </p> 
+        </div>
+    </div>
+    <div id="BoundingPolygonLayer">
+        <div><h2>Definiera var incidenter är möjliga</h2></div>
+        <hr/>
+        <div>
+            <p>Du kan rita eller ange ett lager med begr&auml;nsningsomr&aring;den f&ouml;r att besvara fr&aring;gan: Finns det n&aring;gra platser inom begr&auml;nsningsomr&aring;dena med ov&auml;ntat h&ouml;ga eller l&aring;ga punktkoncentrationer?   
+            </p>
+            <p>Omr&aring;desgeoobjekten du ritar eller geoobjekten i det omr&aring;deslager du anger b&ouml;r definiera var punkterna kan t&auml;nkas uppst&aring;.  Rita omr&aring;dena genom att klicka p&aring; ritknappen och sedan klicka p&aring; kartan f&ouml;r att skapa ett omr&aring;desgeoobjekt.  Om du vill rita fler omr&aring;den klickar du p&aring; ritknappen igen och klickar sedan p&aring; kartan f&ouml;r att forts&auml;tta.
+            </p>
+            <p>Obs! Om du vill &ouml;verlappa dina punkter med andra omr&aring;den &auml;n ett rutn&auml;t anv&auml;nder du  <b>Ange aggregeringsomr&aring;den f&ouml;r att summera incidenter</b>.
+            </p>
+            <p>Resultatlagret f&ouml;r analysen &auml;r ett rutn&auml;t som t&auml;cker de begr&auml;nsningsomr&aring;den som du anger.  Tabellen kommer att inneh&aring;lla antal punkter f&ouml;r rutorna i rutn&auml;tet samt ytterligare f&auml;lt som visar klusterstyrka, statistisk signifikans och konfidensniv&aring;.  
+            </p> 
+        </div>
+    </div>
+    <div id="AggregationPolygonLayer">
+        <div><h2>Ange aggregeringsområden</h2></div>
+        <hr/>
+        <div>
+            <p>Ange ett omr&aring;deslager (normalt sett visar dessa administrativa rapporterande distrikt, till exempel folkr&auml;kningsdistrikt, kommungr&auml;nser eller l&auml;nder) f&ouml;r att besvara fr&aring;gan: Med tanke p&aring; antalet punkter inom varje omr&aring;desgeoobjekt, finns det platser med statistiskt signifikativ geografisk klustring med h&ouml;gt eller l&aring;gt punktantal?   
+            </p>
+            <p>Resultatlagret f&ouml;r analysen &auml;r en kopia av aggregeringsomr&aring;dena.  Tabellen kommer att inneh&aring;lla antal punkter f&ouml;r varje omr&aring;de samt ytterligare f&auml;lt som visar klusterstyrka, statistisk signifikans och konfidensniv&aring;. 
+            </p> 
+        </div>
+    </div>
+    <div id="OutputLayerName">
+        <div><h2>Resultatlagrets namn</h2></div>
+        <hr/>
+        <div>
+            <p>Ange ett namn f&ouml;r lagret som skapas i  <b>Mitt inneh&aring;ll</b> och l&auml;ggs till i kartan. Resultatlagret visar statistiskt signifikanta kluster med h&ouml;ga och l&aring;ga v&auml;rden eller punktantal. Om lagrets namn redan finns uppmanas du att byta namn p&aring; det.
+            </p>
+            <p>Om du anv&auml;nder listrutan  <b>Spara resultat i</b> kan du ange namnet p&aring; en mapp i <b>Mitt inneh&aring;ll</b> d&auml;r resultatet ska sparas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

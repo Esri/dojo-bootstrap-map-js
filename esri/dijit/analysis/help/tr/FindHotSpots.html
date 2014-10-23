@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Etkin Nokta Bul</h2><p/>
+        <h2><img src="../images/GUID-C2575FC6-F14C-4332-B3BF-AB4EDA15177B-web.png" alt="Etkin Nokta Bul"></h2>
+        <hr/>
+    <p>Etkin Nokta Bul aracı, verinizin mekansal modelinde istatistiksel a&ccedil;ıdan &ouml;nemli bir k&uuml;melenme olup olmadığını belirleyecektir. 
+        <ul>
+            <li>Noktalarınız (su&ccedil; olayları, ağa&ccedil;lar, trafik kazaları) ger&ccedil;ekten k&uuml;melenmiş mi? Nasıl emin olabilirsiniz?
+            </li>
+            <li>Ger&ccedil;ekten istatistiksel a&ccedil;ıdan &ouml;nemli etkin nokta (harcama, bebek &ouml;l&uuml;m&uuml;, s&uuml;rekli y&uuml;ksek test puanları) buldunuz mu ya da haritanız, sembolize edilme şeklini değiştirdiyseniz farklı bir şey mi anlatıyor?
+            </li>
+        </ul>
+        Etkin Nokta Bul Aracı bu sorulara g&uuml;venle cevap vermenize yardımcı olacaktır.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="AnalysisFieldPoly">
+        <div><h2>Analiz alanı seç</h2></div>
+        <hr/>
+        <div>
+            <p>Bu analiz şu soruya yanıt verir: Y&uuml;ksek ve d&uuml;ş&uuml;k değerler (belirlediğiniz bir analiz alanı i&ccedil;in) mekansal olarak nerede k&uuml;meleniyor?  
+            </p>
+            <p>Sonu&ccedil; katmanı analiz katmanının bir kopyası olacaktır. Tablo, se&ccedil;tiğiniz analiz alanına ek olarak k&uuml;melenme kuvveti, istatistiksel &ouml;nem ve g&uuml;ven seviyesini yansıtan alanları i&ccedil;erecektir.
+            </p> 
+        </div>
+    </div>
+    <div id="AnalysisFieldPoint">
+        <div><h2>Analiz alanı seç</h2></div>
+        <hr/>
+        <div>
+            <p>Bu analiz alanı sağlarsanız, bu ara&ccedil; şu soruya yanıt verir: Y&uuml;ksek ve d&uuml;ş&uuml;k değerler, noktalar arasında nerede k&uuml;meleniyor? 
+            </p>
+            <p>Sonu&ccedil; katmanı nokta analiz katmanının bir kopyası olacaktır. Tablo, se&ccedil;tiğiniz analiz alanına ek olarak k&uuml;melenme kuvveti, istatistiksel &ouml;nem ve g&uuml;ven seviyesini yansıtan alanları i&ccedil;erecektir.
+            </p>
+            <p>Analiz alanı sağlamazsanız, bu ara&ccedil;, şu soruyu yanıtlamak i&ccedil;in nokta &ouml;zelliklerinin mekansal d&uuml;zenlemesini değerlendirecektir: Noktalar nerede beklenmedik şekilde k&uuml;meleniyor ya da dağılıyor?   
+            </p>
+            <p>Bir analiz alanı sağlanmadığında, ara&ccedil; bir balık ağı oluşturur ve her ağ karesi i&ccedil;ine d&uuml;şen nokta sayısını sayar. Yalnızca nokta sayısı sıfırdan fazla olan kareler analiz edilecektir. Sonu&ccedil; katmanı balık ağı karelerdir; sonu&ccedil; katmanı tablosu, hesaplama değerlerine ek olarak k&uuml;melenme kuvveti, istatistiksel &ouml;nem ve g&uuml;ven seviyesini yansıtan alanları i&ccedil;erecektir.
+            </p> 
+        </div>
+    </div>
+    <div id="BoundingPolygonLayer">
+        <div><h2>Olayların nerede olası olduğunu tanımla</h2></div>
+        <hr/>
+        <div>
+            <p>Şu soruya yanıt vermek i&ccedil;in bir sınır &ccedil;izin ya da bir sınır alanları katmanı sağlayın: Sınırlayıcı alanlar i&ccedil;inde beklenmedik şekilde y&uuml;ksek ya da d&uuml;ş&uuml;k nokta konsantrasyonları olan bir konum var mı?   
+            </p>
+            <p>&Ccedil;izdiğiniz alan detayları ya da belirttiğiniz alan katmanındaki detaylar, noktaların oluşma olasılığı olan yerleri tanımlamalıdır. Bu alanları &ccedil;izmek i&ccedil;in &ccedil;izme d&uuml;ğmesine tıklayın ve ardından bir alan şekli oluşturmak i&ccedil;in harita &uuml;zerine tıklayın. Ek alanları &ccedil;izmek i&ccedil;in &ccedil;izme d&uuml;ğmesine yeniden tıklayın, ardından harita &uuml;zerine tıklayın ve devam edin.
+            </p>
+            <p>Not: Noktalarınızı balık ağı dışındaki kareler ile bindirmek isterseniz,  <b>Olayları toplamak i&ccedil;in toplanma alanları sağlayın</b>.
+            </p>
+            <p>Bu analizin sonu&ccedil; katmanı, sağladığınız sınır alanlarını kapsayan bir balık ağı olacaktır. Tablo, balık ağı kare nokta hesaplamasına ek olarak k&uuml;melenme kuvveti, istatistiksel &ouml;nem ve g&uuml;ven seviyesini yansıtan alanları i&ccedil;erecektir.  
+            </p> 
+        </div>
+    </div>
+    <div id="AggregationPolygonLayer">
+        <div><h2>Toplama alanları sağla</h2></div>
+        <hr/>
+        <div>
+            <p>Şu soruya yanıt vermek i&ccedil;in bir alan katmanı (genelde bunlar n&uuml;fus sayımı alanları, belediye sınırları ya da il&ccedil;eler gibi y&ouml;netici raporlama b&ouml;lgelerini yansıtır) sağlayın: Her alan detayı dahilindeki nokta sayısı d&uuml;ş&uuml;n&uuml;ld&uuml;ğ&uuml;nde, y&uuml;ksek ya da d&uuml;ş&uuml;k nokta sayımının istatistiksel olarak &ouml;nemli mekansal k&uuml;melenmesini i&ccedil;eren konumlar var mı?   
+            </p>
+            <p>Bu analizin sonu&ccedil; katmanı toplama alanlarının bir kopyası olacaktır. Tablo, her alanın nokta sayımına ek olarak k&uuml;melenme kuvveti, istatistiksel &ouml;nem ve g&uuml;ven seviyesini yansıtan alanları i&ccedil;erecektir. 
+            </p> 
+        </div>
+    </div>
+    <div id="OutputLayerName">
+        <div><h2>Sonuç katmanı adı</h2></div>
+        <hr/>
+        <div>
+            <p> <b>İ&ccedil;eriğim</b> alanınızda oluşturulacak ve haritaya eklenecek katman i&ccedil;in bir ad sağlayın. Bu sonu&ccedil; katmanı size y&uuml;ksek ya da d&uuml;ş&uuml;k değer ya da nokta hesabının istatistiksel olarak &ouml;nemli k&uuml;melerini g&ouml;sterecektir. Sonu&ccedil; katmanı adı mevcutsa bunu yeniden adlandırmanız istenecektir.
+            </p>
+            <p> <b>Sonu&ccedil;ları kaydet</b> a&ccedil;ılır kutusunu kullanarak <b>İ&ccedil;eriğim</b> alanında sonucun kaydedileceği bir klas&ouml;r adı belirleyebilirsiniz.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

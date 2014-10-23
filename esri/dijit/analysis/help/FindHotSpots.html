@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Find Hot Spots</h2><p/>
+        <h2><img src="./images/GUID-C2575FC6-F14C-4332-B3BF-AB4EDA15177B-web.png" alt="Find Hot Spots"></h2>
+        <hr/>
+    <p>The Find Hot Spots tool will determine if there is any statistically significant clustering in the spatial pattern of your data. 
+        <ul>
+            <li>Are your points (crime incidents, trees, traffic accidents) really clustered?  How can you be sure?
+            </li>
+            <li>Have you truly discovered a statistically significant hot spot (for spending, infant mortality, consistently high test scores) or would your map tell a different story if you changed the way it was symbolized?
+            </li>
+        </ul>
+        The Find Hot Spots tool will help you answer these questions with confidence.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="AnalysisFieldPoly">
+        <div><h2>Choose an analysis field</h2></div>
+        <hr/>
+        <div>
+            <p>This analysis answers the question: Where do high and low values (for an analysis field you specify) cluster spatially?  
+            </p>
+            <p>The result layer will be a copy of the analysis layer.  The table will include the  analysis field you selected plus additional fields reflecting clustering strength, statistical significance, and confidence level.
+            </p> 
+        </div>
+    </div>
+    <div id="AnalysisFieldPoint">
+        <div><h2>Choose an analysis field</h2></div>
+        <hr/>
+        <div>
+            <p>If you provide an analysis field, this tool will answer the question: Where do high and low values cluster among the points? 
+            </p>
+            <p>The result layer will be a copy of the point analysis layer.  The table will include the analysis field you selected plus additional fields reflecting clustering strength, statistical significance, and confidence level.
+            </p>
+            <p>If you do not provide an analysis field, this tool will evaluate the spatial arrangement of the point features to answer the question: Where are points unexpectedly clustered or spread out?   
+            </p>
+            <p>When no analysis field is provided, the tool creates a fishnet mesh and counts the number of points that fall within each fishnet square. Only squares with point counts larger than zero are analyzed.  The result layer is the fishnet squares; the result layer table includes the count values plus additional fields reflecting clustering strength, statistical significance, and confidence level.
+            </p> 
+        </div>
+    </div>
+    <div id="BoundingPolygonLayer">
+        <div><h2>Define where incidents are possible</h2></div>
+        <hr/>
+        <div>
+            <p>Either draw or provide a layer of bounding areas to answer the question: Within the bounding areas, are there any locations with unexpectedly high or low point concentrations?   
+            </p>
+            <p>The area features you draw or the features in the area layer you specify should define where points could possibly occur.  To draw these areas, click the draw button then click on the map to create an area shape.  To draw additional areas, click the draw button again, then click on the map and continue.
+            </p>
+            <p>Note: If you want to overlay your points with areas other than a fishnet mesh,  <b>Provide aggregation areas for summing incidents</b>.
+            </p>
+            <p>The result layer for this analysis will be a fishnet mesh covering the bounding areas you provide.  The table will include the fishnet square point counts plus additional fields reflecting clustering strength, statistical significance, and confidence level.  
+            </p> 
+        </div>
+    </div>
+    <div id="AggregationPolygonLayer">
+        <div><h2>Provide aggregation areas</h2></div>
+        <hr/>
+        <div>
+            <p>Provide an area layer (typically these would reflect administrative reporting districts such as census tracts, municipal boundaries, or counties) to answer the question: Given the number of points within each area feature, are there locations with statistically significant spatial clustering of high or low point counts?   
+            </p>
+            <p>The result layer for this analysis will be a copy of the aggregation areas.  The table will include the  point counts for each area plus additional fields reflecting clustering strength, statistical significance, and confidence level. 
+            </p> 
+        </div>
+    </div>
+    <div id="OutputLayerName">
+        <div><h2>Result layer name</h2></div>
+        <hr/>
+        <div>
+            <p>Provide a name for the layer that will be created in your  <b>My Contents</b>  and added to the map.  
+This result layer will show you statistically significant clusters of high and low values or point counts. If the result layer name already exists you will be asked to rename it.
+            </p>
+            <p>Using the  <b>Save result in</b> drop-down box, you can  specify the name of a folder in <b>My Contents</b> where the result will be saved.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

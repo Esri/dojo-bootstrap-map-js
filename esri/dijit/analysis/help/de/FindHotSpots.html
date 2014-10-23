@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Hot Spots suchen</h2><p/>
+        <h2><img src="../images/GUID-C2575FC6-F14C-4332-B3BF-AB4EDA15177B-web.png" alt="Hot Spots suchen
+"></h2>
+        <hr/>
+    <p>Das Werkzeug &quot;Hot Spots suchen&quot; ermittelt, ob die r&auml;umlichen Muster in den Daten eine statistisch signifikante Cluster-Bildung aufweisen.
+ 
+        <ul>
+            <li>Sind Ihre Punkte (Verbrechensf&auml;lle, B&auml;ume, Verkehrsunf&auml;lle) wirklich geclustert?
+ 
+Wie kann dies sichergestellt werden?
+
+            </li>
+            <li>Haben Sie wirklich einen statistisch signifikanten Hot Spot (f&uuml;r Ausgaben, Kindersterblichkeit, durchweg hohe Pr&uuml;fungsergebnisse) gefunden oder w&uuml;rde die Karte andere Informationen bereitstellen, wenn Sie die Art der Symbolisierung ge&auml;ndert h&auml;tten?
+
+            </li>
+        </ul>
+        
+Mithilfe des Werkzeugs &quot;Hot Spots suchen&quot; k&ouml;nnen Sie diese Fragen mit Sicherheit beantworten.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="AnalysisFieldPoly">
+        <div><h2>Analysefeld auswählen</h2></div>
+        <hr/>
+        <div>
+            <p>Diese Analyse beantwortet die folgende Frage: Wo bilden hohe und niedrige Werte (f&uuml;r ein angegebenes Analysefeld) r&auml;umliche Cluster?
+  
+            </p>
+            <p>Der Ergebnis-Layer ist eine Kopie des Analyse-Layers.
+ 
+Die Tabelle enth&auml;lt das von Ihnen ausgew&auml;hlte Analysefeld und zus&auml;tzliche Felder, die die St&auml;rke der Cluster-Bildung, die statistische Signifikanz und das Konfidenzniveau angeben.
+
+            </p> 
+        </div>
+    </div>
+    <div id="AnalysisFieldPoint">
+        <div><h2>Analysefeld auswählen</h2></div>
+        <hr/>
+        <div>
+            <p>Wenn Sie ein Analysefeld bereitstellen, liefert das Werkzeug eine Antwort auf die folgende Frage: Wo bilden hohe und niedrige Werte unter den Punkten Cluster?
+ 
+            </p>
+            <p>Der Ergebnis-Layer ist eine Kopie des Punktanalyse-Layers.
+ 
+Die Tabelle enth&auml;lt das von Ihnen ausgew&auml;hlte Analysefeld und zus&auml;tzliche Felder, die die St&auml;rke der Cluster-Bildung, die statistische Signifikanz und das Konfidenzniveau angeben.
+
+            </p>
+            <p>Wenn Sie kein Analysefeld bereitstellen, wertet dieses Werkzeug die r&auml;umliche Anordnung der Punkt-Features aus, um die folgende Frage zu beantworten: Wo werden Punkte unerwartet geclustert oder ausgedehnt?
+   
+            </p>
+            <p>Wenn kein Analysefeld bereitgestellt wird, erstellt das Werkzeug ein Gitternetz und z&auml;hlt die Anzahl der Punkte, die innerhalb der einzelnen Netzquadrate liegen. Es werden nur Quadrate mit Punktzahlen gr&ouml;&szlig;er als Null analysiert. Die Netzquadrate bilden den Ergebnis-Layer; die Ergebnis-Layer-Tabelle enth&auml;lt die Anzahlwerte sowie zus&auml;tzliche Felder, die die St&auml;rke der Cluster-Bildung, die statistische Signifikanz und das Konfidenzniveau angeben.
+            </p> 
+        </div>
+    </div>
+    <div id="BoundingPolygonLayer">
+        <div><h2>Bereiche festlegen, in denen Ereignisse möglich sind</h2></div>
+        <hr/>
+        <div>
+            <p>Zeichnen oder stellen Sie einen Layer mit angrenzenden Fl&auml;chen bereit, um die folgende Frage zu beantworten: Gibt es innerhalb der angrenzenden Fl&auml;chen Standorte mit unerwartet hohen oder niedrigen Punktkonzentrationen?
+   
+            </p>
+            <p>Die von Ihnen dargestellten Fl&auml;chen-Features bzw. in den Fl&auml;chen-Layern angegebenen Features sollten definieren, wo Punkte m&ouml;glicherweise auftreten k&ouml;nnten.
+ Um diese Fl&auml;chen darzustellen, klicken Sie auf die Zeichenschaltfl&auml;che und anschlie&szlig;end auf die Karte, um ein Fl&auml;chen-Shape zu erstellen. 
+Um weitere Fl&auml;chen darzustellen, klicken Sie erneut auf die Zeichenschaltfl&auml;che, klicken Sie dann auf die Karte, und setzen Sie den Vorgang fort.
+
+            </p>
+            <p>Hinweis: Wenn Sie die Punkte mit anderen Fl&auml;chen anstatt eines Gitternetzes &uuml;berlagern m&ouml;chten, w&auml;hlen Sie die Option  <b>Aggregationsfl&auml;chen zum Zusammenfassen der Ereignisse bereitstellen</b>.
+            </p>
+            <p>Der Ergebnis-Layer dieser Analyse ist ein Gitternetz, das die angrenzenden Fl&auml;chen abdeckt, die Sie bereitstellen.
+ 
+Die Tabelle enth&auml;lt die Punktzahlen der Netzquadrate und zus&auml;tzliche Felder, die die St&auml;rke der Cluster-Bildung, die statistische Signifikanz und das Konfidenzniveau angeben.
+  
+            </p> 
+        </div>
+    </div>
+    <div id="AggregationPolygonLayer">
+        <div><h2>Aggregationsflächen bereitstellen</h2></div>
+        <hr/>
+        <div>
+            <p>Stellen Sie einen Fl&auml;chen-Layer bereit (diese spiegeln in der Regel Bezirke f&uuml;r administrative Berichtserstellung wie Z&auml;hlbezirke, Stadtgrenzen oder Landkreise wider), um die folgende Frage zu beantworten: Sind angesichts der Anzahl von Punkten innerhalb eines Fl&auml;chen-Features Standorte mit statistisch signifikanter r&auml;umlicher Cluster-Bildung vorhanden, die hohe oder niedrige Punktzahlen aufweisen?
+   
+            </p>
+            <p>Der Ergebnis-Layer f&uuml;r diese Analyse ist eine Kopie der Aggregationsfl&auml;chen.
+ 
+Die Tabelle enth&auml;lt die Punktzahlen f&uuml;r jeden Bereich und zus&auml;tzliche Felder, die die St&auml;rke der Cluster-Bildung, die statistische Signifikanz und das Konfidenzniveau angeben.
+ 
+            </p> 
+        </div>
+    </div>
+    <div id="OutputLayerName">
+        <div><h2>Name des Ergebnis-Layers</h2></div>
+        <hr/>
+        <div>
+            <p>Geben Sie einen Namen f&uuml;r den Layer an, der in  <b>Eigene Inhalte</b> erstellt und der Karte hinzugef&uuml;gt wird.
+ 
+Dieser Ergebnis-Layer zeigt statistisch signifikante Cluster mit hohen und niedrigen Werten bzw. Punktzahlen an.
+ 
+Wenn der Name des Ergebnis-Layers bereits vorhanden ist, werden Sie aufgefordert, ihn umzubenennen.
+            </p>
+            <p>&Uuml;ber das Dropdown-Feld  <b>Ergebnis speichern in</b> k&ouml;nnen Sie den Namen eines Ordners in <b>Eigene Inhalte</b> angeben, in dem das Ergebnis gespeichert werden soll.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

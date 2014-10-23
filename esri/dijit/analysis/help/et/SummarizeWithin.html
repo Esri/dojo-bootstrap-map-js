@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Summeeri piirides</h2><p/>
+        <h2><img src="../images/GUID-2E97B2ED-56A7-4242-B0E0-C1824E6F643F-web.png" alt="Summeeri piirides"></h2>
+        <hr/>
+    <p>See t&ouml;&ouml;vahend leiab alad ja nende osad, mis omavahel kattuvad ja mis on anal&uuml;&uuml;sikihi piirides.  N&auml;ide.
+        <ul>
+            <li>&Uuml;leujutusalade ulatuse ja maakasutuspiirkondade v&otilde;rdluse tulemusena on leitav iga &uuml;leujutuse piirkonna alla j&auml;&auml;va konkreetse maakasutuse kogupindala. 
+            </li>
+            <li>Omavalitsuse piirides paiknevate katastri&uuml;ksuste keskmine maamaksu suurus asustus&uuml;ksuste kaupa.
+            </li>
+        </ul>
+        
+    </p>
+    <p>Kui  <b>Kasuta kaardi ulatust</b> on sisse l&uuml;litatud, kasutatakse anal&uuml;&uuml;sil ainult neid objekte, mis antud hetkel on ekraanil n&auml;htavad.  Kui vastav tingimus on v&auml;lja l&uuml;litatud, kasutatakse summeerimisel m&otilde;lema kihi k&otilde;iki objekte s&otilde;ltumata asjaolust, kas need on anal&uuml;&uuml;si k&auml;ivitamise hetkel ekraanil n&auml;htavad v&otilde;i mitte.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="Summarize">
+        <div><h2>Vali kiht summeerimiseks</h2></div>
+        <hr/>
+        <div>
+            <p>Selles kihis summeeritakse objektid, mis on anal&uuml;&uuml;sikihi piirides. 
+            </p>
+        </div>
+    </div>
+    <div id="StatisticsPoint">
+        <div><h2>Lisa statistika</h2></div>
+        <hr/>
+        <div>
+            <p>Teil on v&otilde;imalik valikuliselt arvutada arvuliste atribuutide alusel statistika punktidest, mis langevad piiraja-objektide alla. 
+            </p>
+            <p>Kui vastav  <b>punktide arv</b> on m&auml;rgitud, arvutatakse piiraja-objektide alla j&auml;&auml;vate punktide koguarv.  Lisaks sellele saate arvutada statistika piiraja-objektide alla j&auml;&auml;vate punktide arvuliste atribuutide p&otilde;hjal.
+            </p>
+            <ul>
+                <li> <b>Summa</b> &ndash; m&auml;&auml;ratud v&auml;lja koguv&auml;&auml;rtus.
+                    
+              
+                </li>
+                <li> <b>Keskmine</b> &ndash; arvutab m&auml;&auml;ratud v&auml;lja keskmise
+                    
+              
+                </li>
+                <li> <b>Miinimum</b> &ndash; m&auml;&auml;ratud v&auml;lja v&auml;him v&auml;&auml;rtus.
+                    
+              
+                </li>
+                <li> <b>Maksimum</b> &ndash; m&auml;&auml;ratud v&auml;lja suurim v&auml;&auml;rtus.
+                    
+              
+                </li>
+                <li> <b>Standardh&auml;lve</b> &ndash; m&auml;&auml;ratud v&auml;lja v&auml;&auml;rtuste standardh&auml;lve.
+                    
+            
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="StatisticsLine">
+        <div><h2>Lisa statistika</h2></div>
+        <hr/>
+        <div>
+            <p>Teil on v&otilde;imalik valikuliselt arvutada arvuliste atribuutide alusel statistika l&auml;hedaste joonte kaudu. 
+            </p>
+            <p>Kui vastav  <b>joonte kogupikkus</b> on m&auml;rgitud, arvutatakse piiraja-objektide alla j&auml;&auml;vate joonte kogupikkus.  Lisaks sellele saate arvutada statistika piiraja-objektide alla j&auml;&auml;vate joonte arvuliste atribuutide p&otilde;hjal.
+            </p>
+            <ul>
+                <li> <b>Summa</b> &ndash; m&auml;&auml;ratud v&auml;lja koguv&auml;&auml;rtus.
+                    
+              
+                </li>
+                <li> <b>Keskmine</b> &ndash; arvutab m&auml;&auml;ratud v&auml;lja keskmise
+                    
+              
+                </li>
+                <li> <b>Miinimum</b> &ndash; m&auml;&auml;ratud v&auml;lja v&auml;him v&auml;&auml;rtus.
+                    
+              
+                </li>
+                <li> <b>Maksimum</b> &ndash; m&auml;&auml;ratud v&auml;lja suurim v&auml;&auml;rtus.
+                    
+              
+                </li>
+                <li> <b>Standardh&auml;lve</b> &ndash; m&auml;&auml;ratud v&auml;lja v&auml;&auml;rtuste standardh&auml;lve.
+                    
+            
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="StatisticsPolygon">
+        <div><h2>Lisa statistika</h2></div>
+        <hr/>
+        <div>
+            <p>Teil on v&otilde;imalik valikuliselt arvutada arvuliste atribuutide alusel statistika l&auml;hedaste pindade kaudu. 
+            </p>
+            <p>Kui on m&auml;rgitud valik  <b>Summeeri pindala, kasutades</b>, arvutatakse piiraja-objektide alla j&auml;&auml;vate alade kogupindala.  Lisaks sellele saate arvutada statistika piiraja-objektide alla j&auml;&auml;vate pindade arvuliste atribuutide p&otilde;hjal.
+            </p>
+            <ul>
+                <li> <b>Summa</b> &ndash; m&auml;&auml;ratud v&auml;lja koguv&auml;&auml;rtus.
+                    
+              
+                </li>
+                <li> <b>Keskmine</b> &ndash; arvutab m&auml;&auml;ratud v&auml;lja keskmise
+                    
+              
+                </li>
+                <li> <b>Miinimum</b> &ndash; m&auml;&auml;ratud v&auml;lja v&auml;him v&auml;&auml;rtus.
+                    
+              
+                </li>
+                <li> <b>Maksimum</b> &ndash; m&auml;&auml;ratud v&auml;lja suurim v&auml;&auml;rtus.
+                    
+              
+                </li>
+                <li> <b>Standardh&auml;lve</b> &ndash; m&auml;&auml;ratud v&auml;lja v&auml;&auml;rtuste standardh&auml;lve.
+                    
+            
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="GroupBy">
+        <div><h2>Vali atribuut grupeerimiseks</h2></div>
+        <hr/>
+        <div>
+            <p>See on atribuut  <b>Summeeri</b> objektidest, mida saate kasutada statistika leidmiseks iga unikaalse atribuutv&auml;&auml;rtuse kaupa. N&auml;iteks kui anal&uuml;&uuml;sikiht sisaldab linnapiiride kihti ja <b>summeeritavad</b> objektid on krundid.  &Uuml;ks neist krundi atribuutidest on <i>Status</i> ja sisaldab kaht v&auml;&auml;rtust: VAKANTNE ja H&Otilde;IVATUD. Vabade ja h&otilde;ivatud &uuml;ksuste kogupindala v&auml;&auml;rtuste arvutamiseks linna haldusalas kasutage grupeerimist <i>Status</i> atribuudi alusel. Iga grupi statistika ja piiraja-objektide alla j&auml;&auml;vate pindade arv kuvatakse tulemkihi h&uuml;pikaknas.
+            </p>
+        </div>
+    </div>
+    <div id="MinorityMajority">
+        <div><h2>Lisa vähemus, enamus</h2></div>
+        <hr/>
+        <div>
+            <p>See m&auml;rkeruut on aktiveeritud, kui valite r&uuml;hmitatava v&auml;lja.    Kui soovite v&auml;lja selgitada, millised atribuudi v&auml;&auml;rtused on igas r&uuml;hmas v&auml;hemuses (k&otilde;ige v&auml;hem domineerivad) v&otilde;i enamuses (k&otilde;ige rohkem domineerivad) anal&uuml;&uuml;sikihi iga piiraja piirides, valige <b>Lisa v&auml;hemus, enamus</b>.   Kui valite <b>Lisa v&auml;hemus, enamus</b>, lisatakse tulemkihile kaks uut v&auml;lja.   Kui valite ka <b>Lisa protsendid</b>, lisatakse tulemkihile kaks t&auml;iendavat v&auml;lja, mis sisaldavad iga r&uuml;hma kohta v&auml;hemuse ja enamuse atribuudiv&auml;&auml;rtuste protsente.
+            </p>
+            <ul>
+                <li>Punktide summeerimisel arvutatakse v&auml;hemuse ja enamuse v&auml;&auml;rtused punktide arvu j&auml;rgi anal&uuml;&uuml;sikihi igas piiraja-alas.  
+                    
+              
+                </li>
+                <li>Joonte summeerimisel arvutatakse v&auml;hemuse ja enamuse v&auml;&auml;rtused joonte pikkuse j&auml;rgi anal&uuml;&uuml;sikihi igas piiraja-alas.  
+                    
+              
+                </li>
+                <li>Alade summeerimisel arvutatakse v&auml;hemuse ja enamuse v&auml;&auml;rtused pindalade j&auml;rgi anal&uuml;&uuml;sikihi igas piiraja-alas.  
+                    
+            
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="PercentShape">
+        <div><h2>Lisa protsendid</h2></div>
+        <hr/>
+        <div>
+            <p>See m&auml;rkeruut on aktiveeritud, kui valite r&uuml;hmitatava v&auml;lja.    Valige  <b>Lisa protsendid</b>, kui soovite igas r&uuml;hmas leida atribuudi igale v&auml;&auml;rtusele protsendi.  Tulemtabelile lisatakse uus v&auml;li, mis sisaldab igas r&uuml;hmas k&otilde;igi atribuudiv&auml;&auml;rtuste protsente.   Kui valite ka <b>Lisa v&auml;hemus, enamus</b>, lisatakse tulemkihile kaks t&auml;iendavat v&auml;lja, mis sisaldavad iga r&uuml;hma kohta v&auml;hemuse ja enamuse atribuudiv&auml;&auml;rtuste protsente.
+            </p>
+        </div>
+    </div>
+    <div id="ResultLayerName">
+        <div><h2>Tulemkihi nimi</h2></div>
+        <hr/>
+        <div>
+            <p>See on kihi nimi, mis luuakse kasutaja  <b>Minu sisu</b> alla ja lisatakse kaardile.  Vaikimisi nimi on tuletatud anal&uuml;&uuml;sikihi nimest. Kui see kiht juba eksisteerib, k&uuml;sitakse teie k&auml;est selle &uuml;lekirjutamise kohta kinnitust.
+            </p>
+            <p>Kasutades rippmen&uuml;&uuml;d  <b>Salvesta tulemus</b>, saate t&auml;psustada salvestamise asukoha kaustas <b>Minu sisu</b>.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

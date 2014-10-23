@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Sulanda piirajad</h2><p/>
+        <h2><img src="../images/GUID-D1192DD3-306F-4527-9898-FF2021ABCB0A-web.png" alt="Sulanda piirajad"></h2>
+        <hr/>
+    <p>&Uuml;hist piiri omavad v&otilde;i kattuvuses olevad alad liidetakse &uuml;heks tervikuks.    
+    </p>
+    <p>Te saate kontrollida, kas piirajad &uuml;hendatakse m&auml;&auml;ratud v&auml;lja alusel. Situatsioonis, kus Teil on kasutada n&auml;iteks maakondade kiht, milles iga maakond omab  <i>State_Name</i> atribuuti, saate te piiride &uuml;leminekud sulatada, kasutades selleks <i>State_Name</i> atribuuti.  K&uuml;lgnevad maakonnad &uuml;hendatakse kokku juhul, kui neil on sama v&auml;&auml;rtus v&auml;ljas <i>State_Name</i>.  L&otilde;pptulemusena tekib suurema ulatusega haldus&uuml;ksuste kiht.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="DissolveFields">
+        <div><h2>Vali sulandamise meetod</h2></div>
+        <hr/>
+        <div>
+            <p>Pindobjektide &uuml;hendamisel on v&otilde;imalik valida kahe meetodi vahel:
+                <ul>
+                    <li> <b>Alad, mis on &uuml;lekattes v&otilde;i on omavahel k&uuml;lgnevad</b>&mdash;Kahe v&otilde;i enama pinna puhul, mille piirid on omavahel &uuml;lekattes, liidetakse &uuml;heks tervikalaks.  Lisaks sellele alad, mis on omavahel k&uuml;lgnevad ehk mis omavad &uuml;hist piiri, liidetakse samuti &uuml;heks tervikalaks.
+                    </li>
+                    <li> <b>Sama v&auml;lja v&auml;&auml;rtust omavad alad</b>&mdash;Alad, mis on omavahel &uuml;lekattes v&otilde;i mis omavad &uuml;hist piiri, liidetakse &uuml;heks tervikalaks juhul, kui neil on sama v&auml;lja v&auml;&auml;rtus.
+                        <p>Situatsioonis, kus Teil on kasutada n&auml;iteks maakondade kiht, milles iga maakond omab  <i>State_Name</i> atribuuti, saate te piiride &uuml;leminekud sulatada, kasutades selleks <i>State_Name</i> v&auml;lja.  K&uuml;lgnevad maakonnad &uuml;hendatakse kokku juhul, kui neil on sama v&auml;&auml;rtus v&auml;ljas <i>State_Name</i>.  L&otilde;pptulemusena tekib suurema ulatusega haldus&uuml;ksuste kiht.
+                        </p>
+                    </li>
+                </ul>
+                
+            </p>
+            <p>Kui  <b>Kasuta kaardi ulatust</b> on sisse l&uuml;litatud, kasutatakse anal&uuml;&uuml;sil ainult neid objekte, mis antud hetkel on ekraanil n&auml;htavad.  Kui vastav tingimus on v&auml;lja l&uuml;litatud, kasutatakse sulandamisel k&otilde;iki kihis olevaid objekte s&otilde;ltumata asjaolust, kas need on anal&uuml;&uuml;si k&auml;ivitamise hetkel ekraanil n&auml;htavad v&otilde;i mitte.
+            </p>
+        </div>
+    </div>
+    <div id="SummaryFields">
+        <div><h2>Lisa statistik</h2></div>
+        <hr/>
+        <div>
+            <p>P&auml;rast alade kokku &uuml;hendamist saate summeerida ka nende atribuudid.  Juhul kui sulandate maakonnad piirid kokku, kasutades selleks v&auml;lja  <i>State_Name</i>ning kus iga maakond omab <i>Population</i> v&auml;lja, saate summeerida ka tunnuse <i>Population</i> suurema &uuml;ksuse kohta.
+            </p>
+            <p>Kasutatavad statistikute t&uuml;&uuml;bid on:
+            </p>
+            <ul>
+                <li> <b>Summa</b>&mdash;Lisab m&auml;&auml;ratud v&auml;lja kaudu koguv&auml;&auml;rtuse
+                    
+
+                </li>
+                <li> <b>Keskmine</b>&mdash;Arvutab m&auml;&auml;ratud v&auml;lja keskmise
+                    
+
+                </li>
+                <li> <b>Miinimum</b>&mdash;Leiab m&auml;&auml;ratud v&auml;lja k&otilde;igi v&auml;&auml;rtuste v&auml;ikseima v&auml;&auml;rtuse
+                    
+
+                </li>
+                <li> <b>Maksimum</b>&mdash;Leiab m&auml;&auml;ratud v&auml;lja k&otilde;igi kirjete suurima v&auml;&auml;rtuse
+                    
+
+                </li>
+                <li> <b>Standard- h&auml;lve</b>&mdash;Leiab m&auml;&auml;ratud v&auml;lja v&auml;&auml;rtustest standardh&auml;lbe
+                    
+
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="OutputName">
+        <div><h2>Tulemkihi nimi</h2></div>
+        <hr/>
+        <div>
+            <p>See on kihi nimi, mis luuakse kasutaja  <b>Minu sisu</b> alla ning lisatakse kaardile.  Vaikimisi nimi on tuletatud kihi anal&uuml;&uuml;si sisust. Kui see kiht juba eksisteerib, saate selle soovi korral &uuml;le kirjutada.
+            </p>
+            <p>Kasutades  <b>Salvesta tulemus</b> kasutaja sisu alla, mille saate valida rippmen&uuml;&uuml;st <b>Minu sisu</b>, kuhu tulemus salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

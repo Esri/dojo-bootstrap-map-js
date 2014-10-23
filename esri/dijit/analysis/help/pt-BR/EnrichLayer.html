@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Enriquecer Camada</h2><p/>
+        <h2><img src="../images/GUID-2B1E8F2B-B474-4AC2-AF32-FFFAA1C43B2E-web.png" alt="Enriquecer Camada"></h2>
+        <hr/>
+    <p>Esta ferramenta enriquece seus dados ao obter fatos sobre pessoas, lugares e neg&oacute;cios que cercam seus locais de dados e permite a voc&ecirc; responder novas perguntas sobre locais que voc&ecirc; n&atilde;o pode responder somente com mapas. Por exemplo: Que tipo de pessoa mora aqui? O que as pessoas gostam de fazer nesta &aacute;rea? Quais s&atilde;o seus h&aacute;bitos e estilos de vida? Quais tipos de neg&oacute;cios existem nesta &aacute;rea?
+    </p>
+    <p>O resultado ser&aacute; uma nova camada contendo todas as informa&ccedil;&otilde;es demogr&aacute;ficas e geogr&aacute;ficas das coletas de dados fornecidas.  Estas novas informa&ccedil;&otilde;es s&atilde;o adicionadas como campos na tabela.
+    </p>
+    <p>Se  <b>Utilizar extens&atilde;o de mapa atual</b> estiver selecionada, somente as fei&ccedil;&otilde;es na camada da &aacute;rea e an&aacute;lise vis&iacute;veis dentro da extens&atilde;o de mapa atual ser&atilde;o analisadas.  Se n&atilde;o estiver selecionada, todas as fei&ccedil;&otilde;es em ambas a camada de an&aacute;lise e a camada de &aacute;rea ser&atilde;o analisadas, mesmo que estiverem fora da extens&atilde;o de mapa atual.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="DataCollection">
+        <div><h2>Variáveis de enriquecimento</h2></div>
+        <hr/>
+        <div>
+            
+            <p>Clique em  <b>Selecionar Vari&aacute;veis</b> para abrir o <b>Navegador de Dados</b>.  O <b>Navegador de Dados</b> o ajuda a localizar e selecionar  vari&aacute;veis de enriquecimento individualmente ou em cole&ccedil;&otilde;es.
+            </p>
+            <p>Uma regi&atilde;o &eacute; automaticamente selecionada baseada em seus dados. Voc&ecirc; pode escolher uma regi&atilde;o diferente se os seus dados cobrirem mais de um pa&iacute;s. 
+            </p>
+            <p>As vari&aacute;veis de enriquecimento s&atilde;o organizadas em cole&ccedil;&otilde;es de dados para acesso f&aacute;cil.   Quando voc&ecirc; seleciona uma cole&ccedil;&atilde;o de dados, o navegador mostra a algumas das vari&aacute;veis de enriquecimento mais populares nesta cole&ccedil;&atilde;o.  Embaixo de  <b>Continuar Procurando</b>, ele tamb&eacute;m mostra a categorias dentro da cole&ccedil;&atilde;o. Dentro de cada categoria voc&ecirc; pode selecionar subcategorias inteiras ou procurar em uma subcategoria e selecionar vari&aacute;veis de enriquecimento individuais. Voc&ecirc; tamb&eacute;m pode utilizar a caixa de pesquisa para localizar uma vari&aacute;vel espec&iacute;fica dentro de uma categoria.
+            </p>
+            <p>Conforme voc&ecirc; seleciona vari&aacute;veis para incluir no enriquecimento, elas s&atilde;o adicionadas no carrinho de compras localizado no canto do  <b>Navegador de Dados</b>. Utilize este carrinho de compras para acompanhar o n&uacute;mero de vari&aacute;veis que voc&ecirc; selecionou.
+            </p>
+            <p>Cada vari&aacute;vel selecionada ser&aacute; adicionada como um campo na sua camada resultante.
+            </p> 
+        </div>
+    </div>
+    <div id="BufferOption">
+        <div><h2>Definir áreas para enriquecer</h2></div>
+        <hr/>
+        <div>
+            <p>Estas s&atilde;o as &aacute;reas para enriquecer com informa&ccedil;&otilde;es adicionais encontradas na coleta de dados. Se a sua camada de an&aacute;lise tiver pontos ou linhas, as &aacute;reas ser&atilde;o criadas ao redor de cada ponto ou linha utilizando uma dist&acirc;ncia de linha reta ou um tempo do percurso.  
+            </p>
+        </div>
+    </div>
+    <div id="OutputName">
+        <div><h2>Nome da camada resultante</h2></div>
+        <hr/>
+        <div>
+            <p>Este &eacute; o nome da camada que ser&aacute; criada em  <b>Meu Conte&uacute;do</b>e adicionada no mapa.  O nome padr&atilde;o &eacute; baseado no nome da camada de an&aacute;lise. Se a camada j&aacute; existir, voc&ecirc; ser&aacute; avisado para confirmar se deseja substitu&iacute;-la.
+            </p>
+            <p>Utilizando a caixa suspensa  <b>Salvar resultado em</b>, &eacute; poss&iacute;vel especificar o nome de uma pasta em <b>Meu Conte&uacute;do</b> onde o resultado ser&aacute; salvo.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

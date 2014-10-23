@@ -1,0 +1,3 @@
+//>>built
+define("app/nls/fr/strings",{appTitle:"Carte Dojo Bootstrap",navBasemaps:"Fonds de plan",navAbout:"A propos",modalAboutTitle:"A propos",modalAboutContent:"Le but de cette application est de montrer comment construire une application cartographique avec le meilleur de Dojo (modules AMD, classes et widgets, Promises, i18n, itin\u00e9raires, etc) tout cela avec une IHM r\u00e9active de Bootstrap.",modalAboutMoreInfo:"Suite..."});
+//@ sourceMappingURL=strings.js.map

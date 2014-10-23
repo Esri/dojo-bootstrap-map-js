@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Summér i nærheden</h2><p/>
+        <h2><img src="../images/GUID-8CA4374B-AB5E-44A5-ADD3-4C85E5F0AF71-web.png" alt="Summ&eacute;r i n&aelig;rheden"></h2>
+        <hr/>
+    <p>  Dette v&aelig;rkt&oslash;j finder objekter, der er inden for en bestemt afstand fra objekter i analyselaget.  Afstand kan m&aring;les som fugleflugtslinje, som k&oslash;retid (f.eks. inden for 10 minutter), eller som k&oslash;reafstand (inden for 5 kilometer).  Statistik beregnes derefter for objekterne i n&aelig;rheden.  For eksempel
+        <ul>
+            <li>Beregn den samlede befolkning inden for fem minutters k&oslash;retid fra placeringen af en mulig ny forretning.
+            </li>
+            <li>Beregn antallet af motorvejsramper inden for en k&oslash;reafstand p&aring; 1,6 km fra placeringen af en mulig ny forretning, for at m&aring;le butikkens tilg&aelig;ngelighed.
+            </li>
+        </ul>
+        
+    </p>
+    <p>Hvis  <b>Anvend aktuel kortudstr&aelig;kning</b> er markeret, er det kun objekterne fra analyselaget og laget, som skal opsummeres, og som er synlige inden for den aktuelle kortudstr&aelig;kning, der bliver analyseret.  Hvis umarkeret, analyseres alle objekter i b&aring;de analyselaget og laget, der skal opsummeres, ogs&aring; selvom de befinder sig uden for den aktuelle kortudstr&aelig;kning.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="Summarize">
+        <div><h2>Vælg et lag at summere</h2></div>
+        <hr/>
+        <div>
+            <p>Objekter i dette lag, der er inden for den angivne afstand af objekter i analyselaget, vil blive opsummeret. 
+            </p> 
+        </div>
+    </div>
+    <div id="BufferOption">
+        <div><h2>Find nærmeste objekter ved hjælp af</h2></div>
+        <hr/>
+        <div>
+            <p>Du kan definere, hvilken type afstandsm&aring;ling, du vil benytte: afstanden i fugleflugtslinje, k&oslash;reafstand eller k&oslash;retid.  S&aring;vel k&oslash;reafstand som k&oslash;retid, anvender vejnettet og tager h&oslash;jde for begr&aelig;nsninger som f.eks. ensrettede gader.  K&oslash;retid tager h&oslash;jde for dine valgte rejsehastigheder: hastigheder, baseret p&aring; live- eller typisk trafik. Live-hastigheder indsamles ved hj&aelig;lp af aktuel sensordata, og typiske hastigheder beregnes p&aring; baggrund af historiske gennemsnit.   
+            </p>
+            <p>Du kan angive flere afstande.  Objekter, der er inden for (eller lig med) de afstande, du angiver, vil blive opsummeret.  
+            </p>
+        </div>
+    </div>
+    <div id="StatisticsPoint">
+        <div><h2>Tilføj statistik fra</h2></div>
+        <hr/>
+        <div>
+            <p>Du kan v&aelig;lge at udarbejde statistikker over vilk&aring;rlige numeriske attributter for punkter i n&aelig;rheden. 
+            </p>
+            <p>Afkrydsningsfeltet  <b>Antal punkter</b> vil, hvis det er markeret, beregne det samlede antal punkter i n&aelig;rheden.  Desuden kan du beregne statistik via numeriske felter for punkterne i n&aelig;rheden.
+            </p>
+            <ul>
+                <li> <b>Sum</b> &ndash; Den samlede v&aelig;rdi for det angivne felt
+                </li>
+                <li> <b>Gennemsnit</b> &ndash; Gennemsnittet eller middelv&aelig;rdien for det angivne felt
+                </li>
+                <li> <b>Minimum</b> &ndash; Den mindste v&aelig;rdi i det angivne felt
+                </li>
+                <li> <b>Maksimum</b> &ndash; Den st&oslash;rste v&aelig;rdi i det angivne felt
+                </li>
+                <li> <b>Std. afvigelse</b> &ndash; Standardafvigelsen for v&aelig;rdier i det angivne felt
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="StatisticsLine">
+        <div><h2>Tilføj statistik fra</h2></div>
+        <hr/>
+        <div>
+            <p>Du kan v&aelig;lge at udarbejde statistikker over vilk&aring;rlige numeriske attributter for linjer i n&aelig;rheden. 
+            </p>
+            <p>Afkrydsningsfeltet  <b>Samlet l&aelig;ngde</b> vil, hvis det er markeret, beregne den samlede l&aelig;ngde af linjer i n&aelig;rheden.  Desuden kan du beregnestatistik via numeriske felter for linjerne i n&aelig;rheden.
+            </p>
+            <ul>
+                <li> <b>Sum</b> &ndash; Den samlede v&aelig;rdi for det angivne felt
+                </li>
+                <li> <b>Gennemsnit</b> &ndash; Gennemsnittet eller middelv&aelig;rdien for det angivne felt
+                </li>
+                <li> <b>Minimum</b> &ndash; Den mindste v&aelig;rdi i det angivne felt
+                </li>
+                <li> <b>Maksimum</b> &ndash; Den st&oslash;rste v&aelig;rdi i det angivne felt
+                </li>
+                <li> <b>Std. afvigelse</b> &ndash; Standardafvigelsen for v&aelig;rdier i det angivne felt
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="StatisticsPolygon">
+        <div><h2>Tilføj statistik fra</h2></div>
+        <hr/>
+        <div>
+            <p>Du kan v&aelig;lge at udarbejde statistikker over vilk&aring;rlige numeriske attributter for omr&aring;der i n&aelig;rheden. 
+            </p>
+            <p>Afkrydsningsfeltet  <b>Samlet omr&aring;de</b> vil, hvis det er markeret, beregne det samlede areal af objekter i n&aelig;rheden.  Desuden kan du beregne statistik via numeriske felter for objekterne i n&aelig;rheden.
+            </p>
+            <ul>
+                <li> <b>Sum</b> &ndash; Den samlede v&aelig;rdi for det angivne felt
+                </li>
+                <li> <b>Gennemsnit</b> &ndash; Gennemsnittet eller middelv&aelig;rdien for det angivne felt
+                </li>
+                <li> <b>Minimum</b> &ndash; Den mindste v&aelig;rdi i det angivne felt
+                </li>
+                <li> <b>Maksimum</b> &ndash; Den st&oslash;rste v&aelig;rdi i det angivne felt
+                </li>
+                <li> <b>Std. afvigelse</b> &ndash; Standardafvigelsen for v&aelig;rdier i det angivne felt
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="GroupBy">
+        <div><h2>Vælg felt at gruppere efter</h2></div>
+        <hr/>
+        <div>
+            <p>Dette er en attribut for objekter i n&aelig;rheden, som du kan bruge til at beregne s&aelig;rskilte statistikker for hver entydige attributv&aelig;rdi. Lad os antage, at dine analyselag eksempelvis indeholder ledige jordparceller, der er til salg, og dine objekter i n&aelig;rheden er &rdquo;aftryk&rdquo; af bygninger.  En af attributterne for &rdquo;aftryk&rdquo; af bygninger er  <i>UseType</i>, som indeholder v&aelig;rdier som f.eks. BUTIK, BEBOELSE, PRODUKTION, OFFENTLIG osv.  For at karakterisere de forskellige bygningsanvendelser n&aelig;r de enkelte ledige parceller, kan du beregne det samlede areal for hver entydige type af bygningsanvendelse, inden for to kilometer fra de ledige parceller, ved at bruge <i>UseType</i> som grup&eacute;r efter attribut.   Statistikkerne for de enkelte grupper tillige med antallet af objekter i n&aelig;rheden vises i pop-up'en med resultatlaget.
+            </p>    
+        </div>
+    </div>
+    <div id="MinorityMajority">
+        <div><h2>Tilføj minoritet, majoritet</h2></div>
+        <hr/>
+        <div>
+            <p>Dette afkrydsningsfelt er markeret, n&aring;r du v&aelig;lger et felt, der skal grupperes efter.    V&aelig;lg   <b>Tilf&oslash;j minoritet/majoritet</b>, hvis du vil vide, hvilke attributv&aelig;rdier i hver gruppe, der er minoriteten (mindst dominante) eller majoriteten (mest dominante), inden for den afstand eller tid, du har defineret.   Der f&oslash;jes to nye felter til dit resultatlag, n&aring;r du v&aelig;lger <b>Tilf&oslash;j minoritet/majoritet</b>.   Hvis du ogs&aring; v&aelig;lger <b>Tilf&oslash;j procentdele</b>, f&oslash;jes der yderligere to felter til resultatlaget, som indeholder procentdele af attributv&aelig;rdierne for minoritet og majoritet inden for de enkelte grupper.
+            </p>
+            <ul>
+                <li>Hvis du opsummerer punkter i n&aelig;rheden, beregnes v&aelig;rdier for minoritet og majoritet p&aring; basis af antal punkter inden for den afstand og tid, du har defineret.
+                </li>
+                <li>Hvis du opsummerer linjer i n&aelig;rheden, beregnes v&aelig;rdier for minoritet og majoritet p&aring; basis af l&aelig;ngden af linjer inden for den afstand og tid, du har defineret.  
+                </li>
+                <li>Hvis du opsummerer omr&aring;der i n&aelig;rheden, beregnes v&aelig;rdier for minoritet og majoritet p&aring; basis af omr&aring;der inden for den afstand og tid, du har defineret.
+                </li>
+            </ul>
+             
+        </div>
+    </div>
+    <div id="PercentShape">
+        <div><h2>Tilføj procentdele</h2></div>
+        <hr/>
+        <div>
+            <p>Dette afkrydsningsfelt er markeret, n&aring;r du v&aelig;lger et felt, der skal grupperes efter.    V&aelig;lg  <b>Tilf&oslash;j procentdele</b>, hvis du vil finde procentdelen af hver attributv&aelig;rdi i hver gruppe.  Der f&oslash;jes et nyt felt til resultattabellen, der indeholder procentdelen af hver attributv&aelig;rdi inden for hver gruppe.   Hvis du ogs&aring; v&aelig;lger <b>Tilf&oslash;j minoritet/majoritet</b>, f&oslash;jes der yderligere to felter til resultatlaget, som indeholder procentdele af attributv&aelig;rdierne for minoritet og majoritet inden for de enkelte grupper.
+            </p>
+        </div>
+    </div>
+    <div id="OutputName">
+        <div><h2>Navn på resultatlag</h2></div>
+        <hr/>
+        <div>
+            <p> Dette er navnet p&aring; det lag, som oprettes i <b>Mit indhold</b> og f&oslash;jes til kortet.  Standardnavnet er baseret p&aring; analyselagets navn. Hvis laget findes i forvejen, bliver du bedt om at bekr&aelig;fte, at det skal overskrives.
+            </p>
+            <p>Ved hj&aelig;lp af rullelisten  <b>Gem resultat i</b> kan du angive navnet p&aring; en mappe i <b>Mit indhold</b>, hvor resultatet skal gemmes.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

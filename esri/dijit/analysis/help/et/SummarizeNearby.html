@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Summeeri ligidusest</h2><p/>
+        <h2><img src="../images/GUID-8CA4374B-AB5E-44A5-ADD3-4C85E5F0AF71-web.png" alt="Summeeri ligidusest"></h2>
+        <hr/>
+    <p>  See t&ouml;&ouml;riist arvutab anal&uuml;&uuml;sikihti m&auml;&auml;ratud kaugusele j&auml;&auml;vate objektide ja nende atribuutide statistika.  Vahemaad on m&auml;&auml;ratavad sirgjoonena, s&otilde;iduaja (nt 10 minutit) v&otilde;i vahemaa (nt 5 km) alusel.  Statistika leitakse l&auml;hedal asuvate objektide kohta.  N&auml;ide.
+        <ul>
+            <li>Elanike arvukuse hinnang 5 minuti s&otilde;iduaja kaugusesse j&auml;&auml;vast planeeritavast teeninduspunktist.
+            </li>
+            <li>Maanteedelt mahas&otilde;itude arvestamine uue kaubanduskeskuse planeerimisel.
+            </li>
+        </ul>
+        
+    </p>
+    <p>Kui  <b>Kasuta kaardi ulatust</b> on sisse l&uuml;litatud, kasutatakse anal&uuml;&uuml;sil ainult neid objekte, mis on hetkel ekraanil n&auml;htavad.  Kui vastav tingimus on v&auml;lja l&uuml;litatud, kasutatakse summeerimisel m&otilde;lema kihi k&otilde;iki objekte s&otilde;ltumata asjaolust, kas need on anal&uuml;&uuml;si k&auml;ivitamise hetkel ekraanil n&auml;htavad v&otilde;i mitte.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="Summarize">
+        <div><h2>Vali kiht summeerimiseks</h2></div>
+        <hr/>
+        <div>
+            <p>M&auml;&auml;ratud vahemaa alla j&auml;&auml;vad objektid anal&uuml;&uuml;sikihis summeeritakse. 
+            </p> 
+        </div>
+    </div>
+    <div id="BufferOption">
+        <div><h2>Leia lähimad objektid, kasutades</h2></div>
+        <hr/>
+        <div>
+            <p>Teil on v&otilde;imalik m&auml;&auml;rata, mis t&uuml;&uuml;pi vahemaa m&otilde;&otilde;tmist soovite kasutada: sirgjooneline vahemaa, s&otilde;idu vahemaa v&otilde;i s&otilde;iduaeg.  M&otilde;lemad vahemaa valikud kasutavad teedev&otilde;rgustikku ja arvestavad ka &uuml;hesuunalisust.  S&otilde;iduajad arvestavad Teie valitud s&otilde;idukiiruseid: neid, mis baseeruvad hetkelisel v&otilde;i t&uuml;&uuml;pilisel liiklusolukorral. Hetkekiirused on kogutud sensorite hetkv&auml;&auml;rtuste abil ja t&uuml;&uuml;pilised kiirused on arvutatud ajalooliste keskmiste p&otilde;hjal.   
+            </p>
+            <p>Sisestada saab mitu vahemaad korraga.  Objektid, mis langevad sisestatava vahemaaga kokku v&otilde;i on sellega v&otilde;rdsed, summeeritakse.  
+            </p>
+        </div>
+    </div>
+    <div id="StatisticsPoint">
+        <div><h2>Lisa statistika</h2></div>
+        <hr/>
+        <div>
+            <p>Valikuliselt saab statistikat arvutada mistahes l&auml;hedaste punktide arvuliste atribuutide alusel. 
+            </p>
+            <p>Kui vastav  <b>punktide arv</b> on m&auml;rgitud, arvutatakse l&auml;hedal asuvate punktide koguarv.  Lisaks sellele saate arvutada statistika l&auml;hedal asuvate punktide arvulistest atribuutidest.
+            </p>
+            <ul>
+                <li> <b>Summa</b> &ndash; m&auml;&auml;ratud v&auml;lja koguv&auml;&auml;rtus.
+                    
+              
+                </li>
+                <li> <b>Keskmine</b> &ndash; arvutab m&auml;&auml;ratud v&auml;lja keskmise
+                    
+              
+                </li>
+                <li> <b>Summa</b> &ndash; m&auml;&auml;ratud v&auml;lja koguv&auml;&auml;rtus.
+                    
+              
+                </li>
+                <li> <b>Summa</b> &ndash; m&auml;&auml;ratud v&auml;lja koguv&auml;&auml;rtus.
+                    
+              
+                </li>
+                <li> <b>Standardh&auml;lve</b> &ndash; m&auml;&auml;ratud v&auml;lja v&auml;&auml;rtuste standardh&auml;lve.
+                    
+            
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="StatisticsLine">
+        <div><h2>Lisa statistika</h2></div>
+        <hr/>
+        <div>
+            <p>T&auml;iendavalt saate arvutada statistika mistahes l&auml;hedal asuvate joonte arvulistest atribuutidest. 
+            </p>
+            <p>Kui vastav  <b>kogupikkus</b> on m&auml;rgitud, arvutatakse l&auml;hedal asuvate joonte kogupikkus.  Lisaks sellele saate arvutada statistika l&auml;hedal asuvate punktide arvulistest atribuutidest.
+            </p>
+            <ul>
+                <li> <b>Summa</b> &ndash; m&auml;&auml;ratud v&auml;lja koguv&auml;&auml;rtus.
+                    
+              
+                </li>
+                <li> <b>Keskmine</b> &ndash; arvutab m&auml;&auml;ratud v&auml;lja keskmise
+                    
+              
+                </li>
+                <li> <b>Summa</b> &ndash; m&auml;&auml;ratud v&auml;lja koguv&auml;&auml;rtus.
+                    
+              
+                </li>
+                <li> <b>Summa</b> &ndash; m&auml;&auml;ratud v&auml;lja koguv&auml;&auml;rtus.
+                    
+              
+                </li>
+                <li> <b>Standardh&auml;lve</b> &ndash; m&auml;&auml;ratud v&auml;lja v&auml;&auml;rtuste standardh&auml;lve.
+                    
+            
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="StatisticsPolygon">
+        <div><h2>Lisa statistika</h2></div>
+        <hr/>
+        <div>
+            <p>Teil on v&otilde;imalik arvutada statistika l&auml;hedal asuvate alade arvulistest atribuutidest. 
+            </p>
+            <p>Kui vastav  <b>kogupindala</b> on m&auml;rgitud, arvutatakse l&auml;hedal asuvate alade kogupindala.  Lisaks sellele saate arvutada statistika l&auml;hedal asuvate punktide arvulistest atribuutidest.
+            </p>
+            <ul>
+                <li> <b>Summa</b> &ndash; m&auml;&auml;ratud v&auml;lja koguv&auml;&auml;rtus.
+                    
+              
+                </li>
+                <li> <b>Keskmine</b> &ndash; arvutab m&auml;&auml;ratud v&auml;lja keskmise
+                    
+              
+                </li>
+                <li> <b>Summa</b> &ndash; m&auml;&auml;ratud v&auml;lja koguv&auml;&auml;rtus.
+                    
+              
+                </li>
+                <li> <b>Summa</b> &ndash; m&auml;&auml;ratud v&auml;lja koguv&auml;&auml;rtus.
+                    
+              
+                </li>
+                <li> <b>Standardh&auml;lve</b> &ndash; m&auml;&auml;ratud v&auml;lja v&auml;&auml;rtuste standardh&auml;lve.
+                    
+            
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="GroupBy">
+        <div><h2>Vali atribuut grupeerimiseks</h2></div>
+        <hr/>
+        <div>
+            <p>See on l&auml;hedal asuvate objektide atribuut, mida saate kasutada erineva statistika leidmiseks. N&auml;iteks kui anal&uuml;&uuml;sikiht sisaldab vabu maa&uuml;ksusi m&uuml;&uuml;giks ja l&auml;hedal asuvad objektid on ehitiste piirjooned.  &Uuml;ks neist krundi atribuutidest on  <i>UseType</i> , mis sisaldab v&auml;&auml;rtusi nagu ELUHOONE, T&Ouml;&Ouml;STUSHOONE, TOOTMISHOONE, AVALIK HOONE jne.  Selleks, et iseloomustada n&auml;iteks 2 km l&auml;hi&uuml;mbruses olevate hoonete jaotumist vabadel maa&uuml;ksustel, saate arvutada kogupindala v&auml;&auml;rtused iga erineva hoone t&uuml;&uuml;bi kaupa, kasutades selleks t&uuml;&uuml;bi <i>UseType</i> atribuudi alusel grupeerimist.   Iga grupi statistika ja l&auml;himate objektide arv kuvatakse tulemkihi h&uuml;pikaknas.
+            </p>    
+        </div>
+    </div>
+    <div id="MinorityMajority">
+        <div><h2>Lisa vähemus, enamus</h2></div>
+        <hr/>
+        <div>
+            <p>See m&auml;rkeruut on lubatud, kui valite v&auml;lja, mille alusel grupeerida.    Kui soovite v&auml;lja selgitada, millised atribuudi v&auml;&auml;rtused on teie m&auml;&auml;ratud vahemaa v&otilde;i aja igas grupis v&auml;hemuses (k&otilde;ige v&auml;hem domineerivad) v&otilde;i enamuses (k&otilde;ige rohkem domineerivad), valige <b>Lisa v&auml;hemus, enamus</b>.   Kui valite <b>Lisa v&auml;hemus, enamus</b>, lisatakse tulemkihile kaks uut v&auml;lja.   Kui valite ka <b>Lisa protsendid</b>, lisatakse tulemkihile kaks t&auml;iendavat v&auml;lja, mis sisaldavad iga grupi kohta v&auml;hemuse ja enamuse atribuudiv&auml;&auml;rtuste protsente.
+            </p>
+            <ul>
+                <li>L&auml;hedaste punktide summeerimisel arvutatakse v&auml;hemuse ja enamuse v&auml;&auml;rtused teie m&auml;&auml;ratud vahemaa v&otilde;i aja punktide arvu j&auml;rgi.
+                    
+              
+                </li>
+                <li>L&auml;hedaste joonte summeerimisel arvutatakse v&auml;hemuse ja enamuse v&auml;&auml;rtused teie m&auml;&auml;ratud vahemaa v&otilde;i aja joonte pikkuste alusel.  
+                    
+              
+                </li>
+                <li>L&auml;hedaste alade summeerimisel arvutatakse v&auml;hemuse ja enamuse v&auml;&auml;rtused teie m&auml;&auml;ratud vahemaa v&otilde;i aja alade alusel.
+                    
+            
+                </li>
+            </ul>
+             
+        </div>
+    </div>
+    <div id="PercentShape">
+        <div><h2>Lisa protsendid</h2></div>
+        <hr/>
+        <div>
+            <p>See m&auml;rkeruut on aktiveeritud, kui valite r&uuml;hmitatava v&auml;lja.    Valige  <b>Lisa protsendid</b>, kui soovite igas r&uuml;hmas leida atribuudi igale v&auml;&auml;rtusele protsendi.  Tulemtabelile lisatakse uus v&auml;li, mis sisaldab igas r&uuml;hmas k&otilde;igi atribuudiv&auml;&auml;rtuste protsente.   Kui valite ka <b>Lisa v&auml;hemus, enamus</b>, lisatakse tulemkihile kaks t&auml;iendavat v&auml;lja, mis sisaldavad iga r&uuml;hma kohta v&auml;hemuse ja enamuse atribuudiv&auml;&auml;rtuste protsente.
+            </p>
+        </div>
+    </div>
+    <div id="OutputName">
+        <div><h2>Tulemkihi nimi</h2></div>
+        <hr/>
+        <div>
+            <p> See on kihi nimi, mis luuakse <b>Minu sisu</b> alla ja lisatakse kaardile.  Vaikimisi nimi on tuletatud anal&uuml;&uuml;sikihi nimest. Kui see kiht juba eksisteerib, k&uuml;sitakse teie k&auml;est selle &uuml;lekirjutamise kohta kinnitust.
+            </p>
+            <p>Kasutades rippmen&uuml;&uuml;d  <b>Salvesta tulemused</b>, saate <b>Minu sisu</b> all m&auml;&auml;rata kausta nime, kuhu tulemus salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Dissoudre les limites</h2><p/>
+        <h2><img src="../images/GUID-D1192DD3-306F-4527-9898-FF2021ABCB0A-web.png" alt="Dissoudre les limites"></h2>
+        <hr/>
+    <p>Les surfaces qui se chevauchent ou partagent une limite commune sont combin&eacute;es pour former une surface unique.    
+    </p>
+    <p>Vous pouvez contr&ocirc;ler quelles limites sont combin&eacute;es en sp&eacute;cifiant un champ. Par exemple, si vous avez une couche de comt&eacute;s et que chaque comt&eacute; poss&egrave;de un attribut  <i>State_Name</i>, vous pouvez fusionner les limites &agrave; l'aide de l'attribut <i>State_Name</i>. Les comt&eacute;s adjacents seront combin&eacute;s si leur attribut <i>State_Name</i> poss&egrave;de la m&ecirc;me valeur. Le r&eacute;sultat final est une couche de limites d'Etats.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="DissolveFields">
+        <div><h2>Choix du mode de dissolution</h2></div>
+        <hr/>
+        <div>
+            <p>Vous avez le choix entre deux m&eacute;thodes pour combiner les entit&eacute;s des surfaces :
+                <ul>
+                    <li> <b>Surfaces qui se superposent ou qui sont adjacentes</b> : deux surfaces ou plus dont les limites se superposent seront combin&eacute;es en une seule surface. En outre, les surfaces adjacentes (c'est-&agrave;-dire qui partagent une limite commune) seront combin&eacute;es en une seule surface.
+                    </li>
+                    <li> <b>Surfaces avec la m&ecirc;me valeur de champ</b>&nbsp;: les surfaces qui se superposent ou partagent une limite commune seront combin&eacute;es en une seule surface si elles ont la m&ecirc;me valeur de champ.
+                        <p>Par exemple, si vous avez une couche de comt&eacute;s et que chaque comt&eacute; poss&egrave;de un champ  <i>State_Name</i>, vous pouvez fusionner les limites &agrave; l'aide du champ <i>State_Name</i>. Les comt&eacute;s adjacents seront combin&eacute;s si leur attribut <i>State_Name</i> poss&egrave;de la m&ecirc;me valeur. Le r&eacute;sultat final est une couche de limites d'Etats.
+                        </p>
+                    </li>
+                </ul>
+                
+            </p>
+            <p>Si l'option  <b>Utiliser l'&eacute;tendue courante de la carte</b> est s&eacute;lectionn&eacute;e, seules les entit&eacute;s de la couche d'analyse qui sont visibles au sein de l'&eacute;tendue courante de la carte seront fusionn&eacute;es. Si l'option n'est pas s&eacute;lectionn&eacute;e, toutes les entit&eacute;s de la couche d'analyse seront fusionn&eacute;es, m&ecirc;me si elles se trouvent en dehors de l'&eacute;tendue courante de la carte.
+            </p>
+        </div>
+    </div>
+    <div id="SummaryFields">
+        <div><h2>Ajouter des statistiques</h2></div>
+        <hr/>
+        <div>
+            <p>Lorsque les surfaces sont combin&eacute;es, vous pouvez synth&eacute;tiser leurs attributs. Par exemple, si vous fusionnez la limite entre les comt&eacute;s en fonction du champ  <i>State_Name</i> et que chaque comt&eacute; poss&egrave;de un attribut <i>Population</i>, vous pouvez calculer la somme <i>Population</i> pour cet Etat.
+            </p>
+            <p>Types de statistiques disponibles :
+            </p>
+            <ul>
+                <li> <b>Somme</b>&nbsp;: ajoute la valeur totale du champ sp&eacute;cifi&eacute;.
+                    
+
+                </li>
+                <li> <b>Moyenne</b>&nbsp;: calcule la moyenne du champ sp&eacute;cifi&eacute;.
+                    
+
+                </li>
+                <li> <b>Minimum</b>&nbsp;: recherche la valeur la plus faible parmi tous les enregistrements du champ sp&eacute;cifi&eacute;.
+                    
+
+                </li>
+                <li> <b>Maximum</b>&nbsp;: recherche la valeur la plus &eacute;lev&eacute;e parmi tous les enregistrements du champ sp&eacute;cifi&eacute;.
+                    
+
+                </li>
+                <li> <b>Ecart type</b>&nbsp;: recherche l'&eacute;cart type sur les valeurs du champ sp&eacute;cifi&eacute;.
+                    
+
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="OutputName">
+        <div><h2>Nom de la couche résultat</h2></div>
+        <hr/>
+        <div>
+            <p>Il s'agit du nom de la couche qui sera cr&eacute;&eacute;e dans la page  <b>Mes contenus</b> et ajout&eacute;e &agrave; la carte. Le nom par d&eacute;faut repose sur le nom de la couche d'analyse. Si la couche existe d&eacute;j&agrave;, vous serez amen&eacute; &agrave; confirmer son remplacement.
+            </p>
+            <p>La zone de liste d&eacute;roulante  <b>Enregistrer le r&eacute;sultat dans</b> vous permet de sp&eacute;cifier le nom d'un dossier dans <b>Mes contenus</b> o&ugrave; le r&eacute;sultat sera enregistr&eacute;.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

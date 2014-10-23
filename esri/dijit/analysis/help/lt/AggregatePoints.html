@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Agreguoti takus</h2><p/>
+        <h2><img src="../images/GUID-6981B80D-B1F0-4037-BFC5-8EC9241B6FC2-web.png" alt="Agreguoti takus"></h2>
+        <hr/>
+    <p>is įrankis veikia su takų sluoksniu (vadinamu analizės sluoksniu) bei sluoksniu, sudarytu i plotinių objektų. Pirmiausia jis nustato, kurie takai patenka į kiekvieną plotą. Nustačius plotų ir į juos patenkančių takų erdvinį ryį, apskaičiuojama ir plotui priskiriama jo takų statistika. Pats paprasčiausias apskaičiuojamas rodiklis &ndash; takų skaičius, tačiau galite apskaičiuoti ir kitus statistinius rodiklius. 
+    </p>
+    <p>Pavyzd˛iui, jei turite kavinių ir seniūnijų sluoksnius, galite su˛inoti, kiek kavinių yra kiekvienoje seniūnijoje, bei apskaičiuoti apyvartą kiekvienoje seniūnijoje.  Jei kavinių duomenyse yra    <i>TOTAL_SALES</i> atributas, galite gauti <i>TOTAL_SALES</i> sumą kiekvienoje seniūnijoje, ma˛iausią ar did˛iausią <i>TOTAL_SALES</i>
+ reikmę kiekvienoje seniūnijoje, arba standartinį pardavimų nuokrypį.
+    </p>
+    <p>Analizės rezultatas - ˛emėlapis, kuriame kiekvienos teritorijos spalva priklauso nuo bendro takų skaičiaus ir teritorijos ploto santykio.  Elementų skaičiaus dalinimas i ploto vadinamas normalizavimu, tai metodas, kurį kartografai naudoja duomenų atvaizdavimui pagal plotus.  Normalizavimas leid˛ia geriau vizualiai atskleisti geografinį pasiskirstymą, nes įvertinamas skirtingas teritorijų plotas.
+    </p>
+    <p>Jei  <b>Naudoti esamą ˛emėlapio aprėptį</b> pa˛ymėtas, analizuojami bus tik aprėptyje matomi elementai.  Jei nepa˛ymėtas, bus analizuojami visi abiejų sluoksnių elementai, net jei jie yra u˛ matomos ˛emėlapio aprėpties.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="PolygonLayer">
+        <div><h2>Nurodykite plotą</h2></div>
+        <hr/>
+        <div>
+            <p> Pasirinkite plotinių elementų sluoksnį internetiniame ˛emėlapyje, į kurį bus agreguoti takai. Jei internetiniame ˛emėlapyje nėra teritorijų sluoksnio, galite jį surasti naudodami ArcGIS Online. Bus apskaičiuotas takų, patenkančių į io sluoksnio teritorijas, skaičius bei kiti pasirinkti statistiniai rodikliai.
+            </p>
+        </div>
+    </div>
+    <div id="KeepBoundaryNoPoints">
+        <div><h2>Palikti plotus be takų</h2></div>
+        <hr/>
+        <div>
+            <p>Nurodo, ar plotai, į kuriuos nepatenka nė vienas takas, bus įtraukti į rezultato sluoksnį.  Jei nepa˛ymėta, plotai be takų nebus įtraukti į rezultatą.  Jei pa˛ymėta, plotai be takų bus įtraukti į rezultatą.  
+            </p>
+        </div>
+    </div>
+    <div id="SummaryFields">
+        <div><h2>Pridėti statistiką</h2></div>
+        <hr/>
+        <div>
+            <p>Galite apskaičiuoti tokius takų atributų statistinius rodiklius, kaip sumą, vidurkį, minimumą, maksimumą bei standartinį nuokrypį. Rezultato sluoksnis turės naujus atributus kiekvienam apskaičiuotam statistiniam rodikliui. Pasirinktiems atributams gali būti apskaičiuotas norimas statistinių rodiklių skaičius (pasirinkite i sąrao).
+
+ 
+            </p>
+        </div>
+    </div>
+    <div id="GroupByField">
+        <div><h2>Pasirinkite grupavimo lauką</h2></div>
+        <hr/>
+        <div>
+            <p>Nurodydami atributą galite sukurti statistines analizuojamo sluoksnio grupes.    Pavyzd˛iui, jei nusikaltimų takai agreguojami pagal seniūnijų ribas, gali būti atributas  <i>Crime_type</i> su penkiomis nusikaltimų rūimis.  Kiekviena nusikaltimo rūis naudojama grupavimui, todėl statistiniai rodikliai apskaičiuojami kiekvienai reikmei i <i>Crime_type</i>.  Kiekvienos grupės statistika ir takų kiekis bus rodomi rezultatų sluoksnio ikylančiame lange.  Kai nurodote grupavimo atributą, sukuriami du rezultatai: rezultato sluoksnis ir rezultato lentelė su statistinių rodiklių įverčiais kiekvienai grupei.
+            </p>
+        </div>
+    </div>
+    <div id="MinorityMajority">
+        <div><h2>Pridėti mažumą, daugumą</h2></div>
+        <hr/>
+        <div>
+            <p>&Scaron;is žymės langelis įgalinamas, kai pasirenkate lauką, pagal kurį grupuosite.    Jei norite sužinoti, kurios kiekvienos grupės atributų reik&scaron;mės, patenkančios į kiekvienas ribas, yra mažuma (rečiausios) arba dauguma (dažniausios), pasirinkite  <b>Pridėti mažumą, daugumą</b>.   Kai pasirenkate <b>Pridėti mažumą, daugumą</b>, į rezultatų sluoksnį įtraukiami du nauji laukai.   Jei pasirinksite ir <b>Pridėti procentus</b>, į rezultatų sluoksnį bus įtraukti du papildomi laukai, kuriuose bus nurodytos kiekvienos grupės mažumos ir daugumos atributų reik&scaron;mių procentai.
+            </p>
+            <p>Pvz., jei esate miesto planuotojas ir norite sužinoti kokios trys rū&scaron;ys visuose miesto parkuose yra rečiausios, o kokios dominuoja, agreguokite medžių duomenis parko plote ir pažymėkite &scaron;ią parinktį.
+            </p>
+        </div>
+    </div>
+    <div id="PercentPoints">
+        <div><h2>Pridėti procentus</h2></div>
+        <hr/>
+        <div>
+            <p>is ˛ymės langelis įgalinamas, kai pasirenkate lauką, pagal kurį grupuosite.    Pasirinkite  <b>Pridėti procentus</b>, jei norite sužinoti kiekvienos grupės kiekvienos atributo reik&scaron;mės procentą.  Į rezultatų lentelę įtraukiamas naujas laukas, kuriame nurodytas kiekvienos grupės kiekvienos atributo reikmės procentas.   Jei pa˛ymėta ir <b>Pridėti ma˛umą, daugumą</b>, į rezultatų sluoksnį bus įtraukti du papildomi laukai, kuriuose bus nurodytos kiekvienos grupės ma˛umos ir daugumos atributų reikmių procentai.
+            </p>
+        </div>
+    </div>
+    <div id="OutputLayer">
+        <div><h2>Rezultatų sluoksnio pavadinimas</h2></div>
+        <hr/>
+        <div>
+            <p>Tai sluoksnio, kuris bus sukurtas ir patalpintas  <b>Turinyje</b> bei pridėtas į ˛emėlapį, pavadinimas.  Pagal nutylėjimą pavadinimas atspindi analizės tipą ir analizės sluoksnio pavadinimą. Jei sluoksnis jau egzistuoja, būsite paklausti, ar norite jį perrayti.
+            </p>
+            <p>Pasirinkę  <b>Rezultatą įrayti į</b>, galite nurodyti <b>Turinyje</b> esančio aplanko pavadinimą.
+            </p> 
+        </div>
+    </div>
+</div>
+</html>

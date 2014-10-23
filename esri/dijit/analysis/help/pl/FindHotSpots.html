@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Znajdź lokalizacje hot spot</h2><p/>
+        <h2><img src="../images/GUID-C2575FC6-F14C-4332-B3BF-AB4EDA15177B-web.png" alt="Znajdź lokalizacje hot spot"></h2>
+        <hr/>
+    <p>Narzędzie Znajdź lokalizacje hot spot ustala, czy w relacjach przestrzennych danych użytkownika istnieją statystycznie istotne klastry. 
+        <ul>
+            <li>Czy Twoje punkty (reprezentujące przestępstwa, drzewa, wypadki drogowe) rzeczywiście są zgrupowane?  Masz absolutną pewność?
+            </li>
+            <li>Czy naprawdę udało Ci się ustalić, jakie są statystycznie istotne lokalizacje hot spot (wydatki, umieralność noworodk&oacute;w, systematycznie wysokie wyniki test&oacute;w) czy może Twoja mapa przedstawiałaby zupełnie inne zależności, gdyby zmienione zostały użyte symbole?
+            </li>
+        </ul>
+        Narzędzie Znajdź lokalizacje hot spot pomoże Ci w&nbsp;uzyskaniu rzetelnej odpowiedzi na te pytania.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="AnalysisFieldPoly">
+        <div><h2>Wybierz pole analizy</h2></div>
+        <hr/>
+        <div>
+            <p>Analiza dostarcza odpowiedzi na pytanie: Gdzie wysokie i&nbsp;niskie wartości (dla podanego przez Ciebie pola analizy) są zgrupowane przestrzennie?  
+            </p>
+            <p>Warstwa wynikowa będzie kopią warstwy analizy.  Tabela będzie zawierać wybrane pole analizy oraz dodatkowe pola obrazujące zagęszczenie skupień, istotność statystyczną i poziom zaufania.
+            </p> 
+        </div>
+    </div>
+    <div id="AnalysisFieldPoint">
+        <div><h2>Wybierz pole analizy</h2></div>
+        <hr/>
+        <div>
+            <p>Jeśli wskażesz pole analizy, narzędzie umożliwi Ci uzyskanie odpowiedzi na pytanie: Gdzie w&nbsp;obrębie punkt&oacute;w występują skupienia wysokich i&nbsp;niskich wartości? 
+            </p>
+            <p>Warstwa wynikowa będzie kopią punktowej warstwy analizy.  Tabela będzie zawierać wybrane pole analizy oraz dodatkowe pola obrazujące zagęszczenie skupień, istotność statystyczną i poziom zaufania.
+            </p>
+            <p>Jeśli pole analizy nie zostanie wskazane, narzędzie wykona ocenę przestrzennego rozmieszczenia obiekt&oacute;w punktowych w&nbsp;celu uzyskania odpowiedzi na pytanie: Gdzie punkty te uległy nagłemu zagęszczeniu lub rozproszeniu?   
+            </p>
+            <p>W&nbsp;sytuacji, gdy pole analizy nie zostało podane, narzędzie tworzy siatkę i&nbsp;oblicza liczbę punkt&oacute;w przypadających na każde oczko siatki. Przeanalizowane zostaną jedynie oczka, dla kt&oacute;rych liczba punkt&oacute;w wynosi więcej niż zero.  Warstwę wynikową stanowią oczka siatki. Tabela warstwy wynikowej będzie zawierać wartości liczbowe oraz dodatkowe pola prezentujące zagęszczenie skupień, istotność statystyczną oraz poziom zaufania.
+            </p> 
+        </div>
+    </div>
+    <div id="BoundingPolygonLayer">
+        <div><h2>Wskaż prawdopodobne miejsca zdarzeń</h2></div>
+        <hr/>
+        <div>
+            <p>Utw&oacute;rz lub wskaż warstwę z&nbsp;granicami obszar&oacute;w, aby uzyskać odpowiedź na pytanie: Czy w&nbsp;granicach obszar&oacute;w istnieją lokalizacje o&nbsp;nieoczekiwanie wysokich lub niskich koncentracjach punkt&oacute;w?   
+            </p>
+            <p>Utworzone obiekty powierzchniowe lub obiekty w&nbsp;warstwie obszar&oacute;w powinny określać potencjalne lokalizacje punkt&oacute;w.  Aby utworzyć te obszary, kliknij przycisk Nakreśl, a&nbsp;następnie kliknij w&nbsp;dowolnym miejscu mapy i&nbsp;utw&oacute;rz kształt obszaru.  Aby utworzyć dodatkowe obszary, kliknij ponownie przycisk Nakreśl, a&nbsp;następnie kliknij w&nbsp;dowolnym miejscu mapy i&nbsp;kontynuuj tworzenie obszaru.
+            </p>
+            <p>Uwaga: Jeśli chcesz nałożyć na punkty obszary inne niż siatka, skorzystaj z opcji  <b>Wyznacz obszary agregacji do podsumowania zdarzeń</b>.
+            </p>
+            <p>Warstwą wynikową tej analizy będzie siatka pokrywająca wskazane granice obszar&oacute;w.  Tabela będzie zawierać liczbę punkt&oacute;w w&nbsp;oczkach siatki oraz dodatkowe pola prezentujące zagęszczenie skupień, istotność statystyczną oraz poziom zaufania.  
+            </p> 
+        </div>
+    </div>
+    <div id="AggregationPolygonLayer">
+        <div><h2>Wyznacz obszary agregacji</h2></div>
+        <hr/>
+        <div>
+            <p>Wskaż warstwę obszar&oacute;w (zwykle są one reprezentacją granic administracyjnych, dla kt&oacute;rych tworzone są raporty, takie jak obwody spisowe, granice miejskie czy powiaty), aby uzyskać odpowiedź na pytanie: Czy istnieją lokalizacje, w&nbsp;kt&oacute;rych występują statystycznie istotne zgrupowania punkt&oacute;w o&nbsp;dużej lub małej liczbie punkt&oacute;w w&nbsp;każdym obiekcie poligonowym?   
+            </p>
+            <p>Warstwa wynikowa tej analizy będzie kopią obszar&oacute;w agregacji.  Tabela będzie zawierać liczbę punkt&oacute;w oraz dodatkowe pola prezentujące zagęszczenie skupień, istotność statystyczną oraz poziom zaufania. 
+            </p> 
+        </div>
+    </div>
+    <div id="OutputLayerName">
+        <div><h2>Nazwa warstwy wynikowej</h2></div>
+        <hr/>
+        <div>
+            <p>Podaj nazwę warstwy, kt&oacute;ra zostanie utworzona w zakładce  <b>Moje zasoby</b> i dodana do mapy. Warstwa wynikowa będzie przedstawiała miejsca, w&nbsp;kt&oacute;rych znajdują się statystycznie istotne zgrupowania o&nbsp;wysokich lub niskich wartościach bądź z&nbsp;wysoką lub niską liczbą punkt&oacute;w. Jeśli nazwa dla warstwy wynikowej już istnieje, wyświetlony zostanie komunikat z&nbsp;prośbą o&nbsp;zmianę jej nazwy.
+            </p>
+            <p>Używając menu rozwijalnego  <b>Zapisz wynik w</b>, można wybrać folder w zakładce <b>Moje zasoby</b>, gdzie zostanie zapisany wynik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

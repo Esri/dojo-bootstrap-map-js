@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="SummarizeDataCategory" class="regularsize">
+        <h2>Aineiston yhteenveto</h2>
+        <hr/>
+        <p>N&auml;m&auml; ty&ouml;kalut laskevat kokonaism&auml;&auml;r&auml;t, -pituudet, -pinta-alat ja perustilastotietoja alueilla oleville tai muiden kohteiden l&auml;hell&auml; oleville kohteille ja niiden attribuuteille.
+            <ul>
+                <li> <b>Koosta pisteet</b> laskee tilastotiedot pisteist&auml;, jotka ovat m&auml;&auml;ritettyjen alueiden sis&auml;ll&auml;.
+                </li>
+                <li> <b>Yhteenveto l&auml;hist&ouml;st&auml;</b> laskee m&auml;&auml;ritetyn et&auml;isyyden sis&auml;ll&auml; sijaitsevien kohteiden ja niiden attribuuttien tilastotiedot.
+                </li>
+                <li> <b>Yhteenveto alueesta</b> laskee tilastotiedot alueen kohteille ja attribuuteille, jotka ovat toistensa p&auml;&auml;ll&auml;.
+                </li>
+            </ul>
+            
+        </p>
+        <p> 
+        </p>
+    </div>
+        <div id="AggregatePointsTool" class="largesize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Kokoa pisteet</h2></td>
+                    <td>
+                    <img src="../images/GUID-6981B80D-B1F0-4037-BFC5-8EC9241B6FC2-web.png" class="titleImage" alt="Kokoa pisteet">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>T&auml;m&auml; ty&ouml;kalu m&auml;&auml;ritt&auml;&auml;, mitk&auml; pisteet ovat mink&auml;kin alueen sis&auml;ll&auml;, ja laskee kullakin alueella olevien pisteiden tilastotiedot k&auml;ytt&auml;m&auml;ll&auml; pistekohteiden karttatasoa ja aluekohteiden karttatasoa. Esimerkki:
+                <ul>
+                    <li>Jos karttatasoon on merkitty rikosten tapahtumasijainnit, ty&ouml;kalu laskee, kuinka monta rikosta kussakin piirikunnassa tai muulla hallinnollisella alueella on tapahtunut.
+                    </li>
+                    <li>Voit etsi&auml; my&ouml;s osavaltiotasolla yrityksen korkeimman ja alhaisimman liikevaihdon toimipisteet.
+                    </li>
+                </ul>
+                
+            </p>
+            <br/>
+        </div>
+        <div id="SummarizeNearbyTool" class="largesize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Yhteenveto, lähistö</h2></td>
+                    <td>
+                    <img src="../images/GUID-8CA4374B-AB5E-44A5-ADD3-4C85E5F0AF71-web.png" class="titleImage" alt="Yhteenveto, l&auml;hist&ouml;">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>T&auml;m&auml;n toiminnon avulla voit etsi&auml; kohteet, jotka sijaitsevat m&auml;&auml;ritetyn et&auml;isyyden sis&auml;ll&auml; analyysikarttatasossa.  Et&auml;isyys voidaan mitata suorana et&auml;isyyten&auml; tai ajoajan perusteella (esimerkiksi kymmenen minuutin ajomatkan sis&auml;ll&auml;).  Sen j&auml;lkeen ty&ouml;kalu laskee tilastotietoja l&auml;hell&auml; sijaitsevista kohteista.  Esimerkki:
+                <ul>
+                    <li>Laske, kuinka paljon ihmisi&auml; asuu viiden minuutin ajomatkan sis&auml;ll&auml; alueelta, joka on ehdolla uuden liikkeen sijainniksi.
+                    </li>
+                    <li>Arvioi uuden liikkeen luoksep&auml;&auml;st&auml;vyys laskemalla, kuinka monta valtatien liittym&auml;&auml; on viiden minuutin sis&auml;ll&auml; ehdolla olevasta uudesta sijainnista.
+                    </li>
+                </ul>
+                
+            </p>
+            <br/>
+        </div>
+        <div id="SummarizeWithinTool" class="largesize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Yhteenveto alueella</h2></td>
+                    <td>
+                    <img src="../images/GUID-2E97B2ED-56A7-4242-B0E0-C1824E6F643F-web.png" class="titleImage" alt="Yhteenveto alueella">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Etsii alueet (tai niiden osat), jotka ovat p&auml;&auml;llekk&auml;in kahdessa karttatasossa, ja laskee p&auml;&auml;llekk&auml;isten alueiden tilastotiedot. Esimerkki:
+                <ul>
+                    <li>Jos k&auml;yt&ouml;ss&auml; ovat vesijakoalueiden karttataso ja maank&auml;ytt&ouml;tyypin mukaisten maank&auml;ytt&ouml;alueiden karttataso, ty&ouml;kalu laskee tietyn maank&auml;ytt&ouml;aluetyypin kokonaispinta-alan eekkerein&auml; kullekin vesijakoalueelle. 
+                    </li>
+                    <li>Jos k&auml;yt&ouml;ss&auml; ovat piirikunnan kiinteist&ouml;jen karttataso ja kaupunkien rajojen karttataso, ty&ouml;kalu tekee yhteenvedon siit&auml;, mik&auml; on kunkin kaupungin sis&auml;ll&auml; olevien vapaiden kiinteist&ouml;jen keskim&auml;&auml;r&auml;inen arvo.
+                    </li>
+                </ul>
+                
+            </p>
+            <br/>
+        </div>
+    <div id="EnrichLocationsCategory" class="smallsize">
+        <h2>Data Enrichment</h2>
+        <hr/>
+        <p>These tools help you explore the
+character of areas. Detailed demographic data and
+statistics are returned for your chosen areas. Comparative
+information can also be reported for expanded areas such as
+counties and states.
+            <ul>
+                <li> <b>Enrich Layer</b> retrieves information about the people, places, and businesses in a specific area, or within a straight-line distance or drive time from a location.
+                </li>
+            </ul>
+            
+        </p>
+    </div>
+        <div id="EnrichLayerTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Rikasta karttataso</h2></td>
+                    <td>
+                    <img src="../images/GUID-2B1E8F2B-B474-4AC2-AF32-FFFAA1C43B2E-web.png" class="titleImage" alt="Rikasta karttataso">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Retrieves information about the people, places, and businesses in a specific area, or within a straight-line distance or drive time from a location.
+
+            </p>
+            <br/>
+        </div>
+    <div id="FindLocationsCategory" class="largesize">
+        <h2>Hae sijainnit</h2>
+        <hr/>
+        <p>N&auml;iden ty&ouml;kalujen avulla voidaan tunnistaa alueet, jotka vastaavat useita erilaisia m&auml;&auml;ritt&auml;mi&auml;si kriteerej&auml;.  N&auml;m&auml; kriteerit voivat perustua attribuuttikyselyihin (esimerkiksi vapaisiin kiinteist&ouml;ihin) ja tila-avaruuden kyselyihin (esimerkiksi yhden kilometrin s&auml;teell&auml; joesta).  Voit valita l&ouml;ydett&auml;v&auml;t alueet olemassa olevista kohteista (kuten olemassa olevista kiinteist&ouml;ist&auml;) tai voit luoda uusia kohteita, jotka t&auml;ytt&auml;v&auml;t kaikki vaatimukset.
+            <ul>
+                <li> <b>Hae nykyiset sijainnit</b> hakee analyysikarttatasossa olevia alueita, jotka vastaavat m&auml;&auml;ritettyj&auml; kriteereit&auml;.
+                </li>
+                <li> <b>Laske uudet sijainnit</b> luo uusia alueita tutkimusalueesi sijainneista, jotka t&auml;ytt&auml;v&auml;t hakukriteerit.
+                </li>
+                <li> <b>Etsi samankaltaisia sijainteja</b> hakee sijainteja, jotka ovat mahdollisimman samanlaisia kuin viitesijainnit ja m&auml;&auml;ritt&auml;m&auml;si vastaavuusehdot.
+                </li>
+            </ul>
+            
+        </p>
+        <p> 
+        </p>
+    </div>
+        <div id="FindExistingLocationsTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Hae nykyiset sijainnit</h2></td>
+                    <td>
+                    <img src="../images/GUID-C5409FC7-EC93-45C5-8B00-3D6EA80A0A77-web.png" class="titleImage" alt="Hae nykyiset sijainnit">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Valitsee tutkittavalta alueelta olemassa olevat kohteet, jotka vastaavat m&auml;&auml;ritt&auml;mi&auml;si kriteereit&auml;. Kriteereit&auml; voivat olla attribuuttikyselyt (esimerkiksi vapaat kiinteist&ouml;t) tai sijaintikyselyt (esimerkiksi yhden kilometrin s&auml;teell&auml; joesta).
+            </p>
+            <br/>
+        </div>
+        <div id="DeriveNewLocationsTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Laske uudet sijainnit</h2></td>
+                    <td>
+                    <img src="../images/GUID-14BF9A68-AAD7-4849-B05C-3433A063B4B8-web.png" class="titleImage" alt="Laske uudet sijainnit">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Luo tutkittavalle alueelle uusia kohteita, jotka vastaavat m&auml;&auml;ritt&auml;mi&auml;si kriteereit&auml;. Kriteereit&auml; voivat olla attribuuttikyselyt (esimerkiksi vapaat kiinteist&ouml;t) tai sijaintikyselyt (esimerkiksi yhden kilometrin s&auml;teell&auml; joesta).
+            </p>
+            <br/>
+        </div>
+        <div id="FindSimilarLocationsTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Etsi samankaltaisia sijainteja</h2></td>
+                    <td>
+                    <img src="../images/GUID-01EFFE9D-141F-45BA-AB21-C9E3490587F2-web.png" class="titleImage" alt="Etsi samankaltaisia sijainteja">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Hakee sijainteja, jotka ovat mahdollisimman samanlaisia kuin viitesijainnit ja m&auml;&auml;ritt&auml;m&auml;si vastaavuusehdot.
+            </p>
+            <br/>
+        </div>
+    <div id="AnalyzePatternsCategory" class="regularsize">
+        <h2>Analyze Patterns</h2>
+        <hr/>
+        <p>These tools help you identify, quantify, and visualize spatial patterns in your data.  
+            <ul>
+                <li> <b>Find Hot Spots</b>  identifies statistically significant clustering in the spatial pattern of your data.
+                </li>
+                <li> <b>Interpolate Points</b> predicts values at new locations based on measurements found in a collection of points.
+                </li>
+                <li> <b>Calculate Density</b> takes known quantities of some phenomenon and spreads these quantities across the map.
+                </li>
+            </ul>
+            
+        </p>
+    </div>
+        <div id="CalculateDensityTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Laske tiheys</h2></td>
+                    <td>
+                    <img src="../images/GUID-F73672D4-EE6F-4119-9C92-16F6CFDD86D3-web.png" class="titleImage" alt="Laske tiheys">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Density analysis takes known quantities of some phenomenon and spreads these quantities across the map. You can use this tool, for example,  to show concentrations of  lightning strikes or tornados, access to health care facilities, and population densities.
+            </p>
+            <br/>
+        </div>
+        <div id="FindHotSpotsTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Hae kuumat pisteet</h2></td>
+                    <td>
+                    <img src="../images/GUID-C2575FC6-F14C-4332-B3BF-AB4EDA15177B-web.png" class="titleImage" alt="Hae kuumat pisteet">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>This tool creates a map showing any statistically significant spatial clustering present in your data.   Use this tool to uncover unexpected hot spots (red) and cold spots (blue) of high and low home values, crime densities, traffic accident fatalities, unemployment or biodiversity, for example.
+            </p>
+            <br/>
+        </div>
+        <div id="InterpolatePointsTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Interpoloi pisteet</h2></td>
+                    <td>
+                    <img src="../images/GUID-6E142A07-EA32-4E66-8423-ECDB8CD6B927-web.png" class="titleImage" alt="Interpoloi pisteet">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>This  tool allows you to predict values at new locations based on measurements found in a collection of points. The tool takes point data with values at each point and returns areas classified by predicted values. You can use this tool, for example, to predict rainfall levels across a watershed based on measurements taken at individual rain gauges.
+            </p>
+            <br/>
+        </div>
+    <div id="UseProximityCategory" class="regularsize">
+        <h2>Käytä läheisyyttä</h2>
+        <hr/>
+        <p> N&auml;iden ty&ouml;kalujen avulla saat vastauksen yhteen paikkatietojen analysoinnin peruskysymyksist&auml;: &rdquo;Mit&auml; on mink&auml;kin l&auml;hell&auml;?&rdquo;
+            <ul>
+                <li> <b>Luo puskureita</b> luo alueita, joiden et&auml;isyys tietyist&auml; kohteista on t&auml;sm&auml;lleen sama.
+                </li>
+                <li> <b>Luo ajoaika-alueet</b> etsii sijaintien l&auml;hist&ouml;lt&auml; alueet, joihin voidaan ajaa tietyn ajan kuluessa.
+                </li>
+                <li> <b>Etsi l&auml;hin</b> -ty&ouml;kalu tunnistaa paikat, jotka sijaitsevat l&auml;hinn&auml; tunnettuja sijainteja.
+                </li>
+                <li> <b>Suunnittele reitit</b> m&auml;&auml;ritt&auml;&auml; kuljetuskaluston parhaan reitin usean pys&auml;hdyksen reitill&auml;.
+                </li>
+            </ul>
+            
+        </p>
+        <p> 
+        </p>
+    </div>
+        <div id="CreateBuffersTool" class="largesize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Luo puskurit</h2></td>
+                    <td>
+                    <img src="../images/GUID-652EECCB-3A95-4984-9283-16E5CD36D569-web.png" class="titleImage" alt="Luo puskurit">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Puskuri on alue, joka k&auml;sitt&auml;&auml; tietyn et&auml;isyyden pisteest&auml;, viivasta tai aluekohteesta. 
+            </p>
+            <p>Puskureita k&auml;ytet&auml;&auml;n yleens&auml; sellaisten alueiden luontiin, joita voidaan analysoida tarkemmin muilla ty&ouml;kaluilla, esim. karttatasokerroksilla. Jos kysymys kuuluu esim. &rdquo;Mitk&auml; rakennukset ovat kilometrin s&auml;teell&auml; koulusta?&rdquo;, vastaus voidaan hakea luomalla kilometrin pituinen puskuri koulun ymp&auml;rille ja asettamalla puskuri rakennusten pohjapiirrokset sis&auml;lt&auml;v&auml;n karttatason p&auml;&auml;lle.  Tuloksena syntyy karttataso, joka sis&auml;lt&auml;&auml; enint&auml;&auml;n kilometrin p&auml;&auml;ss&auml; koulusta olevat rakennukset.  
+            </p>
+            <br/>
+        </div>
+        <div id="CreateDriveTimeAreasTool" class="largesize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Luo ajoaika-alueet</h2></td>
+                    <td>
+                    <img src="../images/GUID-989C4173-4BB2-4D42-ADA5-F5D1BB8CB0CB-web.png" class="titleImage" alt="Luo ajoaika-alueet">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Ajoaika-alue on alue, jolle voidaan ajaa m&auml;&auml;ritetyss&auml; ajoajassa tai joka on m&auml;&auml;ritetyn ajoet&auml;isyyden sis&auml;ll&auml;. Ajoaika-alueiden avulla voidaan saada vastaus seuraaviin kysymyksiin:
+                <ul>
+                    <li>Mihin voin ajaa t&auml;&auml;lt&auml; 30 minuutissa?
+                    </li>
+                    <li>Mihin asti voin p&auml;&auml;st&auml;, jos l&auml;hden t&auml;st&auml; ja ajan 30 minuuttia iltakuuden ruuhkassa?
+                    </li>
+                    <li>Mihin kaupunginosiin palomiehet ehtiv&auml;t viidess&auml; minuutissa? Miten palontorjuntavalmius paranisi, jos t&auml;h&auml;n rakennettaisiin uusi paloasema?
+                    </li>
+                    <li>Mitk&auml; ovat liiketoimintani markkina-alueet? Mit&auml; alueita on 10 kilometrin s&auml;teell&auml; liikkeest&auml;ni?
+                    </li>
+                </ul>
+                
+            </p>
+            <br/>
+        </div>
+        <div id="FindNearestTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Hae lähin</h2></td>
+                    <td>
+                    <img src="../images/GUID-712E0E63-3047-4D1C-B2A9-D336FEC79BF0-web.png" class="titleImage" alt="Hae l&auml;hin">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>T&auml;m&auml; ty&ouml;kalu mittaa, kuinka paljon tapahtumien ja toimipaikkojen v&auml;linen matkustus maksaa, sek&auml; m&auml;&auml;ritt&auml;&auml;, mitk&auml; niist&auml; ovat l&auml;himp&auml;n&auml; toisiaan. Lopputuloksena on karttataso, jossa n&auml;kyv&auml;t parhaat reitit tapahtumien ja toimipaikkojen v&auml;lill&auml; sek&auml; kunkin reitin matkustuskustannukset (aika ja et&auml;isyys).  T&auml;m&auml;n ty&ouml;kalun avulla voit esimerkiksi etsi&auml; onnettomuuspaikan l&auml;himm&auml;n sairaalan tai selvitt&auml;&auml; nykyist&auml; sijaintiasi l&auml;himp&auml;n&auml; olevan pankkiautomaatin.
+            </p>
+            <br/>
+        </div>
+        <div id="PlanRoutesTool" class="largesize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Suunnittele reitit</h2></td>
+                    <td>
+                    <img src="../images/GUID-A6D9521F-EECE-4DA2-808E-61483B99AE01-web.png" class="titleImage" alt="Suunnittele reitit">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Voit m&auml;&auml;ritt&auml;&auml; joukon pys&auml;hdyksi&auml; ja niiden ajoneuvojen m&auml;&auml;r&auml;n, jotka voivat k&auml;yd&auml; pys&auml;hdyspaikoilla, ja Suunnittele reitit -ty&ouml;kalu m&auml;&auml;ritt&auml;&auml;, miten pys&auml;hdykset liitet&auml;&auml;n tehokkaasti ajoneuvoihin ja ajoneuvot reititet&auml;&auml;n pys&auml;hdyksiin.
+            </p>
+            <p>T&auml;m&auml;n ty&ouml;kalun avulla voit suunnitella tarkastajien, arvioijien, kotoa k&auml;sin tukipalveluja tarjoavien henkil&ouml;iden ja muiden liikkuvien ty&ouml;ntekij&ouml;iden ty&ouml;ryhm&auml;n t&ouml;it&auml;, toimittaa tavaroita et&auml;isiin sijainteihin tai hakea niist&auml; tavaroita tai tarjota kuljetuspalveluja ihmisille.
+            </p>
+            <br/>
+        </div>
+    <div id="ManageDataCategory" class="regularsize">
+        <h2>Hallitse aineistoa</h2>
+        <hr/>
+        <p>N&auml;it&auml; ty&ouml;kaluja k&auml;ytet&auml;&auml;n sek&auml; maantieteellisten tietojen p&auml;ivitt&auml;isess&auml; hallinnassa ett&auml; tietojen yhdist&auml;misess&auml; ennen analyysi&auml;.  
+            <ul>
+                <li> <b>Pura rajat</b> yhdist&auml;&auml; alueet, joilla on yhteinen raja ja yhteinen attribuuttiarvo.
+                </li>
+                <li> <b>Pura aineisto</b> luo uusia tiedostoja hakemalla kohteet olemassa olevista tiedoistasi.
+                </li>
+                <li> <b>Yhdist&auml; karttatasot</b> kopioi kaikki kohteet kahdesta tai useammasta olemassa olevasta karttatasosta uuteen karttatasoon.
+                </li>
+                <li> <b>P&auml;&auml;llekk&auml;isyysanalyysi</b>-ty&ouml;kalu yhdist&auml;&auml; kaksi tai useampia karttatasoja yhdeksi tasoksi.  P&auml;&auml;llekk&auml;isyysanalyysi yhdist&auml;&auml; tavallaan karttapinon kaikkien karttojen tiedot yhteen karttaan.
+                </li>
+            </ul>
+            
+        </p>
+    </div>
+        <div id="DissolveBoundariesTool" class="regularsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Sulauta rajat</h2></td>
+                    <td>
+                    <img src="../images/GUID-D1192DD3-306F-4527-9898-FF2021ABCB0A-web.png" class="titleImage" alt="Sulauta rajat">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>P&auml;&auml;llekk&auml;iset tai yhteisen rajan jakavat alueet yhdistet&auml;&auml;n yhdeksi alueeksi.    
+            </p>
+            <p>M&auml;&auml;ritt&auml;m&auml;ll&auml; kent&auml;n voi m&auml;&auml;ritt&auml;&auml;, mitk&auml; rajat yhdistet&auml;&auml;n. Esimerkiksi jos taso koostuu piirikunnista ja jos jokainen piirikunta sis&auml;lt&auml;&auml; ominaisuuden  <i>State_Name</i>, voit sulauttaa rajoja k&auml;ytt&auml;m&auml;ll&auml; ominaisuutta <i>State_Name</i>.  Vierekk&auml;iset piirikunnat yhdistyv&auml;t, jos niill&auml; on sama arvo ominaisuudelle <i>State_Name</i>.  Tuloksena on osavaltion rajojen mukainen taso.
+            </p>
+            <br/>
+        </div>
+        <div id="ExtractDataTool" class="smallsize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Pura aineisto</h2></td>
+                    <td>
+                    <img src="../images/GUID-0DACA98E-B1A2-4E25-957B-EDC651A3DDD1-web.png" class="titleImage" alt="Pura aineisto">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Luo zip-tiedoston tai karttatasopaketin karttatasojesi ja m&auml;&auml;ritt&auml;miesi kiinnostavien alueiden tiedoista.
+            </p>
+            <br/>
+        </div>
+        <div id="MergeLayersTool" class="largesize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Yhdistä karttatasot</h2></td>
+                    <td>
+                    <img src="../images/GUID-DACDAC49-3ECE-45A2-AC42-69016B3B8ADA-web.png" class="titleImage" alt="Yhdist&auml; karttatasot">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>Kopioi kohteet kahdesta tai useammasta olemassa olevasta karttatasosta uuteen karttatasoon. Toiminnolla voit tehd&auml; esim. seuraavat:
+                <ul>
+                    <li>Haluan yhdist&auml;&auml; tasot Englanti, Wales ja Skotlanti yhdeksi Iso-Britannia-nimiseksi tasoksi. 
+                    </li>
+                    <li>Minulla on 12 tasoa, ja jokainen sis&auml;lt&auml;&auml; kaupunkien katkeamattomat kiinteist&ouml;tiedot.  voit haluat yhdist&auml;&auml; ne yhdeksi ainoaksi karttatasoksi s&auml;ilytt&auml;en vain ne attribuutit, joilla on sama nimi ja tyyppi kaikissa 12 karttatasossa.
+                    </li>
+                </ul>
+                
+            </p>
+            <br/>
+        </div>
+        <div id="OverlayLayersTool" class="largesize">
+            <table class="toolSummaryTable">
+                <thead></thead>
+                <tbody><tr>
+                    <td><h2>Päällekkäisyysanalyysi</h2></td>
+                    <td>
+                    <img src="../images/GUID-F7C42432-C8C5-4E4F-8275-EC7E95D00CB7-web.png" class="titleImage" alt="P&auml;&auml;llekk&auml;isyysanalyysi">
+                    </td>
+                </tr></tbody>
+            </table>
+<hr/>
+            <p>P&auml;&auml;llekk&auml;isyysanalyysi yhdist&auml;&auml; kaksi tai useampia karttatasoja yhteen karttatasoon.  Karttatasokerros on tavallaan kuin karttapino, jonka alimmassa kartassa n&auml;kyv&auml;t kaikkien pinon karttojen yhdistetyt tiedot. Karttatasokerrosten avulla voit vastata esim. seuraaviin kysymyksiin:
+                <ul>
+                    <li>Mitk&auml; kiinteist&ouml;t ovat edellisten 100 vuoden aikana tulvineen alueen sis&auml;ll&auml;? (Sis&auml;ll&auml; on vain toinen tapa ilmaista p&auml;&auml;llekk&auml;isyytt&auml;)?
+                          
+                    </li>
+                    <li>Mit&auml; teit&auml; on kussakin piirikunnassa?
+                    </li>
+                    <li>Mihin tarkoitukseen tietyn maaper&auml;tyypin maa-alueita k&auml;ytet&auml;&auml;n?
+                         
+                    </li>
+                    <li>Mit&auml; kaivoja on hyl&auml;ttyjen armeijan tukikohtien alueilla?
+                    </li>
+                </ul>
+                
+            </p>
+            <br/>
+        </div>
+</div>
+</html>

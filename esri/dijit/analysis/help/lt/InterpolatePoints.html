@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Interpoliuoti takus</h2><p/>
+        <h2><img src="../images/GUID-6E142A07-EA32-4E66-8423-ECDB8CD6B927-web.png" alt="Interpoliuoti takus"></h2>
+        <hr/>
+    <p>   Įrankis Interpoliuoti takus leid˛ia prognozuoti reikmes naujose vietose esamo takų rinkinio matavimais. Įrankis surenka takų duomenis su reikmėmis kiekviename take ir pateikia plotus, klasifikuotus pagal prognozuotas reikmes. Pavyzd˛iui
+        <ul>
+            <li>Oro kokybės valdymo apylinkėje yra sensorių, matuojančių u˛tertumo lygį.    Takų interpoliavimo įrankį galima naudoti u˛tertumo lygiui prognozuoti vietose, neturinčiose sensorių, pvz., vietose, kuriose kyla pavojus gyventojams &ndash; mokyklose arba ligoninėse.
+            </li>
+            <li>Sunkiųjų metalų koncentracijos pasėliuose prognozė, atsi˛velgiant į atskirų augalų mėginius.
+            </li>
+            <li>Dirvo˛emio trąų lygio (azotas fosforas, kalis ir t. t.) ir kitų indikatorių (pvz., elektros laidumo) prognozė, siekiant itirti jų ryį su pasėlių derliumi ir nustatyti tikslius kiekvienos lauko vietos trąų kiekius.
+
+            </li>
+            <li>Taikymas meteorologijoje apima temperatūros, kritulių ir susijusių kintamųjų (pvz., rūgtinio lietaus) prognozes. 
+            </li>
+        </ul>
+        
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="field">
+        <div><h2>Pasirinkti lauką interpoliavimui</h2></div>
+        <hr/>
+        <div>
+            <p>Pasirinkite lauką, kuriame yra norimų interpoliuoti reikmių.  
+            </p>
+        </div>
+    </div>
+    <div id="interpolateOption">
+        <div><h2>Optimizuoti</h2></div>
+        <hr/>
+        <div>
+            <p>Pasirinkite, kam teikti pirmenybę: greičiui ar tikslumui. Apskaičiuoti tikslesnę prognozę u˛trunka ilgiau.
+            </p> 
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div><h2>Ivesties prognozės paklaidos</h2></div>
+        <hr/>
+        <div>
+            <p> Jei pa˛ymėsite, bus sukurtas standartinių interpoliacijos prognozių paklaidų sluoksnis.  Ivesties sluoksnio pavadinimas bus rezultato sluoksnio pavadinimas su priesaga Klaidos.
+            </p>
+            <p>Standartinės paklaidos naudingos, nes pateikia informaciją apie prognozuojamų reikmių patikimumą.  Paprastai 95 proc. atvejų tikra reikmė yra ka˛kur tarp dviejų standartinių prognozuojamos reikmės verčių.  Pavyzd˛iui, naujos vietos prognozuojama reikmė yra 50 su standartine paklaida 5. Vadinasi įrankio geriausias spėjimas yra, kad tikra reikmė toje vietoje yra 50, tačiau gali būti ir ma˛esnė (iki 40) arba didesnė (iki 60). Norėdami apskaičiuoti ių galimų reikmių intervalą padauginkite standartinę paklaidą i 2, pridėkite ią reikmę prie prognozuojamos reikmės, kad gautumėte virutinę intervalo ribą, ar atimkite ią reikmę i prognozuojamos reikmės, kad gautumėte apatinę intervalo ribą.
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div><h2>Klasifikuoti pagal</h2></div>
+        <hr/>
+        <div>
+            <p>Pasirinkite, kaip prognozuojamas reikmes klasifikuoti į plotus.
+                <ul>
+                    <li>Geometrinis intervalas &ndash; plotai pagrįsti klasės intervalais, sudarančiais geometrinę progresiją. Toks metodas u˛tikrina, kad kiekvienas klasės intervalas turės ma˛daug tokį pat reikmių skaičių kiekvienoje klasėje ir intervalai yra pastoviai didėjantys.
+                    </li>
+                    <li>Vienodas intervalas &ndash; kuriami tokie plotai, kad prognozuojamų reikmių intervalas būtų vienodas.
+                    </li>
+                    <li>Vienodas plotas &ndash; kuriami tokie plotai, kad kiekviename plote būtų vienodas skaičius duomenų reikmių.  Pavyzd˛iui, jei duomenyse yra daugiau didelių, o ne ma˛ų reikmių, bus sukurta daugiau didelių reikmių plotų.
+                    </li>
+                    <li>Rankiniu būdu &ndash; i parinktis leid˛ia apibrė˛ti savo plotų reikmių intervalus.  ios reikmės bus įvestos į toliau pateikiamą parametrą  <b>Klasės lū˛io reikmės</b>.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div><h2>Klasių skaičius</h2></div>
+        <hr/>
+        <div>
+            <p>Nurodo klasių (prognozuojamų reikmių intervalų) skaičių rezultato sluoksnyje.  Kiekviena klasė apibrė˛ia plotų ribas.  ių klasių reikmes nustato ankčiau pateiktas parametras  <b>Klasifikuoti pagal</b>.
+            </p>
+        </div>
+    </div>
+    <div id="classBreaks">
+        <div><h2>Klasės lū˛io reikmės</h2></div>
+        <hr/>
+        <div>
+            <p>Įveskite tarpais atskirtas norimas klasių lū˛ių reikmes.  Pavyzd˛iui, jei norite klasės lū˛ių ties reikmėmis 1,5, 3 ir 7, įveskite  <code>1.5 3 7</code>.  ios reikmės nustatys virutinę kiekvienos klasės ribą, kad klasių skaičius būtų lygus įvestų reikmių skaičiui.  Jokioms vietoms nebus sukurti plotai naudojant prognozuojamas reikmes, didesnes nei įvesta did˛iausia lū˛io reikmė.  Turite įvesti ma˛iausiai dvi reikmes, tačiau ne daugiau nei 32.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div><h2>Apkirpti ivestį pagal</h2></div>
+        <hr/>
+        <div>
+            <p>Įbrė˛kite arba pateikite sluoksnį, nurodantį plotą, kuriame turi būti įbrė˛iamas rezultatas. Pavyzd˛iui, jei interpoliuojate e˛ero u˛tertumo matavimus, iame parametre galite naudoti e˛ero ribas ir ivestis bus įbrė˛ta tik e˛ero ribose.
+            </p>
+        </div>
+    </div>
+    <div id="predictAtPointLayer">
+        <div><h2>Prognozuoti iose vietose</h2></div>
+        <hr/>
+        <div>
+            <p>Įbrė˛kite arba pateikite sluoksnį, nurodantį takų vietas prognozuojamoms reikmėms skaičiuoti. Tokiu būdu galėsite atlikti konkrečių dominančių vietų prognozes. Pavyzd˛iui, jei analizės sluoksnyje pateikiami u˛tertumo lygių matavimai, naudojant į parametrą galima prognozuoti u˛tertumo lygius vietose, kuriose kyla didelis pavojus gyventojams, pvz., mokyklose arba ligoninėse.  Tokią informaciją galima naudoti teikiant rekomendacijas ių vietų sveikatos apsaugos įstaigoms.
+            </p>
+            <p>Jei palaikoma, is įrankis pateiks prognozių takų sluoksnio ivestį konkrečiose vietose.  Ivesties sluoksnio pavadinimas bus rezultato sluoksnio pavadinimas su priesaga Takai.  
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div><h2>Rezultatų sluoksnio pavadinimas</h2></div>
+        <hr/>
+        <div>
+            <p>Pateikite pavadinimą sluoksnio, kuris bus sukurtas  <b>Turinyje</b> bei pridėtas į ˛emėlapį.
+            </p>
+            <p>Pasirinkę  <b>Rezultatą įrayti į</b>, galite nurodyti <b>Turinyje</b> esančio aplanko pavadinimą.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

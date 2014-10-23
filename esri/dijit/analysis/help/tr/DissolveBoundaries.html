@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Sınırları Birleştir</h2><p/>
+        <h2><img src="../images/GUID-D1192DD3-306F-4527-9898-FF2021ABCB0A-web.png" alt="Sınırları Birleştir"></h2>
+        <hr/>
+    <p>Bindirilen ya da ortak bir sınırı paylaşan alanlar tek bir alan oluşturmak i&ccedil;in birleştirilir. 
+    </p>
+    <p>Hangi sınırların birleştirileceğini bir alan belirleyerek denetleyebilirsiniz. &Ouml;rneğin bir il&ccedil;eler katmanınız varsa ve her il&ccedil;enin bir  <i>State_Name</i> &ouml;zniteliği varsa, <i>State_Name</i> &ouml;zniteliğini kullanarak sınırları birleştirebilirsiniz. Bitişik il&ccedil;eler aynı <i>State_Name</i> değerine sahipse birleştirilecektir. Nihai sonu&ccedil; bir il&ccedil;e sınırları katmandır.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="DissolveFields">
+        <div><h2>Birleştirme yöntemini seç</h2></div>
+        <hr/>
+        <div>
+            <p>Alan &ouml;zelliklerini birleştirmek i&ccedil;in iki y&ouml;ntemden birini se&ccedil;ebilirsiniz:
+                <ul>
+                    <li> <b>&Ouml;rt&uuml;şen ya da bitişik alanlar</b>; Sınırları birbiriyle &ouml;rt&uuml;şen iki ya da daha fazla alan bir alan olarak birleştirilir. Ek olarak bitişik (yani aynı ortak sınırı paylaşan) alanlar bir alan olarak birleştirilir.
+                    </li>
+                    <li> <b>Aynı alan değerine sahip alanlar</b>; &Ouml;rt&uuml;şen ya da ortak bir sınır paylaşan alanlar, aynı alan değerine sahiplerse bir alan olarak birleştirilir.
+                        <p>&Ouml;rneğin bir il&ccedil;eler katmanınız varsa ve her il&ccedil;enin bir  <i>State_Name</i> alanı varsa, <i>State_Name</i> alanını kullanarak sınırları birleştirebilirsiniz. Bitişik il&ccedil;eler aynı <i>State_Name</i> değerine sahipse birleştirilecektir. Nihai sonu&ccedil; bir il&ccedil;e sınırları katmandır.
+                        </p>
+                    </li>
+                </ul>
+                
+            </p>
+            <p> <b>Eğer işaretli ise ge&ccedil;erli harita kapsamını kullan</b>, yalnızca ge&ccedil;erli harita kapsamında g&ouml;r&uuml;n&uuml;r olan analiz katmanındaki detaylar birleştirilecektir. İşaretli değilse t&uuml;m detaylar, ge&ccedil;erli harita kapsamının dışında olsa bile birleştirilecektir.
+            </p>
+        </div>
+    </div>
+    <div id="SummaryFields">
+        <div><h2>İstatistik ekle</h2></div>
+        <hr/>
+        <div>
+            <p>Alanlar birleştirildiğinde, bunların &ouml;zniteliklerini &ouml;zetleyebilirsiniz. &Ouml;rneğin il&ccedil;eler arasındaki sınırı  <i>State_Name</i> temelinde birleştiriyorsanız ve her il&ccedil;enin bir <i>Population</i> alanı varsa, o il&ccedil;e i&ccedil;in <i>Population</i> toplamını hesaplayabilirsiniz.
+            </p>
+            <p>Kullanılabilir istatistik t&uuml;rleri şunlardır:
+            </p>
+            <ul>
+                <li> <b>Toplam</b>; Belirtilen alanın toplam değerini ekler
+                    
+
+                </li>
+                <li> <b>Ortalama</b>; Belirtilen alanın ortalamasını hesaplar
+                    
+
+                </li>
+                <li> <b>Minimum</b>; Belirtilen alanın t&uuml;m kayıtları i&ccedil;in en k&uuml;&ccedil;&uuml;k değeri bulur
+                    
+
+                </li>
+                <li> <b>Maksimum</b>; Belirtilen alanın t&uuml;m kayıtları i&ccedil;in en b&uuml;y&uuml;k değeri bulur
+                    
+
+                </li>
+                <li> <b>Std. Sapma</b>; Belirtilen alanda yer alan değerlerdeki standart sapmayı bulur
+                    
+
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="OutputName">
+        <div><h2>Sonuç katmanı adı</h2></div>
+        <hr/>
+        <div>
+            <p>Bu  <b>İ&ccedil;eriğim</b> alanınızda oluşturulacak ve haritaya eklenecek katmanın adıdır. Varsayılan ad, analiz katmanı adına g&ouml;redir. Katman zaten varsa &uuml;zerine yazma isteğinizi onaylamanız istenecektir.
+            </p>
+            <p> <b>Sonu&ccedil;ları kaydet</b> a&ccedil;ılır kutusunu kullanarak <b>İ&ccedil;eriğim</b> alanında sonucun kaydedileceği bir klas&ouml;r adı belirleyebilirsiniz.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

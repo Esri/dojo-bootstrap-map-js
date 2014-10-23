@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Znajdź najbliższe</h2><p/>
+        <h2><img src="../images/GUID-712E0E63-3047-4D1C-B2A9-D336FEC79BF0-web.png" alt="Znajdź najbliższe"></h2>
+        <hr/>
+    <p>To narzędzie wyszukuje najbliższe obiekty i raportuje oraz ocenia odległość do pobliskich obiekt&oacute;w. Aby sprawdzić, co znajduje się najbliżej, narzędzie to może zmierzyć odległość w linii prostej, długość drogi lub czas przejazdu. Dostępne są opcje, kt&oacute;re ograniczają liczbę wyszukiwanych najbliższych obiekt&oacute;w lub zakres wyszukiwania obiekt&oacute;w. Wyniki uzyskiwane dzięki temu narzędziu umożliwiają udzielenie odpowiedzi na następującego typu pytania:
+        <ul>
+            <li>Kt&oacute;ry park jest najbliżej stąd?
+            </li>
+            <li>Do kt&oacute;rego szpitala można dotrzeć w najkr&oacute;tszym czasie? Ile czasu potrzeba na przejazd we wtorek o 17:30 w godzinie szczytu?
+            </li>
+            <li>Jakie są odległości drogowe pomiędzy tymi gł&oacute;wnymi miastami?
+            </li>
+            <li>Kt&oacute;rzy z tych pacjent&oacute;w mieszkają w promieniu trzech kilometr&oacute;w od wskazanych fabryk chemicznych?
+            </li>
+        </ul>
+        
+    </p>
+    <p>Opcja Znajdź najbliższe dostarcza wyniki zawierające najbliższe obiekty i warstwę liniową, kt&oacute;ra łączy lokalizacje początkowe z ich najbliższymi lokalizacjami. Warstwa liniowa zawiera informacje na temat lokalizacji początkowych i najbliższych oraz informacje dotyczące odległości pomiędzy nimi.
+    </p>
+    <p>Jeśli zaznaczona jest opcja  <b>Użyj bieżącego zasięgu mapy</b>, tylko obiekty widoczne w bieżącym zasięgu mapy będą uwzględnianie jako obiekty początkowe i potencjalnie najbliższe.  Jeśli powyższa opcja nie jest zaznaczona, zostaną uwzględnione wszystkie obiekty w warstwie wejściowej, nawet jeśli będą znajdować się poza bieżącym zasięgiem mapy.  
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="NearbyLocationsLayer">
+        <div><h2>Znajdź najbliższe lokalizacje w</h2></div>
+        <hr/>
+        <div>
+            <p>Narzędzie Znajdź najbliższe dokonuje pomiaru od każdej z&nbsp;lokalizacji w&nbsp;warstwie analizy do lokalizacji w&nbsp;tej warstwie. Narzędzie jest w&nbsp;stanie obsłużyć do 1000 lokalizacji w&nbsp;każdej warstwie.
+            </p>
+        </div>
+    </div>
+    <div id="MeasurementMethod">
+        <div><h2>Zmierz</h2></div>
+        <hr/>
+        <div>
+            <p>Wybierz, czy wyszukać najbliższe lokalizacje w oparciu o odległość w linii prostej, odległość przejazdu czy czas dojazdu. W obu ostatnich przypadkach pomiary są dokonywane wzdłuż dr&oacute;g i uwzględniają drogi jednokierunkowe, skręty w niedozwolonych miejscach itd. 
+            </p>
+            <p>Wyszukiwanie najbliższych obiekt&oacute;w przy użyciu odległości w linii prostej jest możliwe z wykorzystaniem wejściowych danych punktowych, liniowych lub poligonowych. Aby zmierzyć czas dojazdu lub odległość przejazdu, obie warstwy (analizy i najbliższych lokalizacji) muszą zawierać punkty. 
+            </p>
+            <p>Podczas pomiaru pomiędzy liniami lub poligonami wyznaczana jest odległość od lub do najbliższego punktu wzdłuż linii lub granicy obszaru. 
+            </p> 
+            <p>Po wybraniu opcji  <b>Czas przejazdu</b> należy wybrać spos&oacute;b pomiaru czasu przejazdu.
+                <ul>
+                    <li>
+                        <p>Aby znaleźć najbliższe obiekty na podstawie stałych prędkości podr&oacute;ży, takich jak ograniczenia prędkości, a nie prędkości zmiennych, wynikające ze zmieniających się warunk&oacute;w drogowych, odznacz opcję  <b>Uwzględnij dane o natężeniu ruchu drogowego</b>. Opcja ta znajduje zastosowanie, kiedy chcemy dowiedzieć się, kt&oacute;ry obiekt jest og&oacute;lnie najbliżej, jednak niekoniecznie najbliżej w kontekście warunk&oacute;w drogowych danego dnia i konkretnej godziny.
+                        </p>
+                    </li>
+                    <li>
+                        <p>Aby znaleźć najbliższe obiekty na podstawie podanego czasu wyjazdu oraz zmieniających się warunk&oacute;w drogowych, zaznacz opcję  <b>Uwzględnij dane o natężeniu o ruchu drogowego</b>. Jeśli dodatkowo wybierzesz opcję <b>Aktualny ruch drogowy</b>, czas wyjazdu z lokalizacji początkowych zostanie ustawiony na aktualną godzinę a bieżące i przewidywane prędkości ruchu drogowego określone w oparciu o informacje pobrane z czujnik&oacute;w i przekaźnik&oacute;w w celu dokonania oceny, kt&oacute;re obiekty znajdują najbliżej. Przewidywana prędkość ruchu ulicznego obliczana jest poprzez odniesienie do bieżących i historycznych wartości prędkości ruchu oraz aktualnych zdarzeń i warunk&oacute;w, takich jak pogoda. Prędkość ruchu drogowego jest przewidywana z 12-godzinnym wyprzedzeniem, więc można przesunąć suwak, aby ustawić czas wyjazdu o 12 godzin wcześniej.
+                        </p>
+                        <p>Użyj ustawień aktualnego ruchu drogowego, aby sprawdzić, do kt&oacute;rych obiekt&oacute;w można dotrzeć najszybciej, wyjeżdżając w tej chwili, wyjeżdżając za godzinę itd.
+                        </p>
+                    </li>
+                    <li>
+                        <p>Po zaznaczeniu opcji  <b>Uwzględnij dane o natężeniu ruchu drogowego</b> i wybraniu opcji <b>Ruch drogowy w oparciu o typowe warunki dla</b> danego dnia i godziny, narzędzie wyszuka najbliższe obiekty na podstawie historycznych średnich prędkości dla każdego cyklu pięciominutowego w całym tygodniu pracy. W wynikach brany jest pod uwagę ruch drogowy, ale nie uwzględniany wpływ aktualnych warunk&oacute;w na drodze i zdarzeń, kt&oacute;re mogą r&oacute;żnić się znacznie od normy.
+                        </p>
+                        <p>Można użyć tych ustawień opartych na historycznych danych o ruchu drogowym, aby odpowiedzieć na następujące pytanie: &bdquo;Do jakich obszar&oacute;w można dotrzeć, wyjeżdżając o godz. 11:30 w środę?&rdquo; 
+                        </p>
+                        <p>Czas, kt&oacute;ry ustawisz odnosi się do strefy czasowej, w kt&oacute;rej zlokalizowane są obiekty. W związku z powyższym, jeśli czas zostanie ustawiony na godz. 8:00 i będą dwa obiekty początkowe, jeden w Nowym Jorku i drugi w Los Angeles, najbliższe lokalizacje zostaną wyszukane z uwzględnieniem godz. 8:00 czasu wschodniego i godz. 8:00 czasu pacyficznego.
+                        </p>
+                    </li>
+                </ul>
+                Uwaga: w momencie gdy pojazd wyjeżdża z danego punktu, upływa czas i zmieniają się warunki drogowe. Narzędzie uwzględnia te zmienne, jeśli jest zaznaczona opcja <b>Uwzględnij dane o natężeniu ruchu drogowego</b>, choć nie wszystkie regiony przekazują dane o ruchu drogowym. Aby dowiedzieć się, czy ta usługa jest obsługiwana na badanym obszarze, w oknie narzędzia kliknij łącze <b>Sprawdź dostępność</b>. 
+            </p>
+        </div>
+    </div>
+    <div id="Cutoffs">
+        <div><h2>Dla każdej lokalizacji w</h2></div>
+        <hr/>
+        <div>
+            <p>Dostępne są dwie opcje ograniczenia wyszukiwania najbliższych lokalizacji. Jedną z nich jest ograniczenie maksymalnej liczby najbliższych lokalizacji, przypadających na lokalizacje początkowe. Można wyszukać jeden najbliższy park, dwa najbliższe itd. Drugą opcją jest ustawienie maksymalnej odległości, w&nbsp;kt&oacute;rej wykonywane jest wyszukiwanie lub czasu przejazdu.
+            </p>
+            <p>Usunięcie zaznaczenia tych opcji powoduje, że maksymalna liczba wyszukiwanych najbliższych lokalizacji wynosi 100 (jest to wartość graniczna dla narzędzia), a maksymalny zakres wyszukiwania jest nieograniczony.
+            </p>
+            <p>Czas przetwarzania zależy od liczby lokalizacji początkowych, liczby najbliższych lokalizacji oraz maksymalnego zakresu wyszukiwania.   Im więcej lokalizacji oraz im większy zakres wyszukiwania, tym więcej czasu potrzeba na przetwarzanie.
+            </p>
+            <p>Uwaga: kiedy zostaje ustawione ograniczenie na zakres wyszukiwania, może się zdarzyć, że narzędzie nie znajdzie żadnych lokalizacji w tym zakresie lub że znaleziona zostanie taka liczba lokalizacji, kt&oacute;ra będzie mniejsza od maksymalnej liczby najbliższych lokalizacji, jaką określisz.
+            </p>
+        </div>
+    </div>
+    <div id="OutputNearestLocationsLayer">
+        <div><h2>Nazwa warstwy wynikowej</h2></div>
+        <hr/>
+        <div>
+            <p>W wyniku otrzymane zostaną dwie warstwy wynikowe: jedna z najbliższymi lokalizacjami i druga z liniami łączącymi lokalizacje początkowe z najbliższymi lokalizacjami.
+            </p>
+            <p>Ze względu na fakt, że linie te pokazują pomierzone ścieżki, gdy wykonywany jest pomiar w linii prostej, prowadzą one wzdłuż prostych ścieżek gdy wykonywany jest pomiar długości trasy &ndash; są to najkr&oacute;tsze ścieżki wzdłuż dr&oacute;g, lub w przypadku mierzonego czasu, przejazdu -drogi umożliwiające najszybsze dotarcie do celu.. Tabela, kt&oacute;ra jest częścią opcjonalnej warstwy liniowej zawiera następujące informacje: pomiary odległości lub czasu przejazdu przedstawiane w postaci linii, informacje identyfikacyjne na temat połączonych lokalizacji początkowych i końcowych oraz oceny bliskości rozdzielone według lokalizacji początkowej, co pozwala sprawdzić, kt&oacute;ra lokalizacja jest najbliższa, kt&oacute;ra jest druga pod względem odległości, itd. Przy pomiarze czasu przejazdu z uwzględnieniem ruchu drogowego, tabela zawiera także czas wyjazdu i przyjazdu.
+            </p>
+            <p>Dla tych warstw, kt&oacute;re zostaną zapisane w zakładce  <b>Moje zasoby</b> i dodane do mapy, można użyć nazw domyślnych lub określić nowe nazwy.  Domyślne nazwy są tworzone na podstawie nazwy warstwy analizy. Jeśli ta warstwa już istnieje, wyświetli się komunikat z pytaniem, czy ma zostać nadpisana.
+            </p>
+            <p>Używając menu rozwijanego  <b>Zapisz wynik w</b>, można wskazać nazwę folderu w zakładce <b>Moje zasoby</b>, gdzie zostaną zapisane wyniki.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

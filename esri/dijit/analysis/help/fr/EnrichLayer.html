@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Enrichir la couche</h2><p/>
+        <h2><img src="../images/GUID-2B1E8F2B-B474-4AC2-AF32-FFFAA1C43B2E-web.png" alt="Enrichir la couche"></h2>
+        <hr/>
+    <p>Cet outil enrichit vos donn&eacute;es en r&eacute;cup&eacute;rant des informations sur les personnes, lieux et commerces qui entourent l'emplacement des donn&eacute;es et vous permet de r&eacute;pondre &agrave; de nouvelles questions concernant les emplacements, auxquelles les cartes seules ne permettent pas de r&eacute;pondre. Par exemple : quelles personnes vivent ici ? Qu'est-ce que les gens aiment faire dans cet endroit ? Quels sont leurs habitudes et leurs styles de vie ? Quels sont les commerces implant&eacute;s &agrave; cet endroit ?
+    </p>
+    <p>Le r&eacute;sultat sera une nouvelle couche contenant toutes les informations d&eacute;mographiques et g&eacute;ographiques issues d'ensembles de donn&eacute;es particuliers. Ces nouvelles informations sont ajout&eacute;es sous forme de champs dans la table.
+    </p>
+    <p>Si l'option  <b>Utiliser l'&eacute;tendue courante de la carte</b> est s&eacute;lectionn&eacute;e, seules les entit&eacute;s de la couche d'analyse et de la couche surfacique qui sont visibles au sein de l'&eacute;tendue courante de la carte seront analys&eacute;es. Si l'option n'est pas s&eacute;lectionn&eacute;e, toutes les entit&eacute;s qui se trouvent &agrave; la fois dans la couche d'analyse et dans la couche surfacique seront analys&eacute;es, m&ecirc;me si elles se trouvent en dehors de l'&eacute;tendue courante de la carte.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="DataCollection">
+        <div><h2>Variables d'enrichissement</h2></div>
+        <hr/>
+        <div>
+            
+            <p>Cliquez sur  <b>S&eacute;lectionner des variables</b> pour ouvrir le <b>navigateur de donn&eacute;es</b>. Le <b>navigateur de donn&eacute;es</b> permet de trouver et de s&eacute;lectionner des variables d'enrichissement une par une ou par lots.
+            </p>
+            <p>Une r&eacute;gion est s&eacute;lectionn&eacute;e automatiquement en fonction de vos donn&eacute;es. Vous pouvez choisir une r&eacute;gion diff&eacute;rente si vos donn&eacute;es couvrent plusieurs pays. 
+            </p>
+            <p>Les variables d'enrichissement sont organis&eacute;es en collections de donn&eacute;es pour en faciliter l'acc&egrave;s. Lorsque vous s&eacute;lectionnez une collection de donn&eacute;es, le navigateur affiche quelques-unes des variables d'enrichissement les plus utilis&eacute;es dans cette collection. Sous  <b>Continuer la navigation</b>, il pr&eacute;sente &eacute;galement les cat&eacute;gories qui constituent la collection. Au sein de chaque cat&eacute;gorie, vous pouvez s&eacute;lectionner des sous-cat&eacute;gories enti&egrave;res ou explorer une sous-cat&eacute;gorie et s&eacute;lectionner des variables d'enrichissement individuelles. Vous pouvez &eacute;galement utiliser la zone de recherche pour trouver une variable pr&eacute;cise au sein d'une cat&eacute;gorie.
+            </p>
+            <p>Lorsque vous s&eacute;lectionnez des variables &agrave; inclure pour l'enrichissement, elles sont ajout&eacute;es au panier situ&eacute;e dans l'angle du  <b>navigateur de donn&eacute;es</b>. Utilisez ce panier pour assurer le suivi du nombre de variables que vous avez s&eacute;lectionn&eacute;es.
+            </p>
+            <p>Chaque variable s&eacute;lectionn&eacute;e est ajout&eacute;e sous forme de champ dans votre couche de r&eacute;sultat.
+            </p> 
+        </div>
+    </div>
+    <div id="BufferOption">
+        <div><h2>Définir les surfaces à enrichir</h2></div>
+        <hr/>
+        <div>
+            <p>Il s'agit des surfaces &agrave; enrichir avec des informations compl&eacute;mentaires trouv&eacute;es dans l'ensemble de donn&eacute;es. Si votre couche d'analyse contient des points ou des lignes, les surfaces sont cr&eacute;&eacute;es autour de chaque point ou ligne &agrave; l'aide d'une distance en ligne droite ou d'un temps de trajet.  
+            </p>
+        </div>
+    </div>
+    <div id="OutputName">
+        <div><h2>Nom de la couche de résultats</h2></div>
+        <hr/>
+        <div>
+            <p>Il s'agit du nom de la couche qui sera cr&eacute;&eacute;e dans votre page  <b>Mes contenus</b> et ajout&eacute;e &agrave; la carte. Le nom par d&eacute;faut repose sur le nom de la couche d'analyse. Si la couche existe d&eacute;j&agrave;, vous serez amen&eacute; &agrave; confirmer son remplacement.
+            </p>
+            <p>La zone de liste d&eacute;roulante  <b>Enregistrer le r&eacute;sultat dans</b> vous permet de sp&eacute;cifier le nom d'un dossier dans <b>Mes contenus</b> o&ugrave; le r&eacute;sultat sera enregistr&eacute;.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

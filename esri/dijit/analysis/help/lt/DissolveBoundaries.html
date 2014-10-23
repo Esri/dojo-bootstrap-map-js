@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Tirpdyti ribas</h2><p/>
+        <h2><img src="../images/GUID-D1192DD3-306F-4527-9898-FF2021ABCB0A-web.png" alt="Tirpdyti ribas"></h2>
+        <hr/>
+    <p>Besikertantys ar bendrą geometriją turintys objektai bus apjungti į vieną.    
+    </p>
+    <p>Galite pasirinkti, kurie elementai bus apjungiami, nurodydami lauką. Pavyzdžiui, jei turite seniūnijų sluoksnį, kuriame kiekvienas administracinis vienetas turi  <i>State_Name</i> atributą, galite apjungti naudodami <i>State_Name</i> atributą.  Besiribojančios savivaldybės bus apjungtos, jei turės tą pačią reik&scaron;mę <i>State_Name</i>.  Rezultatas bus savivaldybių teritorijos.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="DissolveFields">
+        <div><h2>Pasirinkti tirpinimo metodą</h2></div>
+        <hr/>
+        <div>
+            <p>Galite pasirinkti vieną i&scaron; dviejų apjungimo metodų:
+                <ul>
+                    <li> <b>Besikertančios ar besiribojančios teritorijos</b>&mdash;dvi ar daugiau teritorijų, kurių geometrijos kertasi ar turi bendrą ribą, bus apjungtos į vieną elementą.  Dvi ar daugiau teritorijų, kurių geometrijos turi bendrą ribą, bus apjungtos į vieną elementą.
+                    </li>
+                    <li> <b>Teritorijos su ta pačia atributo reik&scaron;me</b>&mdash;dvi ar daugiau teritorijų, kurių geometrijos kertasi ar turi bendrą ribą, bus apjungtos į vieną objektą, jei turi tą pačią atributo reik&scaron;mę.
+                        <p>Pavyzdžiui, jei turite seniūnijų sluoksnį, kuriame kiekvienas administracinis vienetas turi  <i>State_Name</i> atributą, galite apjungti naudodami <i>State_Name</i> lauką.  Besiribojančios savivaldybės bus apjungtos, jei turės tą pačią reik&scaron;mę <i>State_Name</i>.  Rezultatas bus savivaldybių teritorijos.
+                        </p>
+                    </li>
+                </ul>
+                
+            </p>
+            <p>Jei  <b>Naudoti esamą žemėlapio aprėptį</b> pažymėtas, bus apjungiami tik aprėptyje matomi elementai.  Jei nepažymėtas, apjungiami visi sluoksnio elementai.
+            </p>
+        </div>
+    </div>
+    <div id="SummaryFields">
+        <div><h2>Pridėti statistiką</h2></div>
+        <hr/>
+        <div>
+            <p>Apjungę teritorijas galite perskaičiuoti atributus.  Pavyzdžiui, jei apjungėte seniūnijas pagal  <i>State_Name</i>, o seniūnijos turi <i>Population</i> atributą, galite suskaičiuoti seniūnijų gyventojų sumą pagal atributą <i>Population</i> kiekvienai savivaldybei.
+            </p>
+            <p>Galimi tokie statistiniai skaičiavimai:
+            </p>
+            <ul>
+                <li> <b>Suma</b>&mdash;lauko reik&scaron;mių suma
+                    
+
+                </li>
+                <li> <b>Vidurkis</b>&mdash;Apskaičiuoja lauko reik&scaron;mių vidurkį
+                    
+
+                </li>
+                <li> <b>Minimumas</b>&mdash;Randa mažiausią lauko reik&scaron;mę
+                    
+
+                </li>
+                <li> <b>Maksimumas</b>&mdash;Randa didžiausią lauko reik&scaron;mę
+                    
+
+                </li>
+                <li> <b>Standartinis nuokrypis</b>&mdash;Randa lauko standartinio nuokrypio reik&scaron;mę
+                    
+
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="OutputName">
+        <div><h2>Rezultatų sluoksnio vardas</h2></div>
+        <hr/>
+        <div>
+            <p>Tai sluoksnio, kuris bus sukurtas ir patalpintas  <b>Turinyje</b> ir pridėtas į žemėlapį, pavadinimas.  Pavadinimas pagal nutylėjimą formuojamas i&scaron; analizuojamo sluoksnio pavadinimo. Jei sluoksnis jau egzistuoja, galėsite pasirinkti jį perra&scaron;yti.
+            </p>
+            <p>Naudodami  <b>Rezultatą įra&scaron;yti į</b> sąra&scaron;ą, galite nurodyti <b>Turinyje</b> esančio aplanko pavadinimą.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

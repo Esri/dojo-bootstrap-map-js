@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Aggiungi dati al layer</h2><p/>
+        <h2><img src="../images/GUID-2B1E8F2B-B474-4AC2-AF32-FFFAA1C43B2E-web.png" alt="Aggiungi dati al layer"></h2>
+        <hr/>
+    <p>Questo strumento consente di aggiungere dati ottenendo informazioni relative a persone, luoghi e aziende attorno alle posizioni dei dati; consente inoltre di rispondere a nuove domande sulle posizioni alle quali non &egrave; possibile dare risposta con le sole mappe. Ad esempio: Che tipi di persone vivono qui? Quali sono le attivit&agrave; preferite dalle persone che vivono in questa area? Quali sono le loro abitudini e i loro stili di vita? Quali tipi di aziende sono presenti in quest'area?
+    </p>
+    <p>Il risultato sar&agrave; un nuovo layer contenente tutte le informazioni demografiche e geografiche provenienti da specifiche raccolte di dati.  Le nuove informazioni vengono aggiunte come campi della tabella.
+    </p>
+    <p>Se si seleziona  <b>Usa estensione mappa corrente</b>, verranno analizzate solo le feature nel layer di analisi e di area visibili nell'estensione mappa corrente.  Se questa opzione &egrave; deselezionata, verranno analizzate tutte le feature sia nel layer di analisi che in quello di area, anche se sono esterne all'estensione mappa corrente.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="DataCollection">
+        <div><h2>Variabili di aggiunta dati</h2></div>
+        <hr/>
+        <div>
+            
+            <p>Fare clic su  <b>Seleziona variabili</b> per aprire <b>Esplorazione dati</b>. <b>Esplorazione dati</b> consente di individuare e selezionare le variabili di aggiunta dati sia singolarmente che in gruppi.
+            </p>
+            <p>Sulla base dei dati viene selezionata automaticamente una regione. Se i dati riguardano pi&ugrave; paesi, &egrave; possibile scegliere una regione diversa. 
+            </p>
+            <p>Le variabili di aggiunta dati sono organizzate in raccolte dati per consentire un pi&ugrave; agevole accesso.   Quando si seleziona una raccolta dati, vengono visualizzate alcune delle variabili di aggiunta dati pi&ugrave; comuni nella raccolta.  In  <b>Continua esplorazione</b> vengono inoltre visualizzate le categorie presenti nella raccolta. In ogni categoria &egrave; possibile selezionare intere sottocategorie oppure scendere in dettaglio in una sottocategoria e selezionare singole variabili di aggiunta dati. &Egrave; anche possibile utilizzare la casella di ricerca per individuare una variabile specifica in una categoria.
+            </p>
+            <p>Le variabili selezionate da includere per l'aggiunta dati vengono aggiunte al carrello visualizzato nell'angolo di  <b>Esplorazione dati</b>. Utilizzarlo per tenere traccia del numero di variabili selezionate.
+            </p>
+            <p>Ogni variabile selezionata verr&agrave; aggiunta come campo nel layer dei risultati.
+            </p> 
+        </div>
+    </div>
+    <div id="BufferOption">
+        <div><h2>Definisci aree per cui aggiungere dati</h2></div>
+        <hr/>
+        <div>
+            <p>Queste sono le aree i cui dati possono essere ampliati con informazioni aggiuntive reperite nella raccolta di dati. Se il layer di analisi contiene punti o linee, le aree vengono create attorno a ciascun punto o linea utilizzando una distanza in linea retta o un tempo di percorrenza.  
+            </p>
+        </div>
+    </div>
+    <div id="OutputName">
+        <div><h2>Nome layer risultati</h2></div>
+        <hr/>
+        <div>
+            <p>Questo &egrave; il nome del layer che verr&agrave; creato in  <b>I miei contenuti</b> e aggiunto alla mappa.  Il nome predefinito &egrave; basato sul nome del layer di analisi. Se il layer esiste gi&agrave;, verr&agrave; chiesto se si desidera sovrascriverlo.
+            </p>
+            <p>Utilizzare la casella a discesa  <b>Salva risultato in</b> per specificare il nome di una cartella di <b>I miei contenuti</b> in cui salvare il risultato.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

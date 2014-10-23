@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>丰富图层</h2><p/>
+        <h2><img src="../images/GUID-2B1E8F2B-B474-4AC2-AF32-FFFAA1C43B2E-web.png" alt="丰富图层"></h2>
+        <hr/>
+    <p>此工具通过获取您的数据位置周边的人口、场所及商业信息来丰富您的数据，进而可以回答仅根据地图无法回答的新位置问题。例如：当地居住的是哪一类人？该地区的人群有什么喜好？他们的习惯和生活方式是什么？该地区有何种商业形式？
+    </p>
+    <p>结果为一个新图层，其包含给定数据集的所有人口统计和地理信息。此新信息将作为字段添加到表中。
+    </p>
+    <p>如果选中 <b>使用当前地图范围</b>，则仅分析当前地图范围中可见的分析图层以及区域图层中的要素。如果未选中，则会对分析图层和区域图层内的所有要素进行分析，包括超出当前地图范围的要素。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="DataCollection">
+        <div><h2>丰富变量</h2></div>
+        <hr/>
+        <div>
+            
+            <p>单击 <b>选择变量</b>打开 <b>数据浏览器</b>。 <b>数据浏览器</b>可用于单独或按集合查找以及选择丰富变量。
+            </p>
+            <p>可自动根据数据选择区域。数据覆盖多个国家或地区时，您可以选择不同地区。
+            </p>
+            <p>为便于访问，丰富变量以数据集合的形式进行组织。选择数据集合时，浏览器会显示几个此集合中最常见的丰富变量。在 <b>继续浏览</b>下还会显示集合中的类别。在每个类别中，可以选择所有子类别，也可以展开某个子类别单独选择丰富变量。您还可以在类别中使用搜索框来查找特定变量。
+            </p>
+            <p>选择完要用于丰富的变量后，这些变量会添加到 <b>数据浏览器</b>角落的购物车中。利用购物车可以跟踪已选变量的数量。
+            </p>
+            <p>每个已选变量将添加为结果图层中的一个字段。
+            </p> 
+        </div>
+    </div>
+    <div id="BufferOption">
+        <div><h2>定义要丰富的区域</h2></div>
+        <hr/>
+        <div>
+            <p>这些是要使用在数据集中发现的附加信息来丰富的区域。如果分析图层包含点或线，则将使用直线距离或行驶时间围绕每个点或线来创建区域。  
+            </p>
+        </div>
+    </div>
+    <div id="OutputName">
+        <div><h2>结果图层名称</h2></div>
+        <hr/>
+        <div>
+            <p>在 <b>我的内容</b>中创建并添加到地图中的图层名称。默认名称基于分析图层的名称。如果图层已经存在，则系统会要求您确认是否要覆盖它。
+            </p>
+            <p>通过使用 <b>将结果保存到</b>下拉框，可以在 <b>我的内容</b>中指定文件夹的名称，结果将保存到该文件夹中。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

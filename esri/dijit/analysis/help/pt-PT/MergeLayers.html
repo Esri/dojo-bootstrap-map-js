@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Fundir Camadas</h2><p/>
+        <h2><img src="../images/GUID-DACDAC49-3ECE-45A2-AC42-69016B3B8ADA-web.png" alt="Fundir Camadas"></h2>
+        <hr/>
+    <p>Esta ferramenta copia os elementos de duas camadas para uma nova camada.    As camadas a serem fundidas devem conter o mesmo tipos de geometria (pontos, linhas ou &aacute;reas).  &Eacute; poss&iacute;vel controlar como os campos das camadas de entrada v&atilde;o ser unidos e copiados.  Por exemplo:
+        <ul>
+            <li>Eu tenho tr&ecirc;s camadas para a Inglaterra, Gales e Esc&oacute;cia, e eu quero uma &uacute;nica camada da Gr&atilde;-Bretanha. 
+            </li>
+            <li>Eu tenho 12 camadas e cada uma cont&eacute;m informa&ccedil;&otilde;es parcelares de munic&iacute;pios cont&iacute;guos.   Eu quero junt&aacute;-las numa &uacute;nica camada, mantendo apenas os campos que t&ecirc;m o mesmo nome e tipo.
+            </li>
+        </ul>
+        
+    </p>
+    <p>Se a op&ccedil;&atilde;o <b>Utilizar a extens&atilde;o atual do mapa</b> estiver ativa, apenas os elementos que est&atilde;o visiv&eacute;is na atual extens&atilde;o do mapa ser&atilde;o fundidos.  Se n&atilde;o estiver ativo, todos os elementos de ambas as camada ser&atilde;o fundidos, mesmo que estejam fora da atual extens&atilde;o do mapa.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="MergeLayer">
+        <div><h2>Escolher a camada</h2></div>
+        <hr/>
+        <div>
+            <p>Escolhe a camada que vai fundir com a camada de an&aacute;lise.
+            </p>
+        </div>
+    </div>
+    <div id="MergingAttributes">
+        <div><h2>Modificar os campos fundidos</h2></div>
+        <hr/>
+        <div>
+            <p>Por defeito, todos os campos de ambos os dados de entrada, ser&atilde;o mantidos no resultado final.  &Eacute; poss&iacute;vel alterar a forma como os campos s&atilde;o apresentados no resultado final, da seguinte forma:
+                <ul>
+                    <li> <b>Renomear</b>-o campo ser&aacute; renomeado no resultado final.
+                    </li>
+                    <li> <b>Remover</b>-O campo ser&aacute; eliminado do resultado final.
+                    </li>
+                    <li> <b>Corresponder</b>-Os nomes dos campos mant&ecirc;m-se.  Os valores dos campos da camada fundida ser&atilde;o copiados para oos campos do resultados final.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="OutputName">
+        <div><h2>Nome da camada de resultados</h2></div>
+        <hr/>
+        <div>
+            <p>Este &eacute; o nome da camada que ser&aacute; criada em <b>O Meu Conte&uacute;do</b> e adicionada ao mapa.  O nome por defeito &eacute; baseado no nome da camada de an&aacute;lise. Se a camada j&aacute; existir, ser&aacute; questionado se pretende substituir a camada existente.
+            </p>
+            <p>Ao utilizar a op&ccedil;&atilde;o <b>Guardar resultado em</b> pode definir o nome da pasta em <b>O Meu Conte&uacute;do</b> onde o resultado ser&aacute; guardado.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

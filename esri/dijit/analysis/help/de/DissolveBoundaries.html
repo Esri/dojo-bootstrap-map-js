@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Grenzen zusammenführen</h2><p/>
+        <h2><img src="../images/GUID-D1192DD3-306F-4527-9898-FF2021ABCB0A-web.png" alt="Grenzen zusammenf&uuml;hren"></h2>
+        <hr/>
+    <p>Fl&auml;chen, die sich &uuml;berlappen oder eine gemeinsame Grenze haben, werden zu einer Fl&auml;che zusammengef&uuml;hrt.
+    
+    </p>
+    <p>Durch Angabe eines Feldes k&ouml;nnen Sie steuern, welche Grenzen zusammengef&uuml;hrt werden.
+ 
+Wenn Sie beispielsweise &uuml;ber einen Landkreis-Layer verf&uuml;gen und jeder Landkreis das Attribut  <i>State_Name</i> aufweist, k&ouml;nnen Sie Grenzen anhand des Attributs <i>State_Name</i> aufl&ouml;sen.
+ 
+Benachbarte Landkreise werden zusammengef&uuml;hrt, wenn sie den gleichen Wert f&uuml;r <i>State_Name</i> haben.
+ 
+Das Endresultat ist ein Landesgrenzen-Layer.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="DissolveFields">
+        <div><h2>Zusammenführungsmethode auswählen</h2></div>
+        <hr/>
+        <div>
+            <p>Sie k&ouml;nnen eine dieser beiden Methoden ausw&auml;hlen, um Fl&auml;chen-Features zusammenzuf&uuml;hren:
+
+                <ul>
+                    <li> <b>&Uuml;berlappende oder benachbarte Fl&auml;chen</b> &ndash; Mindestens zwei Fl&auml;chen, deren Grenzen sich &uuml;berlappen, werden zu einer Fl&auml;che zusammengef&uuml;hrt.
+ 
+Au&szlig;erdem werden benachbarte Fl&auml;chen (d.&nbsp;h. sie haben eine gemeinsame Grenze) zu einer Fl&auml;che zusammengef&uuml;hrt.
+                    </li>
+                    <li> <b>Fl&auml;chen mit dem gleichen Feldwert</b> &ndash; Fl&auml;chen, die sich &uuml;berlappen oder eine gemeinsame Grenze aufweisen, werden zu einer Fl&auml;che zusammengef&uuml;hrt, wenn sie den gleichen Feldwert aufweisen.
+                        <p>Wenn Sie beispielsweise &uuml;ber einen Landkreis-Layer verf&uuml;gen und jeder Landkreis das Feld  <i>State_Name</i> aufweist, k&ouml;nnen Sie Grenzen anhand des Feldes <i>State_Name</i> aufl&ouml;sen. 
+Benachbarte Landkreise werden zusammengef&uuml;hrt, wenn sie den gleichen Wert f&uuml;r <i>State_Name</i> haben.
+ 
+Das Endresultat ist ein Landesgrenzen-Layer.
+                        </p>
+                    </li>
+                </ul>
+                
+            </p>
+            <p>Wenn die Option  <b>Aktuelle Kartenausdehnung verwenden</b> aktiviert ist, werden nur die Features im Analyse-Layer aufgel&ouml;st, die in der aktuellen Kartenausdehnung sichtbar sind. 
+Wenn diese Option deaktiviert ist, werden auch dann alle Features im Analyse-Layer aufgel&ouml;st, wenn sie sich au&szlig;erhalb der aktuellen Kartenausdehnung befinden.
+            </p>
+        </div>
+    </div>
+    <div id="SummaryFields">
+        <div><h2>Statistik hinzufügen</h2></div>
+        <hr/>
+        <div>
+            <p>Wenn Fl&auml;chen zusammengef&uuml;hrt werden, k&ouml;nnen Sie deren Attribute zusammenfassen.
+ Wenn Sie beispielsweise die Grenze zwischen Landkreisen auf Grundlage von  <i>State_Name</i> aufl&ouml;sen und jeder Landkreis &uuml;ber ein <i>Population</i>-Feld verf&uuml;gt, k&ouml;nnen Sie die Summe der <i>Population</i> f&uuml;r das Bundesland berechnen.
+            </p>
+            <p>Die verf&uuml;gbaren Statistiktypen lauten:
+
+            </p>
+            <ul>
+                <li> <b>Sum</b> &ndash; Der Gesamtwert f&uuml;r das angegebene Feld wird hinzugef&uuml;gt.
+                    
+
+                </li>
+                <li> <b>Durchschnitt</b> &ndash; Der Mittelwert f&uuml;r das angegebene Feld wird berechnet.
+                    
+
+                </li>
+                <li> <b>Minimum</b> &ndash; Der kleinste Wert aller Datens&auml;tze des angegebenen Feldes wird ermittelt.
+                    
+
+                </li>
+                <li> <b>Maximum</b> &ndash; Der gr&ouml;&szlig;te Wert aller Datens&auml;tze des angegebenen Feldes wird ermittelt.
+                    
+
+                </li>
+                <li> <b>Standardabweichung</b> &ndash; Die Standardabweichung der Werte im angegebenen Feld wird ermittelt.
+                    
+
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="OutputName">
+        <div><h2>Name des Ergebnis-Layers</h2></div>
+        <hr/>
+        <div>
+            <p>Dies ist der Name des Layers, der in  <b>Eigene Inhalte</b> erstellt und der Karte hinzugef&uuml;gt wird.
+ 
+Der Standardname basiert auf dem Namen des Eingabe-Layers.
+ 
+Wenn der Layer bereits vorhanden ist, m&uuml;ssen Sie angeben, ob er &uuml;berschrieben werden soll.
+            </p>
+            <p>&Uuml;ber das Dropdown-Feld  <b>Ergebnis speichern in</b> k&ouml;nnen Sie den Namen eines Ordners in <b>Eigene Inhalte</b> angeben, in dem das Ergebnis gespeichert werden soll.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

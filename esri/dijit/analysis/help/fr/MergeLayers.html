@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Combiner les couches</h2><p/>
+        <h2><img src="../images/GUID-DACDAC49-3ECE-45A2-AC42-69016B3B8ADA-web.png" alt="Combiner les couches"></h2>
+        <hr/>
+    <p>Cet outil copie les entit&eacute;s de deux couches dans une nouvelle couche. Les couches &agrave; combiner doivent toutes contenir les m&ecirc;mes types d'entit&eacute;s (points, lignes ou surfaces). Vous pouvez d&eacute;terminer la mani&egrave;re dont les champs des couches en entr&eacute;e sont rassembl&eacute;s et copi&eacute;s. Par exemple :
+        <ul>
+            <li>Vous disposez de trois couches pour l'Angleterre, le pays de Galles et l'Ecosse et vous souhaitez une seule couche pour la Grande-Bretagne. 
+            </li>
+            <li>Vous disposez de 12 couches et chacune contient des informations de parcelle pour les municipalit&eacute;s contigu&euml;s. Vous souhaitez les rassembler en une seule couche, en conservant uniquement les champs qui portent le m&ecirc;me nom et qui ont le m&ecirc;me type sur les 12 couches en entr&eacute;e.
+            </li>
+        </ul>
+        
+    </p>
+    <p>Si l'option  <b>Utiliser l'&eacute;tendue courante de la carte</b> est s&eacute;lectionn&eacute;e, seules les entit&eacute;s visibles au sein de l'&eacute;tendue courante de la carte seront combin&eacute;es. Si l'option n'est pas s&eacute;lectionn&eacute;e, toutes les entit&eacute;s des deux couches seront combin&eacute;es, m&ecirc;me si elles se trouvent en dehors de l'&eacute;tendue courante de la carte.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="MergeLayer">
+        <div><h2>Choisir une couche</h2></div>
+        <hr/>
+        <div>
+            <p>S&eacute;lectionnez la couche &agrave; combiner avec la couche d'analyse.
+            </p>
+        </div>
+    </div>
+    <div id="MergingAttributes">
+        <div><h2>Modifier les champs en fusion</h2></div>
+        <hr/>
+        <div>
+            <p>Par d&eacute;faut, tous les champs des deux entr&eacute;es seront conserv&eacute;s dans la sortie. Vous pouvez modifier la mani&egrave;re dont les champs sont maintenus dans la sortie de la mani&egrave;re suivante :
+                <ul>
+                    <li> <b>Renommer</b> : le champ est renomm&eacute; dans la sortie.
+                    </li>
+                    <li> <b>Supprimer</b> : le champ est supprim&eacute; de la sortie.
+                    </li>
+                    <li> <b>Apparier</b> : les noms de champs sont rendus &eacute;quivalents. Les valeurs du champ de la couche &agrave; combiner sont alors copi&eacute;es dans le champ en sortie appari&eacute;.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="OutputName">
+        <div><h2>Nom de la couche résultat</h2></div>
+        <hr/>
+        <div>
+            <p>Il s'agit du nom de la couche qui sera cr&eacute;&eacute;e dans votre page  <b>Mes contenus</b> et ajout&eacute;e &agrave; la carte. Le nom par d&eacute;faut repose sur le nom de la couche d'analyse. Si la couche existe d&eacute;j&agrave;, vous serez amen&eacute; &agrave; confirmer son remplacement.
+            </p>
+            <p>La zone de liste d&eacute;roulante  <b>Enregistrer le r&eacute;sultat dans</b> vous permet de sp&eacute;cifier le nom d'un dossier dans <b>Mes contenus</b> o&ugrave; le r&eacute;sultat sera enregistr&eacute;.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

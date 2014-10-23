@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Kattuvad kihid</h2><p/>
+        <h2><img src="../images/GUID-F7C42432-C8C5-4E4F-8275-EC7E95D00CB7-web.png" alt="Kattuvad kihid"></h2>
+        <hr/>
+    <p>Kattuvus &uuml;hendab omavahel kaks v&otilde;i enam kihti &uuml;heks kihiks.  V&otilde;ite m&otilde;ista kihtide &uuml;lekatet kui hunniku kaartide l&auml;bimist ja &uuml;he konkreetse kaardi loomist k&otilde;ikide nende l&auml;bitud kaartide informatsiooni hulgast. &Uuml;lekate on m&auml;rksa enamat kui vaid lihtne liitmine; k&otilde;ik objektiga seotud ja anal&uuml;&uuml;sis osalevad atribuudid kantakse samuti tulemkihti &uuml;le. Taolist meetodit kasutatakse geograafias tihti, saamaks vastust k&uuml;simusele &ldquo;Mis on mille kohal?&rdquo; N&auml;iteks:
+        <ul>
+            <li>Millised maad on 100-aastases &uuml;leujutuse piirkonnas? (Esinemine/kattuvus t&auml;hendab teise kihi peal olemist.)
+                  
+            </li>
+            <li>Millist t&uuml;&uuml;pi teed &uuml;hes v&otilde;is teises maakonnas asuvad?
+            </li>
+            <li>Milline maakasutus on &uuml;he v&otilde;i teise mullat&uuml;&uuml;bi levialas?
+                 
+            </li>
+            <li>Millised kaevikud esinevad mahaj&auml;etud s&otilde;jav&auml;eosades?
+            </li>
+        </ul>
+        
+    </p>
+    <p>Kui  <b>Kasuta hetke kaardi kuvaulatust</b> on valitud, kasutatakse kattuvuses ainult objekte, mis on n&auml;htavad hetke kaardi kuvaulatuses.  Kui ei ole m&auml;rgistatud, kasutatakse kattuvuse leidmiseks k&otilde;iki objekte. Isegi neid, mis asuvad kaardi kuvaulatusest v&auml;ljaspool.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="OverlayLayer">
+        <div><h2>Vali ülekatte kiht</h2></div>
+        <hr/>
+        <div>
+            <p>Kiht, millele sooritakse kattuvust anal&uuml;&uuml;sitava kihiga.  
+            </p> 
+        </div>
+    </div>
+    <div id="OverlayType">
+        <div><h2>Vali ülekatte meetod</h2></div>
+        <hr/>
+        <div>
+            <p>Kattuvuse meetod defineerib, kuidas anal&uuml;&uuml;sitav kiht ja &uuml;lekatte kiht kombineeritakse.  
+
+
+
+
+
+
+
+                <ul>
+                    <li> <b>&Uuml;hisosa</b>&mdash;Tulemus sisaldab vaid neid objekte v&otilde;i osasid tervikust kihis, mis tekib anal&uuml;&uuml;sil osalevate sisendkihtides olevate objektide geomeetria osa kokkulangemisel. Joone ja ala n&auml;htuste l&otilde;ikumisel on v&otilde;imalus m&auml;&auml;rata, millist t&uuml;&uuml;pi n&auml;htusi on soov v&auml;ljundina saada.
+                        <table border="1">
+                        <tr>
+                            <td>
+                                <p>Punktid punktidega
+                                </p>
+                            </td>
+                            <td>
+                                <p> <img src="../images/GUID-B456C1ED-F5A1-4F8A-A1ED-1BC35A4A8B40-web.png" alt="Punktid ja punktide sisend">
+                                </p>
+                            </td>
+                            <td>
+                                <p> <img src="../images/GUID-49B1A536-8426-4149-B067-5A16936E0BBC-web.png" alt="Punktid ja punktid punktide v&auml;ljundiga">
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Punktid joontega
+
+
+                                </p>
+                            </td>
+                            <td>
+                                <p> <img src="../images/GUID-F1E6C6C8-4F51-4063-984D-0FC8D08EB2D2-web.png" alt="Punktid ja joonte sisend">
+                                </p>
+                            </td>
+                            <td>
+                                <p> <img src="../images/GUID-02CFAFDC-1B3C-4C4B-A58C-7B0B78BA0B56-web.png" alt="Punktid ja jooned punktide v&auml;ljundiga">
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Punktid aladega
+
+
+                                </p>
+                            </td>
+                            <td>
+                                <p> <img src="../images/GUID-5EE90BD6-CC3D-4E2F-A5D0-DC57298E8416-web.png" alt="Punktid ja alade sisend">
+                                </p>
+                            </td>
+                            <td> <img src="../images/GUID-5CCA360F-D4C9-43AB-8FB2-E6E62DE93BD4-web.png" alt="Punktid ja alad punktide v&auml;ljundiga">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Jooned joontega 
+                                </p>
+                            </td>
+                            <td>
+                                <p> <img src="../images/GUID-CF8DDF87-919D-43D5-BBB6-87F0EAC33891-web.png" alt="Jooned ja joonte sisend">
+                                </p>
+                            </td>
+                            <td>
+                                <p> <img src="../images/GUID-DDCCB226-6490-4914-B87C-299125466256-web.png" alt="Jooned ja jooned punktide v&auml;ljundiga">
+                                </p>
+                                <p> <img src="../images/GUID-CDE3AAA9-94C1-41E9-8270-229433240743-web.png" alt="Jooned ja jooned joonte v&auml;ljundiga ">
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Jooned aladega
+                                </p>
+                            </td>
+                            <td>
+                                <p> <img src="../images/GUID-E38EB7D6-9D35-4E0D-937A-9FEC4144AF2E-web.png" alt="Jooned ja alade sisend">
+                                </p>
+                            </td>
+                            <td>
+                                <p> <img src="../images/GUID-639F492C-BEE7-4A5F-AEBC-325B74FEC766-web.png" alt="Jooned ja alad punktide v&auml;ljundiga">
+                                </p>
+                                <p> <img src="../images/GUID-58DF5CF6-0A56-4717-AD9C-C3BEC8EA6906-web.png" alt="Jooned ja alad joonte v&auml;ljundiga">
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Alad aladega
+                                </p>
+                            </td>
+                            <td>
+                                <p> <img src="../images/GUID-10C2CDA7-E6C4-4323-A9FB-5FB77A258CE0-web.png" alt="Alad ja alade sisend">
+                                </p>
+                            </td>
+                            <td>
+                                <p> <img src="../images/GUID-3F71AD46-A6A2-436D-8BBA-13E014BB94D0-web.png" alt="Alad ja alad punktide v&auml;ljundiga">
+                                </p>
+                                <p> <img src="../images/GUID-6AF62F09-6D32-4212-97C6-844580E34A22-web.png" alt="Alad ja alad joonte v&auml;ljundiga">
+                                </p>
+                                <p> <img src="../images/GUID-4D397A0E-EF91-4ACE-9655-2483AFC2FDE2-web.png" alt="Alad ja alad alade v&auml;ljundiga">
+                                </p>
+                            </td>
+                        </tr>
+                        </table>
+                    </li>
+                    <li> <b>&Uuml;hisosa</b>&mdash;Tulemus sisaldab objekte nii anal&uuml;&uuml;sitavast kui ka &uuml;lekattekihist &Uuml;hisosa valik on saadaval ainult siis kui anal&uuml;&uuml;sikiht ja &uuml;lekattekiht sisaldavad m&otilde;lemad alade objekte.
+                    </li>
+                    <li> <b>Kustuta</b>&mdash;Tulemus sisaldab objekte v&otilde;i nende osasid, mis ei lange &uuml;lekattekihi aladesse.  &Uuml;lekattekiht v&otilde;ib sisaldada alade, joonte v&otilde;i punktide objekte.
+                    </li>
+                </ul>
+                
+            </p>
+            <p>Kui  <b>Kasuta hetke kaardi kuvaulatust</b> on valitud, kasutatakse kattuvuses ainult objekte, mis on n&auml;htavad hetke kaardi kuvaulatuses.  Kui ei ole m&auml;rgistatud, kasutatakse kattuvuse leidmiseks k&otilde;iki objekte. Isegi neid, mis asuvad kaardi kuvaulatusest v&auml;ljaspool.
+            </p> 
+        </div>
+    </div>
+    <div id="OutputLayer">
+        <div><h2>Tulemkihi nimi</h2></div>
+        <hr/>
+        <div>
+            <p> See on kihi nimi, mis luuakse kasutaja <b>Minu sisu</b>  alla ning lisatakse kaardile.  See peab olema sama geomeetriat&uuml;&uuml;biga (punktid, jooned, pinnad) nagu &uuml;lekatte kiht.  Vaikimisi nimi baseerub &uuml;lekatte meetodil ja anal&uuml;&uuml;sitava kihi nimel. Kui see kiht juba eksisteerib, k&uuml;sitakse teie k&auml;est selle &uuml;lekirjutamise otsuse kohta.
+            </p>
+            <p>Kasutades  <b>Salvesta tulemus</b> rippmen&uuml;&uuml;d, saate te t&auml;psustada <b>Minu sisu</b> alla salvestamise asukoha
+            </p> 
+        </div>
+    </div>
+</div>
+</html>

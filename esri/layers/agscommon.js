@@ -1,0 +1,3 @@
+//>>built
+define("esri/layers/agscommon","./ArcGISMapServiceLayer ./LayerInfo ./TimeInfo ./LayerTimeOptions ./TimeReference ./Field ./Domain ./RangeDomain ./CodedValueDomain ./InheritedDomain ./LayerSource ./LayerMapSource ./LayerDataSource ./DataSource ./TableDataSource ./QueryDataSource ./JoinDataSource ./RasterDataSource ./DynamicLayerInfo ./LayerDrawingOptions ../geometry ../utils".split(" "),function(){return{}});
+//@ sourceMappingURL=agscommon.js.map

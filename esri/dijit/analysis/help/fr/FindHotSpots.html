@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Rechercher les points chauds</h2><p/>
+        <h2><img src="../images/GUID-C2575FC6-F14C-4332-B3BF-AB4EDA15177B-web.png" alt="Rechercher les points chauds"></h2>
+        <hr/>
+    <p>L'outil Rechercher les points chauds d&eacute;termine si le mod&egrave;le spatial de vos donn&eacute;es pr&eacute;sente des agr&eacute;gations statistiquement significatives. 
+        <ul>
+            <li>Vos points (d&eacute;lits, arbres, accidents de la circulation) sont-ils r&eacute;ellement agr&eacute;g&eacute;s ? Comment en &ecirc;tre certain ?
+            </li>
+            <li>Avez-vous vraiment d&eacute;couvert un hot spot statistiquement significatif (d&eacute;penses, mortalit&eacute; infantile, r&eacute;sultats d'examens &eacute;lev&eacute;s homog&egrave;nes) ou votre carte donnerait-elle des r&eacute;sultats diff&eacute;rents en modifiant sa symbolisation ?
+            </li>
+        </ul>
+        L'outil Rechercher les points chauds vous aide &agrave; trouver la r&eacute;ponse &agrave; ces questions en toute confiance.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="AnalysisFieldPoly">
+        <div><h2>Choisir un champ d’analyse</h2></div>
+        <hr/>
+        <div>
+            <p>Cette analyse r&eacute;pond &agrave; la question suivante&nbsp;: o&ugrave; les valeurs &eacute;lev&eacute;es et faibles (pour un champ d'analyse que vous sp&eacute;cifiez) s'agr&egrave;gent-elles spatialement&nbsp;?  
+            </p>
+            <p>La couche de r&eacute;sultat est une copie de la couche d'analyse. La table inclut le champ d'analyse que vous avez s&eacute;lectionn&eacute;, plus des champs compl&eacute;mentaires qui refl&egrave;tent la force de l'agr&eacute;gation, la signification statistique et le niveau de confiance.
+            </p> 
+        </div>
+    </div>
+    <div id="AnalysisFieldPoint">
+        <div><h2>Choisir un champ d’analyse</h2></div>
+        <hr/>
+        <div>
+            <p>Si vous fournissez un champ d'analyse, cet outil r&eacute;pond &agrave; cette question : o&ugrave; les valeurs &eacute;lev&eacute;es et faibles s'agr&egrave;gent-elles parmi les points ? 
+            </p>
+            <p>La couche de r&eacute;sultat est une copie de la couche d'analyse des points. La table inclut le champ d'analyse que vous avez s&eacute;lectionn&eacute;, plus des champs compl&eacute;mentaires qui refl&egrave;tent la force de l'agr&eacute;gation, la signification statistique et le niveau de confiance.
+            </p>
+            <p>Si vous ne fournissez pas de champ d'analyse, cet outil &eacute;value l'organisation spatiale des entit&eacute;s ponctuelles pour r&eacute;pondre &agrave; la question : o&ugrave; trouve-t-on les points agr&eacute;g&eacute;s de mani&egrave;re inattendue ou dispers&eacute;s de mani&egrave;re inattendue ?   
+            </p>
+            <p>Si aucun champ d'analyse n'est fourni, l'outil cr&eacute;e un maillage de quadrillage et comptabilise le nombre de points qui se trouvent au sein de chaque carr&eacute; du quadrillage. Seuls les carr&eacute;s dont le nombre de points est sup&eacute;rieur &agrave; z&eacute;ro sont analys&eacute;s. La couche de r&eacute;sultat correspond aux carr&eacute;s du quadrillage. La table de couche de r&eacute;sultat inclut les valeurs, plus des champs compl&eacute;mentaires qui refl&egrave;tent la force de l'agr&eacute;gation, la signification statistique et le niveau de confiance.
+            </p> 
+        </div>
+    </div>
+    <div id="BoundingPolygonLayer">
+        <div><h2>Définir où des incidents sont possibles</h2></div>
+        <hr/>
+        <div>
+            <p>Dessinez ou fournissez une couche de zones adjacentes pour r&eacute;pondre &agrave; la question suivante : au sein des zones adjacentes, existe-t-il des emplacements qui pr&eacute;sentent des concentrations de points anormalement &eacute;lev&eacute;es ou faibles ?   
+            </p>
+            <p>Les entit&eacute;s surfaciques que vous dessinez ou les entit&eacute;s dans la couche surfacique que vous sp&eacute;cifiez doivent d&eacute;finir l'emplacement o&ugrave; les points peuvent se produire. Pour dessiner ces zones, cliquez sur le bouton correspondant, puis cliquez sur la carte pour cr&eacute;er une forme surfacique. Pour dessiner d'autres zones, cliquez &agrave; nouveau sur ce bouton, puis cliquez sur la carte et continuez.
+            </p>
+            <p>Remarque&nbsp;: si vous souhaitez superposer vos points avec des zones diff&eacute;rentes du maillage de quadrillage, s&eacute;lectionnez l'option  <b>D&eacute;finir les zones d'agr&eacute;gation pour regrouper les incidents</b>.
+            </p>
+            <p>La couche de r&eacute;sultat de cette analyse est un maillage de quadrillage couvrant les zones adjacentes que vous fournissez. La table inclut le nombre de points de carr&eacute;s de quadrillage, plus des champs compl&eacute;mentaires qui refl&egrave;tent la force de l'agr&eacute;gation, la signification statistique et le niveau de confiance.  
+            </p> 
+        </div>
+    </div>
+    <div id="AggregationPolygonLayer">
+        <div><h2>Définir des zones d'agrégation</h2></div>
+        <hr/>
+        <div>
+            <p>Indiquez une couche surfacique (qui refl&egrave;te g&eacute;n&eacute;ralement des quartiers administratifs, tels que des secteurs de recensement, des limites municipales ou des comt&eacute;s) pour r&eacute;pondre &agrave; cette question : &eacute;tant donn&eacute; le nombre de points au sein de chaque entit&eacute; surfacique, est-ce qu'il existe des emplacements pr&eacute;sentant une agr&eacute;gation spatiale statistiquement significative de nombres de points &eacute;lev&eacute;s ou faibles ?   
+            </p>
+            <p>La couche de r&eacute;sultat de cette analyse est une copie des zones d'agr&eacute;gation. La table inclut le nombre de points pour chaque zone, plus des champs compl&eacute;mentaires qui refl&egrave;tent la force de l'agr&eacute;gation, la signification statistique et le niveau de confiance. 
+            </p> 
+        </div>
+    </div>
+    <div id="OutputLayerName">
+        <div><h2>Nom de la couche de résultats</h2></div>
+        <hr/>
+        <div>
+            <p>Donnez un nom &agrave; la couche qui sera cr&eacute;&eacute;e dans votre page  <b>Mes contenus</b> et ajout&eacute;e &agrave; la carte. Cette couche de r&eacute;sultat vous pr&eacute;sente les grappes statistiquement significatives des valeurs &eacute;lev&eacute;es et faibles ou des nombres de points. Si le nom de la couche de r&eacute;sultats existe d&eacute;j&agrave;, vous devez renommer la couche.
+            </p>
+            <p>La zone de liste d&eacute;roulante  <b>Enregistrer le r&eacute;sultat dans</b> vous permet de sp&eacute;cifier le nom d'un dossier dans <b>Mes contenus</b> o&ugrave; le r&eacute;sultat sera enregistr&eacute;.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

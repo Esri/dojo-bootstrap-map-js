@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Yakını Özetle</h2><p/>
+        <h2><img src="../images/GUID-8CA4374B-AB5E-44A5-ADD3-4C85E5F0AF71-web.png" alt="Yakını &Ouml;zetle"></h2>
+        <hr/>
+    <p>  Bu ara&ccedil; analiz katmanındaki detayların belirli bir mesafesi dahilinde olan detayları bulur. Mesafe d&uuml;z &ccedil;izgi mesafesi, bir s&uuml;r&uuml;ş s&uuml;resi mesafesi (&ouml;rneğin 10 dakika i&ccedil;inde) ya da bir s&uuml;r&uuml;ş mesafesi (5 kilometre i&ccedil;inde) olarak &ouml;l&ccedil;&uuml;lebilir. Daha sonra yakın detaylar i&ccedil;in istatistikler hesaplanır. &Ouml;rneğin
+        <ul>
+            <li>&Ouml;nerilen yeni mağaza konumuna beş dakikalık s&uuml;r&uuml;ş mesafesindeki toplam n&uuml;fusu hesaplayın.
+            </li>
+            <li>Mağazaya erişilebilirliğin bir &ouml;l&ccedil;&uuml;t&uuml; olarak kullanmak &uuml;zere &ouml;nerilen yeni mağaza konumuna bir mil s&uuml;r&uuml;ş mesafesindeki toplam otoban &ccedil;ıkışı sayısını hesaplayın.
+            </li>
+        </ul>
+        
+    </p>
+    <p>Eğer  <b>Ge&ccedil;erli harita kapsamını kullan</b> işaretli ise, yalnızca ge&ccedil;erli harita kapsamında g&ouml;r&uuml;n&uuml;r olan analiz katmanındaki ve &ouml;zetlenecek katmandaki detaylar analiz edilir. İşaretli değilse hem analiz katmanı hem de &ouml;zetlenecek katmandaki t&uuml;m detaylar, ge&ccedil;erli harita kapsamının dışında olsa bile analiz edilecektir.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="Summarize">
+        <div><h2>Özetlenecek katmanı seç</h2></div>
+        <hr/>
+        <div>
+            <p>&Ouml;zetlenecek analiz katmanındaki detaylara belirtilen mesafe i&ccedil;inde kalan bu katmandaki detaylar. 
+            </p> 
+        </div>
+    </div>
+    <div id="BufferOption">
+        <div><h2>Şunu kullanarak en yakın detayları bul</h2></div>
+        <hr/>
+        <div>
+            <p>Kullanmak istediğiniz mesafe &ouml;l&ccedil;&uuml;m&uuml; t&uuml;r&uuml;n&uuml; tanımlayabilirsiniz: D&uuml;z &ccedil;izgi mesafe, s&uuml;r&uuml;ş mesafesi ya da s&uuml;r&uuml;ş s&uuml;resi. Hem s&uuml;r&uuml;ş mesafesi hem de s&uuml;r&uuml;ş s&uuml;resi, yol ağını kullanır ve tek y&ouml;nl&uuml; sokaklar gibi kuralları g&ouml;z &ouml;n&uuml;nde bulundurur. S&uuml;r&uuml;ş s&uuml;resi seyahat hızı se&ccedil;iminize uyar: Bunlar canlı ya da tipik trafik bilgilerine dayanır. Canlı hızlar, ge&ccedil;erli sens&ouml;r okumalarından alınır, tipik hızlar ge&ccedil;miş ortalamalardan hesaplanır.   
+            </p>
+            <p>Birden &ccedil;ok mesafe girebilirsiniz. Girdiğiniz mesafeler i&ccedil;inde kalan (ya da bunlara eşit) detaylar &ouml;zetlenir.  
+            </p>
+        </div>
+    </div>
+    <div id="StatisticsPoint">
+        <div><h2>İstatistik ekleme kaynağı</h2></div>
+        <hr/>
+        <div>
+            <p>Yakın noktaların i&ccedil;inde sayısal &ouml;zniteliklerinin istatistiklerini isteğe bağlı olarak hesaplayabilirsiniz. 
+            </p>
+            <p> <b>Nokta sayısı</b> onay kutusu, işaretlendiğinde, toplam yakın nokta sayısını hesaplayacaktır. Ek olarak yakın noktaların sayısal alanlarının istatistiklerini hesaplayabilirsiniz.
+            </p>
+            <ul>
+                <li> <b>Toplam</b> - Belirtilen alanın toplam değeri.
+                </li>
+                <li> <b>Ortalama</b> - Belirtilen alanın ortalaması.
+                </li>
+                <li> <b>Minimum</b> - Belirtilen alandaki en k&uuml;&ccedil;&uuml;k değer.
+                </li>
+                <li> <b>Maksimum</b> - Belirtilen alandaki en b&uuml;y&uuml;k değer.
+                </li>
+                <li> <b>Std. Sapma</b> - Belirtilen alandaki değerlerin standart sapması.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="StatisticsLine">
+        <div><h2>İstatistik ekleme kaynağı</h2></div>
+        <hr/>
+        <div>
+            <p>&Ccedil;izgilerin noktaların i&ccedil;inde sayısal &ouml;zniteliklerinin istatistiklerini isteğe bağlı olarak hesaplayabilirsiniz. 
+            </p>
+            <p> <b>Toplam uzunluk</b> onay kutusu, işaretlendiğinde, yakın &ccedil;izgilerin toplam uzunluğunu hesaplar. Ek olarak yakın &ccedil;izgilerin sayısal alanlarının istatistiklerini hesaplayabilirsiniz.
+            </p>
+            <ul>
+                <li> <b>Toplam</b> - Belirtilen alanın toplam değeri.
+                </li>
+                <li> <b>Ortalama</b> - Belirtilen alanın ortalaması.
+                </li>
+                <li> <b>Minimum</b> - Belirtilen alandaki en k&uuml;&ccedil;&uuml;k değer.
+                </li>
+                <li> <b>Maksimum</b> - Belirtilen alandaki en b&uuml;y&uuml;k değer.
+                </li>
+                <li> <b>Std. Sapma</b> - Belirtilen alandaki değerlerin standart sapması.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="StatisticsPolygon">
+        <div><h2>İstatistik ekleme kaynağı</h2></div>
+        <hr/>
+        <div>
+            <p>Yakın alanların sayısal &ouml;zniteliklerinin istatistiklerini isteğe bağlı olarak hesaplayabilirsiniz. 
+            </p>
+            <p> <b>Toplam alan</b> onay kutusu, işaretlendiğinde, yakın &ccedil;izgilerin toplam uzunluğunu hesaplar. Ek olarak yakın detayların sayısal alanlarının istatistiklerini hesaplayabilirsiniz.
+            </p>
+            <ul>
+                <li> <b>Toplam</b> - Belirtilen alanın toplam değeri.
+                </li>
+                <li> <b>Ortalama</b> - Belirtilen alanın ortalaması.
+                </li>
+                <li> <b>Minimum</b> - Belirtilen alandaki en k&uuml;&ccedil;&uuml;k değer.
+                </li>
+                <li> <b>Maksimum</b> - Belirtilen alandaki en b&uuml;y&uuml;k değer.
+                </li>
+                <li> <b>Std. Sapma</b> - Belirtilen alandaki değerlerin standart sapması.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="GroupBy">
+        <div><h2>Gruplanacak alanları seçme kriteri</h2></div>
+        <hr/>
+        <div>
+            <p>Bu, yakındaki detayların bir &ouml;zniteliğidir ve istatistikleri her bir benzersiz &ouml;znitelik değeri i&ccedil;in ayrı ayrı hesaplamak amacıyla kullanılır. &Ouml;rneğin, diyelim ki analiz katmanınız satış i&ccedil;in boş ve dolu parseller i&ccedil;eriyor ve yakın &ouml;zniteliklerinizin kapladığı alanlar var. Bina kapladığı alanın &ouml;zniteliklerinden biri olan  <i>UseType</i> RETAIL, RESIDENTIAL, MANUFACTURING, PUBLIC vb. değerleri i&ccedil;erir. Her boş parsel yakınındaki bina kullanımlarının karışımını karakterize etmek i&ccedil;in, <i>UseType</i>'ı &ouml;zniteliğe g&ouml;re grup olarak kullanıp boş parsellerin iki kilometre civarındaki bina kullanımının herbir tek t&uuml;r&uuml; i&ccedil;in toplam alanı hesaplayabilirsiniz. Yakındaki detay sayısının yanı sıra, her grubun istatistikleri de a&ccedil;ılan sonu&ccedil; katmanında g&ouml;r&uuml;nt&uuml;lenir.
+            </p>    
+        </div>
+    </div>
+    <div id="MinorityMajority">
+        <div><h2>Azınlık, çoğunluk ekle</h2></div>
+        <hr/>
+        <div>
+            <p>Gruplandırma &ouml;l&ccedil;&uuml;t&uuml; olarak bir alan belirlediğinizde bu onay kutusu etkinleştirilir. Her grupta, belirttiğiniz mesafe ya da zaman dilimi i&ccedil;indeki hangi &ouml;znitelik değerlerinin azınlık (en az baskın) veya &ccedil;oğunluk (en baskın) olduğunu bulmak isterseniz,  <b>Azınlık, &ccedil;oğunluk ekle</b> &ouml;ğesini se&ccedil;in. <b>Azınlık, &ccedil;oğunluk ekle</b> &ouml;ğesini se&ccedil;tiğinizde, sonu&ccedil; katmanınıza iki yeni alan eklenir. Ayrıca <b>Y&uuml;zde ekle</b> &ouml;ğesini de se&ccedil;erseniz, her gruptaki azınlık ve &ccedil;oğunluk &ouml;znitelik değerlerinin y&uuml;zdelerini bulunduran sonu&ccedil; katmanına iki ilave alan eklenir.
+            </p>
+            <ul>
+                <li>Yakındaki noktaları &ouml;zetliyorsanız, azınlık ve &ccedil;oğunluk değerleri belirttiğiniz mesafe ya da zaman dilimi i&ccedil;indeki nokta sayısına g&ouml;re hesaplanır.
+                </li>
+                <li>Yakındaki &ccedil;izgileri &ouml;zetliyorsanız, azınlık ve &ccedil;oğunluk değerleri belirttiğiniz mesafe ya da zaman dilimi i&ccedil;indeki &ccedil;izgilerin uzunluğuna g&ouml;re hesaplanır.  
+                </li>
+                <li>Yakındaki alanları &ouml;zetliyorsanız, azınlık ve &ccedil;oğunluk değerleri belirttiğiniz mesafe ya da zaman dilimi i&ccedil;indeki alanlara g&ouml;re hesaplanır.
+                </li>
+            </ul>
+             
+        </div>
+    </div>
+    <div id="PercentShape">
+        <div><h2>Yüzde ekle</h2></div>
+        <hr/>
+        <div>
+            <p>Gruplandırma &ouml;l&ccedil;&uuml;t&uuml; olarak bir alan belirlediğinizde bu onay kutusu etkinleştirilir. Her gruptaki her &ouml;znitelik değerinin y&uuml;zdesini bulmak isterseniz,  <b>Y&uuml;zde ekle</b> &ouml;ğesini belirleyin. Her gruptaki her &ouml;znitelik değerinin y&uuml;zdesini i&ccedil;eren sonu&ccedil; tablosuna yeni bir alan eklenir. <b>Azınlık, &ccedil;oğunluk ekle</b> &ouml;ğesi de se&ccedil;ili durumdaysa, her gruptaki azınlık ve &ccedil;oğunluk &ouml;znitelik değerlerinin y&uuml;zdelerini bulunduran sonu&ccedil; katmanına iki ilave alan eklenir.
+            </p>
+        </div>
+    </div>
+    <div id="OutputName">
+        <div><h2>Sonuç katmanı adı</h2></div>
+        <hr/>
+        <div>
+            <p> Bu, <b>İ&ccedil;eriğim</b>'de oluşturulacak ve haritaya eklenecek katmanın adıdır. Varsayılan ad, analiz katmanı adına g&ouml;redir. Katman zaten varsa &uuml;zerine yazma isteğinizi onaylamanız istenecektir.
+            </p>
+            <p> <b>Sonu&ccedil;ları kaydet</b> a&ccedil;ılır kutusunu kullanarak <b>İ&ccedil;eriğim</b> alanında sonucun kaydedileceği klas&ouml;r adını belirleyebilirsiniz.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpId;
+                helpId = window.location.hash.substring(1);
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="largesize">
+        <h2>Rasti aktyvius židinius</h2><p/>
+        <h2><img src="../images/GUID-C2575FC6-F14C-4332-B3BF-AB4EDA15177B-web.png" alt="Rasti aktyvius židinius"></h2>
+        <hr/>
+    <p>Įrankis Rasti aktyvius židinius nustatys, ar jūsų duomenyse galimas statisti&scaron;kai reik&scaron;mingas grupavimas pagal erdvinį požymį. 
+        <ul>
+            <li>Ar jūsų ta&scaron;kai (nusikaltimai, medžiai, avarijos) yra pasiskirstę sankaupomis?  Kaip galite įsitikinti?
+            </li>
+            <li>Ar i&scaron; tikrųjų aptikote statisti&scaron;kai reik&scaron;mingą (didelės apyvartos, mirtingumo ar auk&scaron;tų įvertinimų) elementų sankaupą, ar pakeistas žemėlapio atvaizdavimas suteiktų papildomos informacijos?
+            </li>
+        </ul>
+        Rasti aktyvius židinius patikimai atsako į &scaron;iuos klausimus.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="AnalysisFieldPoly">
+        <div><h2>Pasirinkite analizės lauką</h2></div>
+        <hr/>
+        <div>
+            <p>&Scaron;i analizė atsako į klausimą: Kur yra nurodyto lauko auk&scaron;tų ir žemų reik&scaron;mių erdviniai židiniai?  
+            </p>
+            <p>Rezultato sluoksnis bus analizuojamo sluoksnio kopija.  Lentelėje bus analizės laukas ir papildomi laukai, rodantys židinio sankaupos stiprumo, statistinio reik&scaron;mingumo ir patikimumo įverčius.
+            </p> 
+        </div>
+    </div>
+    <div id="AnalysisFieldPoint">
+        <div><h2>Pasirinkite analizės lauką</h2></div>
+        <hr/>
+        <div>
+            <p>Jei nurodysite analizės lauką, &scaron;is įrankis padės atsakyti į klausimus: Kur yra žemų ir auk&scaron;tų verčių koncentracija? 
+            </p>
+            <p>Rezultato sluoksnis bus analizuojamo sluoksnio kopija.  Lentelėje bus analizės laukas ir papildomi laukai, rodantys židinio sankaupos stiprumo, statistinio reik&scaron;mingumo ir patikimumo įverčius.
+            </p>
+            <p>Jei nenurodysite analizės lauko, įrankis leis atsakyti į klausimą: Kuriose vietose ta&scaron;kai i&scaron;sidėstę sankaupomis, o kur ne?   
+            </p>
+            <p>Jei analizės laukas nenurodytas, įrankis sukurs tinklą ir apskaičiuos, kiek ta&scaron;kų patenka į kiekvieną tinklo gardelę. Analizuojamos tik gardelės, į kurias patenka ta&scaron;kai.  Rezultatas bus sluoksnis, sudarytas i&scaron; tinklo gardelių, į kurias patenka ta&scaron;kai su papildomais laukais, rodančiais židinio sankaupos stiprumo, ,statistinio reik&scaron;mingumo ir patikimumo įverčius. 
+            </p> 
+        </div>
+    </div>
+    <div id="BoundingPolygonLayer">
+        <div><h2>Nurodykite, kur galimi įvykiai</h2></div>
+        <hr/>
+        <div>
+            <p>Nubrėžkite arba nurodykite aprėpties sluoksnį, jei norite atsakyti į klausimą: Ar &scaron;ioje teritorijoje esama neįprastai auk&scaron;tos ar žemos ta&scaron;kų koncentracijos?   
+            </p>
+            <p>Nubrėžti arba nurodyto sluoksnio plotiniai objektai apibrė&scaron; tokių įvykių ribas.  Norėdami nubrėžti plotus, paspauskite pie&scaron;imo mygtuką ir brėžkite žemėlapyje.  Norėdami nubrėžti papildomus plotus, paspauskite pie&scaron;imo mygtuką dar kartą ir brėžkite žemėlapyje.
+            </p>
+            <p>Pastaba: Jei norite savo ta&scaron;kus perdengti ne sugeneruotu tinklu,  <b>nurodykite agregavimo plotų sluoksnį</b>.
+            </p>
+            <p>Analizės rezultatas bus sugeneruotas tinklas nurodytoje teritorijoje.  Lentelėje bus analizės laukas ir papildomi laukai, rodantys židinio sankaupos stiprumo, statistinio reik&scaron;mingumo ir patikimumo įverčius.  
+            </p> 
+        </div>
+    </div>
+    <div id="AggregationPolygonLayer">
+        <div><h2>Nurodykite agregavimo plotų sluoksnį</h2></div>
+        <hr/>
+        <div>
+            <p>Nurodykite plotinių elementų (pavyzdžiui, administracinio suskirstymo ribų, savivaldybių, seniūnijų, gyvenviečių) sluoksnį, jei norite atsakyti į klausimą: turint ta&scaron;kų, patenkančių į kiekvieną i&scaron; teritorijų, skaičių, nustatyti statisti&scaron;kai reik&scaron;mingas ta&scaron;kų sankaupas.   
+            </p>
+            <p>Rezultato sluoksnis bus agregavimo plotų sluoksnio kopija.  Lentelėje bus ta&scaron;kų, esančių kiekvienoje teritorijoje, skaičius ir papildomi laukai, rodantys židinio sankaupos stiprumo, statistinio reik&scaron;mingumo ir patikimumo įverčius. 
+            </p> 
+        </div>
+    </div>
+    <div id="OutputLayerName">
+        <div><h2>Rezultatų sluoksnio pavadinimas</h2></div>
+        <hr/>
+        <div>
+            <p>Pateikite sluoksnio, kuris bus sukurtas ir patalpintas  <b>Turinyje</b> bei pridėtas į žemėlapį, pavadinimą. Rezultato sluoksnis rodys statisti&scaron;kai svarbias auk&scaron;tų ar žemų verčių ar ta&scaron;kų sankaupas. Jei sluoksnis jau egzistuoja, būsite paklausti ar norite jį perra&scaron;yti.
+            </p>
+            <p>Pasirinkę  <b>Rezultatą įra&scaron;yti į</b>, galite nurodyti <b>Turinyje</b> esančio aplanko pavadinimą.
+            </p>
+        </div>
+    </div>
+</div>
+</html>
