@@ -33,13 +33,11 @@ define([
       if (this.config.map.id) {
         var mapDeferred = BootstrapMap.createWebMap(this.config.map.id, this.mapNode, this.config.map.options);
         // Callback to get map
-        getDeferred = function(response) {
+        var getDeferred = function(response) {
           this.map = response.map;
           this._initWidgets();
         };
         mapDeferred.then(lang.hitch(this, getDeferred));
-
-        //BootstrapMap.createWebMap(this.config.map.id, this.mapNode, this.config.map.options);
       } else {
         this.map = BootstrapMap.create(this.mapNode, this.config.map.options);
         this._initLayers();
@@ -177,7 +175,7 @@ define([
       }
     },
     setBasemapWithWebMap: function(basemapText){
-      console.log("Not yet implemented");
+      console.log('Not yet implemented');
     }
   });
 });

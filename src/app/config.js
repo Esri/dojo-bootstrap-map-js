@@ -10,9 +10,6 @@ define(['esri/InfoTemplate'], function(InfoTemplate) {
       //   center: [-117.1, 33.6],
       //   zoom: 9
       },
-      // 
-      // TODO: add basemaps
-      basemaps: {},
       //
       // uncomment these section if you do not use a webmap id
       // operationalLayers: [{
@@ -48,7 +45,10 @@ define(['esri/InfoTemplate'], function(InfoTemplate) {
       //     infoTemplate: new InfoTemplate('City', '${*}'),
       //     mode: 0
       //   }
-      // }]
+      // }],
+      // 
+      // TODO: add basemaps
+      basemaps: {}
     },
     about: {
       moreInfoUrl: 'https://github.com/Esri/dojo-bootstrap-map-js'
