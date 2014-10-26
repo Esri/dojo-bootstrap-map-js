@@ -30,6 +30,9 @@ define([
     },
 
     _initMap: function() {
+      if (this.config.map.options === undefined) {
+        this.config.map.options = {};
+      }
       if (this.config.map.id) {
         var mapDeferred = BootstrapMap.createWebMap(this.config.map.id, this.mapNode, this.config.map.options);
         // Callback to get map
@@ -102,7 +105,7 @@ define([
 
     clearBaseMap: function() {
       var map = this.map;
-      if (map.basemapLayerIds.length > 0) {
+      if (map.basemapLayerIds && map.basemapLayerIds.length > 0) {
         array.forEach(map.basemapLayerIds, function(lid) {
           map.removeLayer(map.getLayer(lid));
         });
@@ -113,10 +116,6 @@ define([
     },
 
     setBasemap: function(basemapText) {
-      if (this.config.map.id) {
-        this.setBasemapWithWebMap(basemapText);
-        return;
-      }
       var map = this.map;
       var l, options;
       this.clearBaseMap();
@@ -173,9 +172,6 @@ define([
           map.setBasemap('osm');
           break;
       }
-    },
-    setBasemapWithWebMap: function(basemapText){
-      console.log('Not yet implemented');
     }
   });
 });

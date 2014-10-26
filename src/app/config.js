@@ -4,11 +4,12 @@ define(['esri/InfoTemplate'], function(InfoTemplate) {
       //id: '3fdacfb3d72c4bd1a5e74a6730a955cc',
       id: '4778fee6371d4e83a22786029f30c7e1',
       //
-      // uncomment these options if you do not use a webmap id
       options: {
-      //   basemap: 'gray',
-      //   center: [-117.1, 33.6],
-      //   zoom: 9
+      // uncomment these options if you do not use a webmap id
+      //    basemap: 'gray',
+      //    center: [-117.1, 33.6],
+      //    zoom: 9,
+          scrollWheelZoom: true
       },
       //
       // uncomment these section if you do not use a webmap id
@@ -48,7 +49,7 @@ define(['esri/InfoTemplate'], function(InfoTemplate) {
       // }],
       // 
       // TODO: add basemaps
-      basemaps: {}
+      basemaps: {}      
     },
     about: {
       moreInfoUrl: 'https://github.com/Esri/dojo-bootstrap-map-js'
