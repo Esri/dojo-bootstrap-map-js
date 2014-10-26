@@ -23,7 +23,6 @@ define([
   template) {
   return declare([_WidgetBase, _TemplatedMixin], {
     templateString: template,
-    editorLayerInfos: [],
 
     postCreate: function() {
       this.inherited(arguments);
@@ -31,14 +30,21 @@ define([
     },
 
     _initMap: function() {
-      //if( this.config.map.id ) {
-      //this.map = BootstrapMap.createWebMap(this.config.map.id, this.mapNode, this.config.map.options);
-      //BootstrapMap.createWebMap(this.config.map.id, this.mapNode, this.config.map.options);
-      //} else {
-      this.map = BootstrapMap.create(this.mapNode, this.config.map.options);
-      this._initLayers();
-      this._initWidgets();
-      //}
+      if (this.config.map.id) {
+        var mapDeferred = BootstrapMap.createWebMap(this.config.map.id, this.mapNode, this.config.map.options);
+        // Callback to get map
+        getDeferred = function(response) {
+          this.map = response.map;
+          this._initWidgets();
+        };
+        mapDeferred.then(lang.hitch(this, getDeferred));
+
+        //BootstrapMap.createWebMap(this.config.map.id, this.mapNode, this.config.map.options);
+      } else {
+        this.map = BootstrapMap.create(this.mapNode, this.config.map.options);
+        this._initLayers();
+        this._initWidgets();
+      }
     },
 
     _initLayers: function() {
@@ -109,6 +115,10 @@ define([
     },
 
     setBasemap: function(basemapText) {
+      if (this.config.map.id) {
+        this.setBasemapWithWebMap(basemapText);
+        return;
+      }
       var map = this.map;
       var l, options;
       this.clearBaseMap();
@@ -121,7 +131,7 @@ define([
             subDomains: ['a', 'b', 'c', 'd']
           };
           l = new WebTiledLayer('http://${subDomain}.tile.stamen.com/watercolor/${level}/${col}/${row}.jpg', options);
-          map.addLayer(l,0);
+          map.addLayer(l, 0);
           break;
 
         case 'MapBox Space':
@@ -133,7 +143,7 @@ define([
             subDomains: ['a', 'b', 'c', 'd']
           };
           l = new WebTiledLayer('http://${subDomain}.tiles.mapbox.com/v3/eleanor.ipncow29/${level}/${col}/${row}.jpg', options);
-          map.addLayer(l,0);
+          map.addLayer(l, 0);
           break;
 
         case 'Pinterest':
@@ -144,7 +154,7 @@ define([
             subDomains: ['a', 'b', 'c', 'd']
           };
           l = new WebTiledLayer('http://${subDomain}.tiles.mapbox.com/v3/pinterest.map-ho21rkos/${level}/${col}/${row}.jpg', options);
-          map.addLayer(l,0);
+          map.addLayer(l, 0);
           break;
         case 'Streets':
           map.setBasemap('streets');
@@ -165,6 +175,9 @@ define([
           map.setBasemap('osm');
           break;
       }
+    },
+    setBasemapWithWebMap: function(basemapText){
+      console.log("Not yet implemented");
     }
   });
 });
