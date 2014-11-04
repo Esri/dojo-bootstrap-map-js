@@ -1,4 +1,3 @@
 //>>built
-define("app/config",["esri/InfoTemplate"],function(a){return{map:{options:{basemap:"gray",center:[-117.1,33.6],zoom:9},basemaps:{},operationalLayers:[{type:"feature",url:"http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Earthquakes/Since_1970/MapServer/0",title:"Earthquakes around the world",options:{id:"earthquake",opacity:1,visible:!0,outFields:["*"],infoTemplate:new a("Earthquake","${*}"),mode:0}},{type:"dynamic",url:"http://sampleserver6.arcgisonline.com/arcgis/rest/services/SF311/MapServer",
-title:"SF311",options:{id:"sf311",opacity:0.5,visible:!0}}]},about:{moreInfoUrl:"https://github.com/Esri/dojo-bootstrap-map-js"}}});
+define("app/config",["esri/InfoTemplate"],function(a){return{map:{id:"4778fee6371d4e83a22786029f30c7e1",options:{scrollWheelZoom:!0},basemaps:{}},about:{moreInfoUrl:"https://github.com/Esri/dojo-bootstrap-map-js"}}});
 //@ sourceMappingURL=config.js.map
