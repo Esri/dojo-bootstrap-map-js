@@ -23,7 +23,6 @@ define([
   template) {
   return declare([_WidgetBase, _TemplatedMixin], {
     templateString: template,
-    editorLayerInfos: [],
 
     postCreate: function() {
       this.inherited(arguments);
@@ -31,14 +30,22 @@ define([
     },
 
     _initMap: function() {
-      //if( this.config.map.id ) {
-      //this.map = BootstrapMap.createWebMap(this.config.map.id, this.mapNode, this.config.map.options);
-      //BootstrapMap.createWebMap(this.config.map.id, this.mapNode, this.config.map.options);
-      //} else {
-      this.map = BootstrapMap.create(this.mapNode, this.config.map.options);
-      this._initLayers();
-      this._initWidgets();
-      //}
+      if (this.config.map.options === undefined) {
+        this.config.map.options = {};
+      }
+      if (this.config.map.id) {
+        var mapDeferred = BootstrapMap.createWebMap(this.config.map.id, this.mapNode, this.config.map.options);
+        // Callback to get map
+        var getDeferred = function(response) {
+          this.map = response.map;
+          this._initWidgets();
+        };
+        mapDeferred.then(lang.hitch(this, getDeferred));
+      } else {
+        this.map = BootstrapMap.create(this.mapNode, this.config.map.options);
+        this._initLayers();
+        this._initWidgets();
+      }
     },
 
     _initLayers: function() {
@@ -98,7 +105,7 @@ define([
 
     clearBaseMap: function() {
       var map = this.map;
-      if (map.basemapLayerIds.length > 0) {
+      if (map.basemapLayerIds && map.basemapLayerIds.length > 0) {
         array.forEach(map.basemapLayerIds, function(lid) {
           map.removeLayer(map.getLayer(lid));
         });
@@ -121,7 +128,7 @@ define([
             subDomains: ['a', 'b', 'c', 'd']
           };
           l = new WebTiledLayer('http://${subDomain}.tile.stamen.com/watercolor/${level}/${col}/${row}.jpg', options);
-          map.addLayer(l,0);
+          map.addLayer(l, 0);
           break;
 
         case 'MapBox Space':
@@ -133,7 +140,7 @@ define([
             subDomains: ['a', 'b', 'c', 'd']
           };
           l = new WebTiledLayer('http://${subDomain}.tiles.mapbox.com/v3/eleanor.ipncow29/${level}/${col}/${row}.jpg', options);
-          map.addLayer(l,0);
+          map.addLayer(l, 0);
           break;
 
         case 'Pinterest':
@@ -144,7 +151,7 @@ define([
             subDomains: ['a', 'b', 'c', 'd']
           };
           l = new WebTiledLayer('http://${subDomain}.tiles.mapbox.com/v3/pinterest.map-ho21rkos/${level}/${col}/${row}.jpg', options);
-          map.addLayer(l,0);
+          map.addLayer(l, 0);
           break;
         case 'Streets':
           map.setBasemap('streets');
