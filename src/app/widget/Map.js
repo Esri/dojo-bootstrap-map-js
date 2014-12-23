@@ -81,26 +81,46 @@ define([
       this.layers.unshift(l); // unshift instead of push to keep layer ordering on map intact
     },
 
+
+    // init map widgets if they are in config
     _initWidgets: function() {
-      this.scalebar = new Scalebar({
-        map: this.map,
-        scalebarUnit: 'dual'
-      });
-      this.homeButton = new HomeButton({
-        map: this.map
-      }, this.homeNode);
-      this.homeButton.startup();
-      this.geoLocate = new LocateButton({
-        map: this.map,
-        'class': 'locate-button'
-      }, this.locateNode);
-      this.geoLocate.startup();
-      this.geocoder = new Geocoder({
-        map: this.map,
-        autoComplete: true,
-        'class': 'geocoder'
-      }, this.searchNode);
-      this.geocoder.startup();
+      if (!this.config.map.widgets) {
+        return;
+      }
+
+      // scalebar
+      if (this.config.map.widgets.scalebar) {
+        this.scalebar = new Scalebar(lang.mixin({
+          map: this.map,
+          scalebarUnit: 'dual'
+        }, this.config.map.widgets.scalebar));
+      }
+
+      // home button
+      if (this.config.map.widgets.homeButton) {
+        this.homeButton = new HomeButton(lang.mixin({
+          map: this.map
+        }, this.config.map.widgets.homeButton), this.homeNode);
+        this.homeButton.startup();
+      }
+
+      // locate button
+      if (this.config.map.widgets.locateButton) {
+        this.locateButton = new LocateButton(lang.mixin({
+          map: this.map,
+          'class': 'locate-button'
+        }, this.config.map.widgets.locateButton), this.locateNode);
+        this.locateButton.startup();
+      }
+
+      // geocoder
+      if (this.config.map.widgets.geocoder) {
+        this.geocoder = new Geocoder(lang.mixin({
+          map: this.map,
+          'class': 'geocoder'
+        }, this.config.map.widgets.geocoder), this.searchNode);
+        this.geocoder.startup();
+      }
     },
 
     clearBaseMap: function() {
