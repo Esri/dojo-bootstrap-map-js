@@ -11,16 +11,12 @@
 
     <title>Dojo Bootstrap Map</title>
 
-    <!-- NOTE: getting bootstrap from CDN for now
-    until we bring in as a dependency and
-    only include necessary styles -->
+    <!-- get dependency styles from CDN instead of locally -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <!-- get dependency CSS from CDN instead of locally -->
     <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.11/dijit/themes/claro/claro.css">
     <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.11/esri/css/esri.css">
     <link rel="stylesheet" type="text/css" href="//esri.github.io/bootstrap-map-js/dist/css/bootstrapmap.min.css">
-    <!-- NOTE: this will cause 404 errors when it tries to
-    import the local copies of the above CSS files -->
+    <!-- get app styles locally -->
     <link rel="stylesheet" href="app/resources/app.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -33,7 +29,7 @@
     <div id="navBarNode"></div>
     <div id="mapNode"></div>
     <script>
-      var dojoConfig = {
+      window.dojoConfig = {
         async: true,
         // load dependency packages from CDN instead of locally
         packages: [

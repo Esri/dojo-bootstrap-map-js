@@ -15,7 +15,8 @@
     until we bring in as a dependency and
     only include necessary styles -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="app/resources/app.css">
+    <!-- get app styles and local esri/dojo styles -->
+    <link rel="stylesheet" href="app/resources/main.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -27,7 +28,7 @@
     <div id="navBarNode"></div>
     <div id="mapNode"></div>
     <script>
-      var dojoConfig = {
+      window.dojoConfig = {
         async: true,
         baseUrl: '.',
         isDebug: true,
