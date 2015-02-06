@@ -15,12 +15,6 @@
     until we bring in as a dependency and
     only include necessary styles -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <!-- get dependency CSS from CDN instead of locally -->
-    <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.11/dijit/themes/claro/claro.css">
-    <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.11/esri/css/esri.css">
-    <link rel="stylesheet" type="text/css" href="//esri.github.io/bootstrap-map-js/dist/css/bootstrapmap.min.css">
-    <!-- NOTE: this will cause 404 errors when it tries to
-    import the local copies of the above CSS files -->
     <link rel="stylesheet" href="app/resources/app.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -35,22 +29,28 @@
     <script>
       var dojoConfig = {
         async: true,
-        // load dependency packages from CDN instead of locally
+        baseUrl: '.',
+        isDebug: true,
         packages: [
+          'app',
+          'dgrid',
+          'dijit',
+          'dojo',
+          'dojox',
+          'esri',
+          'put-selector',
+          'xstyle',
+          'dojo-bootstrap',
           {
-            name: 'app',
-            location: window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')) + '/app'
-          }, {
-            name: 'dojo-bootstrap',
-            location: '//rawgit.com/xsokev/Dojo-Bootstrap/master'
-          }, {
             name: 'bootstrap-map-js',
-            location: '//esri.github.io/bootstrap-map-js/src/'
+            location: 'bootstrap-map-js/src'
           }
-        ]
+        ],
+        selectorEngine: 'lite',
+        tlmSiblingOfDojo: false
       };
     </script>
-    <script src="//js.arcgis.com/3.11compact"></script>
+    <script src="dojo/dojo.js"></script>
     <script>require([ 'app/main' ]);</script>
   </body>
 </html>
