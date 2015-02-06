@@ -1,5 +1,50 @@
-//>>built
-require({cache:{"url:app/widget/templates/NavBar.html":'\x3cdiv\x3e\n  \x3cdiv class\x3d"navbar navbar-inverse navbar-fixed-top"\x3e\n    \x3cdiv class\x3d"container"\x3e\n      \x3cdiv class\x3d"navbar-header"\x3e\n        \x3cbutton type\x3d"button" class\x3d"navbar-toggle" data-toggle\x3d"collapse" data-target\x3d".navbar-collapse"\x3e\n          \x3cspan class\x3d"icon-bar"\x3e\x3c/span\x3e\n          \x3cspan class\x3d"icon-bar"\x3e\x3c/span\x3e\n          \x3cspan class\x3d"icon-bar"\x3e\x3c/span\x3e\n        \x3c/button\x3e\n        \x3ca class\x3d"navbar-brand" href\x3d"#"\x3e${strings.appTitle}\x3c/a\x3e\n      \x3c/div\x3e\n      \x3cdiv class\x3d"collapse navbar-collapse"\x3e\n        \x3cul class\x3d"nav navbar-nav"\x3e\n          \x3cli class\x3d"active dropdown basemap-list"\x3e\n            \x3ca href\x3d"#" class\x3d"dropdown-toggle" data-toggle\x3d"dropdown"\x3e${strings.navBasemaps} \x3cb class\x3d"caret"\x3e\x3c/b\x3e\x3c/a\x3e\n            \x3c!-- TODO: build this dynamically from config --\x3e\n            \x3cul class\x3d"dropdown-menu"\x3e\n              \x3cli\x3e\x3ca href\x3d"#"\x3eStreets\x3c/a\x3e\x3c/li\x3e\n              \x3cli\x3e\x3ca href\x3d"#"\x3eImagery\x3c/a\x3e\x3c/li\x3e\n              \x3cli\x3e\x3ca href\x3d"#"\x3eNational Geographic\x3c/a\x3e\x3c/li\x3e\n              \x3cli\x3e\x3ca href\x3d"#"\x3eTopographic\x3c/a\x3e\x3c/li\x3e\n              \x3cli\x3e\x3ca href\x3d"#"\x3eGray\x3c/a\x3e\x3c/li\x3e\n              \x3cli class\x3d"divider"\x3e\x3c/li\x3e\n              \x3cli\x3e\x3ca href\x3d"#"\x3eOpen Street Map\x3c/a\x3e\x3c/li\x3e\n              \x3cli class\x3d"divider"\x3e\x3c/li\x3e\n              \x3cli\x3e\x3ca href\x3d"#"\x3eMapBox Space\x3c/a\x3e\x3c/li\x3e\n              \x3cli\x3e\x3ca href\x3d"#"\x3eWater Color\x3c/a\x3e\x3c/li\x3e\n              \x3cli\x3e\x3ca href\x3d"#"\x3ePinterest\x3c/a\x3e\x3c/li\x3e\n            \x3c/ul\x3e\n          \x3c/li\x3e\n          \x3cli\x3e\x3ca href\x3d"#about"\x3e${strings.navAbout}\x3c/a\x3e\x3c/li\x3e\n        \x3c/ul\x3e\n      \x3c/div\x3e\x3c!--/.nav-collapse --\x3e\n    \x3c/div\x3e\n  \x3c/div\x3e\n  \x3c!-- about modal --\x3e\n  \x3cdiv class\x3d"modal fade about-modal" style\x3d"display: none;" aria-hidden\x3d"true"\x3e\n    \x3cdiv class\x3d"modal-dialog"\x3e\n      \x3cdiv class\x3d"modal-content"\x3e\n        \x3cdiv class\x3d"modal-header"\x3e\n          \x3cbutton type\x3d"button" class\x3d"close" data-dismiss\x3d"modal" aria-hidden\x3d"true"\x3e\u00d7\x3c/button\x3e\n          \x3ch4 class\x3d"modal-title"\x3e${strings.modalAboutTitle}\x3c/h4\x3e\n        \x3c/div\x3e\n        \x3cdiv class\x3d"modal-body"\x3e\n          \x3cp\x3e${strings.modalAboutContent}\x3c/p\x3e\n          \x3cp\x3e\x3ca href\x3d"${config.about.moreInfoUrl}"\x3e${strings.modalAboutMoreInfo}\x3c/a\x3e\n        \x3c/div\x3e\n      \x3c/div\x3e\x3c!-- /.modal-content --\x3e\n    \x3c/div\x3e\x3c!-- /.modal-dialog --\x3e\n  \x3c/div\x3e\n\x3c/div\x3e'}});
-define("app/widget/NavBar","dojo/_base/declare dojo/query dojo/touch dojo/topic dijit/_WidgetBase dijit/_TemplatedMixin dojo/text!./templates/NavBar.html dojo-bootstrap/Collapse dojo-bootstrap/Dropdown dojo-bootstrap/Modal".split(" "),function(e,b,d,f,g,h,k){return e([g,h],{templateString:k,postCreate:function(){this.inherited(arguments);this._attachEventHandlers()},_attachEventHandlers:function(){var c=this;b(".basemap-list li",this.domNode).on(d.press,function(a){a.preventDefault();f.publish("basemap/set",
-{basemap:a.target.text});c._hideDropdownNav(a)});b('a[href\x3d"#about"]',this.domNode).on(d.press,function(a){a.preventDefault();b(".about-modal").modal("show");c._hideDropdownNav(a)})},_hideDropdownNav:function(c){0<b(".navbar-collapse.in",this.domNode).length&&(c.stopPropagation(),b(".navbar-toggle",this.domNode)[0].click())}})});
-//@ sourceMappingURL=NavBar.js.map
+define([
+  'dojo/_base/declare',
+  'dojo/query',
+  'dojo/touch',
+  'dojo/topic',
+
+  'dijit/_WidgetBase',
+  'dijit/_TemplatedMixin',
+
+  'dojo/text!./templates/NavBar.html',
+
+  'dojo-bootstrap/Collapse',
+  'dojo-bootstrap/Dropdown',
+  'dojo-bootstrap/Modal'
+], function(declare, query, touch, topic, _WidgetBase, _TemplatedMixin, template) {
+  return declare([_WidgetBase, _TemplatedMixin], {
+      templateString: template,
+
+      postCreate: function() {
+        this.inherited(arguments);
+        this._attachEventHandlers();
+      },
+
+      _attachEventHandlers: function() {
+        var _this = this;
+        // change basemap
+        query('.basemap-list li', this.domNode).on(touch.press, function(e) {
+          e.preventDefault();
+          topic.publish('basemap/set', {
+            basemap: e.target.text
+          });
+          _this._hideDropdownNav(e);
+        });
+        // show about modal
+        query('a[href="#about"]', this.domNode).on(touch.press, function(e) {
+          e.preventDefault();
+          query('.about-modal').modal('show');
+          _this._hideDropdownNav(e);
+        });
+      },
+
+      _hideDropdownNav: function(e) {
+        // hide nav dropdown on mobile
+        if (query('.navbar-collapse.in', this.domNode).length > 0) {
+          e.stopPropagation();
+          query('.navbar-toggle', this.domNode)[0].click();
+        }
+      }
+   });
+});

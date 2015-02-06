@@ -1,3 +1,8 @@
-//>>built
-define("app/nls/es/strings",{appTitle:"Mapa Dojo Bootstrap",navBasemaps:"Plan de fondo",navAbout:"Informaci\u00f3n",modalAboutTitle:"Informaci\u00f3n",modalAboutContent:"El objetivo de este aplicaci\u00f3n es demostrar c\u00f3mo construir una aplicaci\u00f3n de mapas que utiliza las mejores partes de Dojo (m\u00f3dulos AMD, clases y widgets, promesas, i18n, enrutamiento, etc) junto con la interfaz de usuario sensible de Bootstrap.",modalAboutMoreInfo:"M\u00e1s..."});
-//@ sourceMappingURL=strings.js.map
+define({
+  appTitle: 'Mapa Dojo Bootstrap',
+  navBasemaps: 'Plan de fondo',
+  navAbout: 'Información',
+  modalAboutTitle: 'Información',
+  modalAboutContent: 'El objetivo de este aplicación es demostrar cómo construir una aplicación de mapas que utiliza las mejores partes de Dojo (módulos AMD, clases y widgets, promesas, i18n, enrutamiento, etc) junto con la interfaz de usuario sensible de Bootstrap.',
+  modalAboutMoreInfo: 'Más...'
+});

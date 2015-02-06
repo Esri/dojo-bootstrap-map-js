@@ -1,9 +1,197 @@
-//>>built
-require({cache:{"url:app/widget/templates/Map.html":'\x3cdiv\x3e\n  \x3cdiv data-dojo-attach-point\x3d"mapNode"\x3e\n  \t\x3cdiv data-dojo-attach-point\x3d"homeNode"\x3e\x3c/div\x3e\n    \x3cdiv data-dojo-attach-point\x3d"searchNode"\x3e\x3c/div\x3e\n    \x3cdiv data-dojo-attach-point\x3d"locateNode"\x3e\x3c/div\x3e\n  \x3c/div\x3e\n\x3c/div\x3e\n'}});
-define("app/widget/Map","dojo/_base/declare dojo/_base/array dojo/_base/lang dijit/_WidgetBase dijit/_TemplatedMixin esri/map esri/dijit/Scalebar esri/layers/WebTiledLayer esri/dijit/HomeButton esri/dijit/LocateButton esri/dijit/Geocoder bootstrap-map-js/js/bootstrapmap dojo/text!./templates/Map.html".split(" "),function(h,c,d,k,l,s,m,e,n,p,q,g,r){return h([k,l],{templateString:r,postCreate:function(){this.inherited(arguments);this._initMap()},_initMap:function(){void 0===this.config.map.options&&
-(this.config.map.options={});this.config.map.id?g.createWebMap(this.config.map.id,this.mapNode,this.config.map.options).then(d.hitch(this,function(a){this.map=a.map;this._initWidgets()})):(this.map=g.create(this.mapNode,this.config.map.options),this._initLayers(),this._initWidgets())},_initLayers:function(){this.layers=[];var a={dynamic:"ArcGISDynamicMapService",feature:"Feature",tiled:"ArcGISTiledMapService"},b=[];c.forEach(this.config.map.operationalLayers,function(f){(f=a[f.type])&&b.push("esri/layers/"+
-f+"Layer")},this);require(b,d.hitch(this,function(){c.forEach(this.config.map.operationalLayers,function(b){var c=a[b.type];c&&require(["esri/layers/"+c+"Layer"],d.hitch(this,"initLayer",b))},this);this.map.addLayers(this.layers)}))},initLayer:function(a,b){var c=new b(a.url,a.options);this.layers.unshift(c)},_initWidgets:function(){this.scalebar=new m({map:this.map,scalebarUnit:"dual"});this.homeButton=new n({map:this.map},this.homeNode);this.homeButton.startup();this.geoLocate=new p({map:this.map,
-"class":"locate-button"},this.locateNode);this.geoLocate.startup();this.geocoder=new q({map:this.map,autoComplete:!0,"class":"geocoder"},this.searchNode);this.geocoder.startup()},clearBaseMap:function(){var a=this.map;a.basemapLayerIds&&0<a.basemapLayerIds.length?(c.forEach(a.basemapLayerIds,function(b){a.removeLayer(a.getLayer(b))}),a.basemapLayerIds=[]):a.removeLayer(a.getLayer(a.layerIds[0]))},setBasemap:function(a){var b=this.map;this.clearBaseMap();switch(a){case "Water Color":a={id:"Water Color",
-copyright:"stamen",resampling:!0,subDomains:["a","b","c","d"]};a=new e("http://${subDomain}.tile.stamen.com/watercolor/${level}/${col}/${row}.jpg",a);b.addLayer(a,0);break;case "MapBox Space":a={id:"mapbox-space",copyright:"MapBox",resampling:!0,subDomains:["a","b","c","d"]};a=new e("http://${subDomain}.tiles.mapbox.com/v3/eleanor.ipncow29/${level}/${col}/${row}.jpg",a);b.addLayer(a,0);break;case "Pinterest":a={id:"mapbox-pinterest",copyright:"Pinterest/MapBox",resampling:!0,subDomains:["a","b","c",
-"d"]};a=new e("http://${subDomain}.tiles.mapbox.com/v3/pinterest.map-ho21rkos/${level}/${col}/${row}.jpg",a);b.addLayer(a,0);break;case "Streets":b.setBasemap("streets");break;case "Imagery":b.setBasemap("hybrid");break;case "National Geographic":b.setBasemap("national-geographic");break;case "Topographic":b.setBasemap("topo");break;case "Gray":b.setBasemap("gray");break;case "Open Street Map":b.setBasemap("osm")}}})});
-//@ sourceMappingURL=Map.js.map
+define([
+  'dojo/_base/declare',
+  'dojo/_base/array',
+  'dojo/_base/lang',
+
+  'dijit/_WidgetBase',
+  'dijit/_TemplatedMixin',
+
+  'esri/map',
+  'esri/dijit/Scalebar',
+  'esri/layers/WebTiledLayer',
+  'esri/dijit/HomeButton',
+  'esri/dijit/LocateButton',
+  'esri/dijit/Geocoder',
+
+  'bootstrap-map-js/js/bootstrapmap',
+
+  'dojo/text!./templates/Map.html'
+], function(declare, array, lang,
+  _WidgetBase, _TemplatedMixin,
+  Map, Scalebar, WebTiledLayer, HomeButton, LocateButton, Geocoder,
+  BootstrapMap,
+  template) {
+  return declare([_WidgetBase, _TemplatedMixin], {
+    templateString: template,
+
+    postCreate: function() {
+      this.inherited(arguments);
+      this._initMap();
+    },
+
+    _initMap: function() {
+      if (this.config.map.options === undefined) {
+        this.config.map.options = {};
+      }
+      if (this.config.map.id) {
+        var mapDeferred = BootstrapMap.createWebMap(this.config.map.id, this.mapNode, this.config.map.options);
+        // Callback to get map
+        var getDeferred = function(response) {
+          this.map = response.map;
+          this._initWidgets();
+        };
+        mapDeferred.then(lang.hitch(this, getDeferred));
+      } else {
+        this.map = BootstrapMap.create(this.mapNode, this.config.map.options);
+        this._initLayers();
+        this._initWidgets();
+      }
+    },
+
+    _initLayers: function() {
+      this.layers = [];
+      var layerTypes = {
+        dynamic: 'ArcGISDynamicMapService',
+        feature: 'Feature',
+        tiled: 'ArcGISTiledMapService'
+      };
+      // loading all the required modules first ensures the layer order is maintained
+      var modules = [];
+      array.forEach(this.config.map.operationalLayers, function(layer) {
+        var type = layerTypes[layer.type];
+        if (type) {
+          modules.push('esri/layers/' + type + 'Layer');
+        } else {
+          console.log('Layer type not supported: ', layer.type);
+        }
+      }, this);
+      require(modules, lang.hitch(this, function() {
+        array.forEach(this.config.map.operationalLayers, function(layer) {
+          var type = layerTypes[layer.type];
+          if (type) {
+            require(['esri/layers/' + type + 'Layer'], lang.hitch(this, 'initLayer', layer));
+          }
+        }, this);
+        this.map.addLayers(this.layers);
+      }));
+    },
+
+    initLayer: function(layer, Layer) {
+      var l = new Layer(layer.url, layer.options);
+      this.layers.unshift(l); // unshift instead of push to keep layer ordering on map intact
+    },
+
+
+    // init map widgets if they are in config
+    _initWidgets: function() {
+      if (!this.config.map.widgets) {
+        return;
+      }
+
+      // scalebar
+      if (this.config.map.widgets.scalebar) {
+        this.scalebar = new Scalebar(lang.mixin({
+          map: this.map,
+          scalebarUnit: 'dual'
+        }, this.config.map.widgets.scalebar));
+      }
+
+      // home button
+      if (this.config.map.widgets.homeButton) {
+        this.homeButton = new HomeButton(lang.mixin({
+          map: this.map
+        }, this.config.map.widgets.homeButton), this.homeNode);
+        this.homeButton.startup();
+      }
+
+      // locate button
+      if (this.config.map.widgets.locateButton) {
+        this.locateButton = new LocateButton(lang.mixin({
+          map: this.map,
+          'class': 'locate-button'
+        }, this.config.map.widgets.locateButton), this.locateNode);
+        this.locateButton.startup();
+      }
+
+      // geocoder
+      if (this.config.map.widgets.geocoder) {
+        this.geocoder = new Geocoder(lang.mixin({
+          map: this.map,
+          'class': 'geocoder'
+        }, this.config.map.widgets.geocoder), this.searchNode);
+        this.geocoder.startup();
+      }
+    },
+
+    clearBaseMap: function() {
+      var map = this.map;
+      if (map.basemapLayerIds && map.basemapLayerIds.length > 0) {
+        array.forEach(map.basemapLayerIds, function(lid) {
+          map.removeLayer(map.getLayer(lid));
+        });
+        map.basemapLayerIds = [];
+      } else {
+        map.removeLayer(map.getLayer(map.layerIds[0]));
+      }
+    },
+
+    setBasemap: function(basemapText) {
+      var map = this.map;
+      var l, options;
+      this.clearBaseMap();
+      switch (basemapText) {
+        case 'Water Color':
+          options = {
+            id: 'Water Color',
+            copyright: 'stamen',
+            resampling: true,
+            subDomains: ['a', 'b', 'c', 'd']
+          };
+          l = new WebTiledLayer('http://${subDomain}.tile.stamen.com/watercolor/${level}/${col}/${row}.jpg', options);
+          map.addLayer(l, 0);
+          break;
+
+        case 'MapBox Space':
+
+          options = {
+            id: 'mapbox-space',
+            copyright: 'MapBox',
+            resampling: true,
+            subDomains: ['a', 'b', 'c', 'd']
+          };
+          l = new WebTiledLayer('http://${subDomain}.tiles.mapbox.com/v3/eleanor.ipncow29/${level}/${col}/${row}.jpg', options);
+          map.addLayer(l, 0);
+          break;
+
+        case 'Pinterest':
+          options = {
+            id: 'mapbox-pinterest',
+            copyright: 'Pinterest/MapBox',
+            resampling: true,
+            subDomains: ['a', 'b', 'c', 'd']
+          };
+          l = new WebTiledLayer('http://${subDomain}.tiles.mapbox.com/v3/pinterest.map-ho21rkos/${level}/${col}/${row}.jpg', options);
+          map.addLayer(l, 0);
+          break;
+        case 'Streets':
+          map.setBasemap('streets');
+          break;
+        case 'Imagery':
+          map.setBasemap('hybrid');
+          break;
+        case 'National Geographic':
+          map.setBasemap('national-geographic');
+          break;
+        case 'Topographic':
+          map.setBasemap('topo');
+          break;
+        case 'Gray':
+          map.setBasemap('gray');
+          break;
+        case 'Open Street Map':
+          map.setBasemap('osm');
+          break;
+      }
+    }
+  });
+});
