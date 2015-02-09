@@ -30,11 +30,11 @@ define([
     },
 
     _initMap: function() {
-      if (this.config.map.options === undefined) {
-        this.config.map.options = {};
+      if (this.mapOptions === undefined) {
+        this.mapOptions = {};
       }
-      if (this.config.map.id) {
-        var mapDeferred = BootstrapMap.createWebMap(this.config.map.id, this.mapNode, this.config.map.options);
+      if (this.itemId) {
+        var mapDeferred = BootstrapMap.createWebMap(this.itemId, this.mapNode, this.mapOptions);
         // Callback to get map
         var getDeferred = function(response) {
           this.map = response.map;
@@ -42,7 +42,7 @@ define([
         };
         mapDeferred.then(lang.hitch(this, getDeferred));
       } else {
-        this.map = BootstrapMap.create(this.mapNode, this.config.map.options);
+        this.map = BootstrapMap.create(this.mapNode, this.mapOptions);
         this._initLayers();
         this._initWidgets();
       }
@@ -57,7 +57,7 @@ define([
       };
       // loading all the required modules first ensures the layer order is maintained
       var modules = [];
-      array.forEach(this.config.map.operationalLayers, function(layer) {
+      array.forEach(this.operationalLayers, function(layer) {
         var type = layerTypes[layer.type];
         if (type) {
           modules.push('esri/layers/' + type + 'Layer');
@@ -66,7 +66,7 @@ define([
         }
       }, this);
       require(modules, lang.hitch(this, function() {
-        array.forEach(this.config.map.operationalLayers, function(layer) {
+        array.forEach(this.operationalLayers, function(layer) {
           var type = layerTypes[layer.type];
           if (type) {
             require(['esri/layers/' + type + 'Layer'], lang.hitch(this, 'initLayer', layer));
@@ -84,41 +84,41 @@ define([
 
     // init map widgets if they are in config
     _initWidgets: function() {
-      if (!this.config.map.widgets) {
+      if (!this.widgets) {
         return;
       }
 
       // scalebar
-      if (this.config.map.widgets.scalebar) {
+      if (this.widgets.scalebar) {
         this.scalebar = new Scalebar(lang.mixin({
           map: this.map,
           scalebarUnit: 'dual'
-        }, this.config.map.widgets.scalebar));
+        }, this.widgets.scalebar));
       }
 
       // home button
-      if (this.config.map.widgets.homeButton) {
+      if (this.widgets.homeButton) {
         this.homeButton = new HomeButton(lang.mixin({
           map: this.map
-        }, this.config.map.widgets.homeButton), this.homeNode);
+        }, this.widgets.homeButton), this.homeNode);
         this.homeButton.startup();
       }
 
       // locate button
-      if (this.config.map.widgets.locateButton) {
+      if (this.widgets.locateButton) {
         this.locateButton = new LocateButton(lang.mixin({
           map: this.map,
           'class': 'locate-button'
-        }, this.config.map.widgets.locateButton), this.locateNode);
+        }, this.widgets.locateButton), this.locateNode);
         this.locateButton.startup();
       }
 
       // geocoder
-      if (this.config.map.widgets.geocoder) {
+      if (this.widgets.geocoder) {
         this.geocoder = new Geocoder(lang.mixin({
           map: this.map,
           'class': 'geocoder'
-        }, this.config.map.widgets.geocoder), this.searchNode);
+        }, this.widgets.geocoder), this.searchNode);
         this.geocoder.startup();
       }
     },
