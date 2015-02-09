@@ -1,33 +1,24 @@
 define(['dojo/topic',
 
-  'app/config',
-  'app/widget/Map',
-  'app/widget/NavBar',
-
-  'dojo/i18n!app/nls/strings',
+  './config',
+  './mapping/Map',
+  './layout/NavBar',
 
   'dojo/domReady!'],
 function(
   topic,
-  config, Map, NavBar,
-  strings
+  config, Map, NavBar
 ) {
   'use strict';
   var app = {};
 
   // start map widget
-  app.map = new Map({
-    config: config,
-    strings: strings
-  }, 'mapNode');
+  app.map = new Map(config.map, 'mapNode');
   app.map.startup();
 
   // start nav widget
-  var navBar = new NavBar({
-    config: config,
-    strings: strings
-  }, 'navBarNode');
-  navBar.startup();
+  app.navBar = new NavBar(config.navBar, 'navBarNode');
+  app.navBar.startup();
 
   // set up topics
   topic.subscribe('basemap/set', function(args) {
@@ -35,7 +26,7 @@ function(
   });
 
   // set page title
-  window.document.title = strings.appTitle;
+  window.document.title = app.navBar.strings.appTitle;
 
   return app;
 });

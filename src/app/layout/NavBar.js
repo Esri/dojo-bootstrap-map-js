@@ -8,13 +8,26 @@ define([
   'dijit/_TemplatedMixin',
 
   'dojo/text!./templates/NavBar.html',
+  'dojo/i18n!./nls/strings',
 
   'dojo-bootstrap/Collapse',
   'dojo-bootstrap/Dropdown',
   'dojo-bootstrap/Modal'
-], function(declare, query, touch, topic, _WidgetBase, _TemplatedMixin, template) {
+], function(
+  declare, query, touch, topic,
+  _WidgetBase, _TemplatedMixin,
+  template, strings
+) {
+
   return declare([_WidgetBase, _TemplatedMixin], {
       templateString: template,
+      strings: strings,
+
+      _setMoreInfoUrlAttr: {
+        node: 'moreInfoNode',
+        type: 'attribute',
+        attribute: 'href'
+      },
 
       postCreate: function() {
         this.inherited(arguments);
