@@ -3,14 +3,14 @@ define(['esri/InfoTemplate'], function(InfoTemplate) {
     map: {
       // if id is set, map will load from a webmap
       // comment this out if you want to load layers from config below
-      id: '4778fee6371d4e83a22786029f30c7e1',
+      itemId: '4778fee6371d4e83a22786029f30c7e1',
 
       // NOTE: if using a webmap (e.g. via id)
       // this is the options sent to arcgisUtils.createMap()
       // see: https://developers.arcgis.com/javascript/jsapi/esri.arcgis.utils-amd.html#createmap
       // otherwise it is the options sent to new Map()
       // see: https://developers.arcgis.com/javascript/jsapi/map-amd.html#map1
-      options: {
+      mapOptions: {
         scrollWheelZoom: true
       },
       // uncomment these options if you do not use a webmap id
@@ -83,7 +83,7 @@ define(['esri/InfoTemplate'], function(InfoTemplate) {
         }
       }
     },
-    about: {
+    navBar: {
       moreInfoUrl: 'https://github.com/Esri/dojo-bootstrap-map-js'
     }
   };
