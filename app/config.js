@@ -12,13 +12,11 @@ define(['esri/InfoTemplate'], function(InfoTemplate) {
       // see: https://developers.arcgis.com/javascript/jsapi/map-amd.html#map1
       mapOptions: {
         scrollWheelZoom: true
-      },
       // uncomment these options if you do not use a webmap id
-      // options: {
-      //    basemap: 'gray',
-      //    center: [-117.1, 33.6],
-      //    zoom: 9,
-      // }
+      //  ,basemap: 'gray'
+      //  ,center: [-117.1, 33.6]
+      //  ,zoom: 9
+      },
       //
       // uncomment these section if you do not use a webmap id
       // operationalLayers: [{
