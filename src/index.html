@@ -13,7 +13,6 @@
 
     <!-- get dependency styles from CDN instead of locally -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.11/dijit/themes/claro/claro.css">
     <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.11/esri/css/esri.css">
     <link rel="stylesheet" type="text/css" href="//esri.github.io/bootstrap-map-js/dist/css/bootstrapmap.min.css">
     <!-- get app styles locally -->
@@ -25,9 +24,30 @@
       <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body class="claro">
-    <div id="navBarNode"></div>
-    <div id="mapNode"></div>
+  <body>
+    <!-- top nav -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div id="navBar"></div>
+    </div>
+    <div class="container-fluid container-map">
+      <div class="row row-map">
+        <!-- the map -->
+        <div class="col-xs-12 col-sm-9 col-sm-push-3 col-lg-10 col-lg-push-2 col-map">
+          <div id="mapControls"></div>
+        </div>
+        <!-- responsive sidebar -->
+        <div class="col-xs-12 col-sm-3 col-sm-pull-9 col-lg-2 col-lg-pull-10">
+          <div id="sidebar">
+            <h4>Legend</h4>
+             <div id="mapLegend"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- about modal -->
+    <div class="modal fade about-modal" style="display: none;" aria-hidden="true">
+      <div id="aboutModal"></div>
+    </div>
     <script>
       window.dojoConfig = {
         async: true,
@@ -46,6 +66,7 @@
         ]
       };
     </script>
+    <!-- NOTE: we're not using compact b/c we're using esri/dijit -->
     <script src="//js.arcgis.com/3.11"></script>
     <script>require([ 'app/main' ]);</script>
   </body>
