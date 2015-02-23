@@ -3,6 +3,7 @@ define([
   'dojo/query',
   'dojo/touch',
   'dojo/topic',
+  'dojo/on',
 
   'dijit/_WidgetBase',
   'dijit/_TemplatedMixin',
@@ -11,10 +12,9 @@ define([
   'dojo/i18n!./nls/strings',
 
   'dojo-bootstrap/Collapse',
-  'dojo-bootstrap/Dropdown',
-  'dojo-bootstrap/Modal'
+  'dojo-bootstrap/Dropdown'
 ], function(
-  declare, query, touch, topic,
+  declare, query, touch, topic, on,
   _WidgetBase, _TemplatedMixin,
   template, strings
 ) {
@@ -23,32 +23,38 @@ define([
       templateString: template,
       strings: strings,
 
-      _setMoreInfoUrlAttr: {
-        node: 'moreInfoNode',
-        type: 'attribute',
-        attribute: 'href'
+      _setTitleAttr: function(newTitle) {
+        this.title = newTitle;
+        this.titleNode.innerHTML = this.title;
+        window.document.title = this.title;
       },
 
       postCreate: function() {
         this.inherited(arguments);
+        this.set('title', strings.appTitle);
         this._attachEventHandlers();
       },
 
       _attachEventHandlers: function() {
-        var _this = this;
+        var self = this;
+        // toggle sidebar
+        this.own(on(this.sidebarToggleButton, touch.press, function(e) {
+          topic.publish('sidebar/toggle');
+          self._hideDropdownNav(e);
+        }));
         // change basemap
         query('.basemap-list li', this.domNode).on(touch.press, function(e) {
           e.preventDefault();
           topic.publish('basemap/set', {
             basemap: e.target.text
           });
-          _this._hideDropdownNav(e);
+          self._hideDropdownNav(e);
         });
         // show about modal
         query('a[href="#about"]', this.domNode).on(touch.press, function(e) {
           e.preventDefault();
-          query('.about-modal').modal('show');
-          _this._hideDropdownNav(e);
+          topic.publish('about/show');
+          self._hideDropdownNav(e);
         });
       },
 
@@ -56,7 +62,7 @@ define([
         // hide nav dropdown on mobile
         if (query('.navbar-collapse.in', this.domNode).length > 0) {
           e.stopPropagation();
-          query('.navbar-toggle', this.domNode)[0].click();
+          this.collapseMenuToggleButton.click();
         }
       }
    });
