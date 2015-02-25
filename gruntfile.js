@@ -78,7 +78,7 @@ module.exports = function(grunt) {
       },
       dev: {
         options: {
-          beautify: true
+          beautify: false
         },
         dest: 'src/esri'
       }
