@@ -102,7 +102,7 @@ define([
       }));
     },
 
-    initLayer: function(LayerClass, operationalLayer, layers) {
+    initLayer: function(operationalLayer, layers, LayerClass) {
       var l = new LayerClass(operationalLayer.url, operationalLayer.options);
       // unshift instead of push to keep layer ordering on map intact
       layers.unshift(l);
