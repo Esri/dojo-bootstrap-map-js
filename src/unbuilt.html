@@ -11,12 +11,12 @@
 
     <title>Dojo Bootstrap Map</title>
 
-    <!-- get dependency styles from CDN instead of locally -->
+    <!-- NOTE: getting bootstrap from CDN for now
+    until we bring in as a dependency and
+    only include necessary styles -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.11/esri/css/esri.css">
-    <link rel="stylesheet" type="text/css" href="//esri.github.io/bootstrap-map-js/dist/css/bootstrapmap.min.css">
-    <!-- get app styles locally -->
-    <link rel="stylesheet" href="app/resources/app.css">
+    <!-- get app styles and local esri/dojo styles -->
+    <link rel="stylesheet" href="app/resources/main.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -51,23 +51,28 @@
     <script>
       window.dojoConfig = {
         async: true,
-        // load dependency packages from CDN instead of locally
+        baseUrl: '.',
+        isDebug: true,
         packages: [
+          'app',
+          'dgrid',
+          'dijit',
+          'dojo',
+          'dojox',
+          'esri',
+          'put-selector',
+          'xstyle',
+          'dojo-bootstrap',
           {
-            name: 'app',
-            location: window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')) + '/app'
-          }, {
-            name: 'dojo-bootstrap',
-            location: '//rawgit.com/xsokev/Dojo-Bootstrap/master'
-          }, {
             name: 'bootstrap-map-js',
-            location: '//esri.github.io/bootstrap-map-js/src/'
+            location: 'bootstrap-map-js/src'
           }
-        ]
+        ],
+        selectorEngine: 'lite',
+        tlmSiblingOfDojo: false
       };
     </script>
-    <!-- NOTE: we're not using compact b/c we're using esri/dijit -->
-    <script src="//js.arcgis.com/3.11"></script>
+    <script src="dojo/dojo.js"></script>
     <script>require([ 'app/main' ]);</script>
   </body>
 </html>

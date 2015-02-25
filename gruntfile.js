@@ -16,27 +16,12 @@ module.exports = function(grunt) {
       all: ['src/app/**/*.js']
     },
 
-    bower: {
-      install: {
-        options: {
-          targetDir: 'components'
-        }
-      }
-    },
-
     connect: {
       options: {
         port:9000
-
       },
-      server: {
-        options: {
-          port:9000,
-          // change this to '0.0.0.0' to access the server from outside
-          hostname: 'localhost'
-        }
-      },
-      livereload: {
+      // load unbuilt code w/ livereload
+      unbuilt: {
         options: {
           middleware: function (connect) {
             return [
@@ -45,13 +30,24 @@ module.exports = function(grunt) {
             ];
           }
         }
+      },
+      // load built app
+      build: {
+        options: {
+          base: 'dist',
+          // change this to '0.0.0.0' to access the server from outside
+          hostname: 'localhost'
+        }
       }
     },
 
     //Open default browser at the app
     open: {
-      server: {
-        path: 'http://localhost:<%= connect.options.port %>'
+      unbuilt: {
+        path: 'http://localhost:<%= connect.options.port %>/unbuilt.html'
+      },
+      build: {
+        path: 'http://localhost:<%= connect.options.port %>/'
       }
     },
     //setup watch tasks
@@ -82,7 +78,7 @@ module.exports = function(grunt) {
       },
       dev: {
         options: {
-          beautify: true
+          beautify: false
         },
         dest: 'src/esri'
       }
@@ -90,7 +86,9 @@ module.exports = function(grunt) {
     // clean the output directory before each build
     clean: {
       build: ['dist'],
-      deploy: ['dist/**/*.consoleStripped.js','dist/**/*.uncompressed.js','dist/**/*.js.map']
+      deploy: ['dist/**/*.consoleStripped.js','dist/**/*.uncompressed.js','dist/**/*.js.map'],
+      bower: ['src/bootstrap-map-js', 'src/dijit', 'src/dojo', 'src/dojo-bootstrap', 'src/dojox', 'src/put-selector', 'src/util', 'src/xstyle'],
+      slurp: ['src/esri']
     },
     // dojo build configuration, mainly taken from dojo boilerplate
     dojo: {
@@ -117,11 +115,11 @@ module.exports = function(grunt) {
         basePath: './src'
       }
     },
-    // this copies over index.html and replaces
+    // this copies over unbuilt.html and replaces
     // the perl regexp section of build.sh in the dojo boilerplate
     'string-replace': {
-      index: {
-        src: './src/index.html',
+      unbuilt: {
+        src: './src/unbuilt.html',
         dest: './dist/index.html',
         options: {
           replacements: [
@@ -155,20 +153,19 @@ module.exports = function(grunt) {
       }
     },
     copy: {
-      build: {
-        src: './src/nobuild.html',
-        dest: './dist/nobuild.html'
+      unbuilt: {
+        src: './src/unbuilt.html',
+        dest: './dist/unbuilt.html'
       }
     },
     'gh-pages': {
       options: {
-        base: 'dist'
+        base: 'src'
       },
-      src: ['**']
+      src: ['app/**', 'index.html']
     }
   });
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-open');
@@ -182,19 +179,20 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['serve']);
 
   grunt.registerTask('serve', function (target) {
+    var trgt = target || 'unbuilt';
     grunt.task.run([
       'jshint',
-      'connect:livereload',
-      'open',
+      'connect:' + trgt,
+      'open:' + trgt,
       'watch'
     ]);
   });
 
   grunt.registerTask('hint', ['jshint']);
 
-  grunt.registerTask('slurp', ['esri_slurp:dev']);
+  grunt.registerTask('slurp', ['clean:slurp', 'esri_slurp:dev']);
 
-  grunt.registerTask('build', ['jshint', 'clean:build', 'dojo', 'string-replace', 'copy:build']);
+  grunt.registerTask('build', ['jshint', 'clean:build', 'dojo', 'string-replace']);
 
-  grunt.registerTask('deploy', ['clean:deploy', 'gh-pages']);
+  grunt.registerTask('deploy', ['gh-pages']);
 };

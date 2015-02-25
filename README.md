@@ -18,7 +18,7 @@ By default, this boilerplate assumes you will want to work from local copies of 
 
 1. [Download](https://github.com/Esri/dojo-bootstrap-map-js/archive/master.zip) or [Fork and clone the repo](https://help.github.com/articles/fork-a-repo)
 2. Make sure the `dojo-bootstrap-map-js` folder is served via your local web server
-3. Load `src/nobuild.html` in your browser
+3. Load `src/index.html` in your browser
 
 ### Downloading Dependencies and Building
 
@@ -26,14 +26,15 @@ You will need to install [Node](http://nodejs.org/), [Bower](http://bower.io/), 
 
 1. [Fork and clone the repo](https://help.github.com/articles/fork-a-repo)
 2. `cd` into the `dojo-bootstrap-map-js` folder
-3. Run `bower install` to download Dojo and other dependencies
-4. Run `npm install` to install the Grunt tasks
+3. Run `npm install` to install the Grunt tasks
+4. Run `bower install` to download Dojo and other dependencies
 5. Run `grunt slurp` to download the Esri JSAPI
 6. Run `grunt serve` to load the unbuilt app into a web browser
 7. Modify the code as needed
 8. Run `grunt build` to build the app under the `dist` folder
+9. Run `grunt serve:build` to load the built app into a web browser
 
-You can then browse to the `dist` folder to view the built app. You may want to run `grunt clean:deploy` to remove all uncompressed javascript and source maps before you deploy the contents of that folder to your web server.
+You may want to run `grunt clean:deploy` to remove all uncompressed javascript and source maps before you deploy the contents of that folder to your web server.
 
 ## Requirements
 
