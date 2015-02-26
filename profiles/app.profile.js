@@ -82,12 +82,12 @@ var profile = {
         'dojox/gfx/svg',
         'dojox/gfx/shape',
         'esri/dijit/Attribution',
-        // layer types from nested require block in Map.js
-        'esri/layers/ArcGISDynamicMapServiceLayer',
+
+        // be sure to include the layer types used in your web map
+        // otherwise they will be requested asyncronously
         'esri/layers/FeatureLayer'
-        // NOTE: if you add other layer types to config, include here
-        // 'esri/layers/ArcGISTiledMapServiceLayer'
-      ]
+      ],
+      includeLocales: ['en-us']
     }//,
 
     // In this demo application, we load `app/main` on the client-side, so here we could build a separate layer containing

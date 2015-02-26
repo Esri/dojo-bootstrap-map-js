@@ -36,16 +36,19 @@ function(
   app.sidebar = dom.byId('sidebar');
 
   // app topics
-  // set app title and about text when loading from web map
+  // set app title and about modal based on web map
   topic.subscribe('webmap/load', function(args) {
     var item;
-    if (!args.itemInfo && args.itemInfo.item) {
+    if (!args.itemInfo || !args.itemInfo.item) {
       return;
     }
     item = args.itemInfo.item;
-    app.aboutModal.set('title', item.title);
-    app.aboutModal.set('content', item.description);
     app.navBar.set('title', item.title);
+    app.aboutModal.set('title', item.title);
+    app.aboutModal.set('content', item.snippet || item.description);
+    if (config.portalUrl) {
+      app.aboutModal.set('moreInfoUrl', config.portalUrl + '/home/item.html?id=' + item.id);
+    }
   });
 
   // set the basemap
