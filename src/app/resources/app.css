@@ -1,17 +1,16 @@
 /* top nav */
 body {
-  padding-top: 50px;
+  padding-top: 51px;
 }
 
-.navbar-toggle {
-  padding: 8px 10px;
+.navbar-toggle-icon {
+  padding: 6px 10px;
 }
 
 .navbar-toggle-left {
   float: left;
   margin-left: 15px;
-  margin-right: 8px;
-  padding: 10px 10px;
+  margin-right: 5px;
 }
 
 .navbar-toggle .glyphicon {
@@ -87,7 +86,7 @@ body {
   /* off canvas sidebar */
   #sidebar {
     position: fixed;
-    top: 55px;
+    top: 51px;
     left: -260px;
     z-index: 100;
     font-size: small;
@@ -110,20 +109,15 @@ body {
     transition: left .5s ease-in-out;
   }
 
-  /* don't wrap title */
-  a.navbar-brand {
-    white-space: nowrap;
-    overflow-x: hidden;
-  }
-
   /* overlay sidebar */
   .sidebar-open #sidebar {
     left: 0;
   }
 
-  /* move down slider smaller attribution */
-  .esriSimpleSliderBR {
-    bottom: 30px;
+  /* don't wrap title */
+  a.navbar-brand {
+    white-space: nowrap;
+    overflow-x: hidden;
   }
 
   /* hide scalebar */
@@ -138,5 +132,10 @@ body {
     padding-left: 5px;
     padding-right: 5px;
     max-width: 200px;
+  }
+
+  /* smaller attribution */
+  .esriSimpleSliderBR {
+    bottom: 30px;
   }
 }
