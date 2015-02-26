@@ -170,6 +170,14 @@ define([
       }
     },
 
+    getMapHeight: function() {
+      if(this.map) {
+        return this.map.height;
+      } else {
+        return 0;
+      }
+    },
+
     clearBaseMap: function() {
       var map = this.map;
       if (map.basemapLayerIds && map.basemapLayerIds.length > 0) {
