@@ -1,6 +1,6 @@
 {
   "name": "dojo-bootstrap-map-js",
-  "version": "3.1.4",
+  "version": "3.2.0",
   "description": "A boilerplate application demonstrating how to create a responsive mapping application using the Esri ArcGIS API for JavaScript with Bootstrap Map and Dojo Bootstrap",
   "main": "gruntfile.js",
   "directories": {

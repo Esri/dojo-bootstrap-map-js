@@ -59,7 +59,7 @@ function(
       return;
     }
     // make sure sidebar is same height as the map
-    domStyle.set(app.sidebar, 'height', app.mapControls.map.height + 'px');
+    domStyle.set(app.sidebar, 'height', app.mapControls.getMapHeight() + 'px');
     domClass.toggle(window.document.body, 'sidebar-open');
   });
 

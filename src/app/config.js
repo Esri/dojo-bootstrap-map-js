@@ -46,8 +46,8 @@ define(['esri/InfoTemplate'], function(InfoTemplate) {
       // see: https://developers.arcgis.com/javascript/jsapi/map-amd.html#map1
       // options: {
       //   basemap: 'gray',
-      //   center: [-117.1, 33.6],
-      //   zoom: 9,
+      //   center: [-122.4167, 37.7833],
+      //   zoom: 14,
       //   sliderPosition: 'bottom-right'
       // },
 
@@ -66,26 +66,14 @@ define(['esri/InfoTemplate'], function(InfoTemplate) {
       // }, {
       //   type: 'dynamic',
       //   url: 'http://sampleserver6.arcgisonline.com/arcgis/rest/services/SF311/MapServer',
-      //   title: 'SF311',
+      //   title: 'SF 311',
       //   options: {
       //     id: 'sf311',
       //     opacity: 0.5,
       //     visible: true
       //   }
-      // }, {
-      //   type: 'feature',
-      //   url: 'http://localhost:6080/arcgis/rest/services/SampleWorldCities/MapServer/0',
-      //   title: 'Cities',
-      //   options: {
-      //     id: 'city',
-      //     opacity: 1.0,
-      //     visible: true,
-      //     outFields: ['*'],
-      //     infoTemplate: new InfoTemplate('City', '${*}'),
-      //     mode: 0
-      //   }
       // }],
-      //
+
       // TODO: add basemaps
       // basemaps: {},
 
