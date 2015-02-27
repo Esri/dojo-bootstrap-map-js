@@ -1,7 +1,6 @@
 define([
   'dojo/_base/declare',
   'dojo/query',
-  'dojo/touch',
   'dojo/topic',
   'dojo/on',
 
@@ -14,7 +13,7 @@ define([
   'dojo-bootstrap/Collapse',
   'dojo-bootstrap/Dropdown'
 ], function(
-  declare, query, touch, topic, on,
+  declare, query, topic, on,
   _WidgetBase, _TemplatedMixin,
   template, strings
 ) {
@@ -38,12 +37,12 @@ define([
       _attachEventHandlers: function() {
         var self = this;
         // toggle sidebar
-        this.own(on(this.sidebarToggleButton, touch.press, function(e) {
+        this.own(on(this.sidebarToggleButton, 'click', function(e) {
           topic.publish('sidebar/toggle');
           self._hideDropdownNav(e);
         }));
         // change basemap
-        query('.basemap-list li', this.domNode).on(touch.press, function(e) {
+        query('.basemap-list li', this.domNode).on('click', function(e) {
           e.preventDefault();
           topic.publish('basemap/set', {
             basemap: e.target.text
@@ -51,7 +50,7 @@ define([
           self._hideDropdownNav(e);
         });
         // show about modal
-        query('a[href="#about"]', this.domNode).on(touch.press, function(e) {
+        query('a[href="#about"]', this.domNode).on('click', function(e) {
           e.preventDefault();
           topic.publish('about/show');
           self._hideDropdownNav(e);
