@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A sample application demonstrating how to use Dojo Bootstrap with the ArcGIS API for JavaScript">
+    <meta name="author" content="Tom Wayson">
+
+    <link rel="shortcut icon" href="./favicon.png">
+
+    <title>Citizen Request</title>
+
+    <!-- get dependency styles from CDN instead of locally -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.12/esri/css/esri.css">
+    <link rel="stylesheet" type="text/css" href="//esri.github.io/bootstrap-map-js/dist/css/bootstrapmap.min.css">
+    <!-- get app styles locally -->
+    <link rel="stylesheet" href="app/resources/app.css">
+    <style>
+      .report-btn-group {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 30;
+      }
+      .start-edit-alert {
+        position: absolute;
+        margin: 0;
+        top: 50px;
+        left: 10px;
+        z-index: 30;
+      }
+    </style>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- top nav -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button id="sidebarToggleButton" type="button" class="navbar-toggle navbar-toggle-left">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Citizen Request</a>
+          <button id="collapseToggleButton" type="button" class="navbar-toggle navbar-toggle-icon" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active dropdown basemap-list">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Basemap <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a data-name="streets" href="#">Streets</a></li>
+                <li><a data-name="hybrid" href="#">Imagery</a></li>
+                <li><a data-name="national-geographic" href="#">National Geographic</a></li>
+                <li><a data-name="topo" href="#">Topographic</a></li>
+                <li><a data-name="gray" href="#">Gray</a></li>
+                <li><a data-name="dark-gray" href="#">Dark Gray</a></li>
+                <li class="divider"></li>
+                <li><a data-name="osm" href="#">Open Street Map</a></li>
+              </ul>
+            </li>
+            <li><a href="#about">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- map row -->
+    <div class="container-fluid container-map">
+      <div class="row row-map">
+        <!-- the map -->
+        <div class="col-xs-12 col-sm-9 col-sm-push-3 col-lg-10 col-lg-push-2 col-map">
+          <div id="map">
+            <div class="btn-group report-btn-group">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                Report an Incident <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a data-value="2" href="#">Critical Issue</a></li>
+                <li><a data-value="0" href="#">General Nuisance</a></li>
+                <li><a data-value="1" href="#">Important To Resolve Soon</a></li>
+              </ul>
+            </div>
+             <div id="startEditAlert" class="alert alert-info alert-dismissible fade in start-edit-alert" style="display: none;" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+              Click the map to report an incident.
+            </div>
+          </div>
+        </div>
+        <!-- responsive sidebar -->
+        <div class="col-xs-12 col-sm-3 col-sm-pull-9 col-lg-2 col-lg-pull-10">
+          <div id="sidebar">
+            <div id="geocoder"></div>
+            <h4>Legend</h4>
+            <div id="legend"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- attribute editor modal -->
+    <div id="attributesModal" class="modal fade" style="display: none;" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">Report an Incident</h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="requesttype">Type</label>
+              <select class="form-control" name="requesttype">
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="email" class="form-control" name="name" placeholder="Enter name">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="email" class="form-control" name="phone" placeholder="Enter phone">
+            </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" name="email" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="comment">Comments</label>
+              <textarea class="form-control" name="comment" placeholder="Enter your comments here."></textarea>
+            </div>
+            <button class="btn btn-success">Submit</button>
+            <button class="btn btn-default">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- about modal -->
+    <div id="aboutModal" class="modal fade" style="display: none;" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">About</h4>
+          </div>
+          <div class="modal-body">
+            <p>The mobile citizen request sample was designed to showcase a simple focused JavaScript mobile application where individuals may easily report incidents in their community using just theirweb browser.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- configure Dojo, load Esri JS, and kick off app -->
+    <script>
+      window.dojoConfig = {
+        async: true,
+        // load dependency packages from CDN instead of locally
+        packages: [
+          {
+            name: 'app',
+            location: window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')) + '/citizenRequest'
+          }, {
+            name: 'dojo-bootstrap',
+            location: '//rawgit.com/xsokev/Dojo-Bootstrap/master'
+          }, {
+            name: 'bootstrap-map-js',
+            location: '//esri.github.io/bootstrap-map-js/src/'
+          }
+        ]
+      };
+    </script>
+    <!-- NOTE: we're not using compact b/c we're using esri/dijit -->
+    <script src="//js.arcgis.com/3.12"></script>
+    <script>
+      require(['app/main']);
+    </script>
+  </body>
+</html>
