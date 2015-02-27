@@ -67,19 +67,6 @@ body {
   left: auto;
 }
 
-/*
-  NOTE: this only inlcuded to disable popup tooltips
-  in the sample web maps from ArcGIS Online.
-  To enable them for those web maps, you must
-  include the dijit claro theme and remove these overrrides.
-*/
-.dijitTooltip {
-  display: none;
-}
-.esriViewPopup .caption {
-  display: none;
-}
-
 /* responsive styles for mobile */
 @media (max-width:767px) {
 
