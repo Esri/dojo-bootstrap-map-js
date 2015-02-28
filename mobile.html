@@ -16,22 +16,7 @@
     <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.12/esri/css/esri.css">
     <link rel="stylesheet" type="text/css" href="//esri.github.io/bootstrap-map-js/dist/css/bootstrapmap.min.css">
     <!-- get app styles locally -->
-    <link rel="stylesheet" href="app/resources/app.css">
-    <style>
-      .report-btn-group {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        z-index: 30;
-      }
-      .start-edit-alert {
-        position: absolute;
-        margin: 0;
-        top: 50px;
-        left: 10px;
-        z-index: 30;
-      }
-    </style>
+    <link rel="stylesheet" href="citizenRequest/css/app.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -44,32 +29,23 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <button id="sidebarToggleButton" type="button" class="navbar-toggle navbar-toggle-left">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+          <a id="sidebarToggleButton" class="navbar-brand visible-xs visible-xs-block sidebar-toggle-button" href="#">
+          <span class="glyphicon glyphicon-info-sign"></span>
+          <!-- <img src="http://esri.github.io/bootstrap-map-js/demo/images/brand.png" /> -->
+          </a>
           <a class="navbar-brand" href="#">Citizen Request</a>
-          <button id="collapseToggleButton" type="button" class="navbar-toggle navbar-toggle-icon" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+          <button id="collapseToggleButton" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
           </button>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active dropdown basemap-list">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Basemap <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a data-name="streets" href="#">Streets</a></li>
-                <li><a data-name="hybrid" href="#">Imagery</a></li>
-                <li><a data-name="national-geographic" href="#">National Geographic</a></li>
-                <li><a data-name="topo" href="#">Topographic</a></li>
-                <li><a data-name="gray" href="#">Gray</a></li>
-                <li><a data-name="dark-gray" href="#">Dark Gray</a></li>
-                <li class="divider"></li>
-                <li><a data-name="osm" href="#">Open Street Map</a></li>
-              </ul>
-            </li>
-            <li><a href="#about">About</a></li>
+            <li><a href="http://www.cityofredlands.org/" target="_blank">City of Redlands</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#feedback">Feedback</a></li>
           </ul>
         </div>
       </div>
@@ -79,11 +55,11 @@
     <div class="container-fluid container-map">
       <div class="row row-map">
         <!-- the map -->
-        <div class="col-xs-12 col-sm-9 col-sm-push-3 col-lg-10 col-lg-push-2 col-map">
+        <div class="col-xs-12 col-sm-9 col-lg-10 col col-map">
           <div id="map">
             <div class="btn-group report-btn-group">
-              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                Report an Incident <span class="caret"></span>
+              <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <span class="glyphicon glyphicon-map-marker"></span>&nbsp;<span class="hidden-xs">Report an Incident</span>&nbsp;<span class="caret"></span>
               </button>
               <ul class="dropdown-menu" role="menu">
                 <li><a data-value="2" href="#">Critical Issue</a></li>
@@ -91,18 +67,39 @@
                 <li><a data-value="1" href="#">Important To Resolve Soon</a></li>
               </ul>
             </div>
-             <div id="startEditAlert" class="alert alert-info alert-dismissible fade in start-edit-alert" style="display: none;" role="alert">
+<!--             <div class="home-button">
+              <button cass="btn btn-default"></button>
+            </div> -->
+            <div id="geocoder"></div>
+            <div id="startEditAlert" class="alert alert-info alert-dismissible fade in start-edit-alert" style="display: none;" role="alert">
               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
               Click the map to report an incident.
             </div>
           </div>
         </div>
         <!-- responsive sidebar -->
-        <div class="col-xs-12 col-sm-3 col-sm-pull-9 col-lg-2 col-lg-pull-10">
+        <div class="col-xs-12 col-sm-3 col-lg-2">
           <div id="sidebar">
-            <div id="geocoder"></div>
             <h4>Legend</h4>
             <div id="legend"></div>
+            <div id="basemapDropdown" class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">
+                Set Basemap
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li role="presentation"><a  role="menuitem" tabindex="-1" data-name="streets" href="#">Streets</a></li>
+                <li role="presentation"><a  role="menuitem" tabindex="-1" data-name="hybrid" href="#">Imagery</a></li>
+                <li role="presentation"><a  role="menuitem" tabindex="-1" data-name="national-geographic" href="#">National Geographic</a></li>
+                <li role="presentation"><a  role="menuitem" tabindex="-1" data-name="topo" href="#">Topographic</a></li>
+                <li role="presentation"><a  role="menuitem" tabindex="-1" data-name="gray" href="#">Gray</a></li>
+                <li role="presentation"><a  role="menuitem" tabindex="-1" data-name="dark-gray" href="#">Dark Gray</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a  role="menuitem" tabindex="-1" data-name="osm" href="#">Open Street Map</a></li>
+              </ul>
+            </div>
+            <h4>About</h4>
+            <p>The responsive citizen request sample was designed to showcase a simple focused JavaScript responsive application where individuals may easily report incidents in their community using just their web browser.</p>
           </div>
         </div>
       </div>
@@ -145,16 +142,29 @@
       </div>
     </div>
 
-    <!-- about modal -->
-    <div id="aboutModal" class="modal fade" style="display: none;" aria-hidden="true">
+    <!-- attribute editor modal -->
+    <div id="feedbackModal" class="modal fade" style="display: none;" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title">About</h4>
+            <h4 class="modal-title">Send feedback about this application</h4>
           </div>
           <div class="modal-body">
-            <p>The mobile citizen request sample was designed to showcase a simple focused JavaScript mobile application where individuals may easily report incidents in their community using just theirweb browser.</p>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="email" class="form-control" name="name" placeholder="Enter name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" name="email" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="comment">Comments</label>
+              <textarea class="form-control" name="comment" placeholder="Enter your comments here."></textarea>
+            </div>
+            <button class="btn btn-success">Submit</button>
+            <button class="btn btn-default">Cancel</button>
           </div>
         </div>
       </div>

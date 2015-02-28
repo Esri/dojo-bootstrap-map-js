@@ -7,8 +7,9 @@ define([
 
   'esri/layers/FeatureLayer',
   'esri/InfoTemplate',
-  'esri/dijit/Legend',
   'esri/graphic',
+  'esri/dijit/Geocoder',
+  'esri/dijit/Legend',
 
   'bootstrap-map-js/js/bootstrapmap',
 
@@ -20,7 +21,7 @@ define([
   'dojo/domReady!'
 ], function(
   query, dom, domClass, domStyle, domAttr,
-  FeatureLayer, InfoTemplate, Legend, Graphic,
+  FeatureLayer, InfoTemplate, Graphic, Geocoder, Legend,
   BootstrapMap
 ) {
   'use strict';
@@ -111,6 +112,15 @@ define([
       outFields: ['*']
     });
     app.map.addLayer(app.citizenRequestLayer);
+    app.geocoder = new Geocoder({
+      map: app.map,
+      autoComplete: true,
+      arcgisGeocoder: {
+        placeholder: 'Address or Location'
+      },
+      'class': 'geocoder'
+    }, 'geocoder');
+    app.geocoder.startup();
     app.legend = new Legend({
       map: app.map,
       layerInfos: [{
@@ -119,7 +129,7 @@ define([
       }]
     }, 'legend');
     app.legend.startup();
-    // TODO: other widgets, geocoder, etc
+    // TODO: other widgets, etc
   };
 
   // hide nav dropdown on mobile
@@ -192,15 +202,19 @@ define([
       startCaptureRequest(domAttr.get(e.target, 'data-value'));
     });
 
-    // show the about modal
-    query('a[href="#about"]').on('click', function(e) {
+    // TODO show the feedback modal
+    query('a[href="#feedback"]').on('click', function(e) {
       e.preventDefault();
-      query('#aboutModal').modal('show');
+      query('#feedbackModal').modal('show');
+    });
+
+    // hide drop down nav after clicking on a link
+    query('.navbar-collapse a').on('click', function(e) {
       hideDropdownNav(e);
     });
 
     // change the basemap
-    query('.basemap-list li').on('click', function(e) {
+    query('#basemapDropdown a').on('click', function(e) {
       var basemapName = domAttr.get(e.target, 'data-name');
       if (basemapName && app.map) {
         app.map.setBasemap(basemapName);
@@ -224,6 +238,13 @@ define([
         submitIncidentReport();
       }
       app.attributesModal.modal('hide');
+    });
+
+
+    // submit or cancel request and hide modal
+    query('#feedbackModal .btn').on('click', function(e) {
+      // NOTE: this is not implemented in sample app
+      query('#feedbackModal').modal('hide');
     });
 
     // clear current edit session globals
