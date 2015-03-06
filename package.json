@@ -48,14 +48,13 @@
     "grunt-build-gh-pages": "^1.0.3",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-connect": "~0.7.1",
-    "grunt-contrib-copy": "^0.7.0",
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-dojo": "^0.3.0",
     "grunt-esri-slurp": "^1.1.0",
     "grunt-gh-pages": "^0.9.1",
     "grunt-open": "~0.2.3",
-    "grunt-string-replace": "^0.2.7"
+    "grunt-processhtml": "^0.3.7"
   },
   "engines": {
     "node": ">=0.8.0"

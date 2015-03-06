@@ -1,15 +1,17 @@
 define(['esri/InfoTemplate'], function(InfoTemplate) {
   return {
 
+    portalUrl: 'http://www.arcgis.com',
+
     mapControls: {
       // **********************************************
       // Example configuration when using a webmap
       // **********************************************
 
       // example web maps:
-      // web map from bootstrap map demo, see
-      // http://esri.github.io/bootstrap-map-js/demo/jquery/webmap.html
-      // itemId: '68f12b304ad8495eb77fb55243c0ccc2',
+      // Portland Bike Map example from Boostrap Map demo pages, see
+      // http://esri.github.io/bootstrap-map-js/demo/dojo/webmap.html
+      itemId: '8e42e164d4174da09f61fe0d3f206641',
 
       // SoCal running trails
       // GPX tracks embeded in web map as feature collections
@@ -27,12 +29,13 @@ define(['esri/InfoTemplate'], function(InfoTemplate) {
 
       // mobile web map example, see:
       // https://developers.arcgis.com/javascript/jssamples/mobile_arcgis.html
-      itemId: '1e79439598494713b553f990a4040886',
+      // itemId: '1e79439598494713b553f990a4040886',
 
       // NOTE: this is the options sent to arcgisUtils.createMap()
       // see: https://developers.arcgis.com/javascript/jsapi/esri.arcgis.utils-amd.html#createmap
       options: {
         mapOptions: {
+          basemap: 'topo',
           sliderPosition: 'bottom-right'
         }
       },
