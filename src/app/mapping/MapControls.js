@@ -192,7 +192,6 @@ define([
 
     setBasemap: function(basemapText) {
       var map = this.map;
-      var l, options;
       this.clearBaseMap();
       switch (basemapText) {
         case 'Streets':
@@ -210,8 +209,8 @@ define([
         case 'Gray':
           map.setBasemap('gray');
           break;
-        case "Dark Gray":
-          map.setBasemap("dark-gray");
+        case 'Dark Gray':
+          map.setBasemap('dark-gray');
           break;
         case 'Open Street Map':
           map.setBasemap('osm');
