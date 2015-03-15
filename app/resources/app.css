@@ -1,0 +1,128 @@
+/* top nav */
+body {
+  padding-top: 51px;
+}
+
+.navbar-toggle-icon {
+  padding: 6px 10px;
+}
+
+.navbar-toggle-left {
+  float: left;
+  margin-left: 15px;
+  margin-right: 5px;
+}
+
+.navbar-toggle .glyphicon {
+  color: #fff;
+  font-size: 14px;
+}
+
+/* no margins or padding around map */
+.container-map, .container-map .col-map {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.container-map .row-map {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* map widgets */
+.HomeButton {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 30;
+  margin: 2px 0; /*needed to line up w/ geocoder */
+}
+
+.locate-button {
+  position: absolute;
+  top: 15px;
+  left: 55px;
+  z-index: 30;
+  margin: 2px 0; /*needed to line up w/ geocoder */
+}
+
+.geocoder {
+  display: block;
+  position: absolute;
+  z-index: 30;
+  top: 15px;
+  right: 15px;
+}
+
+.esriSimpleSliderBR {
+  right: 15px;
+}
+
+/* override defaults set in bootstrapmap.css */
+.simpleGeocoder .esriGeocoderContainer {
+  width: 210px;
+}
+.esriSimpleSlider {
+  top: auto;
+  left: auto;
+}
+
+/* responsive styles for mobile */
+@media (max-width:767px) {
+
+  /* off canvas sidebar */
+  #sidebar {
+    position: fixed;
+    top: 51px;
+    left: -260px;
+    z-index: 100;
+    font-size: small;
+    width: 260px;
+    /*
+      default to iPhone 5 portrait height, but
+      this will be overwritten by app
+    */
+    height: 320px;
+    overflow: auto;
+
+    /* mimic col styles */
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #fff;
+
+    -webkit-transition: left .5s ease-in-out;
+    -moz-transition: left .5s ease-in-out;
+    -o-transition: left .5s ease-in-out;
+    transition: left .5s ease-in-out;
+  }
+
+  /* overlay sidebar */
+  .sidebar-open #sidebar {
+    left: 0;
+  }
+
+  /* don't wrap title */
+  a.navbar-brand {
+    white-space: nowrap;
+    overflow-x: hidden;
+  }
+
+  /* hide scalebar */
+  .esriScalebar {
+    display: none;
+  }
+}
+
+@media (max-width:600px) {
+  /* smaller title */
+  a.navbar-brand {
+    padding-left: 5px;
+    padding-right: 5px;
+    max-width: 200px;
+  }
+
+  /* smaller attribution */
+  .esriSimpleSliderBR {
+    bottom: 30px;
+  }
+}

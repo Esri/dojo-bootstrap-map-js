@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="navbar-header">
+    <button data-dojo-attach-point="sidebarToggleButton" type="button" class="navbar-toggle navbar-toggle-left">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a data-dojo-attach-point="titleNode" class="navbar-brand" href="#"></a>
+    <button data-dojo-attach-point="collapseMenuToggleButton" type="button" class="navbar-toggle navbar-toggle-icon" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+    </button>
+  </div>
+  <div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <li class="active dropdown basemap-list">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">${strings.navBasemaps} <b class="caret"></b></a>
+        <!-- TODO: build this dynamically from config -->
+        <ul class="dropdown-menu">
+          <li><a href="#">Streets</a></li>
+          <li><a href="#">Imagery</a></li>
+          <li><a href="#">National Geographic</a></li>
+          <li><a href="#">Topographic</a></li>
+          <li><a href="#">Gray</a></li>
+          <li><a href="#">Dark Gray</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Open Street Map</a></li>
+        </ul>
+      </li>
+      <li><a href="#about">${strings.navAbout}</a></li>
+    </ul>
+  </div>
+</div>
