@@ -192,42 +192,8 @@ define([
 
     setBasemap: function(basemapText) {
       var map = this.map;
-      var l, options;
       this.clearBaseMap();
       switch (basemapText) {
-        case 'Water Color':
-          options = {
-            id: 'Water Color',
-            copyright: 'stamen',
-            resampling: true,
-            subDomains: ['a', 'b', 'c', 'd']
-          };
-          l = new WebTiledLayer('http://${subDomain}.tile.stamen.com/watercolor/${level}/${col}/${row}.jpg', options);
-          map.addLayer(l, 0);
-          break;
-
-        case 'MapBox Space':
-
-          options = {
-            id: 'mapbox-space',
-            copyright: 'MapBox',
-            resampling: true,
-            subDomains: ['a', 'b', 'c', 'd']
-          };
-          l = new WebTiledLayer('http://${subDomain}.tiles.mapbox.com/v3/eleanor.ipncow29/${level}/${col}/${row}.jpg', options);
-          map.addLayer(l, 0);
-          break;
-
-        case 'Pinterest':
-          options = {
-            id: 'mapbox-pinterest',
-            copyright: 'Pinterest/MapBox',
-            resampling: true,
-            subDomains: ['a', 'b', 'c', 'd']
-          };
-          l = new WebTiledLayer('http://${subDomain}.tiles.mapbox.com/v3/pinterest.map-ho21rkos/${level}/${col}/${row}.jpg', options);
-          map.addLayer(l, 0);
-          break;
         case 'Streets':
           map.setBasemap('streets');
           break;
@@ -242,6 +208,9 @@ define([
           break;
         case 'Gray':
           map.setBasemap('gray');
+          break;
+        case 'Dark Gray':
+          map.setBasemap('dark-gray');
           break;
         case 'Open Street Map':
           map.setBasemap('osm');

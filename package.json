@@ -25,15 +25,19 @@
   },
   "contributors": [
     {
-      "name": "alaframboise",
+      "name": "Allan Laframboise",
       "homepage": "https://github.com/alaframboise"
     },
     {
-      "name": "benstoltz",
+      "name": "Ben Stoltz",
       "homepage": "https://github.com/benstoltz"
     },
     {
-      "name": "tsamaya",
+      "name": "Nick Peihl",
+      "homepage": "https://github.com/npeihl"
+    },
+    {
+      "name": "Arnaud Ferrand",
       "homepage": "https://github.com/tsamaya"
     }
   ],
