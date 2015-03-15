@@ -18,33 +18,28 @@ module.exports = function(grunt) {
 
     connect: {
       options: {
-        port:9000
+        port:9000,
+        // change this to '0.0.0.0' to access the server from outside
+        hostname: 'localhost'
       },
-      // load unbuilt code w/ livereload
-      unbuilt: {
+      // load cdn code w/ livereload
+      cdn: {
         options: {
-          middleware: function (connect) {
-            return [
-              lrSnippet,
-              mountFolder(connect, './src/')
-            ];
-          }
+          base: 'src'
         }
       },
       // load built app
       build: {
         options: {
-          base: 'dist',
-          // change this to '0.0.0.0' to access the server from outside
-          hostname: 'localhost'
+          base: 'dist'
         }
       }
     },
 
     //Open default browser at the app
     open: {
-      unbuilt: {
-        path: 'http://localhost:<%= connect.options.port %>/unbuilt.html'
+      cdn: {
+        path: 'http://localhost:<%= connect.options.port %>/'
       },
       build: {
         path: 'http://localhost:<%= connect.options.port %>/'
@@ -142,7 +137,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['serve']);
 
   grunt.registerTask('serve', function (target) {
-    var trgt = target || 'unbuilt';
+    var trgt = target || 'cdn';
     grunt.task.run([
       'jshint',
       'connect:' + trgt,
