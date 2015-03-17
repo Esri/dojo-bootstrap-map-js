@@ -1,6 +1,6 @@
 {
   "name": "dojo-bootstrap-map-js",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "homepage": "https://github.com/Esri/dojo-bootstrap-map-js",
   "authors": [
     "Tom Wayson <twayson@esri.com>"
@@ -21,14 +21,12 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap-map-js": "~0.0.2",
-    "dojo-bootstrap": "~3.0.2",
     "dijit": "1.10.2",
-    "dojo": "1.10.2",
+    "dojo": "1.10.4",
     "dojox": "1.10.2",
     "util": "dojo-util#1.10.2",
-    "dgrid": "0.3.16",
-    "put-selector": "0.3.5",
+    "dgrid": "0.3.17",
+    "put-selector": "0.3.6",
     "xstyle": "0.1.3"
   }
 }

@@ -1,57 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A sample application demonstrating how to use Dojo Bootstrap with the ArcGIS API for JavaScript">
-    <meta name="author" content="Tom Wayson">
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='description' content='A sample application demonstrating how to use Dojo Bootstrap with the ArcGIS API for JavaScript'>
+    <meta name='author' content='Tom Wayson'>
 
-    <link rel="shortcut icon" href="./favicon.png">
+    <link rel='shortcut icon' href='./favicon.png'>
 
     <title>Dojo Bootstrap Map</title>
 
     <!-- dependency styles from CDN -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel='stylesheet' href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'>
     <!-- build:remove -->
-    <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.12/esri/css/esri.css">
-    <link rel="stylesheet" type="text/css" href="//esri.github.io/bootstrap-map-js/dist/css/bootstrapmap.min.css">
+    <link rel='stylesheet' type='text/css' href='//js.arcgis.com/3.13/esri/css/esri.css'>
+    <link rel='stylesheet' type='text/css' href='//esri.github.io/bootstrap-map-js/dist/css/bootstrapmap.min.css'>
     <!-- /build -->
 
     <!-- get app/built styles locally -->
     <!-- build:[href] app/resources/main.css -->
-    <link rel="stylesheet" href="app/resources/app.css">
+    <link rel='stylesheet' href='app/resources/app.css'>
     <!-- /build -->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+      <script src='//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js'></script>
+      <script src='//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js'></script>
     <![endif]-->
   </head>
   <body>
     <!-- top nav -->
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div id="navBar"></div>
+    <div class='navbar navbar-inverse navbar-fixed-top'>
+      <div id='navBar'></div>
     </div>
-    <div class="container-fluid container-map">
-      <div class="row row-map">
+    <div class='container-fluid container-map'>
+      <div class='row row-map'>
         <!-- the map -->
-        <div class="col-xs-12 col-sm-9 col-sm-push-3 col-lg-10 col-lg-push-2 col-map">
-          <div id="mapControls"></div>
+        <div class='col-xs-12 col-sm-9 col-sm-push-3 col-lg-10 col-lg-push-2 col-map'>
+          <div id='mapControls'></div>
         </div>
         <!-- responsive sidebar -->
-        <div class="col-xs-12 col-sm-3 col-sm-pull-9 col-lg-2 col-lg-pull-10">
-          <div id="sidebar">
+        <div class='col-xs-12 col-sm-3 col-sm-pull-9 col-lg-2 col-lg-pull-10'>
+          <div id='sidebar'>
              <h4>Legend</h4>
-             <div id="mapLegend"></div>
+             <div id='mapLegend'></div>
           </div>
         </div>
       </div>
     </div>
     <!-- about modal -->
-    <div class="modal fade about-modal" style="display: none;" aria-hidden="true">
-      <div id="aboutModal"></div>
+    <div class='modal fade about-modal' style='display: none;' aria-hidden='true'>
+      <div id='aboutModal'></div>
     </div>
     <!-- build:remove -->
     <script>
@@ -76,7 +76,7 @@
     <!-- /build -->
 
     <!-- build:[src] dojo/dojo.js -->
-    <script src="//js.arcgis.com/3.12"></script>
+    <script src='//js.arcgis.com/3.13'></script>
     <!-- /build -->
 
     <script>require([ 'app/main' ]);</script>
