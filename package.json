@@ -55,7 +55,7 @@
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-dojo": "^1.0.1",
-    "grunt-esri-slurp": "^1.4.1",
+    "grunt-esri-slurp": "^1.4.3",
     "grunt-gh-pages": "^0.9.1",
     "grunt-open": "~0.2.3",
     "grunt-processhtml": "^0.3.7"
