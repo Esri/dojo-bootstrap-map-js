@@ -55,7 +55,7 @@ var profile = {
       }
     }, {
       name: 'bootstrap-map-js',
-      location: 'bootstrap-map-js/src/'
+      location: 'bootstrap-map-js/src'
     }
   ],
 
@@ -96,7 +96,7 @@ var profile = {
         'esri/layers/FeatureLayer'
       ],
       includeLocales: ['en-us']
-    },
+    }//,
 
     // In this demo application, we load `app/main` on the client-side, so here we could build a separate layer containing
     // that code. (Practically speaking, you probably just want to roll everything into the `dojo/dojo` layer,
