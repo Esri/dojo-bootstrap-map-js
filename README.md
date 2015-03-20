@@ -42,9 +42,13 @@ You may want to run `grunt clean:deploy` to remove all uncompressed javascript a
 * Web browser with access to the Internet
 * [Node](http://nodejs.org/), [Bower](http://bower.io/), and [Grunt](http://gruntjs.com/) to run the command line development tools
 
-## Sample forks
+## Example Applications
+
+Below are a few example applications that have been built using this boilerplate:
+
 * Demo for DevSummit 2015, [responsive-citizens](http://tomwayson.github.io/responsive-citizens/), a responsive take on the Attribute editing - mobile sample. [Github repo](https://github.com/tomwayson/responsive-citizens).
 * San Juan County GIS,  [traffic-collisions-app](http://sjcgis.github.io/traffic-collisions-app/), A web application showing traffic collisions in San Juan County. Filterable by island and severity. [Github repo](https://github.com/SJCGIS/traffic-collisions-app)
+* City of Menlo Park, [General Plan Review](http://arcgis.github.io/menlo-park-general-plan-review/src/), a wep application that allows users to dynamically modify the proposed general plan and view the impact on a map and chart.
 
 ## Resources
 
