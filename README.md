@@ -42,6 +42,10 @@ You may want to run `grunt clean:deploy` to remove all uncompressed javascript a
 * Web browser with access to the Internet
 * [Node](http://nodejs.org/), [Bower](http://bower.io/), and [Grunt](http://gruntjs.com/) to run the command line development tools
 
+## Sample forks
+* Demo for DevSummit 2015, [responsive-citizens](http://tomwayson.github.io/responsive-citizens/), a responsive take on the Attribute editing - mobile sample. [Github repo](https://github.com/tomwayson/responsive-citizens).
+* San Juan County GIS,  [traffic-collisions-app](http://sjcgis.github.io/traffic-collisions-app/), A web application showing traffic collisions in San Juan County. Filterable by island and severity. [Github repo](https://github.com/SJCGIS/traffic-collisions-app)
+
 ## Resources
 
 * [Bootstrap Map](//github.com/Esri/bootstrap-map-js)
