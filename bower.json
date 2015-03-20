@@ -23,10 +23,10 @@
   "dependencies": {
     "bootstrap-map-js": "~0.0.2",
     "dojo-bootstrap": "~3.0.2",
-    "dijit": "1.10.2",
+    "dijit": "1.10.4",
     "dojo": "1.10.4",
-    "dojox": "1.10.2",
-    "util": "dojo-util#1.10.2",
+    "dojox": "1.10.4",
+    "util": "dojo-util#1.10.4",
     "dgrid": "0.3.17",
     "put-selector": "0.3.6",
     "xstyle": "0.1.3",
