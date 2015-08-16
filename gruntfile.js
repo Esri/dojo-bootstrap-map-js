@@ -1,9 +1,5 @@
 /*global module:false*/
 var LIVERELOAD_PORT = 35729;
-var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
-var mountFolder = function (connect, dir) {
-    return connect['static'](require('path').resolve(dir));
-};
 module.exports = function(grunt) {
 
   // Project configuration.
@@ -69,7 +65,7 @@ module.exports = function(grunt) {
     },
     esri_slurp: {
       options: {
-        version: '3.13'
+        version: '3.14'
       },
       dev: {
         options: {
