@@ -5,6 +5,8 @@ define([
   'dojo/dom-style',
   'dojo/topic',
 
+  'dojo/i18n!./layout/nls/strings',
+
   './config',
   './mapping/MapControls',
   './layout/NavBar',
@@ -14,7 +16,7 @@ define([
 
   'dojo/domReady!'],
 function(
-  query, dom, domClass, domStyle, topic,
+  query, dom, domClass, domStyle, topic, strings,
   config, MapControls, NavBar, AboutModal
 ) {
   'use strict';
@@ -34,6 +36,7 @@ function(
 
   // responsive sidebar
   app.sidebar = dom.byId('sidebar');
+  dom.byId('sidebartTitle').innerHTML = strings.sidebarTitle;
 
   // app topics
   // set app title and about modal based on web map

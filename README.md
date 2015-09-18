@@ -41,6 +41,7 @@ You may want to run `grunt clean:deploy` to remove all uncompressed javascript a
 * Notepad or your favorite text editor
 * Web browser with access to the Internet
 * [Node](http://nodejs.org/), [Bower](http://bower.io/), and [Grunt](http://gruntjs.com/) to run the command line development tools
+* Java, in order to build Dojo.
 
 ## Example Applications
 

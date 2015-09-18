@@ -1,4 +1,4 @@
-define(['esri/InfoTemplate'], function(InfoTemplate) {
+define(['esri/InfoTemplate',  'dojo/i18n!./layout/nls/strings'], function(InfoTemplate,strings) {
   return {
 
     portalUrl: 'http://www.arcgis.com',
@@ -102,7 +102,7 @@ define(['esri/InfoTemplate'], function(InfoTemplate) {
           // see https://developers.arcgis.com/javascript/jsapi/geocoder-amd.html#geocoder1
           autoComplete: true,
           arcgisGeocoder: {
-            placeholder: 'Address or Location'
+             placeholder: strings.widgets.geocoder.placeholder || 'Address or Location'
           },
           'class': 'geocoder'
         }

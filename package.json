@@ -41,22 +41,22 @@
       "homepage": "https://github.com/tsamaya"
     }
   ],
-  "license": "Apache",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/Esri/dojo-bootstrap-map-js/issues"
   },
   "homepage": "https://github.com/Esri/dojo-bootstrap-map-js",
   "devDependencies": {
-    "connect-livereload": "~0.3.2",
+    "connect-livereload": "~0.5.3",
     "grunt": "~0.4.2",
     "grunt-build-gh-pages": "^1.0.3",
     "grunt-contrib-clean": "^0.6.0",
-    "grunt-contrib-connect": "~0.7.1",
-    "grunt-contrib-jshint": "^0.10.0",
-    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-connect": "~0.11.2",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-watch": "~0.6.1",
     "grunt-dojo": "^1.0.1",
-    "grunt-esri-slurp": "^1.4.3",
-    "grunt-gh-pages": "^0.9.1",
+    "grunt-esri-slurp": "^2.0.1",
+    "grunt-gh-pages": "^0.10.0",
     "grunt-open": "~0.2.3",
     "grunt-processhtml": "^0.3.7"
   },

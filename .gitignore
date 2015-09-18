@@ -13,3 +13,4 @@ src/dojo-bootstrap
 src/spinjs
 dist
 .grunt
+.log
