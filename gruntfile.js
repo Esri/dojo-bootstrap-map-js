@@ -67,23 +67,11 @@ module.exports = function(grunt) {
         ]
       }
     },
-    esri_slurp: {
-      options: {
-        version: '3.13'
-      },
-      dev: {
-        options: {
-          beautify: false
-        },
-        dest: 'src/esri'
-      }
-    },
     // clean the output directory before each build
     clean: {
       build: ['dist'],
       deploy: ['dist/**/*.consoleStripped.js','dist/**/*.uncompressed.js','dist/**/*.js.map'],
-      bower: ['src/bootstrap-map-js', 'src/dijit', 'src/dojo', 'src/dgrid', 'src/dojo-bootstrap', 'src/dojox', 'src/put-selector', 'src/util', 'src/xstyle'],
-      slurp: ['src/esri']
+      bower: ['src/bootstrap-map-js', 'src/dgrid', 'src/dijit', 'src/dojo', 'src/dojo-bootstrap', 'src/dojox', 'src/dstore', 'src/esri', 'src/put-selector', 'src/spinjs', 'src/util', 'src/xstyle']
     },
     // dojo build configuration, mainly taken from dojo boilerplate
     dojo: {
@@ -129,7 +117,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-open');
   grunt.loadNpmTasks('grunt-gh-pages');
-  grunt.loadNpmTasks('grunt-esri-slurp');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-dojo');
   grunt.loadNpmTasks('grunt-processhtml');
@@ -147,8 +134,6 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('hint', ['jshint']);
-
-  grunt.registerTask('slurp', ['clean:slurp', 'esri_slurp:dev']);
 
   grunt.registerTask('build', ['jshint', 'clean:build', 'dojo', 'processhtml']);
 

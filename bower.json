@@ -22,6 +22,7 @@
   ],
   "dependencies": {
     "bootstrap-map-js": "~0.0.2",
+    "esri": "arcgis-js-api#3.15",
     "dojo-bootstrap": "~3.0.2",
     "dijit": "1.10.4",
     "dojo": "1.10.4",
@@ -31,5 +32,13 @@
     "put-selector": "0.3.6",
     "xstyle": "0.1.3",
     "spinjs": "2.0.1"
+  },
+  "resolutions": {
+    "xstyle": "0.1.3/esri-3.14.0",
+    "dojo": "v1.10.4/esri-3.14.0",
+    "dgrid": "0.3.17/esri-3.14.0",
+    "dijit": "v1.10.4/esri-3.14.0",
+    "dojox": "v1.10.4/esri-3.14.0",
+    "util": "v1.10.4/esri-3.14.0"
   }
 }
