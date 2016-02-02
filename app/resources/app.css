@@ -88,7 +88,7 @@ body {
     /* mimic col styles */
     padding-left: 15px;
     padding-right: 15px;
-    background-color: #fff;
+    background-color: #efefef;
 
     -webkit-transition: left .5s ease-in-out;
     -moz-transition: left .5s ease-in-out;
